@@ -42,7 +42,7 @@ const getTemperatureColor = (month: string): string => {
 const readingLogs = [{
   id: 1,
   month: "September 2025",
-  booksRead: 3,
+  booksRead: 4,
   averageRating: 2.7,
   books: [{
     title: "Part of Your World",
@@ -72,7 +72,7 @@ const readingLogs = [{
 }, {
   id: 2,
   month: "August 2025",
-  booksRead: 12,
+  booksRead: 10,
   averageRating: 3.6,
   books: [{
     title: "Fourth Wing",
@@ -192,7 +192,7 @@ const readingLogs = [{
 }, {
   id: 5,
   month: "May 2025",
-  booksRead: 6,
+  booksRead: 8,
   averageRating: 4.3,
   books: [{
     title: "Crown of Midnight",
@@ -306,7 +306,7 @@ const readingLogs = [{
 }, {
   id: 7,
   month: "March 2025",
-  booksRead: 6,
+  booksRead: 8,
   averageRating: 4.2,
   books: [{
     title: "Yerba Buena",
@@ -360,7 +360,7 @@ const readingLogs = [{
 }, {
   id: 8,
   month: "February 2025",
-  booksRead: 11,
+  booksRead: 14,
   averageRating: 3.5,
   books: [{
     title: "Crook Manifesto",
@@ -450,7 +450,7 @@ const readingLogs = [{
 }, {
   id: 9,
   month: "January 2025",
-  booksRead: 10,
+  booksRead: 9,
   averageRating: 3.4,
   books: [{
     title: "The Dutch House",
@@ -510,7 +510,7 @@ const readingLogs = [{
 }, {
   id: 10,
   month: "December 2024",
-  booksRead: 9,
+  booksRead: 7,
   averageRating: 3.1,
   books: [{
     title: "The Seven Husbands of Evelyn Hugo",
@@ -600,7 +600,7 @@ const readingLogs = [{
 }, {
   id: 12,
   month: "September 2024",
-  booksRead: 4,
+  booksRead: 3,
   averageRating: 3.8,
   books: [{
     title: "Let the Record Show: A Political History of ACT UP New York, 1987-1993",
@@ -690,7 +690,7 @@ const readingLogs = [{
 }, {
   id: 14,
   month: "July 2024",
-  booksRead: 4,
+  booksRead: 7,
   averageRating: 3.5,
   books: [{
     title: "A Court of Silver Flames",
@@ -738,7 +738,7 @@ const readingLogs = [{
 }, {
   id: 15,
   month: "June 2024",
-  booksRead: 7,
+  booksRead: 5,
   averageRating: 3.9,
   books: [{
     title: "Demon Copperhead",
@@ -828,7 +828,7 @@ const readingLogs = [{
 }, {
   id: 17,
   month: "April 2024",
-  booksRead: 4,
+  booksRead: 5,
   averageRating: 3.8,
   books: [{
     title: "A Court of Mist and Fury",
@@ -864,7 +864,7 @@ const readingLogs = [{
 }, {
   id: 18,
   month: "March 2024",
-  booksRead: 8,
+  booksRead: 13,
   averageRating: 3.6,
   books: [{
     title: "Deacon King Kong",
