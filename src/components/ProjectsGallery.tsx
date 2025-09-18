@@ -16,11 +16,11 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Sustainable Design System",
-    description: "Comprehensive design system focused on accessibility and environmental consciousness in digital products.",
+    title: "Work in Progress",
+    description: "Coming soon - exciting project in development.",
     imageUrl: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&h=600&fit=crop",
-    tags: ["Design Systems", "Accessibility", "Sustainability"],
-    type: "project"
+    tags: ["Coming Soon"],
+    type: "placeholder"
   },
   {
     id: 3,
@@ -42,11 +42,11 @@ const projectsData = [
   },
   {
     id: 5,
-    title: "Bioinformatics Toolkit",
-    description: "Open-source tools for genomic data analysis with a focus on reproducibility and collaborative research.",
+    title: "Work in Progress",
+    description: "Coming soon - exciting project in development.",
     imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=500&h=600&fit=crop",
-    tags: ["Bioinformatics", "Open Source", "Research"],
-    type: "project"
+    tags: ["Coming Soon"],
+    type: "placeholder"
   },
   {
     id: 6,
@@ -64,7 +64,9 @@ const ProjectsGallery = () => {
   const navigate = useNavigate();
 
   const handleItemClick = (project: typeof projectsData[0]) => {
-    if (project.type === 'blog') {
+    if (project.type === 'placeholder') {
+      return; // Don't do anything for placeholder projects
+    } else if (project.type === 'blog') {
       navigate('/blog');
     } else if (project.externalLink) {
       window.open(project.externalLink, '_blank');
@@ -84,8 +86,12 @@ const ProjectsGallery = () => {
           {projectsData.map((project) => (
             <div
               key={project.id}
-              className="relative group cursor-pointer overflow-hidden rounded-lg bg-background border border-border-subtle hover:border-border transition-all duration-300"
-              onMouseEnter={() => setHoveredItem(project.id)}
+              className={`relative group overflow-hidden rounded-lg bg-background border border-border-subtle transition-all duration-300 ${
+                project.type === 'placeholder' 
+                  ? 'opacity-75 cursor-default' 
+                  : 'cursor-pointer hover:border-border'
+              }`}
+              onMouseEnter={() => project.type !== 'placeholder' && setHoveredItem(project.id)}
               onMouseLeave={() => setHoveredItem(null)}
               onClick={() => handleItemClick(project)}
             >
