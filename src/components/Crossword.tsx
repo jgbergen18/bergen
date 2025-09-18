@@ -36,12 +36,12 @@ const Crossword = () => {
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Barrier Jamie studied' },
-      { letter: '', number: 2, isBlack: false, answer: 'B', clueDown: '2D. Jamie\'s research focus organ' },
-      { letter: '', isBlack: false, answer: 'B' }
+      { letter: '', isBlack: false, answer: 'B' },
+      { letter: '', number: 7, isBlack: false, answer: 'B', clueDown: '7D. College Jamie attended' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 7, isBlack: false, answer: 'B', clueDown: '7D. College Jamie attended' },
+      { letter: '', number: 2, isBlack: false, answer: 'B', clueDown: '2D. Jamie\'s research focus organ' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'A' },
