@@ -533,11 +533,11 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Machine Learning</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Scikit-learn', 'PyTorch', 'Transformers (HuggingFace)', 'Stable-Baselines3', 'XGBoost', 'UMAP'].map((skill) => (
-                  <span key={skill} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">
-                    {skill}
-                  </span>
-                ))}
+                 {['Scikit-learn', 'PyTorch', 'Transformers (HuggingFace)', 'Stable-Baselines3', 'XGBoost', 'UMAP', 'TensorFlow', 'OpenAI API', 'Reinforcement Learning'].map((skill) => (
+                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                     {skill}
+                   </span>
+                 ))}
               </div>
             </div>
             
@@ -547,11 +547,11 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Data & Visualization</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Prism', 'Excel', 'ImageJ'].map((skill) => (
-                  <span key={skill} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">
-                    {skill}
-                  </span>
-                ))}
+                 {['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Prism', 'Excel', 'ImageJ', 'Plotly', 'R', 'Tableau'].map((skill) => (
+                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                     {skill}
+                   </span>
+                 ))}
               </div>
             </div>
             
@@ -561,11 +561,11 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Web & Deployment</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Jekyll/Hyde', 'GitHub Pages', 'Markdown', 'Liquid', 'Figma', 'Next.js'].map((skill) => (
-                  <span key={skill} className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                    {skill}
-                  </span>
-                ))}
+                 {['Jekyll/Hyde', 'GitHub Pages', 'Markdown', 'Liquid', 'Figma', 'Next.js', 'Vercel', 'Netlify', 'Supabase'].map((skill) => (
+                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                     {skill}
+                   </span>
+                 ))}
               </div>
             </div>
 
@@ -575,11 +575,11 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Tools & DevOps</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Git', 'Jupyter', 'Google Colab', 'Docker', 'FastAPI'].map((skill) => (
-                  <span key={skill} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">
-                    {skill}
-                  </span>
-                ))}
+                 {['Git', 'Jupyter', 'Google Colab', 'Docker', 'FastAPI', 'VS Code', 'Linux', 'Windows', 'macOS'].map((skill) => (
+                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                     {skill}
+                   </span>
+                 ))}
               </div>
             </div>
             
@@ -589,11 +589,11 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Languages</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['English (Native)', 'Hebrew (Intermediate)', 'Mandarin (Intermediate)', 'German (Beginner)'].map((skill) => (
-                  <span key={skill} className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                    {skill}
-                  </span>
-                ))}
+                 {['English (Native)', 'Hebrew (Intermediate)', 'Mandarin (Intermediate)', 'German (Beginner)'].map((skill) => (
+                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                     {skill}
+                   </span>
+                 ))}
               </div>
             </div>
           </div>
