@@ -359,7 +359,7 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Programming Languages</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Python', 'R', 'TypeScript', 'JavaScript', 'MATLAB'].map((skill) => (
+                {['Python', 'R', 'TypeScript', 'JavaScript', 'MATLAB', 'C++', 'SQL', 'HTML/CSS'].map((skill) => (
                   <span key={skill} className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
                     {skill}
                   </span>
@@ -373,7 +373,7 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Frameworks & Tools</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['React', 'Supabase', 'OpenAI API', 'NetworkX', 'Pandas'].map((skill) => (
+                {['React', 'Supabase', 'OpenAI API', 'NetworkX', 'Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Git', 'Docker'].map((skill) => (
                   <span key={skill} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">
                     {skill}
                   </span>
@@ -387,7 +387,7 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Laboratory Techniques</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['PCR', 'Western Blot', 'Immunohistochemistry', 'Confocal Microscopy', 'Cell Culture'].map((skill) => (
+                {['PCR', 'Western Blot', 'Immunohistochemistry', 'Confocal Microscopy', 'Cell Culture', 'Flow Cytometry', 'Behavioral Testing', 'Tissue Dissection', 'Stereotactic Surgery'].map((skill) => (
                   <span key={skill} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">
                     {skill}
                   </span>
@@ -401,7 +401,7 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Analysis Software</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['ImageJ', 'Prism', 'SPSS', 'NeuroArch'].map((skill) => (
+                {['ImageJ', 'Prism', 'SPSS', 'NeuroArch', 'FSL', 'FreeSurfer', 'MATLAB Toolboxes', 'Jupyter Notebooks'].map((skill) => (
                   <span key={skill} className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
                     {skill}
                   </span>
