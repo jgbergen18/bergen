@@ -50,7 +50,7 @@ const Crossword = () => {
     [
       { letter: '', isBlack: true, answer: '' },
       { letter: '', number: 6, isBlack: false, answer: 'R', clueAcross: '6A. Jamie\'s most common job (abbr.)' },
-      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', number: 8, isBlack: false, answer: 'A', clueDown: '8D. Immune molecules studied in research' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'R' },
       { letter: '', isBlack: true, answer: '' }
@@ -59,7 +59,7 @@ const Crossword = () => {
       { letter: '', isBlack: true, answer: '' },
       { letter: '', number: 3, isBlack: false, answer: 'A', clueAcross: '3A. Multi-agent system research in Kraus lab' },
       { letter: '', isBlack: false, answer: 'G' },
-      { letter: '', number: 8, isBlack: false, answer: 'E', clueDown: '8D. Immune molecules studied in research' },
+      { letter: '', isBlack: false, answer: 'E' },
       { letter: '', isBlack: false, answer: 'N' },
       { letter: '', isBlack: false, answer: 'T' }
     ],
