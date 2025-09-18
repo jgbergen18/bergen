@@ -570,10 +570,10 @@ const Blog = () => {
                       <div className={`flex items-center justify-between p-6 ${getMonthHover(log.month)} transition-colors cursor-pointer`}>
                         <div className="space-y-2">
                           <div className="flex items-baseline gap-3">
-                            <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
+                            <h2 className="text-2xl md:text-3xl font-medium text-foreground">
                               {log.month}
                             </h2>
-                            <span className="text-lg text-text-muted font-medium">
+                            <span className="text-lg text-foreground/70 font-medium">
                               {(() => {
                             const monthKey = log.month.split(' ')[0];
                             const temps = {
@@ -590,11 +590,11 @@ const Blog = () => {
                           })()}
                             </span>
                           </div>
-                          <p className="text-text-secondary">
-                            <strong>Books Read:</strong> {log.booksRead}, <strong>Average Rating:</strong> {log.averageRating} Stars
+                          <p className="text-foreground/80">
+                            <strong className="text-foreground">Books Read:</strong> {log.booksRead}, <strong className="text-foreground">Average Rating:</strong> {log.averageRating} Stars
                           </p>
                         </div>
-                        <div className="text-text-muted hover:text-text-secondary transition-colors p-2">
+                        <div className="text-foreground/60 hover:text-foreground/80 transition-colors p-2">
                           {openMonths[log.id] ? <ChevronDown className="h-6 w-6" /> : <ChevronRight className="h-6 w-6" />}
                         </div>
                       </div>
