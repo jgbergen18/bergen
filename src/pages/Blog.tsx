@@ -500,7 +500,7 @@ const Blog = () => {
             <p className="text-lg text-text-secondary leading-relaxed">
               My monthly reading adventures - the good, the bad, and the just okay. Honest thoughts on everything I pick up. 📚 
             </p>
-            <p className="text-sm italic text-text-muted max-w-3xl">Colors for each month reflect New York City's high temperature scientifically scaled from 0°F (dark blue) to 100°F (red).</p>
+            <p className="text-sm italic text-text-muted max-w-3xl">Colors are scaled to New York City's average monthly high temp for the month and year the books were read</p>
             <p className="text-sm italic text-text-muted max-w-3xl">
               Data source: 
               <a href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
