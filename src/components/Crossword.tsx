@@ -12,55 +12,49 @@ interface Cell {
 }
 
 const Crossword = () => {
-  // 6x6 grid with real intersecting words from Jamie's CV
+  // 5x6 grid with real intersecting words from Jamie's CV
   const initialGrid: Cell[][] = [
     [
       { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Jamie\'s research focus organ' },
       { letter: '', isBlack: false, answer: 'R' },
       { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: false, answer: 'I' },
-      { letter: '', isBlack: false, answer: 'N' },
-      { letter: '', isBlack: true, answer: '' }
+      { letter: '', isBlack: false, answer: 'N' }
+    ],
+    [
+      { letter: '', number: 2, isBlack: false, answer: 'L', clueDown: '2D. Barrier Jamie studies' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 3, isBlack: false, answer: 'E', clueDown: '3D. Journal Jamie published in' }
+    ],
+    [
+      { letter: '', isBlack: false, answer: 'O' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'U' }
+    ],
+    [
+      { letter: '', isBlack: false, answer: 'O' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'R' }
+    ],
+    [
+      { letter: '', isBlack: false, answer: 'D' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'O' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 2, isBlack: false, answer: 'E', clueDown: '2D. Frontend framework Jamie used' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 3, isBlack: false, answer: 'S', clueDown: '3D. Country where Jamie studies' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', number: 4, isBlack: false, answer: 'D', clueAcross: '4A. Information Jamie analyzes' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'T' },
-      { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'C' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'T' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'E' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
+      { letter: '', isBlack: false, answer: 'N' }
     ]
   ];
 
@@ -71,12 +65,11 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. Jamie\'s research focus organ',
-      '4. Information Jamie analyzes'
+      '1. Jamie\'s research focus organ'
     ],
     down: [
-      '2. Frontend framework Jamie used',
-      '3. Country where Jamie studies'
+      '2. Barrier Jamie studies (with brain)',
+      '3. Journal Jamie published in'
     ]
   };
 
@@ -148,7 +141,7 @@ const Crossword = () => {
                 <div className="text-4xl animate-bounce">🎉 Congratulations! 🎉</div>
               </div>
             )}
-            <div className="grid grid-cols-6 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
+            <div className="grid grid-cols-5 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
               {grid.map((row, rowIndex) =>
                 row.map((cell, colIndex) => (
                   <div
