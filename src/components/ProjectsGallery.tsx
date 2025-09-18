@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import depressionDetectionImg from '../assets/depression-detection-project.png';
 
 const projectsData = [
   {
     id: 1,
-    title: "Neural Network Visualization",
-    description: "Interactive visualization tool for understanding deep learning architectures and data flow through neural networks.",
-    imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=600&fit=crop",
-    tags: ["Machine Learning", "React", "D3.js"],
-    type: "project"
+    title: "Detection of Depression-Related Posts in Reddit",
+    description: "Replication study of depression detection in social media using natural language processing and machine learning techniques.",
+    imageUrl: depressionDetectionImg,
+    tags: ["Machine Learning", "NLP", "Research"],
+    type: "project",
+    externalLink: "https://github.com/sunflowerseed17/TadesseRedditDepressionReplication"
   },
   {
     id: 2,
@@ -60,6 +62,8 @@ const ProjectsGallery = () => {
   const handleItemClick = (project: typeof projectsData[0]) => {
     if (project.type === 'blog') {
       navigate('/blog');
+    } else if (project.externalLink) {
+      window.open(project.externalLink, '_blank');
     } else {
       navigate(`/project/${project.id}`);
     }
