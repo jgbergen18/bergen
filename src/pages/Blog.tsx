@@ -677,14 +677,14 @@ const Blog = () => {
                           
                           return colors[index % colors.length];
                         };
-                        return <div key={bookIndex} className="bg-background rounded-lg p-4 flex gap-4 border border-border-subtle">
+                        return <div key={bookIndex} className="bg-card rounded-lg p-4 flex gap-4 border border-border shadow-sm">
                                 {/* Custom Book Cover */}
                                 <div className="flex-shrink-0">
                                   <div className={`w-16 h-24 rounded shadow-sm ${getSeasonalColor(log.month, bookIndex)} flex flex-col justify-between p-2 text-white`}>
-                                    <div className="text-[6px] font-bold leading-tight overflow-hidden">
+                                    <div className="text-[6px] font-bold leading-tight overflow-hidden drop-shadow-sm">
                                       {book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}
                                     </div>
-                                    <div className="text-[5px] opacity-90 leading-tight">
+                                    <div className="text-[5px] opacity-90 leading-tight drop-shadow-sm">
                                       {book.author.length > 20 ? book.author.substring(0, 17) + '...' : book.author}
                                     </div>
                                   </div>
@@ -702,7 +702,7 @@ const Blog = () => {
                                       </p>
                                     </div>
                                     <div className="flex items-center space-x-1 flex-shrink-0">
-                                      {[...Array(5)].map((_, i) => <span key={i} className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-gray-300'}`}>
+                                      {[...Array(5)].map((_, i) => <span key={i} className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-muted-foreground'}`}>
                                           ★
                                         </span>)}
                                     </div>
