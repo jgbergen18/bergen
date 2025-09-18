@@ -5,6 +5,588 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import Header from '../components/Header';
 const readingLogs = [{
   id: 1,
+  month: "September 2025",
+  booksRead: 3,
+  averageRating: 2.7,
+  books: [{
+    title: "Part of Your World",
+    author: "Abby Jimenez",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "Trust",
+    author: "Hernan Diaz",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "The Lilac People",
+    author: "Milo Todd",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "I Have Some Questions for You",
+    author: "Rebecca Makkai",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }]
+}, {
+  id: 2,
+  month: "August 2025",
+  booksRead: 12,
+  averageRating: 3.6,
+  books: [{
+    title: "Fourth Wing",
+    author: "Rebecca Yarros",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Iron Flame",
+    author: "Rebecca Yarros",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Onyx Storm",
+    author: "Rebecca Yarros",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Longing for Less: Living with Minimalism",
+    author: "Kyle Chayka",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Goodbye, Things: The New Japanese Minimalism",
+    author: "Fumio Sasaki",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Stop Me If You've Heard This One",
+    author: "Kristen Arnett",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Stag Dance",
+    author: "Torrey Peters",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Annihilation",
+    author: "Jeff VanderMeer",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Art of Frugal Hedonism: A Guide to Spending Less While Enjoying Everything",
+    author: "Annie Raser-Rowland",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Just for the Summer",
+    author: "Abby Jimenez",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }]
+}, {
+  id: 3,
+  month: "July 2025",
+  booksRead: 3,
+  averageRating: 4.3,
+  books: [{
+    title: "Station Eleven",
+    author: "Emily St. John Mandel",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Invisible Life of Addie LaRue",
+    author: "V.E. Schwab",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Small Things Like These",
+    author: "Claire Keegan",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }]
+}, {
+  id: 4,
+  month: "June 2025",
+  booksRead: 4,
+  averageRating: 4.5,
+  books: [{
+    title: "The Ministry of Time",
+    author: "Kaliane Bradley",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "North Woods",
+    author: "Daniel Mason",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "We Could Be Rats",
+    author: "Emily R. Austin",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Haunting of Hill House",
+    author: "Shirley Jackson",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }]
+}, {
+  id: 5,
+  month: "May 2025",
+  booksRead: 6,
+  averageRating: 4.3,
+  books: [{
+    title: "Crown of Midnight",
+    author: "Sarah J. Maas",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Throne of Glass",
+    author: "Sarah J. Maas",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Yumi and the Nightmare Painter",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Abundance",
+    author: "Ezra Klein",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Myth of Normal: Trauma, Illness, and Healing in a Toxic Culture",
+    author: "Gabor Maté",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Heir of Fire",
+    author: "Sarah J. Maas",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Strange Pictures",
+    author: "Uketsu",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "How High We Go in the Dark",
+    author: "Sequoia Nagamatsu",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }]
+}, {
+  id: 6,
+  month: "April 2025",
+  booksRead: 8,
+  averageRating: 4.5,
+  books: [{
+    title: "The God of the Woods",
+    author: "Liz Moore",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Do Hard Things: Why We Get Resilience Wrong and the Surprising Science of Real Toughness",
+    author: "Steve Magness",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Sunrise on the Reaping",
+    author: "Suzanne Collins",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Everything Is Tuberculosis: The History and Persistence of Our Deadliest Infection",
+    author: "John Green",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Days at the Morisaki Bookshop",
+    author: "Satoshi Yagisawa",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Four Winds",
+    author: "Kristin Hannah",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "1984",
+    author: "George Orwell",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Wedding People",
+    author: "Alison Espach",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Language City: The Fight to Preserve Endangered Mother Tongues in New York",
+    author: "Ross Perlin",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }]
+}, {
+  id: 7,
+  month: "March 2025",
+  booksRead: 6,
+  averageRating: 4.2,
+  books: [{
+    title: "Yerba Buena",
+    author: "Nina LaCour",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "James",
+    author: "Percival Everett",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Adventures of Huckleberry Finn",
+    author: "Mark Twain",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Stolen Focus: Why You Can't Pay Attention— and How to Think Deeply Again",
+    author: "Johann Hari",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Digital Minimalism: Choosing a Focused Life in a Noisy World",
+    author: "Cal Newport",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Wild Robot",
+    author: "Peter Brown",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Tattooist of Auschwitz",
+    author: "Heather Morris",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Orbital",
+    author: "Samantha Harvey",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }]
+}, {
+  id: 8,
+  month: "February 2025",
+  booksRead: 11,
+  averageRating: 3.5,
+  books: [{
+    title: "Crook Manifesto",
+    author: "Colson Whitehead",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Run: Book One",
+    author: "John Lewis",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Mistborn: The Final Empire",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Good Dirt",
+    author: "Charmaine Wilkerson",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "The Well of Ascension",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Hero of Ages",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Martyr!",
+    author: "Kaveh Akbar",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Framed: Astonishing True Stories of Wrongful Convictions",
+    author: "John Grisham",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Predictably Irrational: The Hidden Forces That Shape Our Decisions",
+    author: "Dan Ariely",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "I Heard Her Call My Name: A Memoir of Transition",
+    author: "Lucy Sante",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Memory Piece",
+    author: "Lisa Ko",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Queer Data: Using Gender, Sex and Sexuality Data for Action",
+    author: "Kevin Guyan",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "ADD-Friendly Ways to Organize Your Life",
+    author: "Judith Kolberg",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "The Year of Magical Thinking",
+    author: "Joan Didion",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }]
+}, {
+  id: 9,
+  month: "January 2025",
+  booksRead: 10,
+  averageRating: 3.4,
+  books: [{
+    title: "The Dutch House",
+    author: "Ann Patchett",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Someone Like Us",
+    author: "Dinaw Mengestu",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Hillbilly Elegy: A Memoir of a Family and Culture in Crisis",
+    author: "J.D. Vance",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Divine Rivals",
+    author: "Rebecca Ross",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "The Wager: A Tale of Shipwreck, Mutiny and Murder",
+    author: "David Grann",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Backyard Bird Chronicles",
+    author: "Amy Tan",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "Revenge of the Tipping Point: Overstories, Superspreaders, and the Rise of Social Engineering",
+    author: "Malcolm Gladwell",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Underground Railroad",
+    author: "Colson Whitehead",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Message",
+    author: "Ta-Nehisi Coates",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }]
+}, {
+  id: 10,
+  month: "December 2024",
+  booksRead: 9,
+  averageRating: 3.1,
+  books: [{
+    title: "The Seven Husbands of Evelyn Hugo",
+    author: "Taylor Jenkins Reid",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Daisy Jones & The Six",
+    author: "Taylor Jenkins Reid",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Beautiful World, Where Are You",
+    author: "Sally Rooney",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Her Body and Other Parties: Stories",
+    author: "Carmen Maria Machado",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "I Cheerfully Refuse",
+    author: "Leif Enger",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "Dopamine Nation: Finding Balance in the Age of Indulgence",
+    author: "Anna Lembke",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "You Dreamed of Empires",
+    author: "Álvaro Enrigue",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }]
+}, {
+  id: 11,
+  month: "November 2024",
+  booksRead: 6,
+  averageRating: 3.5,
+  books: [{
+    title: "Being Mortal: Medicine and What Matters in the End",
+    author: "Atul Gawande",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Raven Boys",
+    author: "Maggie Stiefvater",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Atomic Accidents: A History of Nuclear Meltdowns and Disasters: From the Ozark Mountains to Fukushima",
+    author: "James Mahaffey",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Long Island Compromise",
+    author: "Taffy Brodesser-Akner",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Why We Sleep: Unlocking the Power of Sleep and Dreams",
+    author: "Matthew Walker",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Normal People",
+    author: "Sally Rooney",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }]
+}, {
+  id: 12,
+  month: "September 2024",
+  booksRead: 4,
+  averageRating: 3.8,
+  books: [{
+    title: "Let the Record Show: A Political History of ACT UP New York, 1987-1993",
+    author: "Sarah Schulman",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Black Friend: Essays",
+    author: "Ziwe",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Somewhere Beyond the Sea",
+    author: "T.J. Klune",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }]
+}, {
+  id: 13,
   month: "August 2024",
   booksRead: 10,
   averageRating: 3.6,
@@ -34,7 +616,7 @@ const readingLogs = [{
     coverUrl: ""
   }, {
     title: "Worry",
-    author: "Tanner Alexandra",
+    author: "Alexandra Tanner",
     review: "This was an interesting read and there were points that reminded me of my jewish family, but it also felt like it was trying to take that to a too quirky level that sometimes lost me as a reader.",
     rating: 3,
     coverUrl: ""
@@ -52,7 +634,7 @@ const readingLogs = [{
     coverUrl: ""
   }, {
     title: "Interesting Facts about Space",
-    author: "Emily Austin",
+    author: "Emily R. Austin",
     review: "The strangeness of the main character and this book made me feel both understood and upset in a wierdly good way.",
     rating: 5,
     coverUrl: ""
@@ -70,24 +652,30 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 2,
+  id: 14,
   month: "July 2024",
-  booksRead: 6,
-  averageRating: 3.8,
+  booksRead: 4,
+  averageRating: 3.5,
   books: [{
-    title: "On Tyranny: Twenty Lessons from the Twentieth Century",
-    author: "Timothy Snyder",
+    title: "A Court of Silver Flames",
+    author: "Sarah J. Maas",
     review: "",
     rating: 5,
     coverUrl: ""
   }, {
-    title: "Yellowface",
-    author: "R.F. Kuang",
+    title: "A Court of Frost and Starlight",
+    author: "Sarah J. Maas",
     review: "",
-    rating: 2,
+    rating: 3,
     coverUrl: ""
   }, {
-    title: "The Left hand of Darkness",
+    title: "Interview with the Vampire",
+    author: "Anne Rice",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "The Left Hand of Darkness",
     author: "Ursula K. Le Guin",
     review: "",
     rating: 3,
@@ -99,94 +687,76 @@ const readingLogs = [{
     rating: 4,
     coverUrl: ""
   }, {
-    title: "Interview with the Vampire",
-    author: "Anne Rice",
+    title: "On Tyranny: Twenty Lessons from the Twentieth Century",
+    author: "Timothy Snyder",
     review: "",
-    rating: 4,
+    rating: 5,
     coverUrl: ""
   }, {
-    title: "A Court of Frost and Starlight",
-    author: "Sarah J. Mass",
+    title: "Yellowface",
+    author: "R.F. Kuang",
     review: "",
-    rating: 3,
+    rating: 2,
     coverUrl: ""
   }]
 }, {
-  id: 3,
+  id: 15,
   month: "June 2024",
-  booksRead: 8,
-  averageRating: 3.5,
+  booksRead: 7,
+  averageRating: 3.9,
   books: [{
-    title: "The Nickel Boys",
-    author: "Colson Whitehead",
+    title: "Demon Copperhead",
+    author: "Barbara Kingsolver",
     review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
-    title: "Remarkably Bright Creatures",
-    author: "Shelby Van Pelt",
-    review: "Very fun",
-    rating: 3,
-    coverUrl: ""
-  }, {
-    title: "After Sappho",
-    author: "Selby Wynn Schwartz",
-    review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
-    title: "Poor Things",
-    author: "Alasdair Gray",
-    review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
-    title: "HumanKind: A Hopeful History",
-    author: "Rutger Bregman",
-    review: "While there was definitely some bias/oversimplication of some social issues in this book, I think everyone could benefit from reading it.",
     rating: 5,
     coverUrl: ""
   }, {
-    title: "Tender is the Flesh",
-    author: "Agustina Bazterrica",
-    review: "I really wanted to like this book but it felt too much like it was motivated by veganism rather than it's own premise/plot",
-    rating: 2,
-    coverUrl: ""
-  }, {
-    title: "The Dead take the A train",
-    author: "Cassandra Khaw",
-    review: "This was a surprisingly fun monster hunter read, with a great sense of humor",
+    title: "A Court of Wings and Ruin",
+    author: "Sarah J. Maas",
+    review: "",
     rating: 4,
     coverUrl: ""
   }, {
-    title: "Utopia for Realists: How We Can Build the Ideal World",
-    author: "Rutger Bregman",
+    title: "Better Living Through Birding: Notes from a Black Man in the Natural World",
+    author: "Christian Cooper",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "In the Lives of Puppets",
+    author: "T.J. Klune",
     review: "",
     rating: 3,
     coverUrl: ""
+  }, {
+    title: "Paul Takes the Form of a Mortal Girl",
+    author: "Andrea Lawlor",
+    review: "",
+    rating: 4,
+    coverUrl: ""
   }]
 }, {
-  id: 4,
+  id: 16,
   month: "May 2024",
-  booksRead: 8,
-  averageRating: 3.5,
+  booksRead: 7,
+  averageRating: 3.7,
   books: [{
     title: "The Nickel Boys",
     author: "Colson Whitehead",
     review: "",
-    rating: 3,
+    rating: 4,
     coverUrl: ""
   }, {
     title: "Remarkably Bright Creatures",
     author: "Shelby Van Pelt",
     review: "Very fun",
-    rating: 3,
+    rating: 4,
     coverUrl: ""
   }, {
     title: "After Sappho",
     author: "Selby Wynn Schwartz",
     review: "",
-    rating: 3,
+    rating: 4,
     coverUrl: ""
   }, {
     title: "Poor Things",
@@ -195,19 +765,19 @@ const readingLogs = [{
     rating: 3,
     coverUrl: ""
   }, {
-    title: "HumanKind: A Hopeful History",
+    title: "Humankind: A Hopeful History",
     author: "Rutger Bregman",
     review: "While there was definitely some bias/oversimplication of some social issues in this book, I think everyone could benefit from reading it.",
     rating: 5,
     coverUrl: ""
   }, {
-    title: "Tender is the Flesh",
+    title: "Tender Is the Flesh",
     author: "Agustina Bazterrica",
     review: "I really wanted to like this book but it felt too much like it was motivated by veganism rather than it's own premise/plot",
     rating: 2,
     coverUrl: ""
   }, {
-    title: "The Dead take the A train",
+    title: "The Dead Take the A Train",
     author: "Cassandra Khaw",
     review: "This was a surprisingly fun monster hunter read, with a great sense of humor",
     rating: 4,
@@ -220,41 +790,11 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 5,
+  id: 17,
   month: "April 2024",
-  booksRead: 10,
-  averageRating: 3.5,
+  booksRead: 4,
+  averageRating: 3.8,
   books: [{
-    title: "In Limbo",
-    author: "Deb J.J. Lee",
-    review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
-    title: "Sharp Objects",
-    author: "Gillian Flynn",
-    review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
-    title: "March: Book One",
-    author: "John Lewis",
-    review: "",
-    rating: 4,
-    coverUrl: ""
-  }, {
-    title: "Blink: The Power of Thinking Without Thinking",
-    author: "Malcom Gladwell",
-    review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
-    title: "The Tipping Point: How Little Things can Make a Big Difference",
-    author: "Malcom Gladwell",
-    review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
     title: "A Court of Mist and Fury",
     author: "Sarah J. Maas",
     review: "",
@@ -286,10 +826,10 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 6,
+  id: 18,
   month: "March 2024",
   booksRead: 8,
-  averageRating: 4.0,
+  averageRating: 3.6,
   books: [{
     title: "Deacon King Kong",
     author: "James McBride",
@@ -298,7 +838,7 @@ const readingLogs = [{
     coverUrl: ""
   }, {
     title: "A Court of Thorns and Roses",
-    author: "Sarah J. Mass",
+    author: "Sarah J. Maas",
     review: "",
     rating: 4,
     coverUrl: ""
@@ -321,16 +861,16 @@ const readingLogs = [{
     rating: 4,
     coverUrl: ""
   }, {
-    title: "How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease",
-    author: "Michael Greger",
-    review: "",
-    rating: 3,
-    coverUrl: ""
-  }, {
     title: "Ducks: Two Years in the Oil Sands",
     author: "Kate Beaton",
     review: "It is a remarkable narrative that brings to life the seldom-explored intersection of wildlife and female labor in the oil industry, shedding light on the resilience of nature and the author herself amidst the stark landscapes of industrial progress",
     rating: 5,
+    coverUrl: ""
+  }, {
+    title: "How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease",
+    author: "Michael Greger",
+    review: "",
+    rating: 3,
     coverUrl: ""
   }, {
     title: "Gone Girl",
@@ -338,9 +878,39 @@ const readingLogs = [{
     review: "I just couldn't buy into the angst of ahhaf, she was too hard for me to root for in this book",
     rating: 2,
     coverUrl: ""
+  }, {
+    title: "In Limbo",
+    author: "Deb J.J. Lee",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Sharp Objects",
+    author: "Gillian Flynn",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "March: Book One",
+    author: "John Lewis",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Blink: The Power of Thinking Without Thinking",
+    author: "Malcolm Gladwell",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "The Tipping Point: How Little Things Can Make a Big Difference",
+    author: "Malcolm Gladwell",
+    review: "",
+    rating: 4,
+    coverUrl: ""
   }]
 }, {
-  id: 7,
+  id: 19,
   month: "February 2024",
   booksRead: 10,
   averageRating: 3.9,
@@ -358,7 +928,7 @@ const readingLogs = [{
     coverUrl: ""
   }, {
     title: "Outliers: The Story of Success",
-    author: "Malcom Gladwell",
+    author: "Malcolm Gladwell",
     review: "a thought-provoking exploration of success, delving into factors like opportunity, cultural legacy, and the 10,000-hour rule that shape exceptional achievement, though it falls just short of a 5 star rating as it does get a little repetitive.",
     rating: 4,
     coverUrl: ""
@@ -369,10 +939,10 @@ const readingLogs = [{
     rating: 5,
     coverUrl: ""
   }, {
-    title: "Better than the Movies",
-    author: "Lunn Painter",
+    title: "Better Than the Movies",
+    author: "Lynn Painter",
     review: "One of the cheesiest romance books I have read in a long time, and yet so fun to read",
-    rating: 3,
+    rating: 5,
     coverUrl: ""
   }, {
     title: "Flowers for Algernon",
@@ -381,7 +951,7 @@ const readingLogs = [{
     rating: 5,
     coverUrl: ""
   }, {
-    title: "The Good Life: Lessons from the Longest Scientific Study of Happiness",
+    title: "The Good Life: Lessons from the World's Longest Scientific Study of Happiness",
     author: "Robert Waldinger",
     review: "This book offers insightful reflections on the key factors contributing to a fulfilling life, though it falls short in providing actionable guidance beyond already having strong relationships, earning it a",
     rating: 3,
@@ -406,24 +976,24 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 8,
+  id: 20,
   month: "January 2024",
   booksRead: 8,
   averageRating: 3.8,
   books: [{
     title: "If We Were Villains",
-    author: "M.L Rio",
+    author: "M.L. Rio",
     review: "Perfect for Shakespeare nerds, although a bit cheesy.",
     rating: 4,
     coverUrl: ""
   }, {
-    title: "We are Never Meeting in Real Life",
+    title: "We Are Never Meeting in Real Life.",
     author: "Samantha Irby",
     review: "Some of the essays were great, other ones fell flat, way too many of them involved shit.",
     rating: 2,
     coverUrl: ""
   }, {
-    title: "Time is a Mother",
+    title: "Time Is a Mother",
     author: "Ocean Vuong",
     review: "Gorgeous poetry, thoughtfully compiled.",
     rating: 5,
@@ -441,14 +1011,14 @@ const readingLogs = [{
     rating: 5,
     coverUrl: ""
   }, {
-    title: "Why Fish Don't Exist: A Story of Loss, Love, and the Hidden order of Life",
+    title: "Why Fish Don't Exist: A Story of Loss, Love, and the Hidden Order of Life",
     author: "Lulu Miller",
     review: "I was surprised by how much I liked this book, makes me think a lot about the responsibility scientists have to ethics.",
     rating: 5,
     coverUrl: ""
   }, {
     title: "When We Cease to Understand the World",
-    author: "Benjamin Labatut",
+    author: "Benjamín Labatut",
     review: "This book was an interesting exploration of the role scientists play in shaping the world but the writing was just okay.",
     rating: 3,
     coverUrl: ""
@@ -464,21 +1034,9 @@ const Blog = () => {
   const [openMonths, setOpenMonths] = useState<{
     [key: number]: boolean;
   }>({
-    1: true,
-    // August open by default (most recent)
-    2: false,
-    // July closed
-    3: false,
-    // June closed
-    4: false,
-    // May closed  
-    5: false,
-    // April closed
-    6: false,
-    // March closed
-    7: false,
-    // February closed
-    8: false // January closed
+    1: true, // September 2025 open by default (most recent)
+    2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false,
+    11: false, 12: false, 13: false, 14: false, 15: false, 16: false, 17: false, 18: false, 19: false, 20: false
   });
   const toggleMonth = (monthId: number) => {
     setOpenMonths(prev => ({
