@@ -20,10 +20,10 @@ const projectsData = [
   },
   {
     id: 3,
-    title: "Book Reviews Blog",
-    description: "Monthly book reviews and reading adventures - from cozy romances to thought-provoking fiction and everything in between.",
+    title: "Reading Log",
+    description: "Monthly reading log with honest reviews - tracking books read, ratings, and quick thoughts on everything I pick up.",
     imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=600&fit=crop",
-    tags: ["Writing", "Book Reviews", "Reading"],
+    tags: ["Reading", "Book Reviews", "Monthly Log"],
     type: "blog",
     link: "/blog"
   },

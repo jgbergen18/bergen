@@ -1,67 +1,154 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const bookReviews = [
+const readingLogs = [
   {
     id: 1,
-    title: "March 2024 Reading Adventures",
-    date: "March 31, 2024",
-    excerpt: "This month I dove into three incredible books that completely shifted my perspective on creativity, relationships, and the power of storytelling.",
-    readTime: "5 min read",
+    month: "March 2024",
+    booksRead: 6,
+    averageRating: 4.2,
     books: [
       {
-        title: "The Seven Husbands of Evelyn Hugo",
-        author: "Taylor Jenkins Reid",
-        rating: 5,
-        thoughts: "What an absolutely stunning novel! I couldn't put this down - Reid's storytelling is masterful, and Evelyn Hugo is such a complex, fascinating character. The way the story unfolds through the interview format kept me guessing until the very end."
+        title: "Fourth Wing",
+        author: "Rebecca Yarros",
+        review: "Dragon academia with romance - predictable but addictive. Perfect guilty pleasure read.",
+        rating: 4
       },
       {
-        title: "Atomic Habits",
-        author: "James Clear", 
-        rating: 4,
-        thoughts: "Such practical wisdom about building good habits and breaking bad ones. I've already started implementing the 1% better principle in my daily routine. Clear's writing is accessible and the examples really stick with you."
+        title: "The Seven Moons of Maali Almeida",
+        author: "Shehan Karunatilaka",
+        review: "Darkly funny and inventive take on afterlife bureaucracy. The magical realism worked perfectly here.",
+        rating: 5
+      },
+      {
+        title: "Lessons in Chemistry",
+        author: "Bonnie Garmus",
+        review: "Charming but felt a bit too quirky-for-quirky's-sake. Elizabeth was a great character though.",
+        rating: 4
+      },
+      {
+        title: "The Atlas Six",
+        author: "Olivie Blake",
+        review: "Beautiful writing but the plot went nowhere. All vibes, no substance.",
+        rating: 3
+      },
+      {
+        title: "Mexican Gothic",
+        author: "Silvia Moreno-Garcia",
+        review: "Atmospheric horror done right. The house felt like a character itself.",
+        rating: 5
+      },
+      {
+        title: "The Poppy War",
+        author: "R.F. Kuang",
+        review: "Brutal military fantasy that doesn't pull punches. Emotionally devastating in the best way.",
+        rating: 4
       }
     ]
   },
   {
     id: 2,
-    title: "February 2024: Romance, Mystery & Growth",
-    date: "February 29, 2024",
-    excerpt: "February was all about cozy reads and page-turners! From swoony romance to mind-bending mysteries, here's what kept me up way too late this month.",
-    readTime: "4 min read",
+    month: "February 2024", 
+    booksRead: 7,
+    averageRating: 3.9,
     books: [
       {
-        title: "The Midnight Library",
-        author: "Matt Haig",
-        rating: 5,
-        thoughts: "This book hit me right in the feels! Such a beautiful exploration of life's infinite possibilities and finding meaning in our choices. Haig has a gift for making profound concepts feel accessible and hopeful."
+        title: "Tomorrow, and Tomorrow, and Tomorrow",
+        author: "Gabrielle Zevin",
+        review: "Video game nostalgia meets literary fiction. Surprisingly emotional for a book about game design.",
+        rating: 5
       },
       {
-        title: "Beach Read",
-        author: "Emily Henry",
-        rating: 4,
-        thoughts: "The perfect comfort read! Henry writes characters that feel so real and relatable. The enemies-to-lovers trope was executed perfectly, and I loved the exploration of writer's block and finding inspiration again."
+        title: "The Invisible Life of Addie LaRue",
+        author: "V.E. Schwab",
+        review: "Beautiful premise but dragged in the middle. The ending saved it.",
+        rating: 4
+      },
+      {
+        title: "Circe",
+        author: "Madeline Miller",
+        review: "Greek mythology retelling perfection. Miller makes ancient gods feel human.",
+        rating: 5
+      },
+      {
+        title: "The Guest List",
+        author: "Lucy Foley",
+        review: "Solid thriller but the characters were all terrible people. Made it hard to care who died.",
+        rating: 3
+      },
+      {
+        title: "Klara and the Sun",
+        author: "Kazuo Ishiguro",
+        review: "Quietly devastating. Ishiguro's exploration of AI consciousness was beautifully done.",
+        rating: 4
+      },
+      {
+        title: "The Sanatorium",
+        author: "Sarah Pearse", 
+        review: "Atmospheric but the mystery was predictable. Good for a snowy day read.",
+        rating: 3
+      },
+      {
+        title: "Project Hail Mary",
+        author: "Andy Weir",
+        review: "Science fiction comfort food. Weir's humor makes the technical stuff digestible.",
+        rating: 4
       }
     ]
   },
   {
     id: 3,
-    title: "January 2024: New Year, New Pages",
-    date: "January 31, 2024",
-    excerpt: "Starting the year with some incredible reads! From fantasy epics to thoughtful memoirs, January set a high bar for my 2024 reading challenge.",
-    readTime: "6 min read",
+    month: "January 2024",
+    booksRead: 8,
+    averageRating: 3.8,
     books: [
       {
-        title: "Klara and the Sun",
-        author: "Kazuo Ishiguro",
-        rating: 4,
-        thoughts: "Ishiguro's writing is so beautifully understated. Seeing the world through Klara's perspective was both heartbreaking and illuminating. The themes of love, sacrifice, and what it means to be human really stayed with me."
+        title: "If We Were Villains",
+        author: "M.L Rio",
+        review: "Perfect for Shakespeare nerds, although a bit cheesy.",
+        rating: 4
       },
       {
-        title: "Project Hail Mary",
-        author: "Andy Weir",
-        rating: 5,
-        thoughts: "What a wild, wonderful ride! Weir's humor and scientific creativity make this such an engaging read. I found myself genuinely caring about Grace and rooting for him every step of the way. Pure joy to read!"
+        title: "We are Never Meeting in Real Life", 
+        author: "Samantha Irby",
+        review: "Some of the essays were great, other ones fell flat, way too many of them involved shit.",
+        rating: 2
+      },
+      {
+        title: "Time is a Mother",
+        author: "Ocean Vuong",
+        review: "Gorgeous poetry, thoughtfully compiled.",
+        rating: 5
+      },
+      {
+        title: "The Road to Roswell",
+        author: "Connie Willis",
+        review: "This was a fun, campy, and comedic book involving alien abduction; it would make a good beach read.",
+        rating: 3
+      },
+      {
+        title: "Caste: The Origins of Our Discontents",
+        author: "Isabel Wilkerson",
+        review: "One of the best and most thoughtful books I've read in awhile, highly informative about how much racism/caste has informed the structure of the US.",
+        rating: 5
+      },
+      {
+        title: "Why Fish Don't Exist: A Story of Loss, Love, and the Hidden order of Life",
+        author: "Lulu Miller",
+        review: "I was surprised by how much I liked this book, makes me think a lot about the responsibility scientists have to ethics.",
+        rating: 5
+      },
+      {
+        title: "When We Cease to Understand the World",
+        author: "Benjamin Labatut", 
+        review: "This book was an interesting exploration of the role scientists play in shaping the world but the writing was just okay.",
+        rating: 3
+      },
+      {
+        title: "Sula",
+        author: "Toni Morrison",
+        review: "Potent, poetic, tragic, and difficult to read at times, certainly worth the effort.",
+        rating: 4
       }
     ]
   }
@@ -89,56 +176,35 @@ const Blog = () => {
           {/* Page Title */}
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-medium text-text-primary">
-              Monthly Book Reviews
+              Reading Log
             </h1>
             <p className="text-lg text-text-secondary max-w-2xl leading-relaxed">
-              Welcome to my little corner of the internet! ✨ Every month I share thoughts on the books that have captured my heart, made me think, or simply provided the perfect escape. Pull up a cozy chair and let's chat about stories! 📚
+              My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚
             </p>
           </div>
 
-          {/* Book Reviews */}
+          {/* Reading Logs */}
           <div className="space-y-16">
-            {bookReviews.map((post) => (
-              <article key={post.id} className="space-y-6 pb-12 border-b border-border-subtle last:border-b-0">
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-4 text-sm text-text-muted">
-                    <time>{post.date}</time>
-                    <span>•</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-medium text-text-primary leading-tight">
-                    {post.title}
+            {readingLogs.map((log) => (
+              <article key={log.id} className="space-y-6 pb-12 border-b border-border-subtle last:border-b-0">
+                <div className="space-y-2">
+                  <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
+                    {log.month}
                   </h2>
-                  <p className="text-text-secondary leading-relaxed">
-                    {post.excerpt}
+                  <p className="text-text-secondary">
+                    <strong>Books Read:</strong> {log.booksRead}, <strong>Average Rating:</strong> {log.averageRating} Stars
                   </p>
                 </div>
                 
-                {/* Book Cards */}
-                <div className="grid gap-6 md:gap-8">
-                  {post.books.map((book, bookIndex) => (
-                    <div key={bookIndex} className="bg-surface rounded-lg p-6 space-y-4">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-                        <div>
-                          <h3 className="text-lg font-medium text-text-primary">
-                            {book.title}
-                          </h3>
-                          <p className="text-text-secondary">by {book.author}</p>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          {[...Array(5)].map((_, i) => (
-                            <span 
-                              key={i} 
-                              className={`text-lg ${i < book.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                            >
-                              ★
-                            </span>
-                          ))}
-                        </div>
+                {/* Book List */}
+                <div className="space-y-4">
+                  {log.books.map((book, bookIndex) => (
+                    <div key={bookIndex} className="bg-surface rounded-lg p-4 space-y-2">
+                      <div className="space-y-1">
+                        <p className="text-text-primary">
+                          <strong>{book.title}</strong> by {book.author}: {book.review} <span className="text-text-muted">{book.rating}/5 Stars.</span>
+                        </p>
                       </div>
-                      <p className="text-text-secondary leading-relaxed">
-                        {book.thoughts}
-                      </p>
                     </div>
                   ))}
                 </div>
