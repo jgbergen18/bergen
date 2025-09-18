@@ -15,7 +15,7 @@ const Hero = () => {
     <section className="pt-32 pb-8 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-light text-text-primary leading-tight rainbow-text">
+          <h1 className="text-3xl md:text-4xl font-light text-text-primary leading-tight rainbow-text">
             {splitText("Hello, I'm ")}
             <span className="font-medium">
               {splitText("Jamie Bergen")}
