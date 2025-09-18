@@ -1,3 +1,5 @@
+import profilePhoto from '../assets/profile-photo.jpg';
+
 const About = () => {
   return (
     <section id="about" className="py-16 px-6">
@@ -25,7 +27,7 @@ const About = () => {
           <div className="relative">
             <div className="aspect-square bg-surface rounded-lg overflow-hidden">
               <img 
-                src="/src/assets/profile-photo.jpg" 
+                src={profilePhoto} 
                 alt="Jamie Bergen profile photo" 
                 className="w-full h-full object-cover"
               />
