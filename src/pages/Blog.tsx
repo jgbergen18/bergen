@@ -1074,12 +1074,40 @@ const Blog = () => {
     2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false,
     11: false, 12: false, 13: false, 14: false, 15: false, 16: false, 17: false, 18: false, 19: false, 20: false
   });
+
+  const [openYears, setOpenYears] = useState<{
+    [key: string]: boolean;
+  }>({
+    "2025": true, // 2025 open by default (most recent)
+    "2024": false
+  });
+
   const toggleMonth = (monthId: number) => {
     setOpenMonths(prev => ({
       ...prev,
       [monthId]: !prev[monthId]
     }));
   };
+
+  const toggleYear = (year: string) => {
+    setOpenYears(prev => ({
+      ...prev,
+      [year]: !prev[year]
+    }));
+  };
+
+  // Group reading logs by year
+  const readingLogsByYear = readingLogs.reduce((acc, log) => {
+    const year = log.month.split(' ')[1];
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(log);
+    return acc;
+  }, {} as Record<string, typeof readingLogs>);
+
+  // Sort years in descending order (newest first)
+  const sortedYears = Object.keys(readingLogsByYear).sort((a, b) => b.localeCompare(a));
   return <div className="min-h-screen bg-background">
       <Header />
 
@@ -1104,177 +1132,214 @@ const Blog = () => {
           </div>
 
           {/* Reading Logs */}
-          <div className="space-y-6">
-            {readingLogs.map(log => {
+          <div className="space-y-8">
+            {sortedYears.map(year => {
+              const yearLogs = readingLogsByYear[year];
+              const totalBooksInYear = yearLogs.reduce((sum, log) => sum + log.booksRead, 0);
+              const avgRatingInYear = yearLogs.reduce((sum, log) => sum + (log.averageRating * log.booksRead), 0) / totalBooksInYear;
 
-            // Scientific temperature-to-color mapping using actual NYC data
-            const getMonthBackground = (month: string) => {
-              const temp = temperatureData[month] || 50;
-              
-              // Light mode colors (pastels) and dark mode colors (muted darks)
-              if (temp <= 35) return 'bg-blue-50 border-blue-200 dark:bg-blue-900/50 dark:border-blue-700';
-              if (temp <= 40) return 'bg-blue-100 border-blue-300 dark:bg-blue-800/50 dark:border-blue-600';
-              if (temp <= 50) return 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/50 dark:border-indigo-700';
-              if (temp <= 60) return 'bg-purple-50 border-purple-200 dark:bg-purple-900/50 dark:border-purple-700';
-              if (temp <= 70) return 'bg-fuchsia-50 border-fuchsia-200 dark:bg-fuchsia-900/50 dark:border-fuchsia-700';
-              if (temp <= 75) return 'bg-pink-50 border-pink-200 dark:bg-pink-900/50 dark:border-pink-700';
-              if (temp <= 80) return 'bg-rose-50 border-rose-200 dark:bg-rose-900/50 dark:border-rose-700';
-              return 'bg-red-50 border-red-200 dark:bg-red-900/50 dark:border-red-700';
-            };
-
-            const getMonthHover = (month: string) => {
-              const temp = temperatureData[month] || 50;
-              
-              if (temp <= 35) return 'hover:bg-blue-100 dark:hover:bg-blue-800/60';
-              if (temp <= 40) return 'hover:bg-blue-200 dark:hover:bg-blue-700/60';
-              if (temp <= 50) return 'hover:bg-indigo-100 dark:hover:bg-indigo-800/60';
-              if (temp <= 60) return 'hover:bg-purple-100 dark:hover:bg-purple-800/60';
-              if (temp <= 70) return 'hover:bg-fuchsia-100 dark:hover:bg-fuchsia-800/60';
-              if (temp <= 75) return 'hover:bg-pink-100 dark:hover:bg-pink-800/60';
-              if (temp <= 80) return 'hover:bg-rose-100 dark:hover:bg-rose-800/60';
-              return 'hover:bg-red-100 dark:hover:bg-red-800/60';
-            };
-            return <Collapsible key={log.id} open={openMonths[log.id]} onOpenChange={() => toggleMonth(log.id)}>
-                  <div className={`${getMonthBackground(log.month)} rounded-lg overflow-hidden shadow-sm`}>
+              return (
+                <Collapsible key={year} open={openYears[year]} onOpenChange={() => toggleYear(year)}>
+                  <div className="bg-card/50 border border-border rounded-xl overflow-hidden shadow-lg">
                     <CollapsibleTrigger className="w-full text-left">
-                      <div className={`flex items-center justify-between p-6 ${getMonthHover(log.month)} transition-colors cursor-pointer`}>
+                      <div className="flex items-center justify-between p-8 hover:bg-card/80 transition-colors cursor-pointer">
                         <div className="space-y-2">
-                          <div className="flex items-baseline gap-3">
-                            <h2 className="text-2xl md:text-3xl font-medium text-foreground">
-                              {log.month}
-                            </h2>
-                            <span className="text-lg text-foreground/70 font-medium">
-                              {temperatureData[log.month] ? `${temperatureData[log.month]}°F` : ''}
-                            </span>
-                          </div>
-                          <p className="text-foreground/80">
-                            <strong className="text-foreground">Books Read:</strong> {log.booksRead}, <strong className="text-foreground">Average Rating:</strong> {log.averageRating} Stars
+                          <h1 className="text-4xl md:text-5xl font-bold text-text-primary">
+                            {year}
+                          </h1>
+                          <p className="text-text-secondary text-lg">
+                            <strong className="text-text-primary">{totalBooksInYear} books read</strong> • <strong className="text-text-primary">{avgRatingInYear.toFixed(1)}</strong> average rating
                           </p>
                         </div>
-                        <div className="text-foreground/60 hover:text-foreground/80 transition-colors p-2">
-                          {openMonths[log.id] ? <ChevronDown className="h-6 w-6" /> : <ChevronRight className="h-6 w-6" />}
+                        <div className="text-text-secondary hover:text-text-primary transition-colors p-3">
+                          {openYears[year] ? <ChevronDown className="h-8 w-8" /> : <ChevronRight className="h-8 w-8" />}
                         </div>
                       </div>
                     </CollapsibleTrigger>
                     
                     <CollapsibleContent>
-                      <div className="p-6 pt-0 border-t border-border-subtle">
-                        {/* Book List */}
-                        <div className="space-y-3 pt-4">
-                          {log.books.map((book, bookIndex) => {
-                        // Temperature-based book cover colors using scientific scaling
-                        const getSeasonalColor = (month: string, index: number) => {
-                          const temp = temperatureData[month] || 50;
+                      <div className="px-8 pb-8 border-t border-border-subtle">
+                        <div className="space-y-6 pt-6">
+                          {yearLogs.map(log => {
+
+                          // Scientific temperature-to-color mapping using actual NYC data
+                          const getMonthBackground = (month: string) => {
+                            const temp = temperatureData[month] || 50;
+                            
+                            // Light mode colors (pastels) and dark mode colors (muted darks)
+                            if (temp <= 35) return 'bg-blue-50 border-blue-200 dark:bg-blue-900/50 dark:border-blue-700';
+                            if (temp <= 40) return 'bg-blue-100 border-blue-300 dark:bg-blue-800/50 dark:border-blue-600';
+                            if (temp <= 50) return 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/50 dark:border-indigo-700';
+                            if (temp <= 60) return 'bg-purple-50 border-purple-200 dark:bg-purple-900/50 dark:border-purple-700';
+                            if (temp <= 70) return 'bg-fuchsia-50 border-fuchsia-200 dark:bg-fuchsia-900/50 dark:border-fuchsia-700';
+                            if (temp <= 75) return 'bg-pink-50 border-pink-200 dark:bg-pink-900/50 dark:border-pink-700';
+                            if (temp <= 80) return 'bg-rose-50 border-rose-200 dark:bg-rose-900/50 dark:border-rose-700';
+                            return 'bg-red-50 border-red-200 dark:bg-red-900/50 dark:border-red-700';
+                          };
+
+                          const getMonthHover = (month: string) => {
+                            const temp = temperatureData[month] || 50;
+                            
+                            if (temp <= 35) return 'hover:bg-blue-100 dark:hover:bg-blue-800/60';
+                            if (temp <= 40) return 'hover:bg-blue-200 dark:hover:bg-blue-700/60';
+                            if (temp <= 50) return 'hover:bg-indigo-100 dark:hover:bg-indigo-800/60';
+                            if (temp <= 60) return 'hover:bg-purple-100 dark:hover:bg-purple-800/60';
+                            if (temp <= 70) return 'hover:bg-fuchsia-100 dark:hover:bg-fuchsia-800/60';
+                            if (temp <= 75) return 'hover:bg-pink-100 dark:hover:bg-pink-800/60';
+                            if (temp <= 80) return 'hover:bg-rose-100 dark:hover:bg-rose-800/60';
+                            return 'hover:bg-red-100 dark:hover:bg-red-800/60';
+                          };
                           
-                          // Map temperatures to color families, then select from variations
-                          let colors: string[];
-                          
-                          if (temp <= 40) {
-                            // Very Cold: Blue family
-                            colors = [
-                              'bg-gradient-to-br from-blue-400 to-blue-600',
-                              'bg-gradient-to-br from-blue-500 to-blue-700',
-                              'bg-gradient-to-br from-sky-400 to-sky-600',
-                              'bg-gradient-to-br from-cyan-400 to-cyan-600',
-                              'bg-gradient-to-br from-blue-600 to-blue-800',
-                              'bg-gradient-to-br from-sky-500 to-sky-700'
-                            ];
-                          } else if (temp <= 50) {
-                            // Cold: Indigo family  
-                            colors = [
-                              'bg-gradient-to-br from-indigo-400 to-indigo-600',
-                              'bg-gradient-to-br from-violet-400 to-violet-600', 
-                              'bg-gradient-to-br from-indigo-500 to-indigo-700',
-                              'bg-gradient-to-br from-blue-500 to-indigo-600',
-                              'bg-gradient-to-br from-violet-500 to-violet-700',
-                              'bg-gradient-to-br from-indigo-600 to-purple-600'
-                            ];
-                          } else if (temp <= 60) {
-                            // Cool: Purple family
-                            colors = [
-                              'bg-gradient-to-br from-purple-400 to-purple-600',
-                              'bg-gradient-to-br from-purple-500 to-purple-700',
-                              'bg-gradient-to-br from-violet-500 to-purple-600',
-                              'bg-gradient-to-br from-purple-600 to-purple-800',
-                              'bg-gradient-to-br from-indigo-500 to-purple-600',
-                              'bg-gradient-to-br from-purple-500 to-fuchsia-600'
-                            ];
-                          } else if (temp <= 70) {
-                            // Moderate: Fuchsia family
-                            colors = [
-                              'bg-gradient-to-br from-fuchsia-400 to-fuchsia-600',
-                              'bg-gradient-to-br from-pink-400 to-pink-600',
-                              'bg-gradient-to-br from-fuchsia-500 to-fuchsia-700',
-                              'bg-gradient-to-br from-pink-500 to-pink-700',
-                              'bg-gradient-to-br from-purple-500 to-fuchsia-600',
-                              'bg-gradient-to-br from-fuchsia-600 to-pink-600'
-                            ];
-                          } else if (temp <= 75) {
-                            // Warm: Rose family
-                            colors = [
-                              'bg-gradient-to-br from-rose-400 to-rose-600',
-                              'bg-gradient-to-br from-rose-500 to-rose-700',
-                              'bg-gradient-to-br from-pink-500 to-rose-600',
-                              'bg-gradient-to-br from-rose-600 to-red-600',
-                              'bg-gradient-to-br from-rose-500 to-red-500',
-                              'bg-gradient-to-br from-pink-600 to-rose-700'
-                            ];
-                          } else {
-                            // Hot: Red family
-                            colors = [
-                              'bg-gradient-to-br from-red-400 to-red-600',
-                              'bg-gradient-to-br from-red-500 to-red-700',
-                              'bg-gradient-to-br from-rose-500 to-red-600',
-                              'bg-gradient-to-br from-red-600 to-red-800',
-                              'bg-gradient-to-br from-orange-500 to-red-600',
-                              'bg-gradient-to-br from-red-500 to-orange-600'
-                            ];
-                          }
-                          
-                          return colors[index % colors.length];
-                        };
-                        return <div key={bookIndex} className="bg-card rounded-lg p-4 flex gap-4 border border-border shadow-sm">
-                                {/* Custom Book Cover */}
-                                <div className="flex-shrink-0">
-                                  <div className={`w-16 h-24 rounded shadow-sm ${getSeasonalColor(log.month, bookIndex)} flex flex-col justify-between p-2 text-white`}>
-                                    <div className="text-[6px] font-bold leading-tight overflow-hidden drop-shadow-sm">
-                                      {book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}
+                          return (
+                            <Collapsible key={log.id} open={openMonths[log.id]} onOpenChange={() => toggleMonth(log.id)}>
+                              <div className={`${getMonthBackground(log.month)} rounded-lg overflow-hidden shadow-sm`}>
+                                <CollapsibleTrigger className="w-full text-left">
+                                  <div className={`flex items-center justify-between p-6 ${getMonthHover(log.month)} transition-colors cursor-pointer`}>
+                                    <div className="space-y-2">
+                                      <div className="flex items-baseline gap-3">
+                                        <h2 className="text-2xl md:text-3xl font-medium text-foreground">
+                                          {log.month.split(' ')[0]} {/* Just month name */}
+                                        </h2>
+                                        <span className="text-lg text-foreground/70 font-medium">
+                                          {temperatureData[log.month] ? `${temperatureData[log.month]}°F` : ''}
+                                        </span>
+                                      </div>
+                                      <p className="text-foreground/80">
+                                        <strong className="text-foreground">Books Read:</strong> {log.booksRead}, <strong className="text-foreground">Average Rating:</strong> {log.averageRating} Stars
+                                      </p>
                                     </div>
-                                    <div className="text-[5px] opacity-90 leading-tight drop-shadow-sm">
-                                      {book.author.length > 20 ? book.author.substring(0, 17) + '...' : book.author}
+                                    <div className="text-foreground/60 hover:text-foreground/80 transition-colors p-2">
+                                      {openMonths[log.id] ? <ChevronDown className="h-6 w-6" /> : <ChevronRight className="h-6 w-6" />}
                                     </div>
                                   </div>
-                                </div>
+                                </CollapsibleTrigger>
                                 
-                                {/* Book Info */}
-                                <div className="flex-1 space-y-2">
-                                  <div className="flex items-start justify-between gap-3">
-                                    <div>
-                                      <p className="text-text-primary font-medium">
-                                        {book.title}
-                                      </p>
-                                      <p className="text-text-secondary text-sm">
-                                        by {book.author}
-                                      </p>
-                                    </div>
-                                    <div className="flex items-center space-x-1 flex-shrink-0">
-                                      {[...Array(5)].map((_, i) => <span key={i} className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-muted-foreground'}`}>
-                                          ★
-                                        </span>)}
+                                <CollapsibleContent>
+                                  <div className="p-6 pt-0 border-t border-border-subtle">
+                                    {/* Book List */}
+                                    <div className="space-y-3 pt-4">
+                                      {log.books.map((book, bookIndex) => {
+                                    // Temperature-based book cover colors using scientific scaling
+                                    const getSeasonalColor = (month: string, index: number) => {
+                                      const temp = temperatureData[month] || 50;
+                                      
+                                      // Map temperatures to color families, then select from variations
+                                      let colors: string[];
+                                      
+                                      if (temp <= 40) {
+                                        // Very Cold: Blue family
+                                        colors = [
+                                          'bg-gradient-to-br from-blue-400 to-blue-600',
+                                          'bg-gradient-to-br from-blue-500 to-blue-700',
+                                          'bg-gradient-to-br from-sky-400 to-sky-600',
+                                          'bg-gradient-to-br from-cyan-400 to-cyan-600',
+                                          'bg-gradient-to-br from-blue-600 to-blue-800',
+                                          'bg-gradient-to-br from-sky-500 to-sky-700'
+                                        ];
+                                      } else if (temp <= 50) {
+                                        // Cold: Indigo family  
+                                        colors = [
+                                          'bg-gradient-to-br from-indigo-400 to-indigo-600',
+                                          'bg-gradient-to-br from-violet-400 to-violet-600', 
+                                          'bg-gradient-to-br from-indigo-500 to-indigo-700',
+                                          'bg-gradient-to-br from-blue-500 to-indigo-600',
+                                          'bg-gradient-to-br from-violet-500 to-violet-700',
+                                          'bg-gradient-to-br from-indigo-600 to-purple-600'
+                                        ];
+                                      } else if (temp <= 60) {
+                                        // Cool: Purple family
+                                        colors = [
+                                          'bg-gradient-to-br from-purple-400 to-purple-600',
+                                          'bg-gradient-to-br from-purple-500 to-purple-700',
+                                          'bg-gradient-to-br from-violet-500 to-purple-600',
+                                          'bg-gradient-to-br from-purple-600 to-purple-800',
+                                          'bg-gradient-to-br from-indigo-500 to-purple-600',
+                                          'bg-gradient-to-br from-purple-500 to-fuchsia-600'
+                                        ];
+                                      } else if (temp <= 70) {
+                                        // Moderate: Fuchsia family
+                                        colors = [
+                                          'bg-gradient-to-br from-fuchsia-400 to-fuchsia-600',
+                                          'bg-gradient-to-br from-pink-400 to-pink-600',
+                                          'bg-gradient-to-br from-fuchsia-500 to-fuchsia-700',
+                                          'bg-gradient-to-br from-pink-500 to-pink-700',
+                                          'bg-gradient-to-br from-purple-500 to-fuchsia-600',
+                                          'bg-gradient-to-br from-fuchsia-600 to-pink-600'
+                                        ];
+                                      } else if (temp <= 75) {
+                                        // Warm: Rose family
+                                        colors = [
+                                          'bg-gradient-to-br from-rose-400 to-rose-600',
+                                          'bg-gradient-to-br from-rose-500 to-rose-700',
+                                          'bg-gradient-to-br from-pink-500 to-rose-600',
+                                          'bg-gradient-to-br from-rose-600 to-red-600',
+                                          'bg-gradient-to-br from-rose-500 to-red-500',
+                                          'bg-gradient-to-br from-pink-600 to-rose-700'
+                                        ];
+                                      } else {
+                                        // Hot: Red family
+                                        colors = [
+                                          'bg-gradient-to-br from-red-400 to-red-600',
+                                          'bg-gradient-to-br from-red-500 to-red-700',
+                                          'bg-gradient-to-br from-rose-500 to-red-600',
+                                          'bg-gradient-to-br from-red-600 to-red-800',
+                                          'bg-gradient-to-br from-orange-500 to-red-600',
+                                          'bg-gradient-to-br from-red-500 to-orange-600'
+                                        ];
+                                      }
+                                      
+                                      return colors[index % colors.length];
+                                    };
+                                    return <div key={bookIndex} className="bg-card rounded-lg p-4 flex gap-4 border border-border shadow-sm">
+                                            {/* Custom Book Cover */}
+                                            <div className="flex-shrink-0">
+                                              <div className={`w-16 h-24 rounded shadow-sm ${getSeasonalColor(log.month, bookIndex)} flex flex-col justify-between p-2 text-white`}>
+                                                <div className="text-[6px] font-bold leading-tight overflow-hidden drop-shadow-sm">
+                                                  {book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}
+                                                </div>
+                                                <div className="text-[5px] opacity-90 leading-tight drop-shadow-sm">
+                                                  {book.author.length > 20 ? book.author.substring(0, 17) + '...' : book.author}
+                                                </div>
+                                              </div>
+                                            </div>
+                                            
+                                            {/* Book Info */}
+                                            <div className="flex-1 space-y-2">
+                                              <div className="flex items-start justify-between gap-3">
+                                                <div>
+                                                  <p className="text-text-primary font-medium">
+                                                    {book.title}
+                                                  </p>
+                                                  <p className="text-text-secondary text-sm">
+                                                    by {book.author}
+                                                  </p>
+                                                </div>
+                                                <div className="flex items-center space-x-1 flex-shrink-0">
+                                                  {[...Array(5)].map((_, i) => <span key={i} className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-muted-foreground'}`}>
+                                                      ★
+                                                    </span>)}
+                                                </div>
+                                              </div>
+                                              <p className="text-text-secondary text-sm leading-relaxed">
+                                                {book.review}
+                                              </p>
+                                            </div>
+                                          </div>;
+                                  })}
                                     </div>
                                   </div>
-                                  <p className="text-text-secondary text-sm leading-relaxed">
-                                    {book.review}
-                                  </p>
-                                </div>
-                              </div>;
-                      })}
+                                </CollapsibleContent>
+                              </div>
+                            </Collapsible>
+                          );
+                        })}
                         </div>
                       </div>
                     </CollapsibleContent>
                   </div>
-                </Collapsible>;
-          })}
+                </Collapsible>
+              );
+            })}
           </div>
         </div>
       </main>
