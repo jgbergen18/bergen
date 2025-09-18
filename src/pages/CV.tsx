@@ -1,9 +1,7 @@
 import Header from '../components/Header';
 import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink, Mail, Phone, Cpu, Award, Briefcase, Globe, Heart } from 'lucide-react';
-
 const CV = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -59,7 +57,7 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg text-foreground">Erasmus Mundus Joint MSc in Neuroscience</h3>
-                <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
+                
               </div>
               <div className="flex items-center gap-2 text-foreground mb-2">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -519,11 +517,9 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Programming Languages</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Python', 'VB.NET', 'Java', 'React', 'C', 'Ruby', 'JavaScript', 'HTML/CSS', 'SQL', 'MATLAB', 'LaTeX', 'Bash'].map((skill) => (
-                  <span key={skill} className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                {['Python', 'VB.NET', 'Java', 'React', 'C', 'Ruby', 'JavaScript', 'HTML/CSS', 'SQL', 'MATLAB', 'LaTeX', 'Bash'].map(skill => <span key={skill} className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
                     {skill}
-                  </span>
-                ))}
+                  </span>)}
               </div>
             </div>
             
@@ -533,11 +529,9 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Machine Learning</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                 {['Scikit-learn', 'PyTorch', 'Transformers (HuggingFace)', 'Stable-Baselines3', 'XGBoost', 'UMAP', 'TensorFlow', 'OpenAI API', 'Reinforcement Learning'].map((skill) => (
-                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                 {['Scikit-learn', 'PyTorch', 'Transformers (HuggingFace)', 'Stable-Baselines3', 'XGBoost', 'UMAP', 'TensorFlow', 'OpenAI API', 'Reinforcement Learning'].map(skill => <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                      {skill}
-                   </span>
-                 ))}
+                   </span>)}
               </div>
             </div>
             
@@ -547,11 +541,9 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Data & Visualization</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                 {['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Prism', 'Excel', 'ImageJ', 'Plotly', 'R', 'Tableau'].map((skill) => (
-                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                 {['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Prism', 'Excel', 'ImageJ', 'Plotly', 'R', 'Tableau'].map(skill => <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                      {skill}
-                   </span>
-                 ))}
+                   </span>)}
               </div>
             </div>
             
@@ -561,11 +553,9 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Web & Deployment</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                 {['Jekyll/Hyde', 'GitHub Pages', 'Markdown', 'Liquid', 'Figma', 'Next.js', 'Vercel', 'Netlify', 'Supabase'].map((skill) => (
-                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                 {['Jekyll/Hyde', 'GitHub Pages', 'Markdown', 'Liquid', 'Figma', 'Next.js', 'Vercel', 'Netlify', 'Supabase'].map(skill => <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                      {skill}
-                   </span>
-                 ))}
+                   </span>)}
               </div>
             </div>
 
@@ -575,11 +565,9 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Tools & DevOps</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                 {['Git', 'Jupyter', 'Google Colab', 'Docker', 'FastAPI', 'VS Code', 'Linux', 'Windows', 'macOS'].map((skill) => (
-                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                 {['Git', 'Jupyter', 'Google Colab', 'Docker', 'FastAPI', 'VS Code', 'Linux', 'Windows', 'macOS'].map(skill => <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                      {skill}
-                   </span>
-                 ))}
+                   </span>)}
               </div>
             </div>
             
@@ -589,11 +577,9 @@ const CV = () => {
                 <h3 className="font-bold text-lg text-foreground">Languages</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                 {['English (Native)', 'Hebrew (Intermediate)', 'Mandarin (Intermediate)', 'German (Beginner)'].map((skill) => (
-                   <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                 {['English (Native)', 'Hebrew (Intermediate)', 'Mandarin (Intermediate)', 'German (Beginner)'].map(skill => <span key={skill} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                      {skill}
-                   </span>
-                 ))}
+                   </span>)}
               </div>
             </div>
           </div>
@@ -609,11 +595,9 @@ const CV = () => {
           </div>
           <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
             <div className="flex flex-wrap gap-2">
-              {['Reading', 'Graphic Design', 'Laser Cutting', '3D Modeling', 'Biking', 'Running', 'Board Games', 'Woodworking'].map((hobby) => (
-                <span key={hobby} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+              {['Reading', 'Graphic Design', 'Laser Cutting', '3D Modeling', 'Biking', 'Running', 'Board Games', 'Woodworking'].map(hobby => <span key={hobby} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                   {hobby}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
         </section>
@@ -627,8 +611,6 @@ const CV = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default CV;
