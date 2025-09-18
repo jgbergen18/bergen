@@ -1131,6 +1131,81 @@ const Blog = () => {
             </p>
           </div>
 
+          {/* Special Posts */}
+          <div className="space-y-8 mb-12">
+            {/* Pending 2025 Post */}
+            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border border-amber-200 dark:border-amber-700 rounded-xl p-8 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-3 h-3 bg-amber-400 rounded-full animate-pulse"></div>
+                <h2 className="text-3xl md:text-4xl font-bold text-amber-800 dark:text-amber-200">
+                  Top 10 Books of 2025
+                </h2>
+                <div className="px-3 py-1 bg-amber-200 dark:bg-amber-700 text-amber-800 dark:text-amber-200 rounded-full text-sm font-medium">
+                  Coming Soon
+                </div>
+              </div>
+              <p className="text-amber-700 dark:text-amber-300 text-lg leading-relaxed">
+                Still reading and discovering amazing books this year! Check back at the end of 2025 for my curated list of the year's most impactful reads. 📖✨
+              </p>
+            </div>
+
+            {/* Top 10 Books of 2024 */}
+            <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-purple-900/20 dark:via-pink-900/20 dark:to-rose-900/20 border border-purple-200 dark:border-purple-700 rounded-xl overflow-hidden shadow-xl">
+              <div className="bg-gradient-to-r from-purple-600 to-rose-600 p-8 text-white">
+                <h2 className="text-4xl md:text-5xl font-bold mb-3">
+                  Top 10 Books of 2024
+                </h2>
+                <p className="text-purple-100 text-lg">
+                  My favorite reads from an incredible year of books
+                </p>
+              </div>
+              
+              <div className="p-8">
+                <div className="grid gap-4">
+                  {[
+                    { rank: 1, title: "The Pull of the Stars", author: "Emma Donoghue", rating: 5 },
+                    { rank: 2, title: "Demon Copperhead", author: "Barbara Kingsolver", rating: 5 },
+                    { rank: 3, title: "Ducks: Two Years in the Oil Sands", author: "Kate Beaton", rating: 5 },
+                    { rank: 4, title: "Caste: The Origins of Our Discontents", author: "Isabel Wilkerson", rating: 5 },
+                    { rank: 5, title: "Humankind: A Hopeful History", author: "Rutger Bregman", rating: 5 },
+                    { rank: 6, title: "Secret City: The Hidden History of Gay Washington", author: "James Kirchick", rating: 5 },
+                    { rank: 7, title: "Atomic Accidents: A History of Nuclear Meltdowns and Disasters: From the Ozark Mountains to Fukushima", author: "James Mahaffey", rating: 4 },
+                    { rank: 8, title: "The Dead Take the A Train", author: "Cassandra Khaw", rating: 4 },
+                    { rank: 9, title: "You Dreamed of Empires", author: "Álvaro Enrigue", rating: 4 },
+                    { rank: 10, title: "He Who Drowned the World", author: "Shelley Parker-Chan", rating: 4 }
+                  ].map((book) => (
+                    <div key={book.rank} className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-purple-100 dark:border-purple-800 hover:shadow-md transition-shadow">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-rose-500 text-white font-bold rounded-full flex items-center justify-center text-lg">
+                        {book.rank}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-semibold text-text-primary mb-1 leading-tight">
+                          {book.title}
+                        </h3>
+                        <p className="text-text-secondary text-sm mb-2">
+                          by {book.author}
+                        </p>
+                        <div className="flex items-center space-x-1">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i} className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-muted-foreground'}`}>
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-8 p-6 bg-purple-50 dark:bg-purple-900/30 rounded-lg border border-purple-200 dark:border-purple-700">
+                  <p className="text-purple-800 dark:text-purple-200 leading-relaxed">
+                    <strong className="font-semibold">Reflection:</strong> 2024 was an extraordinary year for reading! These ten books challenged my perspectives, moved me deeply, and expanded my understanding of the world. From Emma Donoghue's gripping historical fiction to Kate Beaton's powerful memoir, each book on this list earned its place through exceptional storytelling and lasting impact.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Reading Logs */}
           <div className="space-y-8">
             {sortedYears.map(year => {
