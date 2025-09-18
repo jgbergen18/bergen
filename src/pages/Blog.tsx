@@ -594,7 +594,17 @@ const Blog = () => {
             <p className="text-lg text-text-secondary max-w-2xl leading-relaxed">
               My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚 
               <br />
-              <span className="text-sm italic text-text-muted">Colors reflect NYC's actual 2024 temperatures: coldest months in blue-grey, hottest in red-orange.</span>
+              <span className="text-sm italic text-text-muted">
+                Colors reflect NYC's actual 2024 temperatures (coldest to hottest). Data source: 
+                <a 
+                  href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_source=chatgpt.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline ml-1"
+                >
+                  Iowa State Mesonet
+                </a>
+              </span>
             </p>
           </div>
 
@@ -642,9 +652,27 @@ const Blog = () => {
                     <CollapsibleTrigger className="w-full text-left">
                       <div className={`flex items-center justify-between p-6 ${getMonthHover(log.month)} transition-colors cursor-pointer`}>
                         <div className="space-y-2">
-                          <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
-                            {log.month}
-                          </h2>
+                          <div className="flex items-baseline gap-3">
+                            <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
+                              {log.month}
+                            </h2>
+                            <span className="text-lg text-text-muted font-medium">
+                              {(() => {
+                                const monthKey = log.month.split(' ')[0];
+                                const temps = {
+                                  'January': '42.0°F',
+                                  'February': '47.0°F', 
+                                  'March': '55.2°F',
+                                  'April': '62.0°F',
+                                  'May': '72.7°F',
+                                  'June': '84.2°F',
+                                  'July': '87.4°F',
+                                  'August': '84.0°F'
+                                };
+                                return temps[monthKey as keyof typeof temps] || '';
+                              })()}
+                            </span>
+                          </div>
                           <p className="text-text-secondary">
                             <strong>Books Read:</strong> {log.booksRead}, <strong>Average Rating:</strong> {log.averageRating} Stars
                           </p>
