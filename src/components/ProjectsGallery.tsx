@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import depressionDetectionImg from '../assets/depression-detection-project.png';
 import sassResearchImg from '../assets/sass-research-group.png';
+import parkinsonsResearchImg from '../assets/parkinsons-research.png';
 
 const projectsData = [
   {
@@ -32,11 +33,12 @@ const projectsData = [
   },
   {
     id: 4,
-    title: "Urban Analytics Platform",
-    description: "Real-time data analysis platform for understanding urban mobility patterns and city planning insights.",
-    imageUrl: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&h=600&fit=crop",
-    tags: ["Analytics", "Urban Planning", "Python"],
-    type: "project"
+    title: "Parkinson's Disease Research",
+    description: "Research assistant in the Agalliu Lab studying the role of gut immune system in Parkinson's Disease progression. Contributed to published research in Neuron on α-synuclein and HLA-DRB1*15:01 interactions.",
+    imageUrl: parkinsonsResearchImg,
+    tags: ["Neuroscience", "Research", "Immunology"],
+    type: "project",
+    externalLink: "https://www.cell.com/neuron/pdf/S0896-6273(23)00548-2.pdf"
   },
   {
     id: 5,
