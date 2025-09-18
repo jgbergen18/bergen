@@ -12,7 +12,7 @@ interface Cell {
 }
 
 const Crossword = () => {
-  // 5x5 grid for mini crossword with fewer blanks and better clues
+  // 5x5 grid for mini crossword with real intersecting words
   const initialGrid: Cell[][] = [
     [
       { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Organ Jamie studies' },
@@ -23,29 +23,29 @@ const Crossword = () => {
     ],
     [
       { letter: '', number: 2, isBlack: false, answer: 'A', clueDown: '2D. Liberal arts college in NY' },
-      { letter: '', number: 6, isBlack: false, answer: 'U', clueAcross: '6A. You, in French' },
-      { letter: '', isBlack: false, answer: 'N' },
-      { letter: '', isBlack: false, answer: 'E' },
-      { letter: '', number: 3, isBlack: false, answer: 'T', clueDown: '3D. Technology' }
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 3, isBlack: false, answer: 'I', clueDown: '3D. Machine learning field' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
     ],
     [
       { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: false, answer: 'N' },
-      { letter: '', number: 7, isBlack: false, answer: 'I', clueAcross: '7A. Myself' },
-      { letter: '', isBlack: false, answer: 'V' },
-      { letter: '', isBlack: false, answer: 'E' }
+      { letter: '', number: 4, isBlack: false, answer: 'C', clueAcross: '4A. Computer science degree' },
+      { letter: '', isBlack: false, answer: 'S' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
     ],
     [
-      { letter: '', number: 4, isBlack: false, answer: 'D', clueDown: '4D. Information' },
-      { letter: '', isBlack: false, answer: 'I' },
-      { letter: '', isBlack: false, answer: 'V' },
-      { letter: '', isBlack: false, answer: 'E' },
-      { letter: '', number: 5, isBlack: false, answer: 'R', clueDown: '5D. Research focus' }
+      { letter: '', isBlack: false, answer: 'D' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 8, isBlack: false, answer: 'A', clueAcross: '8A. AI type' },
-      { letter: '', isBlack: false, answer: 'I' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' }
     ]
@@ -59,15 +59,11 @@ const Crossword = () => {
   const clues = {
     across: [
       '1. Organ Jamie studies',
-      '6. French word for "you"',
-      '7. Pronoun for self',
-      '8. Machine learning type'
+      '4. Computer science (abbr.)'
     ],
     down: [
       '2. Liberal arts college in NY',
-      '3. Modern innovation',
-      '4. Facts and figures',
-      '5. Jamie\'s academic focus'
+      '3. Machine learning field (abbr.)'
     ]
   };
 
