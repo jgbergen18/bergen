@@ -43,7 +43,7 @@ const CV = () => {
           <div className="space-y-6">
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-bold text-lg text-foreground">Erasmus Mundus Joint MSc in Brain and Data Science</h3>
+                <h3 className="font-bold text-lg text-foreground">MSc in Brain and Data Science, Erasmus Mundus Joint Program</h3>
                 <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
               </div>
               <div className="flex items-center gap-2 text-foreground mb-2">
@@ -58,7 +58,7 @@ const CV = () => {
             
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-bold text-lg text-foreground">Erasmus Mundus Joint MSc in Neuroscience</h3>
+                <h3 className="font-bold text-lg text-foreground">MSc in Neuroscience, Erasmus Mundus Joint Program</h3>
                 <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
               </div>
               <div className="flex items-center gap-2 text-foreground mb-2">
