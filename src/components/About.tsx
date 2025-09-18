@@ -2,7 +2,7 @@ import profilePhoto from '../assets/profile-photo.jpg';
 
 const About = () => {
   return (
-    <section id="about" className="py-16 px-6">
+    <section id="about" className="py-8 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
