@@ -2,6 +2,7 @@ import { ArrowLeft, ChevronDown, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import Header from '../components/Header';
 const readingLogs = [{
   id: 1,
   month: "August 2024",
@@ -486,18 +487,10 @@ const Blog = () => {
     }));
   };
   return <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border-subtle">
-        <div className="max-w-4xl mx-auto px-6 py-6">
-          <Link to="/" className="inline-flex items-center space-x-2 text-text-secondary hover:text-text-primary transition-colors duration-200">
-            <ArrowLeft size={18} />
-            <span>Back to Home</span>
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="max-w-4xl mx-auto px-6 py-16" style={{paddingTop: '6rem'}}>
         <div className="space-y-12">
           {/* Page Title */}
           <div className="space-y-4">

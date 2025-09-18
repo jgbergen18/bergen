@@ -19,7 +19,7 @@ const Index = () => {
       <footer className="py-8 px-6 border-t border-border-subtle">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-text-muted text-sm">
-            © 2024 Your Name. All rights reserved.
+            © 2024 Jamie Bergen. All rights reserved.
           </p>
         </div>
       </footer>
