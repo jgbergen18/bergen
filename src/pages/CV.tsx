@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink, Mail, Phone } from 'lucide-react';
 
 const CV = () => {
   return (
@@ -12,18 +12,18 @@ const CV = () => {
           <h1 className="text-5xl font-bold text-primary mb-4 animate-fade-in">
             Jamie Bergen
           </h1>
-          <p className="text-xl text-text-secondary mb-6">Neuroscience & AI Researcher</p>
-          <div className="flex flex-wrap justify-center gap-6 text-text-muted">
+          <p className="text-xl text-foreground/70 mb-6">Neuroscience & AI Researcher</p>
+          <div className="flex flex-wrap justify-center gap-6 text-foreground">
             <div className="flex items-center gap-2">
-              <span>📧</span>
+              <Mail className="w-4 h-4 text-primary" />
               <span>jgbergen18@gmail.com</span>
             </div>
             <div className="flex items-center gap-2">
-              <span>📱</span>
+              <Phone className="w-4 h-4 text-primary" />
               <span>203.644.8464</span>
             </div>
             <div className="flex items-center gap-2">
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4 text-primary" />
               <span>jamiebergen.com</span>
             </div>
           </div>
@@ -43,42 +43,42 @@ const CV = () => {
           <div className="space-y-6">
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-bold text-lg text-text-primary">Erasmus Mundus Joint MSc in Brain and Data Science</h3>
+                <h3 className="font-bold text-lg text-foreground">Erasmus Mundus Joint MSc in Brain and Data Science</h3>
                 <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
               </div>
-              <div className="flex items-center gap-2 text-text-muted mb-2">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Bar-Ilan University, Ramat Gan, Israel</span>
               </div>
-              <div className="flex items-center gap-2 text-text-muted">
-                <Calendar className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Calendar className="w-4 h-4 text-primary" />
                 <span>Expected Graduation: June 2026</span>
               </div>
             </div>
             
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
-              <h3 className="font-bold text-lg text-text-primary mb-3">Erasmus Mundus Joint MSc in Neuroscience</h3>
-              <div className="flex items-center gap-2 text-text-muted mb-2">
-                <MapPin className="w-4 h-4" />
+              <h3 className="font-bold text-lg text-foreground mb-3">Erasmus Mundus Joint MSc in Neuroscience</h3>
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Vrije Universiteit, Amsterdam, The Netherlands</span>
               </div>
-              <div className="flex items-center gap-2 text-text-muted">
-                <Calendar className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Calendar className="w-4 h-4 text-primary" />
                 <span>Expected Graduation: June 2026</span>
               </div>
             </div>
             
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-bold text-lg text-text-primary">B.A. in Computer Science & Neuroscience</h3>
+                <h3 className="font-bold text-lg text-foreground">B.A. in Computer Science & Neuroscience</h3>
                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">3.5 GPA</span>
               </div>
-              <div className="flex items-center gap-2 text-text-muted mb-2">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Barnard College of Columbia University, New York City, USA</span>
               </div>
-              <div className="flex items-center gap-2 text-text-muted">
-                <Calendar className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Calendar className="w-4 h-4 text-primary" />
                 <span>Graduated: May 2023</span>
               </div>
             </div>
@@ -99,9 +99,9 @@ const CV = () => {
                 <div className="p-2 bg-accent/20 rounded-lg">
                   <Brain className="w-5 h-5 text-accent" />
                 </div>
-                <h3 className="font-bold text-lg text-text-primary">NeuroAI</h3>
+                <h3 className="font-bold text-lg text-foreground">NeuroAI</h3>
               </div>
-              <p className="text-text-secondary leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed">
                 Integrating neuroscience and artificial intelligence to develop brain-inspired models and interpretable algorithms, with applications in cognition, decision-making, and human–AI collaboration.
               </p>
             </div>
@@ -110,9 +110,9 @@ const CV = () => {
                 <div className="p-2 bg-primary/20 rounded-lg">
                   <Users className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-bold text-lg text-text-primary">Consciousness & Decision-Making</h3>
+                <h3 className="font-bold text-lg text-foreground">Consciousness & Decision-Making</h3>
               </div>
-              <p className="text-text-secondary leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed">
                 Bridging neuroscience and computer science to study the mechanisms of consciousness and their implications for both biological and artificial agents.
               </p>
             </div>
@@ -132,8 +132,8 @@ const CV = () => {
               <div className="flex items-start gap-4">
                 <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2025</span>
                 <div>
-                  <h4 className="font-semibold text-text-primary mb-1">Bar-Ilan Brain Center Conference</h4>
-                  <p className="text-text-secondary">Poster Presentation and Speaker: A New Paradigm for Studying LGBTQ+ Identities using Mixed Methods and Machine Learning</p>
+                  <h4 className="font-semibold text-foreground mb-1">Bar-Ilan Brain Center Conference</h4>
+                  <p className="text-foreground/80">Poster Presentation and Speaker: A New Paradigm for Studying LGBTQ+ Identities using Mixed Methods and Machine Learning</p>
                 </div>
               </div>
             </div>
@@ -142,8 +142,8 @@ const CV = () => {
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2023</span>
                 <div>
-                  <h4 className="font-semibold text-text-primary mb-1">Neuron Publication</h4>
-                  <p className="text-text-secondary">Interaction of α-synuclein with HLA-DRB1*15:01 recapitulates enteric features of Parkinson's disease</p>
+                  <h4 className="font-semibold text-foreground mb-1">Neuron Publication</h4>
+                  <p className="text-foreground/80">Interaction of α-synuclein with HLA-DRB1*15:01 recapitulates enteric features of Parkinson's disease</p>
                 </div>
               </div>
             </div>
@@ -153,16 +153,16 @@ const CV = () => {
                 <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2022</span>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-semibold text-text-primary mb-1">SFN Poster Presentation</h4>
-                    <p className="text-text-secondary">Alpha melanocyte-stimulating Hormone (α-MSH) regulates brain endothelial function in ABCD1-deficient cells</p>
+                    <h4 className="font-semibold text-foreground mb-1">SFN Poster Presentation</h4>
+                    <p className="text-foreground/80">Alpha melanocyte-stimulating Hormone (α-MSH) regulates brain endothelial function in ABCD1-deficient cells</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-text-primary mb-1">Consciousness Conference Speaker</h4>
-                    <p className="text-text-secondary">The Phenomenology and Prevalence of Trans Phantoms</p>
+                    <h4 className="font-semibold text-foreground mb-1">Consciousness Conference Speaker</h4>
+                    <p className="text-foreground/80">The Phenomenology and Prevalence of Trans Phantoms</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-text-primary mb-1">Barnard Summer Research Institute</h4>
-                    <p className="text-text-secondary">Poster Presentation: Investigating the role of the immune system in aged mice</p>
+                    <h4 className="font-semibold text-foreground mb-1">Barnard Summer Research Institute</h4>
+                    <p className="text-foreground/80">Poster Presentation: Investigating the role of the immune system in aged mice</p>
                   </div>
                 </div>
               </div>
@@ -184,19 +184,19 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
+                  <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
                   <p className="text-accent font-semibold">Sarit Kraus Lab, Bar-Ilan University</p>
                 </div>
                 <div className="text-right">
                   <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">Current</span>
-                  <p className="text-sm text-text-muted mt-1">08/2024–Present</p>
+                  <p className="text-sm text-muted-foreground mt-1">08/2024–Present</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mb-4 text-text-muted">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-4 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Ramat Gan, Israel</span>
               </div>
-              <ul className="space-y-3 text-text-secondary">
+              <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                   <span>Designed and implemented research experiment for AI-mediated conflict resolution strategies with automated analysis reporting.</span>
@@ -218,19 +218,19 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
+                  <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
                   <p className="text-primary font-semibold">Dritan Agalliu Lab, Columbia University Irving Medical Center</p>
                 </div>
                 <div className="text-right">
                   <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2021-2023</span>
-                  <p className="text-sm text-text-muted mt-1">09/2021–05/2023</p>
+                  <p className="text-sm text-muted-foreground mt-1">09/2021–05/2023</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mb-4 text-text-muted">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-4 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>New York, NY</span>
               </div>
-              <ul className="space-y-3 text-text-secondary">
+              <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                   <span>Designed and executed experiments on immune system involvement in Parkinson's disease progression using mouse models.</span>
@@ -252,19 +252,19 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
+                  <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
                   <p className="text-accent font-semibold">S.J. Langer and Taymy Caso Lab, New York University</p>
                 </div>
                 <div className="text-right">
                   <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2021-2022</span>
-                  <p className="text-sm text-text-muted mt-1">10/2021–12/2022</p>
+                  <p className="text-sm text-muted-foreground mt-1">10/2021–12/2022</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mb-4 text-text-muted">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-4 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>New York, NY</span>
               </div>
-              <ul className="space-y-3 text-text-secondary">
+              <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                   <span>Conducted psychological research on embodiment and phantom sensations in transgender and gender nonconforming individuals.</span>
@@ -286,19 +286,19 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
+                  <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
                   <p className="text-primary font-semibold">Patricia Musolino Lab, Massachusetts General Hospital</p>
                 </div>
                 <div className="text-right">
                   <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2020-2021</span>
-                  <p className="text-sm text-text-muted mt-1">11/2020–09/2021</p>
+                  <p className="text-sm text-muted-foreground mt-1">11/2020–09/2021</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mb-4 text-text-muted">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-4 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Boston, MA</span>
               </div>
-              <ul className="space-y-3 text-text-secondary">
+              <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                   <span>Cultured and maintained HBMECs to model blood-brain barrier integrity in X-linked adrenoleukodystrophy (X-ALD).</span>
@@ -320,19 +320,19 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
+                  <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
                   <p className="text-accent font-semibold">Aurel Lazar Bionet Lab, Columbia University</p>
                 </div>
                 <div className="text-right">
                   <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2020</span>
-                  <p className="text-sm text-text-muted mt-1">06/2020–09/2020</p>
+                  <p className="text-sm text-muted-foreground mt-1">06/2020–09/2020</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mb-4 text-text-muted">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-4 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>New York, NY</span>
               </div>
-              <ul className="space-y-3 text-text-secondary">
+              <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                   <span>Built and queried neural circuit models using NeuroArch graph database with NetworkX and Pandas for connectivity analysis.</span>
@@ -358,7 +358,7 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <Code className="w-5 h-5 text-primary" />
-                <h3 className="font-bold text-lg text-text-primary">Programming Languages</h3>
+                <h3 className="font-bold text-lg text-foreground">Programming Languages</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['Python', 'R', 'TypeScript', 'JavaScript', 'MATLAB'].map((skill) => (
@@ -372,7 +372,7 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <FlaskConical className="w-5 h-5 text-accent" />
-                <h3 className="font-bold text-lg text-text-primary">Frameworks & Tools</h3>
+                <h3 className="font-bold text-lg text-foreground">Frameworks & Tools</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['React', 'Supabase', 'OpenAI API', 'NetworkX', 'Pandas'].map((skill) => (
@@ -386,7 +386,7 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <Microscope className="w-5 h-5 text-accent" />
-                <h3 className="font-bold text-lg text-text-primary">Laboratory Techniques</h3>
+                <h3 className="font-bold text-lg text-foreground">Laboratory Techniques</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['PCR', 'Western Blot', 'Immunohistochemistry', 'Confocal Microscopy', 'Cell Culture'].map((skill) => (
@@ -400,7 +400,7 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <Brain className="w-5 h-5 text-primary" />
-                <h3 className="font-bold text-lg text-text-primary">Analysis Software</h3>
+                <h3 className="font-bold text-lg text-foreground">Analysis Software</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['ImageJ', 'Prism', 'SPSS', 'NeuroArch'].map((skill) => (
@@ -417,7 +417,7 @@ const CV = () => {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border-subtle">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-text-muted text-sm">
+          <p className="text-muted-foreground text-sm">
             © 2024 Jamie Bergen. All rights reserved.
           </p>
         </div>
