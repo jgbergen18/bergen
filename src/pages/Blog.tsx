@@ -241,38 +241,38 @@ const Blog = () => {
                 {/* Book List */}
                 <div className="space-y-3">
                   {log.books.map((book, bookIndex) => {
-                    // Seasonal colors based on month
+                    // Seasonal colors based on month - cohesive shades
                     const getSeasonalColor = (month: string, index: number) => {
                       const colors = {
-                        'March': [
-                          'bg-gradient-to-br from-green-400 to-emerald-500',
-                          'bg-gradient-to-br from-pink-300 to-rose-400', 
-                          'bg-gradient-to-br from-sky-300 to-blue-400',
-                          'bg-gradient-to-br from-violet-300 to-purple-400',
-                          'bg-gradient-to-br from-amber-300 to-yellow-400',
-                          'bg-gradient-to-br from-teal-300 to-cyan-400'
+                        'March': [ // Spring greens - light to dark
+                          'bg-gradient-to-br from-emerald-200 to-emerald-300',
+                          'bg-gradient-to-br from-emerald-300 to-emerald-400',
+                          'bg-gradient-to-br from-emerald-400 to-emerald-500', 
+                          'bg-gradient-to-br from-emerald-500 to-emerald-600',
+                          'bg-gradient-to-br from-emerald-600 to-emerald-700',
+                          'bg-gradient-to-br from-emerald-700 to-emerald-800'
                         ],
-                        'February': [
-                          'bg-gradient-to-br from-blue-500 to-indigo-600',
-                          'bg-gradient-to-br from-purple-400 to-violet-500',
-                          'bg-gradient-to-br from-slate-400 to-gray-500',
-                          'bg-gradient-to-br from-indigo-400 to-blue-500',
-                          'bg-gradient-to-br from-rose-400 to-pink-500',
-                          'bg-gradient-to-br from-violet-500 to-purple-600',
-                          'bg-gradient-to-br from-blue-400 to-sky-500',
-                          'bg-gradient-to-br from-purple-500 to-indigo-600',
-                          'bg-gradient-to-br from-gray-500 to-slate-600',
-                          'bg-gradient-to-br from-indigo-500 to-violet-600'
+                        'February': [ // Winter blues - light to dark
+                          'bg-gradient-to-br from-blue-200 to-blue-300',
+                          'bg-gradient-to-br from-blue-300 to-blue-400',
+                          'bg-gradient-to-br from-blue-400 to-blue-500',
+                          'bg-gradient-to-br from-blue-500 to-blue-600',
+                          'bg-gradient-to-br from-blue-600 to-blue-700',
+                          'bg-gradient-to-br from-blue-700 to-blue-800',
+                          'bg-gradient-to-br from-blue-800 to-blue-900',
+                          'bg-gradient-to-br from-indigo-400 to-indigo-500',
+                          'bg-gradient-to-br from-indigo-500 to-indigo-600',
+                          'bg-gradient-to-br from-indigo-600 to-indigo-700'
                         ],
-                        'January': [
-                          'bg-gradient-to-br from-slate-600 to-gray-700',
-                          'bg-gradient-to-br from-blue-600 to-slate-700',
-                          'bg-gradient-to-br from-indigo-600 to-blue-700',
-                          'bg-gradient-to-br from-gray-600 to-slate-700',
-                          'bg-gradient-to-br from-blue-700 to-indigo-800',
-                          'bg-gradient-to-br from-slate-700 to-gray-800',
-                          'bg-gradient-to-br from-indigo-700 to-purple-800',
-                          'bg-gradient-to-br from-gray-700 to-slate-800'
+                        'January': [ // Winter grays - light to dark
+                          'bg-gradient-to-br from-slate-300 to-slate-400',
+                          'bg-gradient-to-br from-slate-400 to-slate-500',
+                          'bg-gradient-to-br from-slate-500 to-slate-600',
+                          'bg-gradient-to-br from-slate-600 to-slate-700',
+                          'bg-gradient-to-br from-slate-700 to-slate-800',
+                          'bg-gradient-to-br from-gray-500 to-gray-600',
+                          'bg-gradient-to-br from-gray-600 to-gray-700',
+                          'bg-gradient-to-br from-gray-700 to-gray-800'
                         ]
                       };
                       
