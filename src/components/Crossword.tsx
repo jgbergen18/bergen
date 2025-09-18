@@ -163,7 +163,7 @@ const Crossword = () => {
           Jamie Bergen Mini Crossword
         </h2>
         <p className="text-text-secondary text-lg">
-          Test your knowledge about Jamie's academic journey!
+          Learn about Jamie's academic journey!
         </p>
       </div>
         
