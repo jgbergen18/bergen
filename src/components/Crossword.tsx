@@ -12,6 +12,19 @@ interface Cell {
 }
 
 const Crossword = () => {
+  // Split text for rainbow animation
+  const splitText = (text: string) => {
+    return text.split('').map((char, index) => (
+      <span
+        key={index}
+        className="rainbow-letter inline-block transition-all duration-200"
+        style={{ animationDelay: `${index * 0.1}s` }}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </span>
+    ));
+  };
+
   // 7x6 grid exactly matching the screenshot
   const initialGrid: Cell[][] = [
     [
@@ -142,41 +155,43 @@ const Crossword = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-2">
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="text-center mb-10">
+        <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-3">
           Jamie Bergen Mini Crossword
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-text-secondary text-lg">
           Test your knowledge about Jamie's academic journey!
         </p>
       </div>
         
-        <div className="flex flex-col lg:flex-row gap-8 items-start justify-center">
+        <div className="flex flex-col xl:flex-row gap-12 items-start justify-center">
           {/* Crossword Grid */}
-          <div className="relative">
+          <div className="relative mx-auto">
             {showAnimation && (
-              <div className="absolute inset-0 flex items-center justify-center z-10 bg-background/80 rounded-lg">
-                <div className="text-4xl animate-bounce">🎉 Congratulations! 🎉</div>
+              <div className="absolute inset-0 flex items-center justify-center z-10 bg-background/90 rounded-lg">
+                <div className="text-3xl md:text-4xl font-medium rainbow-text animate-bounce">
+                  {splitText("🎉 Congratulations! 🎉")}
+                </div>
               </div>
             )}
-            <div className="grid grid-cols-6 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
+            <div className="grid grid-cols-6 gap-1.5 p-6 bg-background rounded-xl border border-border-subtle shadow-sm">
               {grid.map((row, rowIndex) =>
                 row.map((cell, colIndex) => (
                   <div
                     key={`${rowIndex}-${colIndex}`}
                     className={`
-                      relative w-12 h-12 border border-border-subtle cursor-pointer
-                      ${cell.isBlack ? 'bg-text-primary' : 'bg-background hover:bg-surface'}
-                      ${selectedCell?.row === rowIndex && selectedCell?.col === colIndex ? 'ring-2 ring-primary' : ''}
-                      ${isCompleted ? 'bg-green-50 dark:bg-green-950' : ''}
+                      relative w-14 h-14 border-2 border-border-subtle cursor-pointer rounded-md transition-all duration-200
+                      ${cell.isBlack ? 'bg-text-primary' : 'bg-background hover:bg-surface hover:border-border'}
+                      ${selectedCell?.row === rowIndex && selectedCell?.col === colIndex ? 'ring-2 ring-primary ring-offset-2' : ''}
+                      ${isCompleted ? 'bg-green-50 dark:bg-green-950 border-green-300 dark:border-green-700' : ''}
                     `}
                     onClick={() => handleCellClick(rowIndex, colIndex)}
                   >
                     {!cell.isBlack && (
                       <>
                         {cell.number && (
-                          <span className="absolute top-0 left-0 text-xs font-medium text-text-secondary p-0.5">
+                          <span className="absolute top-1 left-1 text-xs font-semibold text-text-secondary">
                             {cell.number}
                           </span>
                         )}
@@ -184,7 +199,7 @@ const Crossword = () => {
                           type="text"
                           value={cell.letter}
                           onChange={(e) => handleInputChange(e.target.value, rowIndex, colIndex)}
-                          className="w-full h-full text-center font-medium bg-transparent border-none outline-none text-text-primary"
+                          className="w-full h-full text-center text-lg font-semibold bg-transparent border-none outline-none text-text-primary"
                           maxLength={1}
                         />
                       </>
@@ -194,25 +209,25 @@ const Crossword = () => {
               )}
             </div>
             
-            <div className="flex gap-2 mt-4 justify-center">
-              <Button onClick={handleSolveMe} variant="outline" size="sm">
+            <div className="flex gap-3 mt-6 justify-center">
+              <Button onClick={handleSolveMe} variant="outline" size="sm" className="px-6">
                 Solve Me
               </Button>
-              <Button onClick={handleReset} variant="outline" size="sm">
+              <Button onClick={handleReset} variant="outline" size="sm" className="px-6">
                 Reset
               </Button>
             </div>
           </div>
 
           {/* Clues */}
-          <div className="space-y-6 max-w-md">
+          <div className="space-y-8 max-w-md mx-auto xl:mx-0">
             <div>
-              <h3 className="font-medium text-text-primary mb-3 border-b border-border-subtle pb-1">
+              <h3 className="text-lg font-semibold text-text-primary mb-4 border-b-2 border-border-subtle pb-2">
                 Across
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {clues.across.map((clue, index) => (
-                  <p key={index} className="text-sm text-text-secondary">
+                  <p key={index} className="text-sm text-text-secondary leading-relaxed">
                     {clue}
                   </p>
                 ))}
@@ -220,12 +235,12 @@ const Crossword = () => {
             </div>
             
             <div>
-              <h3 className="font-medium text-text-primary mb-3 border-b border-border-subtle pb-1">
+              <h3 className="text-lg font-semibold text-text-primary mb-4 border-b-2 border-border-subtle pb-2">
                 Down
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {clues.down.map((clue, index) => (
-                  <p key={index} className="text-sm text-text-secondary">
+                  <p key={index} className="text-sm text-text-secondary leading-relaxed">
                     {clue}
                   </p>
                 ))}
