@@ -133,7 +133,6 @@ const Crossword = () => {
     if (checkCompletion(newGrid)) {
       setIsCompleted(true);
       setShowAnimation(true);
-      toast.success("Congratulations! You solved the crossword! 🎉");
       setTimeout(() => setShowAnimation(false), 3000);
     }
   };
@@ -145,7 +144,6 @@ const Crossword = () => {
     setGrid(solvedGrid);
     setIsCompleted(true);
     setShowAnimation(true);
-    toast.success("Puzzle solved! 🧩");
     setTimeout(() => setShowAnimation(false), 3000);
   };
 
