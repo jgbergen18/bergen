@@ -91,8 +91,8 @@ const CV = () => {
         {/* Research Interests */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-accent/10 rounded-lg">
-              <Brain className="w-6 h-6 text-accent" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Brain className="w-6 h-6 text-foreground" />
             </div>
             <h2 className="text-3xl font-bold text-primary">Research Interests</h2>
           </div>
@@ -125,13 +125,13 @@ const CV = () => {
         {/* Awards & Fellowships */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-accent/10 rounded-lg">
-              <Award className="w-6 h-6 text-accent" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Award className="w-6 h-6 text-foreground" />
             </div>
             <h2 className="text-3xl font-bold text-primary">Awards & Fellowships</h2>
           </div>
           <div className="space-y-4">
-            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">2025</span>
                 <div>
@@ -140,7 +140,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-primary hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2024-2026</span>
                 <div>
@@ -149,7 +149,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-primary hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2021</span>
                 <div>
@@ -169,7 +169,7 @@ const CV = () => {
             <h2 className="text-3xl font-bold text-primary">Publications & Conferences</h2>
           </div>
           <div className="space-y-4">
-            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">2025</span>
                 <div>
@@ -179,7 +179,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-primary hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2023</span>
                 <div>
@@ -189,7 +189,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">2022</span>
                 <div className="space-y-3">
@@ -238,15 +238,15 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Designed and implemented a research experiment relating to conversing with mediator AI agent, and automated analysis reporting for studying AI-assisted conflict resolution strategies.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Developed full-stack AI mediation platform using React/TypeScript and Supabase, integrating OpenAI GPT-4 with multi-agent architecture including regulatory agent oversight system for conversation quality control.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Collaborated closely with Professor Sarit Kraus and other lab members in weekly meetings to present results and improve experimental protocol.</span>
                 </li>
               </ul>
@@ -271,15 +271,15 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Designed and executed experiments regarding the involvement of the immune system in the progression of Parkinson's disease using mouse models.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Performed PCR, western blot, mouse behavioral experiments, mouse brain and gut dissections, tissue fixation and sectioning, immunohistochemistry, and confocal microscopy imaging to collect data. Analyzed with ImageJ, Prism, R, and Python to uncover biological markers.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Co-authored a Neuron publication elucidating α-synuclein epitope interactions with HLA-DRB1*15:01 relevant to early-stage Parkinson's disease.</span>
                 </li>
               </ul>
@@ -304,15 +304,15 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Conducted psychological research on embodiment and phantom sensations in transgender and gender nonconforming individuals.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Collaboratively developed a detailed code-book and analyzed qualitative interview data on embodiment experiences and gender identity.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Presented research at the 2022 Consciousness Conference, contributing to broader conversations on gender and psychology.</span>
                 </li>
               </ul>
@@ -337,15 +337,15 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Cultured and maintained human brain microvascular endothelial cells (HBMECs) to model blood-brain barrier integrity in X-linked adrenoleukodystrophy (X-ALD), performing immunohistochemistry, PCR, and western blot to assess gene expression and protein markers.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Independently designed a project investigating cytokine-mediated endothelial dysfunction, identifying key immune signaling differences in ABCD1-deficient cells.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Mentored several high school students under the supervision of Dr. Patricia Musolino and Dr. Ed Kravitz.</span>
                 </li>
               </ul>
@@ -370,11 +370,11 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Built and queried neural circuit models using the NeuroArch graph database, leveraging NetworkX and Pandas to analyze connectivity patterns and structural motifs.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Contributed to internal presentations that informed changes to the lab's neural modeling pipeline, focusing on improving modeling and interpretability of fly brain connectome data.</span>
                 </li>
               </ul>
@@ -385,8 +385,8 @@ const CV = () => {
         {/* Industry Experience */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-accent/10 rounded-lg">
-              <Briefcase className="w-6 h-6 text-accent" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Briefcase className="w-6 h-6 text-foreground" />
             </div>
             <h2 className="text-3xl font-bold text-primary">Industry Experience</h2>
           </div>
@@ -408,15 +408,15 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Developed and deployed a fraud detection module using VB.NET and SQL, increasing audit efficiency by flagging anomalous filings based on historical risk heuristics.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Refactored legacy codebase and optimized SQL procedures, reducing system processing errors and improving return validation times.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Translated evolving state tax regulations into technical specifications, delivering compliant software updates for two major policy changes.</span>
                 </li>
               </ul>
@@ -428,7 +428,7 @@ const CV = () => {
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-2 bg-primary/10 rounded-lg">
-              <Heart className="w-6 h-6 text-primary" />
+              <Heart className="w-6 h-6 text-foreground" />
             </div>
             <h2 className="text-3xl font-bold text-primary">Additional Experience</h2>
           </div>
@@ -451,19 +451,19 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Led year-long virtual programming courses and two intensive summer camps for 50 Ukrainian high school students, covering coding (React and Python), design thinking, user testing, and visual design coursework.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Organized a 2-week camp for 50 students, coordinating instructor on-boarding, curriculum design, fundraising, and daily logistics across time zones.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Developed and dynamically adapted lessons during power outages, missile sirens, and student mental health challenges.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Secured funding for student equipment and facilities through grant applications and fundraising efforts.</span>
                 </li>
               </ul>
@@ -488,15 +488,15 @@ const CV = () => {
               </div>
               <ul className="space-y-3 text-foreground">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Delivered weekly, 90-minute, interactive seminars to two sections of 20 students for 5 semesters on topics including UI design, cryptography, ethics, and artificial intelligence.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Mentored first-year students in securing research and internship opportunities, accelerating academic growth.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                   <span>Modernized and restructured curriculum materials each semester to align with advances in computational science.</span>
                 </li>
               </ul>
@@ -507,8 +507,8 @@ const CV = () => {
         {/* Technical Skills */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-accent/10 rounded-lg">
-              <Code className="w-6 h-6 text-accent" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Code className="w-6 h-6 text-foreground" />
             </div>
             <h2 className="text-3xl font-bold text-primary">Technical Skills</h2>
           </div>
@@ -529,7 +529,7 @@ const CV = () => {
             
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
-                <Brain className="w-5 h-5 text-accent" />
+                <Brain className="w-5 h-5 text-foreground" />
                 <h3 className="font-bold text-lg text-foreground">Machine Learning</h3>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -543,7 +543,7 @@ const CV = () => {
             
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
-                <FlaskConical className="w-5 h-5 text-accent" />
+                <FlaskConical className="w-5 h-5 text-foreground" />
                 <h3 className="font-bold text-lg text-foreground">Data & Visualization</h3>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -571,7 +571,7 @@ const CV = () => {
 
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
-                <Microscope className="w-5 h-5 text-accent" />
+                <Microscope className="w-5 h-5 text-foreground" />
                 <h3 className="font-bold text-lg text-foreground">Tools & DevOps</h3>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -602,8 +602,8 @@ const CV = () => {
         {/* Hobbies & Interests */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-accent/10 rounded-lg">
-              <Heart className="w-6 h-6 text-accent" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Heart className="w-6 h-6 text-foreground" />
             </div>
             <h2 className="text-3xl font-bold text-primary">Hobbies & Interests</h2>
           </div>
