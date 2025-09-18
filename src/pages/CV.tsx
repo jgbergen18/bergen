@@ -4,10 +4,10 @@ const CV = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="max-w-4xl mx-auto px-6 py-12">
+      <main className="max-w-4xl mx-auto px-6 pt-24 pb-12">
         {/* Header */}
         <section className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-text-primary mb-4">Jamie Bergen</h1>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">Jamie Bergen</h1>
           <div className="text-text-muted space-x-4">
             <span>jgbergen18@gmail.com</span>
             <span>•</span>
@@ -19,7 +19,7 @@ const CV = () => {
 
         {/* Education */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-text-primary mb-6 border-b border-border pb-2">Education</h2>
+          <h2 className="text-2xl font-semibold text-primary mb-6 border-b border-primary/30 pb-2">Education</h2>
           <div className="space-y-4">
             <div>
               <p className="font-medium text-text-primary">Expected Graduation 06/2026 | Erasmus Mundus Joint MSc in Brain and Data Science, 4.0 GPA</p>
@@ -38,7 +38,7 @@ const CV = () => {
 
         {/* Research Interests */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-text-primary mb-6 border-b border-border pb-2">Research Interests</h2>
+          <h2 className="text-2xl font-semibold text-primary mb-6 border-b border-primary/30 pb-2">Research Interests</h2>
           <ul className="space-y-3">
             <li className="text-text-primary">
               <strong>NeuroAI</strong> – Integrating neuroscience and artificial intelligence to develop brain-inspired models and interpretable algorithms, with applications in cognition, decision-making, and human–AI collaboration.
@@ -51,7 +51,7 @@ const CV = () => {
 
         {/* Publications and Conferences */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-text-primary mb-6 border-b border-border pb-2">Publications and Conferences</h2>
+          <h2 className="text-2xl font-semibold text-primary mb-6 border-b border-primary/30 pb-2">Publications and Conferences</h2>
           <ul className="space-y-3">
             <li className="text-text-primary">
               <strong>2025</strong> - Bar-Ilan Brain Center Conference Poster Presentation and Speaker: A New Paradigm for Studying LGBTQ+ Identities using Mixed Methods and Machine Learning
@@ -73,12 +73,12 @@ const CV = () => {
 
         {/* Research Experience */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-text-primary mb-6 border-b border-border pb-2">Research Experience</h2>
+          <h2 className="text-2xl font-semibold text-primary mb-6 border-b border-primary/30 pb-2">Research Experience</h2>
           
           {/* Current Position */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-text-primary mb-2">Research Assistant | 08/2024–Present</h3>
-            <p className="text-text-accent font-medium mb-3">Sarit Kraus Lab, Bar-Ilan University, Ramat Gan, Israel</p>
+            <p className="text-accent font-medium mb-3">Sarit Kraus Lab, Bar-Ilan University, Ramat Gan, Israel</p>
             <ul className="list-disc list-inside space-y-2 text-text-primary">
               <li>Designed and implemented a research experiment relating to conversing with mediator AI agent, and automated analysis reporting for studying AI-assisted conflict resolution strategies.</li>
               <li>Developed full-stack AI mediation platform using React/TypeScript and Supabase, integrating OpenAI GPT-4 with multi-agent architecture including regulatory agent oversight system for conversation quality control.</li>
@@ -89,7 +89,7 @@ const CV = () => {
           {/* Columbia University */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-text-primary mb-2">Research Assistant | 09/2021–05/2023</h3>
-            <p className="text-text-accent font-medium mb-3">Dritan Agalliu Lab, Columbia University Irving Medical Center, New York, NY</p>
+            <p className="text-accent font-medium mb-3">Dritan Agalliu Lab, Columbia University Irving Medical Center, New York, NY</p>
             <ul className="list-disc list-inside space-y-2 text-text-primary">
               <li>Designed and executed experiments regarding the involvement of the immune system in the progression of Parkinson's disease using mouse models.</li>
               <li>Performed PCR, western blot, mouse behavioral experiments, mouse brain and gut dissections, tissue fixation and sectioning, immunohistochemistry, and confocal microscopy imaging to collect data.</li>
@@ -101,7 +101,7 @@ const CV = () => {
           {/* NYU */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-text-primary mb-2">Research Assistant | 10/2021–12/2022</h3>
-            <p className="text-text-accent font-medium mb-3">S.J. Langer and Taymy Caso Lab, New York University, New York, NY</p>
+            <p className="text-accent font-medium mb-3">S.J. Langer and Taymy Caso Lab, New York University, New York, NY</p>
             <ul className="list-disc list-inside space-y-2 text-text-primary">
               <li>Conducted psychological research on embodiment and phantom sensations in transgender and gender nonconforming individuals.</li>
               <li>Collaboratively developed a detailed code-book and analyzed qualitative interview data on embodiment experiences and gender identity.</li>
@@ -112,7 +112,7 @@ const CV = () => {
           {/* Mass General */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-text-primary mb-2">Research Assistant | 11/2020–09/2021</h3>
-            <p className="text-text-accent font-medium mb-3">Patricia Musolino Lab, Massachusetts General Hospital, Boston, MA</p>
+            <p className="text-accent font-medium mb-3">Patricia Musolino Lab, Massachusetts General Hospital, Boston, MA</p>
             <ul className="list-disc list-inside space-y-2 text-text-primary">
               <li>Cultured and maintained human brain microvascular endothelial cells (HBMECs) to model blood-brain barrier integrity in X-linked adrenoleukodystrophy (X-ALD).</li>
               <li>Performed immunohistochemistry, PCR, and western blot to assess gene expression and protein markers.</li>
@@ -124,7 +124,7 @@ const CV = () => {
           {/* Columbia Bionet */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-text-primary mb-2">Research Assistant | 06/2020–09/2020</h3>
-            <p className="text-text-accent font-medium mb-3">Aurel Lazar Bionet Lab, Columbia University, New York, NY</p>
+            <p className="text-accent font-medium mb-3">Aurel Lazar Bionet Lab, Columbia University, New York, NY</p>
             <ul className="list-disc list-inside space-y-2 text-text-primary">
               <li>Built and queried neural circuit models using the NeuroArch graph database, leveraging NetworkX and Pandas to analyze connectivity patterns and structural motifs.</li>
               <li>Developed computational tools for neural circuit analysis and visualization.</li>
@@ -134,7 +134,7 @@ const CV = () => {
 
         {/* Technical Skills */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-text-primary mb-6 border-b border-border pb-2">Technical Skills</h2>
+          <h2 className="text-2xl font-semibold text-primary mb-6 border-b border-primary/30 pb-2">Technical Skills</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-semibold text-text-primary mb-3">Programming Languages</h3>
