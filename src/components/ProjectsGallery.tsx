@@ -20,10 +20,10 @@ const projectsData = [
   },
   {
     id: 3,
-    title: "Data Science Blog",
-    description: "Collection of articles exploring the intersection of data science, ethics, and real-world applications.",
+    title: "Book Reviews Blog",
+    description: "Monthly book reviews and reading adventures - from cozy romances to thought-provoking fiction and everything in between.",
     imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=600&fit=crop",
-    tags: ["Writing", "Data Science", "Ethics"],
+    tags: ["Writing", "Book Reviews", "Reading"],
     type: "blog",
     link: "/blog"
   },

@@ -1,40 +1,69 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const blogPosts = [
+const bookReviews = [
   {
     id: 1,
-    title: "The Ethics of AI in Data Science",
-    date: "March 15, 2024",
-    excerpt: "Exploring the moral implications of artificial intelligence and machine learning algorithms in modern data science applications.",
-    readTime: "8 min read",
-    content: `Artificial intelligence and machine learning have become integral parts of our daily lives, from recommendation systems to autonomous vehicles. However, with great power comes great responsibility. In this post, we'll explore the ethical considerations that data scientists and AI practitioners must navigate in today's rapidly evolving technological landscape.
-
-The first concern is algorithmic bias. When we train machine learning models on historical data, we risk perpetuating existing biases and inequalities. For instance, hiring algorithms trained on past recruitment data may inadvertently discriminate against underrepresented groups if the historical hiring practices were biased.
-
-Privacy is another critical concern. As we collect and analyze vast amounts of personal data, we must ensure that individual privacy rights are protected. This includes implementing proper data anonymization techniques and being transparent about data usage.
-
-Finally, there's the question of accountability. When an AI system makes a decision that affects someone's life, who is responsible? The developer, the data scientist, the company, or the algorithm itself? These questions require careful consideration and ongoing dialogue between technologists, ethicists, and policymakers.`
+    title: "March 2024 Reading Adventures",
+    date: "March 31, 2024",
+    excerpt: "This month I dove into three incredible books that completely shifted my perspective on creativity, relationships, and the power of storytelling.",
+    readTime: "5 min read",
+    books: [
+      {
+        title: "The Seven Husbands of Evelyn Hugo",
+        author: "Taylor Jenkins Reid",
+        rating: 5,
+        thoughts: "What an absolutely stunning novel! I couldn't put this down - Reid's storytelling is masterful, and Evelyn Hugo is such a complex, fascinating character. The way the story unfolds through the interview format kept me guessing until the very end."
+      },
+      {
+        title: "Atomic Habits",
+        author: "James Clear", 
+        rating: 4,
+        thoughts: "Such practical wisdom about building good habits and breaking bad ones. I've already started implementing the 1% better principle in my daily routine. Clear's writing is accessible and the examples really stick with you."
+      }
+    ]
   },
   {
     id: 2,
-    title: "Building Sustainable Machine Learning Systems",
-    date: "February 28, 2024",
-    excerpt: "How to create ML systems that are environmentally conscious and computationally efficient without sacrificing performance.",
-    readTime: "6 min read",
-    content: `The environmental impact of machine learning is often overlooked in our rush to build more powerful models. Training large neural networks can consume enormous amounts of energy, contributing to carbon emissions and environmental degradation.
-
-In this article, we'll explore strategies for building more sustainable ML systems. This includes techniques like model compression, efficient architectures, and green computing practices that can significantly reduce the environmental footprint of our AI systems while maintaining their effectiveness.`
+    title: "February 2024: Romance, Mystery & Growth",
+    date: "February 29, 2024",
+    excerpt: "February was all about cozy reads and page-turners! From swoony romance to mind-bending mysteries, here's what kept me up way too late this month.",
+    readTime: "4 min read",
+    books: [
+      {
+        title: "The Midnight Library",
+        author: "Matt Haig",
+        rating: 5,
+        thoughts: "This book hit me right in the feels! Such a beautiful exploration of life's infinite possibilities and finding meaning in our choices. Haig has a gift for making profound concepts feel accessible and hopeful."
+      },
+      {
+        title: "Beach Read",
+        author: "Emily Henry",
+        rating: 4,
+        thoughts: "The perfect comfort read! Henry writes characters that feel so real and relatable. The enemies-to-lovers trope was executed perfectly, and I loved the exploration of writer's block and finding inspiration again."
+      }
+    ]
   },
   {
     id: 3,
-    title: "The Future of Human-AI Collaboration",
-    date: "January 20, 2024",
-    excerpt: "Understanding how humans and artificial intelligence can work together to solve complex problems more effectively than either could alone.",
-    readTime: "5 min read",
-    content: `Rather than replacing humans, the most successful AI systems are those that augment human capabilities. This post explores the principles of effective human-AI collaboration and how to design systems that leverage the strengths of both human intuition and machine efficiency.
-
-We'll look at case studies from various fields, including healthcare diagnostics, creative industries, and scientific research, where this collaborative approach has led to breakthrough innovations.`
+    title: "January 2024: New Year, New Pages",
+    date: "January 31, 2024",
+    excerpt: "Starting the year with some incredible reads! From fantasy epics to thoughtful memoirs, January set a high bar for my 2024 reading challenge.",
+    readTime: "6 min read",
+    books: [
+      {
+        title: "Klara and the Sun",
+        author: "Kazuo Ishiguro",
+        rating: 4,
+        thoughts: "Ishiguro's writing is so beautifully understated. Seeing the world through Klara's perspective was both heartbreaking and illuminating. The themes of love, sacrifice, and what it means to be human really stayed with me."
+      },
+      {
+        title: "Project Hail Mary",
+        author: "Andy Weir",
+        rating: 5,
+        thoughts: "What a wild, wonderful ride! Weir's humor and scientific creativity make this such an engaging read. I found myself genuinely caring about Grace and rooting for him every step of the way. Pure joy to read!"
+      }
+    ]
   }
 ];
 
@@ -60,18 +89,18 @@ const Blog = () => {
           {/* Page Title */}
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-medium text-text-primary">
-              Blog
+              Monthly Book Reviews
             </h1>
             <p className="text-lg text-text-secondary max-w-2xl leading-relaxed">
-              Thoughts on data science, technology ethics, and the intersection of human intelligence with artificial intelligence.
+              Welcome to my little corner of the internet! ✨ Every month I share thoughts on the books that have captured my heart, made me think, or simply provided the perfect escape. Pull up a cozy chair and let's chat about stories! 📚
             </p>
           </div>
 
-          {/* Blog Posts */}
-          <div className="space-y-12">
-            {blogPosts.map((post) => (
-              <article key={post.id} className="space-y-4 pb-12 border-b border-border-subtle last:border-b-0">
-                <div className="space-y-2">
+          {/* Book Reviews */}
+          <div className="space-y-16">
+            {bookReviews.map((post) => (
+              <article key={post.id} className="space-y-6 pb-12 border-b border-border-subtle last:border-b-0">
+                <div className="space-y-3">
                   <div className="flex items-center space-x-4 text-sm text-text-muted">
                     <time>{post.date}</time>
                     <span>•</span>
@@ -85,10 +114,33 @@ const Blog = () => {
                   </p>
                 </div>
                 
-                <div className="prose prose-lg max-w-none">
-                  <div className="text-text-secondary leading-relaxed whitespace-pre-line">
-                    {post.content}
-                  </div>
+                {/* Book Cards */}
+                <div className="grid gap-6 md:gap-8">
+                  {post.books.map((book, bookIndex) => (
+                    <div key={bookIndex} className="bg-surface rounded-lg p-6 space-y-4">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+                        <div>
+                          <h3 className="text-lg font-medium text-text-primary">
+                            {book.title}
+                          </h3>
+                          <p className="text-text-secondary">by {book.author}</p>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          {[...Array(5)].map((_, i) => (
+                            <span 
+                              key={i} 
+                              className={`text-lg ${i < book.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                            >
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-text-secondary leading-relaxed">
+                        {book.thoughts}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </article>
             ))}
