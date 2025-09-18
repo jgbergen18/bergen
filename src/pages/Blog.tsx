@@ -536,33 +536,33 @@ const Blog = () => {
               const monthKey = month.split(' ')[0] as keyof typeof tempData;
               const temp = tempData[monthKey] || 42.0;
               
-              // Map temperatures to predefined Tailwind classes for scientific accuracy
-              if (temp <= 45) return 'bg-blue-50 border-blue-200'; // 42-45°F: Cold (dark blue range)
-              if (temp <= 50) return 'bg-blue-100 border-blue-300'; // 45-50°F: Cold blue
-              if (temp <= 55) return 'bg-indigo-50 border-indigo-200'; // 50-55°F: Cool indigo
-              if (temp <= 60) return 'bg-indigo-100 border-indigo-300'; // 55-60°F: Cool indigo
-              if (temp <= 65) return 'bg-purple-50 border-purple-200'; // 60-65°F: Cool purple
-              if (temp <= 70) return 'bg-purple-100 border-purple-300'; // 65-70°F: Moderate purple
-              if (temp <= 75) return 'bg-fuchsia-50 border-fuchsia-200'; // 70-75°F: Warm fuchsia
-              if (temp <= 80) return 'bg-pink-50 border-pink-200'; // 75-80°F: Warm pink
-              if (temp <= 85) return 'bg-rose-50 border-rose-200'; // 80-85°F: Hot rose (June & August)
-              return 'bg-red-50 border-red-200'; // 85-100°F: Very hot red (July)
+              // Light mode colors (pastels) and dark mode colors (muted darks)
+              if (temp <= 45) return 'bg-blue-50 border-blue-200 dark:bg-blue-900/50 dark:border-blue-700'; // 42-45°F
+              if (temp <= 50) return 'bg-blue-100 border-blue-300 dark:bg-blue-800/50 dark:border-blue-600'; // 45-50°F
+              if (temp <= 55) return 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/50 dark:border-indigo-700'; // 50-55°F
+              if (temp <= 60) return 'bg-indigo-100 border-indigo-300 dark:bg-indigo-800/50 dark:border-indigo-600'; // 55-60°F
+              if (temp <= 65) return 'bg-purple-50 border-purple-200 dark:bg-purple-900/50 dark:border-purple-700'; // 60-65°F
+              if (temp <= 70) return 'bg-purple-100 border-purple-300 dark:bg-purple-800/50 dark:border-purple-600'; // 65-70°F
+              if (temp <= 75) return 'bg-fuchsia-50 border-fuchsia-200 dark:bg-fuchsia-900/50 dark:border-fuchsia-700'; // 70-75°F
+              if (temp <= 80) return 'bg-pink-50 border-pink-200 dark:bg-pink-900/50 dark:border-pink-700'; // 75-80°F
+              if (temp <= 85) return 'bg-rose-50 border-rose-200 dark:bg-rose-900/50 dark:border-rose-700'; // 80-85°F (June & August)
+              return 'bg-red-50 border-red-200 dark:bg-red-900/50 dark:border-red-700'; // 85-100°F (July)
             };
 
             const getMonthHover = (month: string) => {
               const monthKey = month.split(' ')[0] as keyof typeof tempData;
               const temp = tempData[monthKey] || 42.0;
               
-              if (temp <= 45) return 'hover:bg-blue-100';
-              if (temp <= 50) return 'hover:bg-blue-150';
-              if (temp <= 55) return 'hover:bg-indigo-100';
-              if (temp <= 60) return 'hover:bg-indigo-150';
-              if (temp <= 65) return 'hover:bg-purple-100';
-              if (temp <= 70) return 'hover:bg-purple-150';
-              if (temp <= 75) return 'hover:bg-fuchsia-100';
-              if (temp <= 80) return 'hover:bg-pink-100';
-              if (temp <= 85) return 'hover:bg-rose-100';
-              return 'hover:bg-red-100';
+              if (temp <= 45) return 'hover:bg-blue-100 dark:hover:bg-blue-800/60';
+              if (temp <= 50) return 'hover:bg-blue-200 dark:hover:bg-blue-700/60';
+              if (temp <= 55) return 'hover:bg-indigo-100 dark:hover:bg-indigo-800/60';
+              if (temp <= 60) return 'hover:bg-indigo-200 dark:hover:bg-indigo-700/60';
+              if (temp <= 65) return 'hover:bg-purple-100 dark:hover:bg-purple-800/60';
+              if (temp <= 70) return 'hover:bg-purple-200 dark:hover:bg-purple-700/60';
+              if (temp <= 75) return 'hover:bg-fuchsia-100 dark:hover:bg-fuchsia-800/60';
+              if (temp <= 80) return 'hover:bg-pink-100 dark:hover:bg-pink-800/60';
+              if (temp <= 85) return 'hover:bg-rose-100 dark:hover:bg-rose-800/60';
+              return 'hover:bg-red-100 dark:hover:bg-red-800/60';
             };
             return <Collapsible key={log.id} open={openMonths[log.id]} onOpenChange={() => toggleMonth(log.id)}>
                   <div className={`${getMonthBackground(log.month)} rounded-lg overflow-hidden shadow-sm`}>
