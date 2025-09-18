@@ -12,61 +12,63 @@ interface Cell {
 }
 
 const Crossword = () => {
-  // 6x7 grid with real intersecting words from Jamie's CV
+  // 7x6 grid exactly matching the screenshot
   const initialGrid: Cell[][] = [
     [
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Jamie\'s research focus organ' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', number: 2, isBlack: false, answer: 'A', clueDown: '2D. Programming language Jamie uses' }
+      { letter: '', number: 1, isBlack: false, answer: 'B', clueDown: '1D. College Jamie attended' },
+      { letter: '', isBlack: false, answer: 'B' },
+      { letter: '', isBlack: false, answer: 'B' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 3, isBlack: false, answer: 'B', clueAcross: '3A. Barrier with brain' },
-      { letter: '', isBlack: false, answer: 'L' },
-      { letter: '', isBlack: false, answer: 'O' },
-      { letter: '', isBlack: false, answer: 'O' },
-      { letter: '', isBlack: false, answer: 'D' },
+      { letter: '', number: 2, isBlack: false, answer: 'B', clueDown: '2D. Jamie\'s research focus organ' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 4, isBlack: false, answer: 'A', clueDown: '4D. Programming language' },
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 5, isBlack: false, answer: 'A', clueDown: '5D. Intelligence type' },
-      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: false, answer: 'G' },
+      { letter: '', number: 3, isBlack: false, answer: 'E', clueAcross: '3A. Data unit' },
+      { letter: '', isBlack: false, answer: 'N' },
       { letter: '', isBlack: false, answer: 'T' }
     ],
     [
-      { letter: '', number: 6, isBlack: false, answer: 'A', clueAcross: '6A. Intelligent system' },
-      { letter: '', isBlack: false, answer: 'G' },
-      { letter: '', isBlack: false, answer: 'E' },
-      { letter: '', isBlack: false, answer: 'N' },
-      { letter: '', isBlack: false, answer: 'T' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', number: 7, isBlack: false, answer: 'F', clueAcross: '7A. Design tool Jamie uses' },
+      { letter: '', number: 4, isBlack: false, answer: 'F', clueAcross: '4A. Design tool' },
       { letter: '', isBlack: false, answer: 'I' },
       { letter: '', isBlack: false, answer: 'G' },
       { letter: '', isBlack: false, answer: 'M' },
       { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
       { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'N' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'R' },
       { letter: '', isBlack: true, answer: '' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 8, isBlack: false, answer: 'C', clueAcross: '8A. Programming skill' },
+      { letter: '', number: 5, isBlack: false, answer: 'C', clueAcross: '5A. Programming skill' },
       { letter: '', isBlack: false, answer: 'O' },
       { letter: '', isBlack: false, answer: 'D' },
-      { letter: '', isBlack: false, answer: 'E' },
-      { letter: '', isBlack: true, answer: '' }
+      { letter: '', isBlack: false, answer: 'E' }
     ]
   ];
 
@@ -77,16 +79,13 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. Jamie\'s research focus organ',
-      '3. Barrier with brain',
-      '6. Intelligent system',
-      '7. Design tool Jamie uses',
-      '8. Programming skill'
+      '3. Data unit',
+      '4. Design tool',
+      '5. Programming skill'
     ],
     down: [
-      '2. Programming language Jamie uses',
-      '4. Programming language',
-      '5. Intelligence type'
+      '1. College Jamie attended',
+      '2. Jamie\'s research focus organ'
     ]
   };
 
@@ -158,7 +157,7 @@ const Crossword = () => {
                 <div className="text-4xl animate-bounce">🎉 Congratulations! 🎉</div>
               </div>
             )}
-            <div className="grid grid-cols-7 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
+            <div className="grid grid-cols-6 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
               {grid.map((row, rowIndex) =>
                 row.map((cell, colIndex) => (
                   <div
