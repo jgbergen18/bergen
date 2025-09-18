@@ -595,7 +595,7 @@ const Blog = () => {
               My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚 
               <br />
               <span className="text-sm italic text-text-muted">
-                Colors reflect NYC's actual 2024 temperatures (coldest to hottest). Data source: 
+                Colors for each month reflect New York City's average monthly high temperature on a red and blue scale. Data source: 
                 <a 
                   href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_" 
                   target="_blank" 
