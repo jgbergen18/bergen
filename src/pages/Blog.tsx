@@ -43,7 +43,7 @@ const readingLogs = [{
   id: 1,
   month: "September 2025",
   booksRead: 4,
-  averageRating: 2.7,
+  averageRating: 3.0,
   books: [{
     title: "Part of Your World",
     author: "Abby Jimenez",
@@ -193,7 +193,7 @@ const readingLogs = [{
   id: 5,
   month: "May 2025",
   booksRead: 8,
-  averageRating: 4.3,
+  averageRating: 4.5,
   books: [{
     title: "Crown of Midnight",
     author: "Sarah J. Maas",
@@ -247,7 +247,7 @@ const readingLogs = [{
   id: 6,
   month: "April 2025",
   booksRead: 8,
-  averageRating: 4.5,
+  averageRating: 4.4,
   books: [{
     title: "The God of the Woods",
     author: "Liz Moore",
@@ -361,7 +361,7 @@ const readingLogs = [{
   id: 8,
   month: "February 2025",
   booksRead: 14,
-  averageRating: 3.5,
+  averageRating: 3.6,
   books: [{
     title: "Crook Manifesto",
     author: "Colson Whitehead",
@@ -451,7 +451,7 @@ const readingLogs = [{
   id: 9,
   month: "January 2025",
   booksRead: 9,
-  averageRating: 3.4,
+  averageRating: 3.3,
   books: [{
     title: "The Dutch House",
     author: "Ann Patchett",
@@ -511,7 +511,7 @@ const readingLogs = [{
   id: 10,
   month: "December 2024",
   booksRead: 7,
-  averageRating: 3.1,
+  averageRating: 3.4,
   books: [{
     title: "The Seven Husbands of Evelyn Hugo",
     author: "Taylor Jenkins Reid",
@@ -601,7 +601,7 @@ const readingLogs = [{
   id: 12,
   month: "September 2024",
   booksRead: 3,
-  averageRating: 3.8,
+  averageRating: 4.3,
   books: [{
     title: "Let the Record Show: A Political History of ACT UP New York, 1987-1993",
     author: "Sarah Schulman",
@@ -691,7 +691,7 @@ const readingLogs = [{
   id: 14,
   month: "July 2024",
   booksRead: 7,
-  averageRating: 3.5,
+  averageRating: 3.7,
   books: [{
     title: "A Court of Silver Flames",
     author: "Sarah J. Maas",
@@ -739,7 +739,7 @@ const readingLogs = [{
   id: 15,
   month: "June 2024",
   booksRead: 5,
-  averageRating: 3.9,
+  averageRating: 4.0,
   books: [{
     title: "Demon Copperhead",
     author: "Barbara Kingsolver",
@@ -829,7 +829,7 @@ const readingLogs = [{
   id: 17,
   month: "April 2024",
   booksRead: 5,
-  averageRating: 3.8,
+  averageRating: 3.6,
   books: [{
     title: "A Court of Mist and Fury",
     author: "Sarah J. Maas",
@@ -1015,7 +1015,7 @@ const readingLogs = [{
   id: 20,
   month: "January 2024",
   booksRead: 8,
-  averageRating: 3.8,
+  averageRating: 3.9,
   books: [{
     title: "If We Were Villains",
     author: "M.L. Rio",
