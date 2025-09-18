@@ -40,9 +40,9 @@ const Crossword = () => {
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', number: 7, isBlack: false, answer: 'A', clueDown: '7D. Immune molecules studied in research' },
       { letter: '', isBlack: false, answer: 'G' },
-      { letter: '', number: 3, isBlack: false, answer: 'E', clueAcross: '3A. Data unit' },
+      { letter: '', number: 3, isBlack: false, answer: 'E', clueAcross: '3A. Multi-agent system research in Kraus lab' },
       { letter: '', isBlack: false, answer: 'N' },
       { letter: '', isBlack: false, answer: 'T' }
     ],
@@ -80,14 +80,15 @@ const Crossword = () => {
   const clues = {
     across: [
       '1. Barrier Jamie studied',
-      '3. Data unit', 
+      '3. Multi-____ system research in Kraus lab', 
       '4. Design tool',
       '5. Programming skill',
-      '6. Jamie\'s most common job (abbr.)'
+      '6. Programming language for data analysis'
     ],
     down: [
       '1. College Jamie attended',
-      '2. Jamie\'s research focus organ'
+      '2. Jamie\'s research focus organ',
+      '7. Immune molecules studied in research'
     ]
   };
 
