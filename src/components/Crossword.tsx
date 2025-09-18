@@ -59,7 +59,7 @@ const Crossword = () => {
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: false, answer: 'G' },
-      { letter: '', isBlack: false, answer: 'E' },
+      { letter: '', number: 3, isBlack: false, answer: 'E', clueAcross: '3A. Multi-agent system research in Kraus lab' },
       { letter: '', isBlack: false, answer: 'N' },
       { letter: '', isBlack: false, answer: 'T' }
     ],
@@ -97,6 +97,7 @@ const Crossword = () => {
   const clues = {
     across: [
       '1. Barrier Jamie studied',
+      '3. Multi-____ system research in Kraus lab',
       '4. Design tool Jamie taught to high school students',
       '5. Jamie\'s general programming skill',
       '6. Jamie\'s most common job title (abbr.)'
