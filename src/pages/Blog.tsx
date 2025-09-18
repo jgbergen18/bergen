@@ -10,56 +10,404 @@ import {
 const readingLogs = [
   {
     id: 1,
-    month: "March 2024",
-    booksRead: 6,
-    averageRating: 4.2,
+    month: "August 2024",
+    booksRead: 10,
+    averageRating: 3.6,
     books: [
       {
-        title: "Fourth Wing",
-        author: "Rebecca Yarros",
-        review: "Dragon academia with romance - predictable but addictive. Perfect guilty pleasure read.",
+        title: "Burn",
+        author: "Peter Heller",
+        review: "This book felt like it was trying to be edgy hard to dramatize politics without following through on some of it's most compelling ideas around a US state succession.",
+        rating: 2,
+        coverUrl: ""
+      },
+      {
+        title: "He Who Drowned the World",
+        author: "Shelley Parker-Chan",
+        review: "An excelent sequel to She Who Became the Sun however at times it felt like it was trying to hit you on the head with metaphors that the reader can understand the first time.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
-        title: "The Seven Moons of Maali Almeida",
-        author: "Shehan Karunatilaka",
-        review: "Darkly funny and inventive take on afterlife bureaucracy. The magical realism worked perfectly here.",
-        rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=120&h=180&fit=crop"
+        title: "The Financial Diet",
+        author: "Chelsea Fagan",
+        review: "This beginner book on personal finance might be better for a high school students but feels to simple to be marketed towards people in their early 20s.",
+        rating: 2,
+        coverUrl: ""
       },
       {
-        title: "Lessons in Chemistry",
-        author: "Bonnie Garmus",
-        review: "Charming but felt a bit too quirky-for-quirky's-sake. Elizabeth was a great character though.",
+        title: "Your Money or Your Life",
+        author: "Joe Dominguez",
+        review: "This book was convincing and practical in it's advice for personal finance, but was repetitive at times.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
-        title: "The Atlas Six",
-        author: "Olivie Blake",
-        review: "Beautiful writing but the plot went nowhere. All vibes, no substance.",
+        title: "Worry",
+        author: "Tanner Alexandra",
+        review: "This was an interesting read and there were points that reminded me of my jewish family, but it also felt like it was trying to take that to a too quirky level that sometimes lost me as a reader.",
         rating: 3,
-        coverUrl: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
-        title: "Mexican Gothic",
-        author: "Silvia Moreno-Garcia",
-        review: "Atmospheric horror done right. The house felt like a character itself.",
-        rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=120&h=180&fit=crop"
+        title: "My Year of Rest and Relaxation",
+        author: "Ottessa Moshfegh",
+        review: "This was well written but felt like it heavily romanticized depression rather than depicting the difficulties and often tradgedy of it.",
+        rating: 2,
+        coverUrl: ""
       },
       {
-        title: "The Poppy War",
-        author: "R.F. Kuang",
-        review: "Brutal military fantasy that doesn't pull punches. Emotionally devastating in the best way.",
+        title: "How We Named the Stars",
+        author: "Andrés N. Ordorica",
+        review: "This book was such a sweet heartfull queer love story, and then I had to keep trying not to cry for the last 100 pages.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=120&h=180&fit=crop"
+        coverUrl: ""
+      },
+      {
+        title: "Interesting Facts about Space",
+        author: "Emily Austin",
+        review: "The strangeness of the main character and this book made me feel both understood and upset in a wierdly good way.",
+        rating: 5,
+        coverUrl: ""
+      },
+      {
+        title: "Secret City: The Hidden History of Gay Washington",
+        author: "James Kirchick",
+        review: "This book was an incredibly comprehensive look at queer life in the capitol, everyone involved in politics should read it.",
+        rating: 5,
+        coverUrl: ""
+      },
+      {
+        title: "The Wealth of Shadows",
+        author: "Graham Moore",
+        review: "Graham Moore has done it again! He continues to be my favorite author writing incredible historical fiction.",
+        rating: 5,
+        coverUrl: ""
       }
     ]
   },
   {
     id: 2,
+    month: "July 2024",
+    booksRead: 6,
+    averageRating: 3.8,
+    books: [
+      {
+        title: "On Tyranny: Twenty Lessons from the Twentieth Century",
+        author: "Timothy Snyder",
+        review: "",
+        rating: 5,
+        coverUrl: ""
+      },
+      {
+        title: "Yellowface",
+        author: "R.F. Kuang",
+        review: "",
+        rating: 2,
+        coverUrl: ""
+      },
+      {
+        title: "The Left hand of Darkness",
+        author: "Ursula K. Le Guin",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "The Poppy War",
+        author: "R.F. Kuang",
+        review: "",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "Interview with the Vampire",
+        author: "Anne Rice",
+        review: "",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "A Court of Frost and Starlight",
+        author: "Sarah J. Mass",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      }
+    ]
+  },
+  {
+    id: 3,
+    month: "June 2024",
+    booksRead: 8,
+    averageRating: 3.5,
+    books: [
+      {
+        title: "The Nickel Boys",
+        author: "Colson Whitehead",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "Remarkably Bright Creatures",
+        author: "Shelby Van Pelt",
+        review: "Very fun",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "After Sappho",
+        author: "Selby Wynn Schwartz",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "Poor Things",
+        author: "Alasdair Gray",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "HumanKind: A Hopeful History",
+        author: "Rutger Bregman",
+        review: "While there was definitely some bias/oversimplication of some social issues in this book, I think everyone could benefit from reading it.",
+        rating: 5,
+        coverUrl: ""
+      },
+      {
+        title: "Tender is the Flesh",
+        author: "Agustina Bazterrica",
+        review: "I really wanted to like this book but it felt too much like it was motivated by veganism rather than it's own premise/plot",
+        rating: 2,
+        coverUrl: ""
+      },
+      {
+        title: "The Dead take the A train",
+        author: "Cassandra Khaw",
+        review: "This was a surprisingly fun monster hunter read, with a great sense of humor",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "Utopia for Realists: How We Can Build the Ideal World",
+        author: "Rutger Bregman",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      }
+    ]
+  },
+  {
+    id: 4,
+    month: "May 2024",
+    booksRead: 8,
+    averageRating: 3.5,
+    books: [
+      {
+        title: "The Nickel Boys",
+        author: "Colson Whitehead",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "Remarkably Bright Creatures",
+        author: "Shelby Van Pelt",
+        review: "Very fun",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "After Sappho",
+        author: "Selby Wynn Schwartz",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "Poor Things",
+        author: "Alasdair Gray",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "HumanKind: A Hopeful History",
+        author: "Rutger Bregman",
+        review: "While there was definitely some bias/oversimplication of some social issues in this book, I think everyone could benefit from reading it.",
+        rating: 5,
+        coverUrl: ""
+      },
+      {
+        title: "Tender is the Flesh",
+        author: "Agustina Bazterrica",
+        review: "I really wanted to like this book but it felt too much like it was motivated by veganism rather than it's own premise/plot",
+        rating: 2,
+        coverUrl: ""
+      },
+      {
+        title: "The Dead take the A train",
+        author: "Cassandra Khaw",
+        review: "This was a surprisingly fun monster hunter read, with a great sense of humor",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "Utopia for Realists: How We Can Build the Ideal World",
+        author: "Rutger Bregman",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      }
+    ]
+  },
+  {
+    id: 5,
+    month: "April 2024",
+    booksRead: 10,
+    averageRating: 3.5,
+    books: [
+      {
+        title: "In Limbo",
+        author: "Deb J.J. Lee",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "Sharp Objects",
+        author: "Gillian Flynn",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "March: Book One",
+        author: "John Lewis",
+        review: "",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "Blink: The Power of Thinking Without Thinking",
+        author: "Malcom Gladwell",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "The Tipping Point: How Little Things can Make a Big Difference",
+        author: "Malcom Gladwell",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "A Court of Mist and Fury",
+        author: "Sarah J. Maas",
+        review: "",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "March: Book Two",
+        author: "John Lewis",
+        review: "",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "How Not to Diet",
+        author: "Michael Greger",
+        review: "",
+        rating: 2,
+        coverUrl: ""
+      },
+      {
+        title: "A Little Life",
+        author: "Hanya Yanagihara",
+        review: "This book was difficut to read at times but worth the effort, also trigger warning for anything you can think of.",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "Gathering Moss: A Natural and Cultural History of Mosses",
+        author: "Robin Wall Kimmerer",
+        review: "I enjoyed this book more than I expected, and liked the back and forth between",
+        rating: 4,
+        coverUrl: ""
+      }
+    ]
+  },
+  {
+    id: 6,
+    month: "March 2024",
+    booksRead: 8,
+    averageRating: 4.0,
+    books: [
+      {
+        title: "Deacon King Kong",
+        author: "James McBride",
+        review: "Deacon King Kong by James McBride is a vibrant, character-rich novel set in 1969 Brooklyn, praised for its humor and humanity, but its complex structure lost me at times.",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "A Court of Thorns and Roses",
+        author: "Sarah J. Mass",
+        review: "",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "When the Angels Left the Old Country",
+        author: "Sacha Lamb",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "Anita de Monte Laughs Last",
+        author: "Xóchitl González",
+        review: "",
+        rating: 5,
+        coverUrl: ""
+      },
+      {
+        title: "It's Lonely at the Centre of the Earth",
+        author: "Zoe Thorogood",
+        review: "",
+        rating: 4,
+        coverUrl: ""
+      },
+      {
+        title: "How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease",
+        author: "Michael Greger",
+        review: "",
+        rating: 3,
+        coverUrl: ""
+      },
+      {
+        title: "Ducks: Two Years in the Oil Sands",
+        author: "Kate Beaton",
+        review: "It is a remarkable narrative that brings to life the seldom-explored intersection of wildlife and female labor in the oil industry, shedding light on the resilience of nature and the author herself amidst the stark landscapes of industrial progress",
+        rating: 5,
+        coverUrl: ""
+      },
+      {
+        title: "Gone Girl",
+        author: "Gillian Flynn",
+        review: "I just couldn't buy into the angst of ahhaf, she was too hard for me to root for in this book",
+        rating: 2,
+        coverUrl: ""
+      }
+    ]
+  },
+  {
+    id: 7,
     month: "February 2024", 
     booksRead: 10,
     averageRating: 3.9,
@@ -69,75 +417,75 @@ const readingLogs = [
         author: "Gretchen Rubin",
         review: "The author focuses too much on perfectionism, little truisms, and is way too repetitive",
         rating: 1,
-        coverUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "The Pull of the Stars",
         author: "Emma Donoghue",
         review: "Incredible book for anyone interested in the role of women in medical history as well as ireland just after WW1, all wrapped up with a wondfully heart wrenching plot",
         rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Outliers: The Story of Success",
         author: "Malcom Gladwell",
         review: "a thought-provoking exploration of success, delving into factors like opportunity, cultural legacy, and the 10,000-hour rule that shape exceptional achievement, though it falls just short of a 5 star rating as it does get a little repetitive.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Going Postal",
         author: "Terry Pratchett",
         review: "This book has awesome satirical takes on the postal service, corporate corruption, and biblical references, this book deserves a solid",
         rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Better than the Movies",
         author: "Lunn Painter",
         review: "One of the cheesiest romance books I have read in a long time, and yet so fun to read",
         rating: 3,
-        coverUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Flowers for Algernon",
         author: "Daniel Keyes",
         review: "I Can't believe I havent read this book before, amazing dive into the relationship between happiness, intelligence, and empathy.",
         rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "The Good Life: Lessons from the Longest Scientific Study of Happiness",
         author: "Robert Waldinger",
         review: "This book offers insightful reflections on the key factors contributing to a fulfilling life, though it falls short in providing actionable guidance beyond already having strong relationships, earning it a",
         rating: 3,
-        coverUrl: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "The Perks of Being a Wallflower",
         author: "Stephen Chbosky",
         review: "An emotionally charged exploration of adolescence and self-discovery, delivering a raw and authentic narrative that tugs at the heartstrings.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "The Woman in Me",
         author: "Britney Spears",
         review: "Pretty much exactly what I expected from this book, I got to learn more about Britney's conservatorship and life, but it wasn't anything special",
         rating: 3,
-        coverUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "The Golem of Brooklyn",
         author: "Adam Mansbach",
         review: "This book was an interesting retelling into one of my favorite jewish folktales, The Golem of Prague, as well as the state of modern antisemitism.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1481894725107-fb5b5d16bb03?w=120&h=180&fit=crop"
+        coverUrl: ""
       }
     ]
   },
   {
-    id: 3,
+    id: 8,
     month: "January 2024",
     booksRead: 8,
     averageRating: 3.8,
@@ -147,56 +495,56 @@ const readingLogs = [
         author: "M.L Rio",
         review: "Perfect for Shakespeare nerds, although a bit cheesy.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "We are Never Meeting in Real Life", 
         author: "Samantha Irby",
         review: "Some of the essays were great, other ones fell flat, way too many of them involved shit.",
         rating: 2,
-        coverUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Time is a Mother",
         author: "Ocean Vuong",
         review: "Gorgeous poetry, thoughtfully compiled.",
         rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "The Road to Roswell",
         author: "Connie Willis",
         review: "This was a fun, campy, and comedic book involving alien abduction; it would make a good beach read.",
         rating: 3,
-        coverUrl: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Caste: The Origins of Our Discontents",
         author: "Isabel Wilkerson",
         review: "One of the best and most thoughtful books I've read in awhile, highly informative about how much racism/caste has informed the structure of the US.",
         rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Why Fish Don't Exist: A Story of Loss, Love, and the Hidden order of Life",
         author: "Lulu Miller",
         review: "I was surprised by how much I liked this book, makes me think a lot about the responsibility scientists have to ethics.",
         rating: 5,
-        coverUrl: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "When We Cease to Understand the World",
         author: "Benjamin Labatut", 
         review: "This book was an interesting exploration of the role scientists play in shaping the world but the writing was just okay.",
         rating: 3,
-        coverUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=120&h=180&fit=crop"
+        coverUrl: ""
       },
       {
         title: "Sula",
         author: "Toni Morrison",
         review: "Potent, poetic, tragic, and difficult to read at times, certainly worth the effort.",
         rating: 4,
-        coverUrl: "https://images.unsplash.com/photo-1481894725107-fb5b5d16bb03?w=120&h=180&fit=crop"
+        coverUrl: ""
       }
     ]
   }
@@ -204,9 +552,14 @@ const readingLogs = [
 
 const Blog = () => {
   const [openMonths, setOpenMonths] = useState<{ [key: number]: boolean }>({
-    1: true, // March open by default
-    2: false, // February closed by default  
-    3: false  // January closed by default
+    1: true,  // August open by default (most recent)
+    2: false, // July closed
+    3: false, // June closed
+    4: false, // May closed  
+    5: false, // April closed
+    6: false, // March closed
+    7: false, // February closed
+    8: false  // January closed
   });
 
   const toggleMonth = (monthId: number) => {
@@ -250,9 +603,14 @@ const Blog = () => {
               const getMonthBackground = (month: string) => {
                 const monthKey = month.split(' ')[0];
                 const backgrounds = {
-                  'March': 'bg-emerald-50 border-emerald-100', // Pastel green
-                  'February': 'bg-blue-50 border-blue-100',   // Pastel blue  
-                  'January': 'bg-slate-50 border-slate-100'   // Pastel gray
+                  'August': 'bg-amber-50 border-amber-100',     // Late summer gold
+                  'July': 'bg-orange-50 border-orange-100',    // Summer orange
+                  'June': 'bg-yellow-50 border-yellow-100',    // Early summer yellow
+                  'May': 'bg-pink-50 border-pink-100',         // Late spring pink
+                  'April': 'bg-lime-50 border-lime-100',       // Spring lime
+                  'March': 'bg-emerald-50 border-emerald-100', // Spring green
+                  'February': 'bg-blue-50 border-blue-100',    // Winter blue  
+                  'January': 'bg-slate-50 border-slate-100'    // Winter gray
                 };
                 return backgrounds[monthKey as keyof typeof backgrounds] || 'bg-background border-border';
               };
@@ -260,6 +618,11 @@ const Blog = () => {
               const getMonthHover = (month: string) => {
                 const monthKey = month.split(' ')[0];
                 const hovers = {
+                  'August': 'hover:bg-amber-100',
+                  'July': 'hover:bg-orange-100',
+                  'June': 'hover:bg-yellow-100', 
+                  'May': 'hover:bg-pink-100',
+                  'April': 'hover:bg-lime-100',
                   'March': 'hover:bg-emerald-100',
                   'February': 'hover:bg-blue-100', 
                   'January': 'hover:bg-slate-100'
@@ -302,13 +665,67 @@ const Blog = () => {
                             // Seasonal colors based on month - cohesive shades
                             const getSeasonalColor = (month: string, index: number) => {
                               const colors = {
+                                'August': [ // Late summer golds - light to dark
+                                  'bg-gradient-to-br from-amber-200 to-amber-300',
+                                  'bg-gradient-to-br from-amber-300 to-amber-400',
+                                  'bg-gradient-to-br from-amber-400 to-amber-500',
+                                  'bg-gradient-to-br from-amber-500 to-amber-600',
+                                  'bg-gradient-to-br from-amber-600 to-amber-700',
+                                  'bg-gradient-to-br from-amber-700 to-amber-800',
+                                  'bg-gradient-to-br from-yellow-400 to-yellow-500',
+                                  'bg-gradient-to-br from-yellow-500 to-yellow-600',
+                                  'bg-gradient-to-br from-yellow-600 to-yellow-700',
+                                  'bg-gradient-to-br from-orange-400 to-orange-500'
+                                ],
+                                'July': [ // Summer oranges - light to dark
+                                  'bg-gradient-to-br from-orange-200 to-orange-300',
+                                  'bg-gradient-to-br from-orange-300 to-orange-400',
+                                  'bg-gradient-to-br from-orange-400 to-orange-500',
+                                  'bg-gradient-to-br from-orange-500 to-orange-600',
+                                  'bg-gradient-to-br from-orange-600 to-orange-700',
+                                  'bg-gradient-to-br from-red-400 to-red-500'
+                                ],
+                                'June': [ // Early summer yellows - light to dark
+                                  'bg-gradient-to-br from-yellow-200 to-yellow-300',
+                                  'bg-gradient-to-br from-yellow-300 to-yellow-400',
+                                  'bg-gradient-to-br from-yellow-400 to-yellow-500',
+                                  'bg-gradient-to-br from-yellow-500 to-yellow-600',
+                                  'bg-gradient-to-br from-yellow-600 to-yellow-700',
+                                  'bg-gradient-to-br from-amber-400 to-amber-500',
+                                  'bg-gradient-to-br from-amber-500 to-amber-600',
+                                  'bg-gradient-to-br from-lime-400 to-lime-500'
+                                ],
+                                'May': [ // Late spring pinks - light to dark
+                                  'bg-gradient-to-br from-pink-200 to-pink-300',
+                                  'bg-gradient-to-br from-pink-300 to-pink-400',
+                                  'bg-gradient-to-br from-pink-400 to-pink-500',
+                                  'bg-gradient-to-br from-pink-500 to-pink-600',
+                                  'bg-gradient-to-br from-rose-400 to-rose-500',
+                                  'bg-gradient-to-br from-rose-500 to-rose-600',
+                                  'bg-gradient-to-br from-fuchsia-400 to-fuchsia-500',
+                                  'bg-gradient-to-br from-fuchsia-500 to-fuchsia-600'
+                                ],
+                                'April': [ // Spring limes - light to dark
+                                  'bg-gradient-to-br from-lime-200 to-lime-300',
+                                  'bg-gradient-to-br from-lime-300 to-lime-400',
+                                  'bg-gradient-to-br from-lime-400 to-lime-500',
+                                  'bg-gradient-to-br from-lime-500 to-lime-600',
+                                  'bg-gradient-to-br from-green-300 to-green-400',
+                                  'bg-gradient-to-br from-green-400 to-green-500',
+                                  'bg-gradient-to-br from-emerald-300 to-emerald-400',
+                                  'bg-gradient-to-br from-emerald-400 to-emerald-500',
+                                  'bg-gradient-to-br from-teal-400 to-teal-500',
+                                  'bg-gradient-to-br from-cyan-400 to-cyan-500'
+                                ],
                                 'March': [ // Spring greens - light to dark
                                   'bg-gradient-to-br from-emerald-200 to-emerald-300',
                                   'bg-gradient-to-br from-emerald-300 to-emerald-400',
                                   'bg-gradient-to-br from-emerald-400 to-emerald-500', 
                                   'bg-gradient-to-br from-emerald-500 to-emerald-600',
                                   'bg-gradient-to-br from-emerald-600 to-emerald-700',
-                                  'bg-gradient-to-br from-emerald-700 to-emerald-800'
+                                  'bg-gradient-to-br from-emerald-700 to-emerald-800',
+                                  'bg-gradient-to-br from-green-500 to-green-600',
+                                  'bg-gradient-to-br from-teal-500 to-teal-600'
                                 ],
                                 'February': [ // Winter blues - light to dark
                                   'bg-gradient-to-br from-blue-200 to-blue-300',
