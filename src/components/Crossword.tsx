@@ -79,7 +79,8 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '3. Data unit',
+      '1. Barrier Jamie studied',
+      '3. Data unit', 
       '4. Design tool',
       '5. Programming skill'
     ],
