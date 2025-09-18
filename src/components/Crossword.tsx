@@ -35,9 +35,9 @@ const Crossword = () => {
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Barrier Jamie studied' },
+      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Barrier Jamie studied', clueDown: '1D. College Jamie attended' },
       { letter: '', isBlack: false, answer: 'B' },
-      { letter: '', number: 7, isBlack: false, answer: 'B', clueDown: '7D. College Jamie attended' }
+      { letter: '', isBlack: false, answer: 'B' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
@@ -103,8 +103,8 @@ const Crossword = () => {
       '6. Jamie\'s most common job title (abbr.)'
     ],
     down: [
-      '2. Jamie\'s research focus organ',
-      '7. College Jamie attended'
+      '1. College Jamie attended',
+      '2. Jamie\'s research focus organ'
     ]
   };
 
