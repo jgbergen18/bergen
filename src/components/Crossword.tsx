@@ -96,8 +96,7 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. Barrier Jamie studied',
-      '3. Multi-____ system research in Kraus lab', 
+      '3. Multi-agent system research in Kraus lab', 
       '4. Design tool Jamie taught to high school students',
       '5. Jamie\'s general programming skill',
       '6. Programming language for data analysis'
