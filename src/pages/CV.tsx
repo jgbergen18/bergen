@@ -7,9 +7,9 @@ const CV = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 pt-24 pb-16">
+      <section className="relative bg-primary/10 pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4 animate-fade-in">
+          <h1 className="text-5xl font-bold text-primary mb-4 animate-fade-in">
             Jamie Bergen
           </h1>
           <p className="text-xl text-text-secondary mb-6">Neuroscience & AI Researcher</p>
@@ -28,7 +28,6 @@ const CV = () => {
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent"></div>
       </section>
 
       <main className="max-w-4xl mx-auto px-6 py-12">
@@ -42,7 +41,7 @@ const CV = () => {
             <h2 className="text-3xl font-bold text-primary">Education</h2>
           </div>
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg text-text-primary">Erasmus Mundus Joint MSc in Brain and Data Science</h3>
                 <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
@@ -57,7 +56,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-xl p-6 border border-accent/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <h3 className="font-bold text-lg text-text-primary mb-3">Erasmus Mundus Joint MSc in Neuroscience</h3>
               <div className="flex items-center gap-2 text-text-muted mb-2">
                 <MapPin className="w-4 h-4" />
@@ -69,7 +68,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg text-text-primary">B.A. in Computer Science & Neuroscience</h3>
                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">3.5 GPA</span>
@@ -95,7 +94,7 @@ const CV = () => {
             <h2 className="text-3xl font-bold text-primary">Research Interests</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-accent/10 to-primary/5 rounded-xl p-6 border border-accent/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-accent/20 rounded-lg">
                   <Brain className="w-5 h-5 text-accent" />
@@ -106,7 +105,7 @@ const CV = () => {
                 Integrating neuroscience and artificial intelligence to develop brain-inspired models and interpretable algorithms, with applications in cognition, decision-making, and human–AI collaboration.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-primary/20 rounded-lg">
                   <Users className="w-5 h-5 text-primary" />
@@ -129,7 +128,7 @@ const CV = () => {
             <h2 className="text-3xl font-bold text-primary">Publications & Conferences</h2>
           </div>
           <div className="space-y-4">
-            <div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2025</span>
                 <div>
@@ -139,7 +138,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-5 border-l-4 border-primary hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-primary hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2023</span>
                 <div>
@@ -149,7 +148,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
                 <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2022</span>
                 <div className="space-y-3">
@@ -182,7 +181,7 @@ const CV = () => {
           
           {/* Current Position */}
           <div className="mb-6">
-            <div className="bg-gradient-to-r from-accent/10 to-primary/5 rounded-xl p-6 border border-accent/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
@@ -216,7 +215,7 @@ const CV = () => {
 
           {/* Columbia University */}
           <div className="mb-6">
-            <div className="bg-gradient-to-r from-primary/10 to-accent/5 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
@@ -250,7 +249,7 @@ const CV = () => {
 
           {/* NYU */}
           <div className="mb-6">
-            <div className="bg-gradient-to-r from-accent/10 to-primary/5 rounded-xl p-6 border border-accent/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
@@ -284,7 +283,7 @@ const CV = () => {
 
           {/* Mass General */}
           <div className="mb-6">
-            <div className="bg-gradient-to-r from-primary/10 to-accent/5 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
@@ -318,7 +317,7 @@ const CV = () => {
 
           {/* Columbia Bionet */}
           <div className="mb-6">
-            <div className="bg-gradient-to-r from-accent/10 to-primary/5 rounded-xl p-6 border border-accent/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-text-primary">Research Assistant</h3>
@@ -356,7 +355,7 @@ const CV = () => {
             <h2 className="text-3xl font-bold text-primary">Technical Skills</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <Code className="w-5 h-5 text-primary" />
                 <h3 className="font-bold text-lg text-text-primary">Programming Languages</h3>
@@ -370,7 +369,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-accent/10 to-primary/5 rounded-xl p-6 border border-accent/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <FlaskConical className="w-5 h-5 text-accent" />
                 <h3 className="font-bold text-lg text-text-primary">Frameworks & Tools</h3>
@@ -384,7 +383,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-accent/10 to-primary/5 rounded-xl p-6 border border-accent/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <Microscope className="w-5 h-5 text-accent" />
                 <h3 className="font-bold text-lg text-text-primary">Laboratory Techniques</h3>
@@ -398,7 +397,7 @@ const CV = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
                 <Brain className="w-5 h-5 text-primary" />
                 <h3 className="font-bold text-lg text-text-primary">Analysis Software</h3>
