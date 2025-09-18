@@ -597,7 +597,7 @@ const Blog = () => {
               <span className="text-sm italic text-text-muted">
                 Colors reflect NYC's actual 2024 temperatures (coldest to hottest). Data source: 
                 <a 
-                  href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_source=chatgpt.com" 
+                  href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-primary hover:underline ml-1"
