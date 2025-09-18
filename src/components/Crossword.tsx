@@ -12,42 +12,42 @@ interface Cell {
 }
 
 const Crossword = () => {
-  // 5x5 grid for mini crossword
+  // 5x5 grid for mini crossword with properly intersecting words
   const initialGrid: Cell[][] = [
     [
-      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. College Jamie attended' },
-      { letter: '', isBlack: false, answer: 'R', clueDown: '1D. Study of the mind' },
+      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Organ Jamie studies' },
+      { letter: '', isBlack: false, answer: 'R' },
       { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: false, answer: 'I' },
       { letter: '', isBlack: false, answer: 'N' }
     ],
     [
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', number: 2, isBlack: false, answer: 'O', clueDown: '2D. Jamie\'s research involves this AI' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: false, answer: 'N' },
-      { letter: '', number: 3, isBlack: false, answer: 'S', clueDown: '3D. Country where Jamie studies (abbr.)' }
+      { letter: '', number: 2, isBlack: false, answer: 'A', clueDown: '2D. College Jamie attended (short)' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 3, isBlack: false, answer: 'R', clueDown: '3D. Artificial intelligence' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 4, isBlack: false, answer: 'E', clueDown: '4D. Netherlands (abbr.)' }
     ],
     [
       { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: false, answer: 'B' },
-      { letter: '', isBlack: false, answer: 'O' },
-      { letter: '', isBlack: false, answer: 'T' },
-      { letter: '', number: 4, isBlack: false, answer: 'C', clueAcross: '4A. Computer ___ (Jamie\'s major)' }
+      { letter: '', number: 5, isBlack: false, answer: 'C', clueAcross: '5A. Computer science (abbr.)' },
+      { letter: '', isBlack: false, answer: 'S' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'U' }
     ],
     [
-      { letter: '', number: 5, isBlack: false, answer: 'N', clueAcross: '5A. Study of the nervous system' },
-      { letter: '', isBlack: false, answer: 'E' },
-      { letter: '', isBlack: false, answer: 'U' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: false, answer: 'I' }
-    ],
-    [
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'R' },
       { letter: '', isBlack: false, answer: 'D' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'R' }
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
     ]
   ];
 
@@ -58,14 +58,13 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. College Jamie attended',
-      '4. Computer ___ (Jamie\'s major)', 
-      '5. Study of the nervous system'
+      '1. Organ Jamie studies',
+      '5. Computer science (abbr.)'
     ],
     down: [
-      '1. Study of the mind',
-      '2. Jamie\'s research involves this AI',
-      '3. Country where Jamie studies (abbr.)'
+      '2. College Jamie attended (short)',
+      '3. Artificial intelligence',
+      '4. Netherlands (abbr.)'
     ]
   };
 
@@ -119,16 +118,15 @@ const Crossword = () => {
   };
 
   return (
-    <section className="py-16 px-6 bg-surface">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-2">
-            Jamie Bergen Mini Crossword
-          </h2>
-          <p className="text-text-secondary">
-            Test your knowledge about Jamie's academic journey!
-          </p>
-        </div>
+    <div className="w-full">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-2">
+          Jamie Bergen Mini Crossword
+        </h2>
+        <p className="text-text-secondary">
+          Test your knowledge about Jamie's academic journey!
+        </p>
+      </div>
         
         <div className="flex flex-col lg:flex-row gap-8 items-start justify-center">
           {/* Crossword Grid */}
@@ -211,8 +209,7 @@ const Crossword = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
   );
 };
 

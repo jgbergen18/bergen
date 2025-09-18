@@ -14,7 +14,11 @@ const Index = () => {
         <About />
         <ProjectsGallery />
         <Contact />
-        <Crossword />
+        <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto px-6 py-16">
+          <div>
+            <Crossword />
+          </div>
+        </div>
       </main>
       
       {/* Footer */}
