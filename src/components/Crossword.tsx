@@ -57,9 +57,9 @@ const Crossword = () => {
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', number: 3, isBlack: false, answer: 'A', clueAcross: '3A. Multi-agent system research in Kraus lab' },
       { letter: '', isBlack: false, answer: 'G' },
-      { letter: '', number: 3, isBlack: false, answer: 'E', clueAcross: '3A. Multi-agent system research in Kraus lab' },
+      { letter: '', isBlack: false, answer: 'E' },
       { letter: '', isBlack: false, answer: 'N' },
       { letter: '', isBlack: false, answer: 'T' }
     ],
