@@ -57,7 +57,7 @@ const Crossword = () => {
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 7, isBlack: false, answer: 'A', clueDown: '7D. Immune molecules studied in research' },
+      { letter: '', number: 3, isBlack: false, answer: 'A', clueDown: '3D. Immune molecules studied in research' },
       { letter: '', isBlack: false, answer: 'G' },
       { letter: '', number: 3, isBlack: false, answer: 'E', clueAcross: '3A. Multi-agent system research in Kraus lab' },
       { letter: '', isBlack: false, answer: 'N' },
@@ -105,7 +105,7 @@ const Crossword = () => {
     down: [
       '1. College Jamie attended',
       '2. Jamie\'s research focus organ',
-      '7. Immune molecules studied in research'
+      '3. Immune molecules studied in research'
     ]
   };
 
