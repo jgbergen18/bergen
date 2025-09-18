@@ -592,25 +592,27 @@ const Blog = () => {
               Reading Log
             </h1>
             <p className="text-lg text-text-secondary max-w-2xl leading-relaxed">
-              My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚
+              My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚 
+              <br />
+              <span className="text-sm italic text-text-muted">Colors reflect NYC's average temperatures: blue-grey for cold months, orange-red for hot months.</span>
             </p>
           </div>
 
           {/* Reading Logs */}
           <div className="space-y-6">
             {readingLogs.map((log) => {
-              // Get seasonal pastel background for each month
+              // Get temperature-based pastel background for each month (based on NYC averages)
               const getMonthBackground = (month: string) => {
                 const monthKey = month.split(' ')[0];
                 const backgrounds = {
-                  'August': 'bg-amber-50 border-amber-100',     // Late summer gold
-                  'July': 'bg-orange-50 border-orange-100',    // Summer orange
-                  'June': 'bg-yellow-50 border-yellow-100',    // Early summer yellow
-                  'May': 'bg-pink-50 border-pink-100',         // Late spring pink
-                  'April': 'bg-lime-50 border-lime-100',       // Spring lime
-                  'March': 'bg-emerald-50 border-emerald-100', // Spring green
-                  'February': 'bg-blue-50 border-blue-100',    // Winter blue  
-                  'January': 'bg-slate-50 border-slate-100'    // Winter gray
+                  'August': 'bg-orange-50 border-orange-100',      // Hot (~79°F)
+                  'July': 'bg-red-50 border-red-100',            // Hottest (~81°F)
+                  'June': 'bg-yellow-50 border-yellow-100',       // Hot (~76°F)
+                  'May': 'bg-amber-50 border-amber-100',          // Warm (~67°F)
+                  'April': 'bg-lime-50 border-lime-100',          // Mild (~57°F)
+                  'March': 'bg-cyan-50 border-cyan-100',          // Cool (~45°F)
+                  'February': 'bg-blue-50 border-blue-100',       // Cold (~35°F)  
+                  'January': 'bg-slate-50 border-slate-100'       // Very cold (~32°F)
                 };
                 return backgrounds[monthKey as keyof typeof backgrounds] || 'bg-background border-border';
               };
@@ -618,12 +620,12 @@ const Blog = () => {
               const getMonthHover = (month: string) => {
                 const monthKey = month.split(' ')[0];
                 const hovers = {
-                  'August': 'hover:bg-amber-100',
-                  'July': 'hover:bg-orange-100',
+                  'August': 'hover:bg-orange-100',
+                  'July': 'hover:bg-red-100',
                   'June': 'hover:bg-yellow-100', 
-                  'May': 'hover:bg-pink-100',
+                  'May': 'hover:bg-amber-100',
                   'April': 'hover:bg-lime-100',
-                  'March': 'hover:bg-emerald-100',
+                  'March': 'hover:bg-cyan-100',
                   'February': 'hover:bg-blue-100', 
                   'January': 'hover:bg-slate-100'
                 };
@@ -662,92 +664,92 @@ const Blog = () => {
                         {/* Book List */}
                         <div className="space-y-3 pt-4">
                           {log.books.map((book, bookIndex) => {
-                            // Seasonal colors based on month - cohesive shades
+                            // Temperature-based colors for book covers (based on NYC monthly averages)
                             const getSeasonalColor = (month: string, index: number) => {
                               const colors = {
-                                'August': [ // Late summer golds - light to dark
-                                  'bg-gradient-to-br from-amber-200 to-amber-300',
-                                  'bg-gradient-to-br from-amber-300 to-amber-400',
-                                  'bg-gradient-to-br from-amber-400 to-amber-500',
-                                  'bg-gradient-to-br from-amber-500 to-amber-600',
-                                  'bg-gradient-to-br from-amber-600 to-amber-700',
-                                  'bg-gradient-to-br from-amber-700 to-amber-800',
-                                  'bg-gradient-to-br from-yellow-400 to-yellow-500',
-                                  'bg-gradient-to-br from-yellow-500 to-yellow-600',
-                                  'bg-gradient-to-br from-yellow-600 to-yellow-700',
-                                  'bg-gradient-to-br from-orange-400 to-orange-500'
-                                ],
-                                'July': [ // Summer oranges - light to dark
+                                'August': [ // Hot (~79°F) - Orange tones
                                   'bg-gradient-to-br from-orange-200 to-orange-300',
                                   'bg-gradient-to-br from-orange-300 to-orange-400',
                                   'bg-gradient-to-br from-orange-400 to-orange-500',
                                   'bg-gradient-to-br from-orange-500 to-orange-600',
-                                  'bg-gradient-to-br from-orange-600 to-orange-700',
+                                  'bg-gradient-to-br from-amber-300 to-amber-400',
+                                  'bg-gradient-to-br from-amber-400 to-amber-500',
+                                  'bg-gradient-to-br from-amber-500 to-amber-600',
+                                  'bg-gradient-to-br from-yellow-400 to-yellow-500',
+                                  'bg-gradient-to-br from-red-300 to-red-400',
                                   'bg-gradient-to-br from-red-400 to-red-500'
                                 ],
-                                'June': [ // Early summer yellows - light to dark
+                                'July': [ // Hottest (~81°F) - Red-orange tones
+                                  'bg-gradient-to-br from-red-200 to-red-300',
+                                  'bg-gradient-to-br from-red-300 to-red-400',
+                                  'bg-gradient-to-br from-red-400 to-red-500',
+                                  'bg-gradient-to-br from-red-500 to-red-600',
+                                  'bg-gradient-to-br from-orange-400 to-orange-500',
+                                  'bg-gradient-to-br from-orange-500 to-orange-600'
+                                ],
+                                'June': [ // Hot (~76°F) - Yellow-orange tones
                                   'bg-gradient-to-br from-yellow-200 to-yellow-300',
                                   'bg-gradient-to-br from-yellow-300 to-yellow-400',
                                   'bg-gradient-to-br from-yellow-400 to-yellow-500',
                                   'bg-gradient-to-br from-yellow-500 to-yellow-600',
-                                  'bg-gradient-to-br from-yellow-600 to-yellow-700',
+                                  'bg-gradient-to-br from-amber-300 to-amber-400',
                                   'bg-gradient-to-br from-amber-400 to-amber-500',
-                                  'bg-gradient-to-br from-amber-500 to-amber-600',
+                                  'bg-gradient-to-br from-orange-300 to-orange-400',
                                   'bg-gradient-to-br from-lime-400 to-lime-500'
                                 ],
-                                'May': [ // Late spring pinks - light to dark
-                                  'bg-gradient-to-br from-pink-200 to-pink-300',
-                                  'bg-gradient-to-br from-pink-300 to-pink-400',
-                                  'bg-gradient-to-br from-pink-400 to-pink-500',
-                                  'bg-gradient-to-br from-pink-500 to-pink-600',
-                                  'bg-gradient-to-br from-rose-400 to-rose-500',
-                                  'bg-gradient-to-br from-rose-500 to-rose-600',
-                                  'bg-gradient-to-br from-fuchsia-400 to-fuchsia-500',
-                                  'bg-gradient-to-br from-fuchsia-500 to-fuchsia-600'
-                                ],
-                                'April': [ // Spring limes - light to dark
-                                  'bg-gradient-to-br from-lime-200 to-lime-300',
+                                'May': [ // Warm (~67°F) - Amber-lime tones
+                                  'bg-gradient-to-br from-amber-200 to-amber-300',
+                                  'bg-gradient-to-br from-amber-300 to-amber-400',
                                   'bg-gradient-to-br from-lime-300 to-lime-400',
                                   'bg-gradient-to-br from-lime-400 to-lime-500',
-                                  'bg-gradient-to-br from-lime-500 to-lime-600',
+                                  'bg-gradient-to-br from-yellow-300 to-yellow-400',
+                                  'bg-gradient-to-br from-green-300 to-green-400',
+                                  'bg-gradient-to-br from-emerald-300 to-emerald-400',
+                                  'bg-gradient-to-br from-teal-300 to-teal-400'
+                                ],
+                                'April': [ // Mild (~57°F) - Lime-green tones  
+                                  'bg-gradient-to-br from-lime-200 to-lime-300',
+                                  'bg-gradient-to-br from-lime-300 to-lime-400',
                                   'bg-gradient-to-br from-green-300 to-green-400',
                                   'bg-gradient-to-br from-green-400 to-green-500',
                                   'bg-gradient-to-br from-emerald-300 to-emerald-400',
                                   'bg-gradient-to-br from-emerald-400 to-emerald-500',
+                                  'bg-gradient-to-br from-teal-300 to-teal-400',
                                   'bg-gradient-to-br from-teal-400 to-teal-500',
-                                  'bg-gradient-to-br from-cyan-400 to-cyan-500'
+                                  'bg-gradient-to-br from-cyan-400 to-cyan-500',
+                                  'bg-gradient-to-br from-sky-400 to-sky-500'
                                 ],
-                                'March': [ // Spring greens - light to dark
-                                  'bg-gradient-to-br from-emerald-200 to-emerald-300',
-                                  'bg-gradient-to-br from-emerald-300 to-emerald-400',
-                                  'bg-gradient-to-br from-emerald-400 to-emerald-500', 
-                                  'bg-gradient-to-br from-emerald-500 to-emerald-600',
-                                  'bg-gradient-to-br from-emerald-600 to-emerald-700',
-                                  'bg-gradient-to-br from-emerald-700 to-emerald-800',
-                                  'bg-gradient-to-br from-green-500 to-green-600',
-                                  'bg-gradient-to-br from-teal-500 to-teal-600'
+                                'March': [ // Cool (~45°F) - Cyan-teal tones
+                                  'bg-gradient-to-br from-cyan-200 to-cyan-300',
+                                  'bg-gradient-to-br from-cyan-300 to-cyan-400',
+                                  'bg-gradient-to-br from-cyan-400 to-cyan-500', 
+                                  'bg-gradient-to-br from-teal-300 to-teal-400',
+                                  'bg-gradient-to-br from-teal-400 to-teal-500',
+                                  'bg-gradient-to-br from-sky-300 to-sky-400',
+                                  'bg-gradient-to-br from-sky-400 to-sky-500',
+                                  'bg-gradient-to-br from-blue-300 to-blue-400'
                                 ],
-                                'February': [ // Winter blues - light to dark
+                                'February': [ // Cold (~35°F) - Blue tones
                                   'bg-gradient-to-br from-blue-200 to-blue-300',
                                   'bg-gradient-to-br from-blue-300 to-blue-400',
                                   'bg-gradient-to-br from-blue-400 to-blue-500',
                                   'bg-gradient-to-br from-blue-500 to-blue-600',
-                                  'bg-gradient-to-br from-blue-600 to-blue-700',
-                                  'bg-gradient-to-br from-blue-700 to-blue-800',
-                                  'bg-gradient-to-br from-blue-800 to-blue-900',
+                                  'bg-gradient-to-br from-sky-300 to-sky-400',
+                                  'bg-gradient-to-br from-sky-400 to-sky-500',
+                                  'bg-gradient-to-br from-indigo-300 to-indigo-400',
                                   'bg-gradient-to-br from-indigo-400 to-indigo-500',
-                                  'bg-gradient-to-br from-indigo-500 to-indigo-600',
-                                  'bg-gradient-to-br from-indigo-600 to-indigo-700'
+                                  'bg-gradient-to-br from-cyan-400 to-cyan-500',
+                                  'bg-gradient-to-br from-slate-400 to-slate-500'
                                 ],
-                                'January': [ // Winter grays - light to dark
+                                'January': [ // Very cold (~32°F) - Grey-blue tones
                                   'bg-gradient-to-br from-slate-300 to-slate-400',
                                   'bg-gradient-to-br from-slate-400 to-slate-500',
                                   'bg-gradient-to-br from-slate-500 to-slate-600',
-                                  'bg-gradient-to-br from-slate-600 to-slate-700',
-                                  'bg-gradient-to-br from-slate-700 to-slate-800',
+                                  'bg-gradient-to-br from-gray-400 to-gray-500',
                                   'bg-gradient-to-br from-gray-500 to-gray-600',
-                                  'bg-gradient-to-br from-gray-600 to-gray-700',
-                                  'bg-gradient-to-br from-gray-700 to-gray-800'
+                                  'bg-gradient-to-br from-blue-400 to-blue-500',
+                                  'bg-gradient-to-br from-blue-500 to-blue-600',
+                                  'bg-gradient-to-br from-indigo-400 to-indigo-500'
                                 ]
                               };
                               
