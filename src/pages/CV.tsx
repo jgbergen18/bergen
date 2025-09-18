@@ -44,7 +44,7 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg text-foreground">Erasmus Mundus Joint MSc in Brain and Data Science</h3>
-                <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
+                <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
               </div>
               <div className="flex items-center gap-2 text-foreground mb-2">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -59,7 +59,7 @@ const CV = () => {
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg text-foreground">Erasmus Mundus Joint MSc in Neuroscience</h3>
-                <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
+                <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
               </div>
               <div className="flex items-center gap-2 text-foreground mb-2">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -133,7 +133,7 @@ const CV = () => {
           <div className="space-y-4">
             <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
-                <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2025</span>
+                <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">2025</span>
                 <div>
                   <h4 className="font-semibold text-foreground">Cientifico Latino Graduate School Mentorship Initiative Fellow</h4>
                 </div>
@@ -171,7 +171,7 @@ const CV = () => {
           <div className="space-y-4">
             <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
-                <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2025</span>
+                <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">2025</span>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Bar-Ilan Brain Center Conference</h4>
                   <p className="text-foreground">Poster Presentation and Speaker: A New Paradigm for Studying LGBTQ+ Identities using Mixed Methods and Machine Learning</p>
@@ -191,7 +191,7 @@ const CV = () => {
             
             <div className="bg-primary/10 rounded-lg p-5 border-l-4 border-accent hover:shadow-md transition-all duration-300 hover-scale">
               <div className="flex items-start gap-4">
-                <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2022</span>
+                <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">2022</span>
                 <div className="space-y-3">
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">SFN Poster Presentation</h4>
@@ -226,10 +226,10 @@ const CV = () => {
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
-                  <p className="text-accent font-semibold">Sarit Kraus Lab, Bar-Ilan University</p>
+                  <p className="text-foreground font-semibold">Sarit Kraus Lab, Bar-Ilan University</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">08/2024–Present</span>
+                  <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">08/2024–Present</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-foreground">
@@ -292,10 +292,10 @@ const CV = () => {
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
-                  <p className="text-accent font-semibold">S.J. Langer and Taymy Caso Lab, New York University</p>
+                  <p className="text-foreground font-semibold">S.J. Langer and Taymy Caso Lab, New York University</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">10/2021–12/2022</span>
+                  <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">10/2021–12/2022</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-foreground">
@@ -358,10 +358,10 @@ const CV = () => {
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-foreground">Research Assistant</h3>
-                  <p className="text-accent font-semibold">Aurel Lazar Bionet Lab, Columbia University</p>
+                  <p className="text-foreground font-semibold">Aurel Lazar Bionet Lab, Columbia University</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">06/2020–09/2020</span>
+                  <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">06/2020–09/2020</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-foreground">
@@ -439,10 +439,10 @@ const CV = () => {
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-foreground">Volunteer Program Coordinator and Instructor</h3>
-                  <p className="text-accent font-semibold">Code.X</p>
+                  <p className="text-foreground font-semibold">Code.X</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">07/2024–Present</span>
+                  <span className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-bold">07/2024–Present</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-foreground">
@@ -610,7 +610,7 @@ const CV = () => {
           <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
             <div className="flex flex-wrap gap-2">
               {['Reading', 'Graphic Design', 'Laser Cutting', '3D Modeling', 'Biking', 'Running', 'Board Games', 'Woodworking'].map((hobby) => (
-                <span key={hobby} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">
+                <span key={hobby} className="bg-primary/20 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                   {hobby}
                 </span>
               ))}
