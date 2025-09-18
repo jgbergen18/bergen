@@ -613,35 +613,50 @@ const Blog = () => {
           {/* Reading Logs */}
           <div className="space-y-6">
             {readingLogs.map((log) => {
-              // Get temperature-based pastel background for each month (proper blue-to-red scale)
+              // Temperature data for accurate scaling
+              const tempData = {
+                'January': 42.0,
+                'February': 47.0, 
+                'March': 55.2,
+                'April': 62.0,
+                'May': 72.7,
+                'June': 84.2,
+                'July': 87.4,
+                'August': 84.0
+              };
+              
+              const minTemp = 42.0; // January
+              const maxTemp = 87.4; // July
+              
+              // Get temperature-based colors using accurate scaling
               const getMonthBackground = (month: string) => {
-                const monthKey = month.split(' ')[0];
-                const backgrounds = {
-                  'January': 'bg-blue-50 border-blue-100',        // 42.0°F - Coldest (blue)
-                  'February': 'bg-indigo-50 border-indigo-100',   // 47.0°F - Cold (indigo)
-                  'March': 'bg-purple-50 border-purple-100',      // 55.2°F - Cool (purple)
-                  'April': 'bg-violet-50 border-violet-100',      // 62.0°F - Cool-warm (violet)
-                  'May': 'bg-pink-50 border-pink-100',            // 72.7°F - Warm (pink)
-                  'June': 'bg-rose-50 border-rose-100',           // 84.2°F - Hot (rose)
-                  'July': 'bg-red-50 border-red-100',             // 87.4°F - Hottest (red)
-                  'August': 'bg-orange-50 border-orange-100',     // 84.0°F - Hot (orange-red)
-                };
-                return backgrounds[monthKey as keyof typeof backgrounds] || 'bg-background border-border';
+                const monthKey = month.split(' ')[0] as keyof typeof tempData;
+                const temp = tempData[monthKey] || minTemp;
+                
+                // Calculate position on temperature scale (0-1)
+                const tempRatio = (temp - minTemp) / (maxTemp - minTemp);
+                
+                // Map to color scale: blue (cold) -> purple -> pink -> rose -> red (hot)
+                if (tempRatio <= 0.2) return 'bg-blue-50 border-blue-100';        // 42-51°F
+                if (tempRatio <= 0.4) return 'bg-indigo-50 border-indigo-100';    // 51-60°F  
+                if (tempRatio <= 0.6) return 'bg-purple-50 border-purple-100';    // 60-69°F
+                if (tempRatio <= 0.8) return 'bg-pink-50 border-pink-100';        // 69-78°F
+                if (tempRatio <= 0.95) return 'bg-rose-50 border-rose-100';       // 78-86°F (June & August)
+                return 'bg-red-50 border-red-100';                                // 86-87°F (July)
               };
 
               const getMonthHover = (month: string) => {
-                const monthKey = month.split(' ')[0];
-                const hovers = {
-                  'January': 'hover:bg-blue-100',       // 42.0°F
-                  'February': 'hover:bg-indigo-100',    // 47.0°F
-                  'March': 'hover:bg-purple-100',       // 55.2°F
-                  'April': 'hover:bg-violet-100',       // 62.0°F
-                  'May': 'hover:bg-pink-100',           // 72.7°F
-                  'June': 'hover:bg-rose-100',          // 84.2°F
-                  'July': 'hover:bg-red-100',           // 87.4°F
-                  'August': 'hover:bg-orange-100',      // 84.0°F
-                };
-                return hovers[monthKey as keyof typeof hovers] || 'hover:bg-surface-hover';
+                const monthKey = month.split(' ')[0] as keyof typeof tempData;
+                const temp = tempData[monthKey] || minTemp;
+                
+                const tempRatio = (temp - minTemp) / (maxTemp - minTemp);
+                
+                if (tempRatio <= 0.2) return 'hover:bg-blue-100';
+                if (tempRatio <= 0.4) return 'hover:bg-indigo-100';
+                if (tempRatio <= 0.6) return 'hover:bg-purple-100';
+                if (tempRatio <= 0.8) return 'hover:bg-pink-100';
+                if (tempRatio <= 0.95) return 'hover:bg-rose-100';     // June & August both here
+                return 'hover:bg-red-100';
               };
 
               return (
@@ -694,98 +709,72 @@ const Blog = () => {
                         {/* Book List */}
                         <div className="space-y-3 pt-4">
                           {log.books.map((book, bookIndex) => {
-                            // Proper blue-to-red temperature scale for book covers
+                            // Temperature-based book cover colors using accurate scaling
                             const getSeasonalColor = (month: string, index: number) => {
-                              const colors = {
-                                'January': [ // 42.0°F - Coldest (blue tones)
+                              const monthKey = month.split(' ')[0] as keyof typeof tempData;
+                              const temp = tempData[monthKey] || minTemp;
+                              const tempRatio = (temp - minTemp) / (maxTemp - minTemp);
+                              
+                              let colors: string[];
+                              
+                              // Use same temperature ranges as backgrounds
+                              if (tempRatio <= 0.2) { // 42-51°F - Blue tones
+                                colors = [
                                   'bg-gradient-to-br from-blue-200 to-blue-300',
                                   'bg-gradient-to-br from-blue-300 to-blue-400',
                                   'bg-gradient-to-br from-blue-400 to-blue-500',
-                                  'bg-gradient-to-br from-blue-500 to-blue-600',
                                   'bg-gradient-to-br from-sky-300 to-sky-400',
-                                  'bg-gradient-to-br from-sky-400 to-sky-500',
-                                  'bg-gradient-to-br from-blue-600 to-blue-700',
-                                  'bg-gradient-to-br from-sky-500 to-sky-600'
-                                ],
-                                'February': [ // 47.0°F - Cold (indigo tones)
+                                  'bg-gradient-to-br from-blue-500 to-blue-600',
+                                  'bg-gradient-to-br from-sky-400 to-sky-500'
+                                ];
+                              } else if (tempRatio <= 0.4) { // 51-60°F - Indigo tones
+                                colors = [
                                   'bg-gradient-to-br from-indigo-200 to-indigo-300',
                                   'bg-gradient-to-br from-indigo-300 to-indigo-400',
                                   'bg-gradient-to-br from-indigo-400 to-indigo-500',
-                                  'bg-gradient-to-br from-indigo-500 to-indigo-600',
                                   'bg-gradient-to-br from-blue-400 to-blue-500',
-                                  'bg-gradient-to-br from-blue-500 to-blue-600',
                                   'bg-gradient-to-br from-violet-300 to-violet-400',
-                                  'bg-gradient-to-br from-violet-400 to-violet-500',
-                                  'bg-gradient-to-br from-indigo-600 to-indigo-700',
-                                  'bg-gradient-to-br from-blue-600 to-blue-700'
-                                ],
-                                'March': [ // 55.2°F - Cool (purple tones)
+                                  'bg-gradient-to-br from-indigo-500 to-indigo-600'
+                                ];
+                              } else if (tempRatio <= 0.6) { // 60-69°F - Purple tones
+                                colors = [
                                   'bg-gradient-to-br from-purple-200 to-purple-300',
                                   'bg-gradient-to-br from-purple-300 to-purple-400',
                                   'bg-gradient-to-br from-purple-400 to-purple-500',
                                   'bg-gradient-to-br from-violet-300 to-violet-400',
                                   'bg-gradient-to-br from-violet-400 to-violet-500',
-                                  'bg-gradient-to-br from-indigo-400 to-indigo-500',
-                                  'bg-gradient-to-br from-purple-500 to-purple-600',
-                                  'bg-gradient-to-br from-violet-500 to-violet-600'
-                                ],
-                                'April': [ // 62.0°F - Cool-warm (violet tones)
-                                  'bg-gradient-to-br from-violet-200 to-violet-300',
-                                  'bg-gradient-to-br from-violet-300 to-violet-400',
-                                  'bg-gradient-to-br from-violet-400 to-violet-500',
-                                  'bg-gradient-to-br from-violet-500 to-violet-600',
-                                  'bg-gradient-to-br from-purple-300 to-purple-400',
-                                  'bg-gradient-to-br from-purple-400 to-purple-500',
-                                  'bg-gradient-to-br from-fuchsia-300 to-fuchsia-400',
-                                  'bg-gradient-to-br from-fuchsia-400 to-fuchsia-500',
-                                  'bg-gradient-to-br from-violet-600 to-violet-700',
                                   'bg-gradient-to-br from-purple-500 to-purple-600'
-                                ],
-                                'May': [ // 72.7°F - Warm (pink tones)
+                                ];
+                              } else if (tempRatio <= 0.8) { // 69-78°F - Pink tones
+                                colors = [
                                   'bg-gradient-to-br from-pink-200 to-pink-300',
                                   'bg-gradient-to-br from-pink-300 to-pink-400',
                                   'bg-gradient-to-br from-pink-400 to-pink-500',
                                   'bg-gradient-to-br from-fuchsia-300 to-fuchsia-400',
                                   'bg-gradient-to-br from-fuchsia-400 to-fuchsia-500',
-                                  'bg-gradient-to-br from-rose-300 to-rose-400',
-                                  'bg-gradient-to-br from-rose-400 to-rose-500',
                                   'bg-gradient-to-br from-pink-500 to-pink-600'
-                                ],
-                                'June': [ // 84.2°F - Hot (rose tones)
+                                ];
+                              } else if (tempRatio <= 0.95) { // 78-86°F - Rose tones (June & August)
+                                colors = [
                                   'bg-gradient-to-br from-rose-200 to-rose-300',
                                   'bg-gradient-to-br from-rose-300 to-rose-400',
                                   'bg-gradient-to-br from-rose-400 to-rose-500',
                                   'bg-gradient-to-br from-rose-500 to-rose-600',
                                   'bg-gradient-to-br from-pink-400 to-pink-500',
-                                  'bg-gradient-to-br from-pink-500 to-pink-600',
-                                  'bg-gradient-to-br from-red-300 to-red-400',
-                                  'bg-gradient-to-br from-red-400 to-red-500'
-                                ],
-                                'July': [ // 87.4°F - Hottest (red tones)
+                                  'bg-gradient-to-br from-red-300 to-red-400'
+                                ];
+                              } else { // 86-87°F - Red tones (July only)
+                                colors = [
                                   'bg-gradient-to-br from-red-200 to-red-300',
                                   'bg-gradient-to-br from-red-300 to-red-400',
                                   'bg-gradient-to-br from-red-400 to-red-500',
                                   'bg-gradient-to-br from-red-500 to-red-600',
                                   'bg-gradient-to-br from-red-600 to-red-700',
-                                  'bg-gradient-to-br from-rose-400 to-rose-500'
-                                ],
-                                'August': [ // 84.0°F - Hot (orange-red tones)
-                                  'bg-gradient-to-br from-orange-200 to-orange-300',
-                                  'bg-gradient-to-br from-orange-300 to-orange-400',
-                                  'bg-gradient-to-br from-orange-400 to-orange-500',
-                                  'bg-gradient-to-br from-red-300 to-red-400',
-                                  'bg-gradient-to-br from-red-400 to-red-500',
-                                  'bg-gradient-to-br from-rose-400 to-rose-500',
-                                  'bg-gradient-to-br from-orange-500 to-orange-600',
-                                  'bg-gradient-to-br from-red-500 to-red-600',
-                                  'bg-gradient-to-br from-rose-500 to-rose-600',
-                                  'bg-gradient-to-br from-orange-600 to-orange-700'
-                                ]
-                              };
+                                  'bg-gradient-to-br from-rose-500 to-rose-600'
+                                ];
+                              }
                               
-                              const monthKey = month.split(' ')[0] as keyof typeof colors;
-                              const monthColors = colors[monthKey] || colors['January'];
-                              return monthColors[index % monthColors.length];
+                              return colors[index % colors.length];
                             };
 
                             return (
