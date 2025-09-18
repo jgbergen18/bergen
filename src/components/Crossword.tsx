@@ -12,31 +12,31 @@ interface Cell {
 }
 
 const Crossword = () => {
-  // 5x5 grid for mini crossword with real intersecting words
+  // 5x5 grid with properly intersecting Jamie-relevant words
   const initialGrid: Cell[][] = [
     [
-      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Organ Jamie studies' },
-      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', number: 1, isBlack: false, answer: 'D', clueAcross: '1A. Information for research' },
       { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'I' },
-      { letter: '', isBlack: false, answer: 'N' }
+      { letter: '', isBlack: false, answer: 'T' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: true, answer: '' }
     ],
     [
-      { letter: '', number: 2, isBlack: false, answer: 'A', clueDown: '2D. Liberal arts college in NY' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', number: 2, isBlack: false, answer: 'I', clueAcross: '2A. Machine learning field' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 3, isBlack: false, answer: 'I', clueDown: '3D. Machine learning field' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' }
     ],
     [
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', number: 4, isBlack: false, answer: 'C', clueAcross: '4A. Computer science degree' },
-      { letter: '', isBlack: false, answer: 'S' },
+      { letter: '', isBlack: false, answer: 'T' },
       { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 3, isBlack: false, answer: 'N', clueAcross: '3A. State where Bard is located' },
+      { letter: '', isBlack: false, answer: 'Y' },
       { letter: '', isBlack: true, answer: '' }
     ],
     [
-      { letter: '', isBlack: false, answer: 'D' },
+      { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
@@ -58,12 +58,12 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. Organ Jamie studies',
-      '4. Computer science (abbr.)'
+      '1. Information for research',
+      '2. Machine learning field',
+      '3. State where Bard is located'
     ],
     down: [
-      '2. Liberal arts college in NY',
-      '3. Machine learning field (abbr.)'
+      '1. Information for research'
     ]
   };
 
