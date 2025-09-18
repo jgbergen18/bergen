@@ -12,70 +12,55 @@ interface Cell {
 }
 
 const Crossword = () => {
-  // 7x7 grid based on Jamie's actual CV with properly intersecting words
+  // 6x6 grid with real intersecting words from Jamie's CV
   const initialGrid: Cell[][] = [
     [
       { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Jamie\'s research focus organ' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: false, answer: 'N' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: false, answer: 'D' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 2, isBlack: false, answer: 'E', clueDown: '2D. Programming language Jamie uses' },
-      { letter: '', number: 3, isBlack: false, answer: 'E', clueDown: '3D. Publication journal Jamie co-authored' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 4, isBlack: false, answer: 'E', clueDown: '4D. Frontend framework Jamie used' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'U' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', number: 5, isBlack: false, answer: 'I', clueAcross: '5A. Country where Jamie studies now' },
-      { letter: '', isBlack: false, answer: 'S' },
       { letter: '', isBlack: false, answer: 'R' },
       { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'E' },
-      { letter: '', isBlack: false, answer: 'L' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'C' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'T' },
-      { letter: '', isBlack: false, answer: 'O' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', number: 6, isBlack: false, answer: 'P', clueAcross: '6A. Disease Jamie researched' },
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: false, answer: 'R' },
-      { letter: '', isBlack: false, answer: 'K' },
       { letter: '', isBlack: false, answer: 'I' },
       { letter: '', isBlack: false, answer: 'N' },
-      { letter: '', isBlack: false, answer: 'S' }
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 2, isBlack: false, answer: 'E', clueDown: '2D. Frontend framework Jamie used' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 3, isBlack: false, answer: 'S', clueDown: '3D. Country where Jamie studies' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', number: 4, isBlack: false, answer: 'D', clueAcross: '4A. Information Jamie analyzes' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: false, answer: 'T' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'C' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'T' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'E' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
     ]
   ];
 
@@ -86,14 +71,12 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. Jamie\'s undergraduate college',
-      '5. Country where Jamie studies now',
-      '6. Disease Jamie researched'
+      '1. Jamie\'s research focus organ',
+      '4. Information Jamie analyzes'
     ],
     down: [
-      '2. Programming language Jamie uses',
-      '3. Publication journal Jamie co-authored',
-      '4. Frontend framework Jamie used'
+      '2. Frontend framework Jamie used',
+      '3. Country where Jamie studies'
     ]
   };
 
@@ -165,7 +148,7 @@ const Crossword = () => {
                 <div className="text-4xl animate-bounce">🎉 Congratulations! 🎉</div>
               </div>
             )}
-            <div className="grid grid-cols-7 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
+            <div className="grid grid-cols-6 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
               {grid.map((row, rowIndex) =>
                 row.map((cell, colIndex) => (
                   <div
