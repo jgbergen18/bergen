@@ -29,15 +29,15 @@ const Crossword = () => {
     ));
   };
 
-  // 7x6 grid exactly matching the screenshot
+  // 7x6 grid with proper numbering
   const initialGrid: Cell[][] = [
     [
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Barrier Jamie studied', clueDown: '1D. College Jamie attended' },
-      { letter: '', isBlack: false, answer: 'B' },
-      { letter: '', isBlack: false, answer: 'B' }
+      { letter: '', number: 1, isBlack: false, answer: 'B', clueDown: '1D. College Jamie attended' },
+      { letter: '', isBlack: false, answer: 'Y' },
+      { letter: '', isBlack: false, answer: 'U' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
@@ -49,7 +49,7 @@ const Crossword = () => {
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 6, isBlack: false, answer: 'R', clueAcross: '6A. Jamie\'s most common job (abbr.)' },
+      { letter: '', number: 3, isBlack: false, answer: 'R', clueAcross: '3A. Research assistant (abbr.)' },
       { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'R' },
@@ -59,12 +59,12 @@ const Crossword = () => {
       { letter: '', isBlack: true, answer: '' },
       { letter: '', number: 7, isBlack: false, answer: 'A', clueDown: '7D. Immune molecules studied in research' },
       { letter: '', isBlack: false, answer: 'G' },
-      { letter: '', number: 3, isBlack: false, answer: 'E', clueAcross: '3A. Multi-agent system research in Kraus lab' },
+      { letter: '', number: 4, isBlack: false, answer: 'E', clueAcross: '4A. Multi-agent system research' },
       { letter: '', isBlack: false, answer: 'N' },
       { letter: '', isBlack: false, answer: 'T' }
     ],
     [
-      { letter: '', number: 4, isBlack: false, answer: 'F', clueAcross: '4A. Design tool' },
+      { letter: '', number: 5, isBlack: false, answer: 'F', clueAcross: '5A. Design tool' },
       { letter: '', isBlack: false, answer: 'I' },
       { letter: '', isBlack: false, answer: 'G' },
       { letter: '', isBlack: false, answer: 'M' },
@@ -73,16 +73,16 @@ const Crossword = () => {
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'N' },
+      { letter: '', isBlack: false, answer: 'I' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: false, answer: 'S' },
       { letter: '', isBlack: true, answer: '' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 5, isBlack: false, answer: 'C', clueAcross: '5A. Programming skill' },
+      { letter: '', number: 6, isBlack: false, answer: 'C', clueAcross: '6A. Programming skill' },
       { letter: '', isBlack: false, answer: 'O' },
       { letter: '', isBlack: false, answer: 'D' },
       { letter: '', isBlack: false, answer: 'E' }
@@ -96,11 +96,10 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. Barrier Jamie studied',
-      '3. Multi-____ system research in Kraus lab', 
-      '4. Design tool Jamie taught to high school students',
-      '5. Jamie\'s general programming skill',
-      '6. Programming language for data analysis'
+      '3. Research assistant (abbr.)',
+      '4. Multi-agent system research', 
+      '5. Design tool',
+      '6. Programming skill'
     ],
     down: [
       '1. College Jamie attended',
