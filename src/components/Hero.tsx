@@ -7,9 +7,6 @@ const Hero = () => {
             Hello, I'm{' '}
             <span className="font-medium">Jamie Bergen</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed">
-            Welcome to my website! I'm passionate about creating meaningful work at the intersection of design and technology.
-          </p>
         </div>
       </div>
     </section>
