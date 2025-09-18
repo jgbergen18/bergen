@@ -34,7 +34,6 @@ const Header = () => {
 
   const navigation = [
     { name: 'About', href: '#about' },
-    { name: 'Crossword', href: '#crossword' },
     { name: 'Projects', href: '#projects' },
     { name: 'Reading Log', href: '/blog' },
     { name: 'CV', href: '/cv' },
