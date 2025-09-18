@@ -15,22 +15,6 @@ const projectsData = [
     externalLink: "https://github.com/sunflowerseed17/TadesseRedditDepressionReplication"
   },
   {
-    id: 2,
-    title: "Work in Progress",
-    description: "Coming soon - exciting project in development.",
-    imageUrl: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDUwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjNzQ3NDc0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPldvcmsgaW4gUHJvZ3Jlc3M8L3RleHQ+Cjwvc3ZnPg==",
-    tags: ["Coming Soon"],
-    type: "placeholder"
-  },
-  {
-    id: 3,
-    title: "Work in Progress",
-    description: "Coming soon - exciting project in development.",
-    imageUrl: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDUwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjNzQ3NDc0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPldvcmsgaW4gUHJvZ3Jlc3M8L3RleHQ+Cjwvc3ZnPg==",
-    tags: ["Coming Soon"],
-    type: "placeholder"
-  },
-  {
     id: 4,
     title: "Parkinson's Disease Research",
     description: "Research assistant in the Agalliu Lab studying the role of gut immune system in Parkinson's Disease progression. Contributed to published research in Neuron on α-synuclein and HLA-DRB1*15:01 interactions.",
@@ -38,14 +22,6 @@ const projectsData = [
     tags: ["Neuroscience", "Research", "Immunology"],
     type: "project",
     externalLink: "https://www.cell.com/neuron/pdf/S0896-6273(23)00548-2.pdf"
-  },
-  {
-    id: 5,
-    title: "Work in Progress",
-    description: "Coming soon - exciting project in development.",
-    imageUrl: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDUwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjNzQ3NDc0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPldvcmsgaW4gUHJvZ3Jlc3M8L3RleHQ+Cjwvc3ZnPg==",
-    tags: ["Coming Soon"],
-    type: "placeholder"
   },
   {
     id: 6,
@@ -63,9 +39,7 @@ const ProjectsGallery = () => {
   const navigate = useNavigate();
 
   const handleItemClick = (project: typeof projectsData[0]) => {
-    if (project.type === 'placeholder') {
-      return; // Don't do anything for placeholder projects
-    } else if (project.type === 'blog') {
+    if (project.type === 'blog') {
       navigate('/blog');
     } else if (project.externalLink) {
       window.open(project.externalLink, '_blank');
@@ -85,12 +59,8 @@ const ProjectsGallery = () => {
           {projectsData.map((project) => (
             <div
               key={project.id}
-              className={`relative group overflow-hidden rounded-lg bg-background border border-border-subtle transition-all duration-300 ${
-                project.type === 'placeholder' 
-                  ? 'opacity-75 cursor-default' 
-                  : 'cursor-pointer hover:border-border'
-              }`}
-              onMouseEnter={() => project.type !== 'placeholder' && setHoveredItem(project.id)}
+              className="relative group overflow-hidden rounded-lg bg-background border border-border-subtle transition-all duration-300 cursor-pointer hover:border-border"
+              onMouseEnter={() => setHoveredItem(project.id)}
               onMouseLeave={() => setHoveredItem(null)}
               onClick={() => handleItemClick(project)}
             >
