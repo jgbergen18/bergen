@@ -12,42 +12,70 @@ interface Cell {
 }
 
 const Crossword = () => {
-  // 5x5 grid with properly intersecting Jamie-relevant words
+  // 7x7 grid based on Jamie's actual CV with properly intersecting words
   const initialGrid: Cell[][] = [
     [
-      { letter: '', number: 1, isBlack: false, answer: 'D', clueAcross: '1A. Information for research' },
+      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Jamie\'s research focus organ' },
       { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: false, answer: 'N' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: false, answer: 'D' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 2, isBlack: false, answer: 'E', clueDown: '2D. Programming language Jamie uses' },
+      { letter: '', number: 3, isBlack: false, answer: 'E', clueDown: '3D. Publication journal Jamie co-authored' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', number: 4, isBlack: false, answer: 'E', clueDown: '4D. Frontend framework Jamie used' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: false, answer: 'U' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', number: 5, isBlack: false, answer: 'I', clueAcross: '5A. Country where Jamie studies now' },
+      { letter: '', isBlack: false, answer: 'S' },
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: false, answer: 'A' },
+      { letter: '', isBlack: false, answer: 'E' },
+      { letter: '', isBlack: false, answer: 'L' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: false, answer: 'C' },
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'T' },
+      { letter: '', isBlack: false, answer: 'O' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' },
+      { letter: '', isBlack: true, answer: '' }
+    ],
+    [
+      { letter: '', number: 6, isBlack: false, answer: 'P', clueAcross: '6A. Disease Jamie researched' },
       { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', number: 2, isBlack: false, answer: 'I', clueAcross: '2A. Machine learning field' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: false, answer: 'T' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 3, isBlack: false, answer: 'N', clueAcross: '3A. State where Bard is located' },
-      { letter: '', isBlack: false, answer: 'Y' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: false, answer: 'A' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
-    ],
-    [
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: true, answer: '' }
+      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: false, answer: 'K' },
+      { letter: '', isBlack: false, answer: 'I' },
+      { letter: '', isBlack: false, answer: 'N' },
+      { letter: '', isBlack: false, answer: 'S' }
     ]
   ];
 
@@ -58,12 +86,14 @@ const Crossword = () => {
 
   const clues = {
     across: [
-      '1. Information for research',
-      '2. Machine learning field',
-      '3. State where Bard is located'
+      '1. Jamie\'s undergraduate college',
+      '5. Country where Jamie studies now',
+      '6. Disease Jamie researched'
     ],
     down: [
-      '1. Information for research'
+      '2. Programming language Jamie uses',
+      '3. Publication journal Jamie co-authored',
+      '4. Frontend framework Jamie used'
     ]
   };
 
@@ -135,7 +165,7 @@ const Crossword = () => {
                 <div className="text-4xl animate-bounce">🎉 Congratulations! 🎉</div>
               </div>
             )}
-            <div className="grid grid-cols-5 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
+            <div className="grid grid-cols-7 gap-1 p-4 bg-background rounded-lg border border-border-subtle">
               {grid.map((row, rowIndex) =>
                 row.map((cell, colIndex) => (
                   <div
