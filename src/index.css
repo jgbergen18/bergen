@@ -6,6 +6,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* Rainbow hover animation */
+@keyframes rainbow {
+  0% { color: hsl(0, 100%, 60%); }
+  16.66% { color: hsl(60, 100%, 60%); }
+  33.33% { color: hsl(120, 100%, 60%); }
+  50% { color: hsl(180, 100%, 60%); }
+  66.66% { color: hsl(240, 100%, 60%); }
+  83.33% { color: hsl(300, 100%, 60%); }
+  100% { color: hsl(0, 100%, 60%); }
+}
+
+.rainbow-text:hover .rainbow-letter {
+  animation: rainbow 1.5s ease-in-out infinite;
+}
+
+.rainbow-letter {
+  cursor: default;
+}
+
 @layer base {
   :root {
     /* Minimalist Design Tokens */
