@@ -52,7 +52,8 @@ const projectsData = [
     description: "Co-created research group focused on sex and sexuality studies. Built the group's website and secured IRB approval for our first study, currently in data collection phase.",
     imageUrl: sassResearchImg,
     tags: ["Research", "Web Development", "LGBTQ+ Studies"],
-    type: "project"
+    type: "project",
+    externalLink: "https://sasstudies.com/"
   }
 ];
 
