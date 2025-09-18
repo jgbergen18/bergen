@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import ProjectsGallery from '../components/ProjectsGallery';
 import Contact from '../components/Contact';
+import Crossword from '../components/Crossword';
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
         <About />
         <ProjectsGallery />
         <Contact />
+        <Crossword />
       </main>
       
       {/* Footer */}
