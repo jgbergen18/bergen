@@ -498,7 +498,7 @@ const Blog = () => {
               Reading Log
             </h1>
             <p className="text-lg text-text-secondary leading-relaxed">
-              My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚 
+              My monthly reading adventures - the good, the bad, and the just okay. Honest thoughts on everything I pick up. 📚 
             </p>
             <p className="text-sm italic text-text-muted max-w-3xl">Colors for each month reflect New York City's high temperature scientifically scaled from 0°F (dark blue) to 100°F (red).</p>
             <p className="text-sm italic text-text-muted max-w-3xl">
