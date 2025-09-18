@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink, Mail, Phone } from 'lucide-react';
+import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink, Mail, Phone, Cpu } from 'lucide-react';
 
 const CV = () => {
   return (
@@ -57,7 +57,10 @@ const CV = () => {
             </div>
             
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
-              <h3 className="font-bold text-lg text-foreground mb-3">Erasmus Mundus Joint MSc in Neuroscience</h3>
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="font-bold text-lg text-foreground">Erasmus Mundus Joint MSc in Neuroscience</h3>
+                <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">4.0 GPA</span>
+              </div>
               <div className="flex items-center gap-2 text-muted-foreground mb-2">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span>Vrije Universiteit, Amsterdam, The Netherlands</span>
@@ -96,8 +99,8 @@ const CV = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20 hover:shadow-lg transition-all duration-300 hover-scale">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-accent/20 rounded-lg">
-                  <Brain className="w-5 h-5 text-accent" />
+                <div className="p-2 bg-primary/20 rounded-lg">
+                  <Cpu className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="font-bold text-lg text-foreground">NeuroAI</h3>
               </div>
@@ -188,8 +191,7 @@ const CV = () => {
                   <p className="text-accent font-semibold">Sarit Kraus Lab, Bar-Ilan University</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">Current</span>
-                  <p className="text-sm text-muted-foreground mt-1">08/2024–Present</p>
+                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">08/2024–Present</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-muted-foreground">
@@ -222,8 +224,7 @@ const CV = () => {
                   <p className="text-primary font-semibold">Dritan Agalliu Lab, Columbia University Irving Medical Center</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2021-2023</span>
-                  <p className="text-sm text-muted-foreground mt-1">09/2021–05/2023</p>
+                  <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">09/2021–05/2023</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-muted-foreground">
@@ -256,8 +257,7 @@ const CV = () => {
                   <p className="text-accent font-semibold">S.J. Langer and Taymy Caso Lab, New York University</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2021-2022</span>
-                  <p className="text-sm text-muted-foreground mt-1">10/2021–12/2022</p>
+                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">10/2021–12/2022</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-muted-foreground">
@@ -290,8 +290,7 @@ const CV = () => {
                   <p className="text-primary font-semibold">Patricia Musolino Lab, Massachusetts General Hospital</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">2020-2021</span>
-                  <p className="text-sm text-muted-foreground mt-1">11/2020–09/2021</p>
+                  <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-bold">11/2020–09/2021</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-muted-foreground">
@@ -324,8 +323,7 @@ const CV = () => {
                   <p className="text-accent font-semibold">Aurel Lazar Bionet Lab, Columbia University</p>
                 </div>
                 <div className="text-right">
-                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">2020</span>
-                  <p className="text-sm text-muted-foreground mt-1">06/2020–09/2020</p>
+                  <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold">06/2020–09/2020</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4 text-muted-foreground">
