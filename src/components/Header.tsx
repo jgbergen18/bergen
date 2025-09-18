@@ -1,13 +1,40 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (href: string) => {
+    if (href.startsWith('#')) {
+      // If we're already on the home page, just scroll to section
+      if (location.pathname === '/') {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // If we're on another page, navigate to home then scroll
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    } else {
+      navigate(href);
+    }
+    setIsMenuOpen(false);
+  };
 
   const navigation = [
     { name: 'About', href: '#about' },
+    { name: 'Crossword', href: '#crossword' },
     { name: 'Projects', href: '#projects' },
     { name: 'Reading Log', href: '/blog' },
     { name: 'CV', href: '/cv' },
@@ -27,23 +54,13 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex space-x-8">
               {navigation.map((item) => (
-                item.href.startsWith('#') ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
-                  >
-                    {item.name}
-                  </Link>
-                )
+                <button
+                  key={item.name}
+                  onClick={() => handleNavigation(item.href)}
+                  className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium cursor-pointer"
+                >
+                  {item.name}
+                </button>
               ))}
             </nav>
             <ThemeToggle />
@@ -65,25 +82,13 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border-subtle">
             {navigation.map((item) => (
-              item.href.startsWith('#') ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-text-secondary hover:text-text-primary transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="block py-2 text-text-secondary hover:text-text-primary transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              )
+              <button
+                key={item.name}
+                onClick={() => handleNavigation(item.href)}
+                className="block w-full text-left py-2 text-text-secondary hover:text-text-primary transition-colors duration-200"
+              >
+                {item.name}
+              </button>
             ))}
           </nav>
         )}

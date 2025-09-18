@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ExternalLink, FileText } from 'lucide-react';
 
 interface Cell {
@@ -14,6 +14,8 @@ interface Cell {
 }
 
 const Crossword = () => {
+  const navigate = useNavigate();
+  
   // Split text for rainbow animation
   const splitText = (text: string) => {
     return text.split('').map((char, index) => (
@@ -212,12 +214,15 @@ const Crossword = () => {
             </div>
             
             <div className="flex gap-3 mt-6 justify-center">
-              <Link to="/cv">
-                <Button variant="default" size="sm" className="px-6">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Check CV for Hints
-                </Button>
-              </Link>
+              <Button 
+                variant="default" 
+                size="sm" 
+                className="px-6"
+                onClick={() => navigate('/cv')}
+              >
+                <FileText className="w-4 h-4 mr-2" />
+                Check CV for Hints
+              </Button>
               <Button onClick={handleSolveMe} variant="outline" size="sm" className="px-6">
                 Solve Me
               </Button>

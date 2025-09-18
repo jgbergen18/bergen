@@ -1,19 +1,34 @@
 import Header from '../components/Header';
 import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink, Mail, Phone, Cpu, Award, Briefcase, Globe, Heart, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 const CV = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateToCrossword = () => {
+    navigate('/');
+    setTimeout(() => {
+      const element = document.querySelector('#crossword');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return <div className="min-h-screen bg-background">
       <Header />
       
       {/* Back to Crossword Button */}
       <div className="fixed top-24 left-6 z-50">
-        <Link to="/#crossword">
-          <Button variant="outline" size="sm" className="shadow-lg">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Crossword
-          </Button>
-        </Link>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="shadow-lg"
+          onClick={handleNavigateToCrossword}
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Crossword
+        </Button>
       </div>
       
       {/* Hero Section */}
