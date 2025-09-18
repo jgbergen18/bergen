@@ -36,8 +36,8 @@ const Crossword = () => {
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', number: 1, isBlack: false, answer: 'B', clueDown: '1D. College Jamie attended' },
-      { letter: '', isBlack: false, answer: 'B' },
-      { letter: '', isBlack: false, answer: 'B' }
+      { letter: '', isBlack: false, answer: 'Y' },
+      { letter: '', isBlack: false, answer: 'U' }
     ],
     [
       { letter: '', isBlack: true, answer: '' },
@@ -49,7 +49,7 @@ const Crossword = () => {
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 6, isBlack: false, answer: 'R', clueAcross: '6A. Jamie\'s most common job (abbr.)' },
+      { letter: '', number: 6, isBlack: false, answer: 'R', clueAcross: '6A. Research assistant (abbr.)' },
       { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'R' },
@@ -76,7 +76,7 @@ const Crossword = () => {
       { letter: '', isBlack: false, answer: 'N' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', isBlack: false, answer: 'I' },
       { letter: '', isBlack: true, answer: '' }
     ],
     [
@@ -99,7 +99,7 @@ const Crossword = () => {
       '3. Multi-agent system research in Kraus lab', 
       '4. Design tool Jamie taught to high school students',
       '5. Jamie\'s general programming skill',
-      '6. Programming language for data analysis'
+      '6. Research assistant (abbr.)'
     ],
     down: [
       '1. College Jamie attended',
