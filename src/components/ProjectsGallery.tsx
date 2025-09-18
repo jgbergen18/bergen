@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import depressionDetectionImg from '../assets/depression-detection-project.png';
+import sassResearchImg from '../assets/sass-research-group.png';
 
 const projectsData = [
   {
@@ -47,10 +48,10 @@ const projectsData = [
   },
   {
     id: 6,
-    title: "Climate Data Visualization",
-    description: "Interactive dashboard for exploring climate change data and trends across different geographical regions.",
-    imageUrl: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=500&h=600&fit=crop",
-    tags: ["Climate Science", "Visualization", "React"],
+    title: "SASS Research Group",
+    description: "Co-created research group focused on sex and sexuality studies. Built the group's website and secured IRB approval for our first study, currently in data collection phase.",
+    imageUrl: sassResearchImg,
+    tags: ["Research", "Web Development", "LGBTQ+ Studies"],
     type: "project"
   }
 ];
