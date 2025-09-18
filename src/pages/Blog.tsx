@@ -611,18 +611,18 @@ const Blog = () => {
           {/* Reading Logs */}
           <div className="space-y-6">
             {readingLogs.map((log) => {
-              // Get temperature-based pastel background for each month (based on NYC 2024 actual temps)
+              // Get temperature-based pastel background for each month (proper blue-to-red scale)
               const getMonthBackground = (month: string) => {
                 const monthKey = month.split(' ')[0];
                 const backgrounds = {
-                  'January': 'bg-slate-50 border-slate-100',      // 42.0°F - Cold (blue-grey)
-                  'February': 'bg-blue-50 border-blue-100',       // 47.0°F - Cold (blue)
-                  'March': 'bg-cyan-50 border-cyan-100',          // 55.2°F - Cool (cyan)
-                  'April': 'bg-teal-50 border-teal-100',          // 62.0°F - Cool (teal)
-                  'May': 'bg-green-50 border-green-100',          // 72.7°F - Warm (green)
-                  'June': 'bg-yellow-50 border-yellow-100',       // 84.2°F - Hot (yellow)
+                  'January': 'bg-blue-50 border-blue-100',        // 42.0°F - Coldest (blue)
+                  'February': 'bg-indigo-50 border-indigo-100',   // 47.0°F - Cold (indigo)
+                  'March': 'bg-purple-50 border-purple-100',      // 55.2°F - Cool (purple)
+                  'April': 'bg-violet-50 border-violet-100',      // 62.0°F - Cool-warm (violet)
+                  'May': 'bg-pink-50 border-pink-100',            // 72.7°F - Warm (pink)
+                  'June': 'bg-rose-50 border-rose-100',           // 84.2°F - Hot (rose)
                   'July': 'bg-red-50 border-red-100',             // 87.4°F - Hottest (red)
-                  'August': 'bg-orange-50 border-orange-100',     // 84.0°F - Hot (orange)
+                  'August': 'bg-orange-50 border-orange-100',     // 84.0°F - Hot (orange-red)
                 };
                 return backgrounds[monthKey as keyof typeof backgrounds] || 'bg-background border-border';
               };
@@ -630,14 +630,14 @@ const Blog = () => {
               const getMonthHover = (month: string) => {
                 const monthKey = month.split(' ')[0];
                 const hovers = {
-                  'January': 'hover:bg-slate-100',     // 42.0°F
-                  'February': 'hover:bg-blue-100',     // 47.0°F
-                  'March': 'hover:bg-cyan-100',        // 55.2°F
-                  'April': 'hover:bg-teal-100',        // 62.0°F
-                  'May': 'hover:bg-green-100',         // 72.7°F
-                  'June': 'hover:bg-yellow-100',       // 84.2°F
-                  'July': 'hover:bg-red-100',          // 87.4°F
-                  'August': 'hover:bg-orange-100',     // 84.0°F
+                  'January': 'hover:bg-blue-100',       // 42.0°F
+                  'February': 'hover:bg-indigo-100',    // 47.0°F
+                  'March': 'hover:bg-purple-100',       // 55.2°F
+                  'April': 'hover:bg-violet-100',       // 62.0°F
+                  'May': 'hover:bg-pink-100',           // 72.7°F
+                  'June': 'hover:bg-rose-100',          // 84.2°F
+                  'July': 'hover:bg-red-100',           // 87.4°F
+                  'August': 'hover:bg-orange-100',      // 84.0°F
                 };
                 return hovers[monthKey as keyof typeof hovers] || 'hover:bg-surface-hover';
               };
@@ -692,92 +692,92 @@ const Blog = () => {
                         {/* Book List */}
                         <div className="space-y-3 pt-4">
                           {log.books.map((book, bookIndex) => {
-                            // Temperature-based colors for book covers (NYC 2024 actual temps)
+                            // Proper blue-to-red temperature scale for book covers
                             const getSeasonalColor = (month: string, index: number) => {
                               const colors = {
-                                'January': [ // 42.0°F - Coldest (grey-blue tones)
-                                  'bg-gradient-to-br from-slate-300 to-slate-400',
-                                  'bg-gradient-to-br from-slate-400 to-slate-500',
-                                  'bg-gradient-to-br from-gray-400 to-gray-500',
-                                  'bg-gradient-to-br from-blue-300 to-blue-400',
-                                  'bg-gradient-to-br from-blue-400 to-blue-500',
-                                  'bg-gradient-to-br from-slate-500 to-slate-600',
-                                  'bg-gradient-to-br from-gray-500 to-gray-600',
-                                  'bg-gradient-to-br from-blue-500 to-blue-600'
-                                ],
-                                'February': [ // 47.0°F - Cold (blue tones)
+                                'January': [ // 42.0°F - Coldest (blue tones)
                                   'bg-gradient-to-br from-blue-200 to-blue-300',
                                   'bg-gradient-to-br from-blue-300 to-blue-400',
                                   'bg-gradient-to-br from-blue-400 to-blue-500',
+                                  'bg-gradient-to-br from-blue-500 to-blue-600',
                                   'bg-gradient-to-br from-sky-300 to-sky-400',
                                   'bg-gradient-to-br from-sky-400 to-sky-500',
-                                  'bg-gradient-to-br from-indigo-300 to-indigo-400',
-                                  'bg-gradient-to-br from-indigo-400 to-indigo-500',
-                                  'bg-gradient-to-br from-slate-400 to-slate-500',
-                                  'bg-gradient-to-br from-blue-500 to-blue-600',
+                                  'bg-gradient-to-br from-blue-600 to-blue-700',
                                   'bg-gradient-to-br from-sky-500 to-sky-600'
                                 ],
-                                'March': [ // 55.2°F - Cool (cyan tones)
-                                  'bg-gradient-to-br from-cyan-200 to-cyan-300',
-                                  'bg-gradient-to-br from-cyan-300 to-cyan-400',
-                                  'bg-gradient-to-br from-cyan-400 to-cyan-500',
-                                  'bg-gradient-to-br from-sky-300 to-sky-400',
-                                  'bg-gradient-to-br from-sky-400 to-sky-500',
+                                'February': [ // 47.0°F - Cold (indigo tones)
+                                  'bg-gradient-to-br from-indigo-200 to-indigo-300',
+                                  'bg-gradient-to-br from-indigo-300 to-indigo-400',
+                                  'bg-gradient-to-br from-indigo-400 to-indigo-500',
+                                  'bg-gradient-to-br from-indigo-500 to-indigo-600',
                                   'bg-gradient-to-br from-blue-400 to-blue-500',
-                                  'bg-gradient-to-br from-teal-300 to-teal-400',
-                                  'bg-gradient-to-br from-teal-400 to-teal-500'
+                                  'bg-gradient-to-br from-blue-500 to-blue-600',
+                                  'bg-gradient-to-br from-violet-300 to-violet-400',
+                                  'bg-gradient-to-br from-violet-400 to-violet-500',
+                                  'bg-gradient-to-br from-indigo-600 to-indigo-700',
+                                  'bg-gradient-to-br from-blue-600 to-blue-700'
                                 ],
-                                'April': [ // 62.0°F - Cool-warm (teal tones)
-                                  'bg-gradient-to-br from-teal-200 to-teal-300',
-                                  'bg-gradient-to-br from-teal-300 to-teal-400',
-                                  'bg-gradient-to-br from-teal-400 to-teal-500',
-                                  'bg-gradient-to-br from-cyan-300 to-cyan-400',
-                                  'bg-gradient-to-br from-cyan-400 to-cyan-500',
-                                  'bg-gradient-to-br from-emerald-300 to-emerald-400',
-                                  'bg-gradient-to-br from-emerald-400 to-emerald-500',
-                                  'bg-gradient-to-br from-green-300 to-green-400',
-                                  'bg-gradient-to-br from-green-400 to-green-500',
-                                  'bg-gradient-to-br from-sky-400 to-sky-500'
+                                'March': [ // 55.2°F - Cool (purple tones)
+                                  'bg-gradient-to-br from-purple-200 to-purple-300',
+                                  'bg-gradient-to-br from-purple-300 to-purple-400',
+                                  'bg-gradient-to-br from-purple-400 to-purple-500',
+                                  'bg-gradient-to-br from-violet-300 to-violet-400',
+                                  'bg-gradient-to-br from-violet-400 to-violet-500',
+                                  'bg-gradient-to-br from-indigo-400 to-indigo-500',
+                                  'bg-gradient-to-br from-purple-500 to-purple-600',
+                                  'bg-gradient-to-br from-violet-500 to-violet-600'
                                 ],
-                                'May': [ // 72.7°F - Warm (green tones)
-                                  'bg-gradient-to-br from-green-200 to-green-300',
-                                  'bg-gradient-to-br from-green-300 to-green-400',
-                                  'bg-gradient-to-br from-green-400 to-green-500',
-                                  'bg-gradient-to-br from-emerald-300 to-emerald-400',
-                                  'bg-gradient-to-br from-emerald-400 to-emerald-500',
-                                  'bg-gradient-to-br from-lime-300 to-lime-400',
-                                  'bg-gradient-to-br from-lime-400 to-lime-500',
-                                  'bg-gradient-to-br from-teal-400 to-teal-500'
+                                'April': [ // 62.0°F - Cool-warm (violet tones)
+                                  'bg-gradient-to-br from-violet-200 to-violet-300',
+                                  'bg-gradient-to-br from-violet-300 to-violet-400',
+                                  'bg-gradient-to-br from-violet-400 to-violet-500',
+                                  'bg-gradient-to-br from-violet-500 to-violet-600',
+                                  'bg-gradient-to-br from-purple-300 to-purple-400',
+                                  'bg-gradient-to-br from-purple-400 to-purple-500',
+                                  'bg-gradient-to-br from-fuchsia-300 to-fuchsia-400',
+                                  'bg-gradient-to-br from-fuchsia-400 to-fuchsia-500',
+                                  'bg-gradient-to-br from-violet-600 to-violet-700',
+                                  'bg-gradient-to-br from-purple-500 to-purple-600'
                                 ],
-                                'June': [ // 84.2°F - Hot (yellow tones)
-                                  'bg-gradient-to-br from-yellow-200 to-yellow-300',
-                                  'bg-gradient-to-br from-yellow-300 to-yellow-400',
-                                  'bg-gradient-to-br from-yellow-400 to-yellow-500',
-                                  'bg-gradient-to-br from-yellow-500 to-yellow-600',
-                                  'bg-gradient-to-br from-amber-300 to-amber-400',
-                                  'bg-gradient-to-br from-amber-400 to-amber-500',
-                                  'bg-gradient-to-br from-lime-400 to-lime-500',
-                                  'bg-gradient-to-br from-orange-300 to-orange-400'
+                                'May': [ // 72.7°F - Warm (pink tones)
+                                  'bg-gradient-to-br from-pink-200 to-pink-300',
+                                  'bg-gradient-to-br from-pink-300 to-pink-400',
+                                  'bg-gradient-to-br from-pink-400 to-pink-500',
+                                  'bg-gradient-to-br from-fuchsia-300 to-fuchsia-400',
+                                  'bg-gradient-to-br from-fuchsia-400 to-fuchsia-500',
+                                  'bg-gradient-to-br from-rose-300 to-rose-400',
+                                  'bg-gradient-to-br from-rose-400 to-rose-500',
+                                  'bg-gradient-to-br from-pink-500 to-pink-600'
+                                ],
+                                'June': [ // 84.2°F - Hot (rose tones)
+                                  'bg-gradient-to-br from-rose-200 to-rose-300',
+                                  'bg-gradient-to-br from-rose-300 to-rose-400',
+                                  'bg-gradient-to-br from-rose-400 to-rose-500',
+                                  'bg-gradient-to-br from-rose-500 to-rose-600',
+                                  'bg-gradient-to-br from-pink-400 to-pink-500',
+                                  'bg-gradient-to-br from-pink-500 to-pink-600',
+                                  'bg-gradient-to-br from-red-300 to-red-400',
+                                  'bg-gradient-to-br from-red-400 to-red-500'
                                 ],
                                 'July': [ // 87.4°F - Hottest (red tones)
                                   'bg-gradient-to-br from-red-200 to-red-300',
                                   'bg-gradient-to-br from-red-300 to-red-400',
                                   'bg-gradient-to-br from-red-400 to-red-500',
                                   'bg-gradient-to-br from-red-500 to-red-600',
-                                  'bg-gradient-to-br from-rose-300 to-rose-400',
+                                  'bg-gradient-to-br from-red-600 to-red-700',
                                   'bg-gradient-to-br from-rose-400 to-rose-500'
                                 ],
-                                'August': [ // 84.0°F - Hot (orange tones)
+                                'August': [ // 84.0°F - Hot (orange-red tones)
                                   'bg-gradient-to-br from-orange-200 to-orange-300',
                                   'bg-gradient-to-br from-orange-300 to-orange-400',
                                   'bg-gradient-to-br from-orange-400 to-orange-500',
-                                  'bg-gradient-to-br from-orange-500 to-orange-600',
-                                  'bg-gradient-to-br from-amber-300 to-amber-400',
-                                  'bg-gradient-to-br from-amber-400 to-amber-500',
-                                  'bg-gradient-to-br from-amber-500 to-amber-600',
-                                  'bg-gradient-to-br from-yellow-400 to-yellow-500',
                                   'bg-gradient-to-br from-red-300 to-red-400',
-                                  'bg-gradient-to-br from-red-400 to-red-500'
+                                  'bg-gradient-to-br from-red-400 to-red-500',
+                                  'bg-gradient-to-br from-rose-400 to-rose-500',
+                                  'bg-gradient-to-br from-orange-500 to-orange-600',
+                                  'bg-gradient-to-br from-red-500 to-red-600',
+                                  'bg-gradient-to-br from-rose-500 to-rose-600',
+                                  'bg-gradient-to-br from-orange-600 to-orange-700'
                                 ]
                               };
                               
