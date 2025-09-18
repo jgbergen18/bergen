@@ -81,7 +81,7 @@ const Crossword = () => {
     across: [
       '1. Barrier Jamie studied',
       '3. Multi-____ system research in Kraus lab', 
-      '4. Design tool',
+      '4. Design tool Jamie taught to high school students',
       '5. Programming skill',
       '6. Programming language for data analysis'
     ],
