@@ -507,7 +507,7 @@ const Blog = () => {
             <p className="text-lg text-text-secondary leading-relaxed">
               My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚 
             </p>
-            <p className="text-sm italic text-text-muted max-w-3xl">Colors for each month reflect New York City's high temperature for that month on a red and blue scale.</p>
+            <p className="text-sm italic text-text-muted max-w-3xl">Colors for each month reflect New York City's high temperature scientifically scaled from 0°F (dark blue) to 100°F (red).</p>
             <p className="text-sm italic text-text-muted max-w-3xl">
               Data source: 
               <a href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
@@ -519,7 +519,7 @@ const Blog = () => {
           {/* Reading Logs */}
           <div className="space-y-6">
             {readingLogs.map(log => {
-            // Temperature data for accurate scaling
+            // Temperature data for NYC months
             const tempData = {
               'January': 42.0,
               'February': 47.0,
@@ -530,35 +530,42 @@ const Blog = () => {
               'July': 87.4,
               'August': 84.0
             };
-            const minTemp = 42.0; // January
-            const maxTemp = 87.4; // July
 
-            // Get temperature-based colors using accurate scaling
+            // Scientific temperature-to-color function: 0°F = dark blue, 100°F = red
+            const getTemperatureColor = (temp: number) => {
+              // Clamp temperature between 0 and 100
+              const clampedTemp = Math.max(0, Math.min(100, temp));
+              const ratio = clampedTemp / 100;
+
+              // Interpolate from dark blue (240° hue) to red (0° hue)
+              // Blue: HSL(240, 100%, 30%) to Red: HSL(0, 100%, 50%)
+              const hue = Math.round(240 - (240 * ratio)); // 240° to 0°
+              const saturation = Math.round(80 + (20 * ratio)); // 80% to 100%
+              const lightness = Math.round(30 + (20 * ratio)); // 30% to 50%
+
+              return { hue, saturation, lightness };
+            };
+
+            // Get temperature-based colors using scientific scaling
             const getMonthBackground = (month: string) => {
               const monthKey = month.split(' ')[0] as keyof typeof tempData;
-              const temp = tempData[monthKey] || minTemp;
-
-              // Calculate position on temperature scale (0-1)
-              const tempRatio = (temp - minTemp) / (maxTemp - minTemp);
-
-              // Map to color scale: blue (cold) -> purple -> pink -> rose -> red (hot)
-              if (tempRatio <= 0.2) return 'bg-blue-50 border-blue-100'; // 42-51°F
-              if (tempRatio <= 0.4) return 'bg-indigo-50 border-indigo-100'; // 51-60°F  
-              if (tempRatio <= 0.6) return 'bg-purple-50 border-purple-100'; // 60-69°F
-              if (tempRatio <= 0.8) return 'bg-pink-50 border-pink-100'; // 69-78°F
-              if (tempRatio <= 0.95) return 'bg-rose-50 border-rose-100'; // 78-86°F (June & August)
-              return 'bg-red-50 border-red-100'; // 86-87°F (July)
+              const temp = tempData[monthKey] || 0;
+              const { hue, saturation, lightness } = getTemperatureColor(temp);
+              
+              // Light background version
+              const bgLightness = Math.min(95, lightness + 65);
+              return `border border-[hsl(${hue},${saturation}%,${Math.max(80, bgLightness - 15)}%)]` + 
+                     ` bg-[hsl(${hue},${Math.max(20, saturation - 60)}%,${bgLightness}%)]`;
             };
+
             const getMonthHover = (month: string) => {
               const monthKey = month.split(' ')[0] as keyof typeof tempData;
-              const temp = tempData[monthKey] || minTemp;
-              const tempRatio = (temp - minTemp) / (maxTemp - minTemp);
-              if (tempRatio <= 0.2) return 'hover:bg-blue-100';
-              if (tempRatio <= 0.4) return 'hover:bg-indigo-100';
-              if (tempRatio <= 0.6) return 'hover:bg-purple-100';
-              if (tempRatio <= 0.8) return 'hover:bg-pink-100';
-              if (tempRatio <= 0.95) return 'hover:bg-rose-100'; // June & August both here
-              return 'hover:bg-red-100';
+              const temp = tempData[monthKey] || 0;
+              const { hue, saturation, lightness } = getTemperatureColor(temp);
+              
+              // Slightly darker hover state
+              const hoverLightness = Math.min(92, lightness + 62);
+              return `hover:bg-[hsl(${hue},${Math.max(25, saturation - 55)}%,${hoverLightness}%)]`;
             };
             return <Collapsible key={log.id} open={openMonths[log.id]} onOpenChange={() => toggleMonth(log.id)}>
                   <div className={`${getMonthBackground(log.month)} rounded-lg overflow-hidden shadow-sm`}>
@@ -601,34 +608,29 @@ const Blog = () => {
                         {/* Book List */}
                         <div className="space-y-3 pt-4">
                           {log.books.map((book, bookIndex) => {
-                        // Temperature-based book cover colors using accurate scaling
+                        // Temperature-based book cover colors using scientific scaling
                         const getSeasonalColor = (month: string, index: number) => {
                           const monthKey = month.split(' ')[0] as keyof typeof tempData;
-                          const temp = tempData[monthKey] || minTemp;
-                          const tempRatio = (temp - minTemp) / (maxTemp - minTemp);
-                          let colors: string[];
-
-                          // Use same temperature ranges as backgrounds
-                          if (tempRatio <= 0.2) {
-                            // 42-51°F - Blue tones
-                            colors = ['bg-gradient-to-br from-blue-200 to-blue-300', 'bg-gradient-to-br from-blue-300 to-blue-400', 'bg-gradient-to-br from-blue-400 to-blue-500', 'bg-gradient-to-br from-sky-300 to-sky-400', 'bg-gradient-to-br from-blue-500 to-blue-600', 'bg-gradient-to-br from-sky-400 to-sky-500'];
-                          } else if (tempRatio <= 0.4) {
-                            // 51-60°F - Indigo tones
-                            colors = ['bg-gradient-to-br from-indigo-200 to-indigo-300', 'bg-gradient-to-br from-indigo-300 to-indigo-400', 'bg-gradient-to-br from-indigo-400 to-indigo-500', 'bg-gradient-to-br from-blue-400 to-blue-500', 'bg-gradient-to-br from-violet-300 to-violet-400', 'bg-gradient-to-br from-indigo-500 to-indigo-600'];
-                          } else if (tempRatio <= 0.6) {
-                            // 60-69°F - Purple tones
-                            colors = ['bg-gradient-to-br from-purple-200 to-purple-300', 'bg-gradient-to-br from-purple-300 to-purple-400', 'bg-gradient-to-br from-purple-400 to-purple-500', 'bg-gradient-to-br from-violet-300 to-violet-400', 'bg-gradient-to-br from-violet-400 to-violet-500', 'bg-gradient-to-br from-purple-500 to-purple-600'];
-                          } else if (tempRatio <= 0.8) {
-                            // 69-78°F - Pink tones
-                            colors = ['bg-gradient-to-br from-pink-200 to-pink-300', 'bg-gradient-to-br from-pink-300 to-pink-400', 'bg-gradient-to-br from-pink-400 to-pink-500', 'bg-gradient-to-br from-fuchsia-300 to-fuchsia-400', 'bg-gradient-to-br from-fuchsia-400 to-fuchsia-500', 'bg-gradient-to-br from-pink-500 to-pink-600'];
-                          } else if (tempRatio <= 0.95) {
-                            // 78-86°F - Rose tones (June & August)
-                            colors = ['bg-gradient-to-br from-rose-200 to-rose-300', 'bg-gradient-to-br from-rose-300 to-rose-400', 'bg-gradient-to-br from-rose-400 to-rose-500', 'bg-gradient-to-br from-rose-500 to-rose-600', 'bg-gradient-to-br from-pink-400 to-pink-500', 'bg-gradient-to-br from-red-300 to-red-400'];
-                          } else {
-                            // 86-87°F - Red tones (July only)
-                            colors = ['bg-gradient-to-br from-red-200 to-red-300', 'bg-gradient-to-br from-red-300 to-red-400', 'bg-gradient-to-br from-red-400 to-red-500', 'bg-gradient-to-br from-red-500 to-red-600', 'bg-gradient-to-br from-red-600 to-red-700', 'bg-gradient-to-br from-rose-500 to-rose-600'];
-                          }
-                          return colors[index % colors.length];
+                          const temp = tempData[monthKey] || 0;
+                          const { hue, saturation, lightness } = getTemperatureColor(temp);
+                          
+                          // Create variations for different books
+                          const variations = [
+                            { hueOffset: 0, satOffset: 0, lightOffset: 0 },
+                            { hueOffset: 10, satOffset: -10, lightOffset: 5 },
+                            { hueOffset: -10, satOffset: 5, lightOffset: -5 },
+                            { hueOffset: 15, satOffset: -5, lightOffset: 8 },
+                            { hueOffset: -15, satOffset: 10, lightOffset: -3 },
+                            { hueOffset: 5, satOffset: -15, lightOffset: 10 }
+                          ];
+                          
+                          const variation = variations[index % variations.length];
+                          const bookHue = (hue + variation.hueOffset + 360) % 360;
+                          const bookSat = Math.max(40, Math.min(100, saturation + variation.satOffset));
+                          const bookLight = Math.max(25, Math.min(65, lightness + variation.lightOffset));
+                          const bookLight2 = Math.max(35, Math.min(75, lightness + variation.lightOffset + 10));
+                          
+                          return `bg-gradient-to-br from-[hsl(${bookHue},${bookSat}%,${bookLight}%)] to-[hsl(${bookHue},${bookSat}%,${bookLight2}%)]`;
                         };
                         return <div key={bookIndex} className="bg-background rounded-lg p-4 flex gap-4 border border-border-subtle">
                                 {/* Custom Book Cover */}
