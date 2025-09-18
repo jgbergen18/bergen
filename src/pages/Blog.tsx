@@ -3,6 +3,42 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Header from '../components/Header';
+
+// NYC Temperature data for color scaling
+const temperatureData: Record<string, number> = {
+  "January 2024": 37.0,
+  "February 2024": 40.1,
+  "March 2024": 48.1,
+  "April 2024": 55.6,
+  "May 2024": 65.0,
+  "June 2024": 75.1,
+  "July 2024": 79.6,
+  "August 2024": 75.1,
+  "September 2024": 68.8,
+  "October 2024": 60.9,
+  "November 2024": 51.4,
+  "December 2024": 38.2,
+  "January 2025": 31.2,
+  "February 2025": 35.0,
+  "March 2025": 46.9,
+  "April 2025": 55.3,
+  "May 2025": 62.3,
+  "June 2025": 73.8,
+  "July 2025": 78.6,
+  "August 2025": 73.8,
+  "September 2025": 73.8 // Using August 2025 temp for September 2025 as fallback
+};
+
+// Function to convert temperature to hue (cold = blue/purple, hot = red/orange)
+const getTemperatureColor = (month: string): string => {
+  const temp = temperatureData[month] || 50; // Default fallback temp
+  // Map temperature range (31-80°F) to hue range (240-0 degrees)
+  // Cold temps (31°F) = blue (240°), hot temps (80°F) = red (0°)
+  const normalizedTemp = Math.max(0, Math.min(1, (temp - 31) / (80 - 31)));
+  const hue = Math.round(240 * (1 - normalizedTemp));
+  
+  return `hsl(${hue}, 70%, 60%)`;
+};
 const readingLogs = [{
   id: 1,
   month: "September 2025",
@@ -1070,49 +1106,32 @@ const Blog = () => {
           {/* Reading Logs */}
           <div className="space-y-6">
             {readingLogs.map(log => {
-            // Temperature data for NYC months
-            const tempData = {
-              'January': 42.0,
-              'February': 47.0,
-              'March': 55.2,
-              'April': 62.0,
-              'May': 72.7,
-              'June': 84.2,
-              'July': 87.4,
-              'August': 84.0
-            };
 
-            // Scientific temperature-to-color mapping: 0°F = dark blue, 100°F = red
+            // Scientific temperature-to-color mapping using actual NYC data
             const getMonthBackground = (month: string) => {
-              const monthKey = month.split(' ')[0] as keyof typeof tempData;
-              const temp = tempData[monthKey] || 42.0;
+              const temp = temperatureData[month] || 50;
               
               // Light mode colors (pastels) and dark mode colors (muted darks)
-              if (temp <= 45) return 'bg-blue-50 border-blue-200 dark:bg-blue-900/50 dark:border-blue-700'; // 42-45°F
-              if (temp <= 50) return 'bg-blue-100 border-blue-300 dark:bg-blue-800/50 dark:border-blue-600'; // 45-50°F
-              if (temp <= 55) return 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/50 dark:border-indigo-700'; // 50-55°F
-              if (temp <= 60) return 'bg-indigo-100 border-indigo-300 dark:bg-indigo-800/50 dark:border-indigo-600'; // 55-60°F
-              if (temp <= 65) return 'bg-purple-50 border-purple-200 dark:bg-purple-900/50 dark:border-purple-700'; // 60-65°F
-              if (temp <= 70) return 'bg-purple-100 border-purple-300 dark:bg-purple-800/50 dark:border-purple-600'; // 65-70°F
-              if (temp <= 75) return 'bg-fuchsia-50 border-fuchsia-200 dark:bg-fuchsia-900/50 dark:border-fuchsia-700'; // 70-75°F
-              if (temp <= 80) return 'bg-pink-50 border-pink-200 dark:bg-pink-900/50 dark:border-pink-700'; // 75-80°F
-              if (temp <= 85) return 'bg-rose-50 border-rose-200 dark:bg-rose-900/50 dark:border-rose-700'; // 80-85°F (June & August)
-              return 'bg-red-50 border-red-200 dark:bg-red-900/50 dark:border-red-700'; // 85-100°F (July)
+              if (temp <= 35) return 'bg-blue-50 border-blue-200 dark:bg-blue-900/50 dark:border-blue-700';
+              if (temp <= 40) return 'bg-blue-100 border-blue-300 dark:bg-blue-800/50 dark:border-blue-600';
+              if (temp <= 50) return 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/50 dark:border-indigo-700';
+              if (temp <= 60) return 'bg-purple-50 border-purple-200 dark:bg-purple-900/50 dark:border-purple-700';
+              if (temp <= 70) return 'bg-fuchsia-50 border-fuchsia-200 dark:bg-fuchsia-900/50 dark:border-fuchsia-700';
+              if (temp <= 75) return 'bg-pink-50 border-pink-200 dark:bg-pink-900/50 dark:border-pink-700';
+              if (temp <= 80) return 'bg-rose-50 border-rose-200 dark:bg-rose-900/50 dark:border-rose-700';
+              return 'bg-red-50 border-red-200 dark:bg-red-900/50 dark:border-red-700';
             };
 
             const getMonthHover = (month: string) => {
-              const monthKey = month.split(' ')[0] as keyof typeof tempData;
-              const temp = tempData[monthKey] || 42.0;
+              const temp = temperatureData[month] || 50;
               
-              if (temp <= 45) return 'hover:bg-blue-100 dark:hover:bg-blue-800/60';
-              if (temp <= 50) return 'hover:bg-blue-200 dark:hover:bg-blue-700/60';
-              if (temp <= 55) return 'hover:bg-indigo-100 dark:hover:bg-indigo-800/60';
-              if (temp <= 60) return 'hover:bg-indigo-200 dark:hover:bg-indigo-700/60';
-              if (temp <= 65) return 'hover:bg-purple-100 dark:hover:bg-purple-800/60';
-              if (temp <= 70) return 'hover:bg-purple-200 dark:hover:bg-purple-700/60';
-              if (temp <= 75) return 'hover:bg-fuchsia-100 dark:hover:bg-fuchsia-800/60';
-              if (temp <= 80) return 'hover:bg-pink-100 dark:hover:bg-pink-800/60';
-              if (temp <= 85) return 'hover:bg-rose-100 dark:hover:bg-rose-800/60';
+              if (temp <= 35) return 'hover:bg-blue-100 dark:hover:bg-blue-800/60';
+              if (temp <= 40) return 'hover:bg-blue-200 dark:hover:bg-blue-700/60';
+              if (temp <= 50) return 'hover:bg-indigo-100 dark:hover:bg-indigo-800/60';
+              if (temp <= 60) return 'hover:bg-purple-100 dark:hover:bg-purple-800/60';
+              if (temp <= 70) return 'hover:bg-fuchsia-100 dark:hover:bg-fuchsia-800/60';
+              if (temp <= 75) return 'hover:bg-pink-100 dark:hover:bg-pink-800/60';
+              if (temp <= 80) return 'hover:bg-rose-100 dark:hover:bg-rose-800/60';
               return 'hover:bg-red-100 dark:hover:bg-red-800/60';
             };
             return <Collapsible key={log.id} open={openMonths[log.id]} onOpenChange={() => toggleMonth(log.id)}>
@@ -1125,20 +1144,7 @@ const Blog = () => {
                               {log.month}
                             </h2>
                             <span className="text-lg text-foreground/70 font-medium">
-                              {(() => {
-                            const monthKey = log.month.split(' ')[0];
-                            const temps = {
-                              'January': '42.0°F',
-                              'February': '47.0°F',
-                              'March': '55.2°F',
-                              'April': '62.0°F',
-                              'May': '72.7°F',
-                              'June': '84.2°F',
-                              'July': '87.4°F',
-                              'August': '84.0°F'
-                            };
-                            return temps[monthKey as keyof typeof temps] || '';
-                          })()}
+                              {temperatureData[log.month] ? `${temperatureData[log.month]}°F` : ''}
                             </span>
                           </div>
                           <p className="text-foreground/80">
@@ -1158,14 +1164,13 @@ const Blog = () => {
                           {log.books.map((book, bookIndex) => {
                         // Temperature-based book cover colors using scientific scaling
                         const getSeasonalColor = (month: string, index: number) => {
-                          const monthKey = month.split(' ')[0] as keyof typeof tempData;
-                          const temp = tempData[monthKey] || 42.0;
+                          const temp = temperatureData[month] || 50;
                           
                           // Map temperatures to color families, then select from variations
                           let colors: string[];
                           
-                          if (temp <= 50) {
-                            // Cold: Blue family
+                          if (temp <= 40) {
+                            // Very Cold: Blue family
                             colors = [
                               'bg-gradient-to-br from-blue-400 to-blue-600',
                               'bg-gradient-to-br from-blue-500 to-blue-700',
@@ -1174,8 +1179,8 @@ const Blog = () => {
                               'bg-gradient-to-br from-blue-600 to-blue-800',
                               'bg-gradient-to-br from-sky-500 to-sky-700'
                             ];
-                          } else if (temp <= 60) {
-                            // Cool: Indigo/Violet family  
+                          } else if (temp <= 50) {
+                            // Cold: Indigo family  
                             colors = [
                               'bg-gradient-to-br from-indigo-400 to-indigo-600',
                               'bg-gradient-to-br from-violet-400 to-violet-600', 
@@ -1184,8 +1189,8 @@ const Blog = () => {
                               'bg-gradient-to-br from-violet-500 to-violet-700',
                               'bg-gradient-to-br from-indigo-600 to-purple-600'
                             ];
-                          } else if (temp <= 70) {
-                            // Moderate: Purple family
+                          } else if (temp <= 60) {
+                            // Cool: Purple family
                             colors = [
                               'bg-gradient-to-br from-purple-400 to-purple-600',
                               'bg-gradient-to-br from-purple-500 to-purple-700',
@@ -1194,8 +1199,8 @@ const Blog = () => {
                               'bg-gradient-to-br from-indigo-500 to-purple-600',
                               'bg-gradient-to-br from-purple-500 to-fuchsia-600'
                             ];
-                          } else if (temp <= 80) {
-                            // Warm: Pink/Fuchsia family
+                          } else if (temp <= 70) {
+                            // Moderate: Fuchsia family
                             colors = [
                               'bg-gradient-to-br from-fuchsia-400 to-fuchsia-600',
                               'bg-gradient-to-br from-pink-400 to-pink-600',
@@ -1204,8 +1209,8 @@ const Blog = () => {
                               'bg-gradient-to-br from-purple-500 to-fuchsia-600',
                               'bg-gradient-to-br from-fuchsia-600 to-pink-600'
                             ];
-                          } else if (temp <= 85) {
-                            // Hot: Rose family (June 84.2°F & August 84.0°F)
+                          } else if (temp <= 75) {
+                            // Warm: Rose family
                             colors = [
                               'bg-gradient-to-br from-rose-400 to-rose-600',
                               'bg-gradient-to-br from-rose-500 to-rose-700',
@@ -1215,7 +1220,7 @@ const Blog = () => {
                               'bg-gradient-to-br from-pink-600 to-rose-700'
                             ];
                           } else {
-                            // Very Hot: Red family (July 87.4°F)
+                            // Hot: Red family
                             colors = [
                               'bg-gradient-to-br from-red-400 to-red-600',
                               'bg-gradient-to-br from-red-500 to-red-700',
