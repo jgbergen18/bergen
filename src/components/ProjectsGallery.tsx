@@ -18,18 +18,17 @@ const projectsData = [
     id: 2,
     title: "Work in Progress",
     description: "Coming soon - exciting project in development.",
-    imageUrl: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&h=600&fit=crop",
+    imageUrl: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDUwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjNzQ3NDc0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPldvcmsgaW4gUHJvZ3Jlc3M8L3RleHQ+Cjwvc3ZnPg==",
     tags: ["Coming Soon"],
     type: "placeholder"
   },
   {
     id: 3,
-    title: "Reading Log",
-    description: "Monthly reading log with honest reviews - tracking books read, ratings, and quick thoughts on everything I pick up.",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=600&fit=crop",
-    tags: ["Reading", "Book Reviews", "Monthly Log"],
-    type: "blog",
-    link: "/blog"
+    title: "Work in Progress",
+    description: "Coming soon - exciting project in development.",
+    imageUrl: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDUwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjNzQ3NDc0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPldvcmsgaW4gUHJvZ3Jlc3M8L3RleHQ+Cjwvc3ZnPg==",
+    tags: ["Coming Soon"],
+    type: "placeholder"
   },
   {
     id: 4,
@@ -44,7 +43,7 @@ const projectsData = [
     id: 5,
     title: "Work in Progress",
     description: "Coming soon - exciting project in development.",
-    imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=500&h=600&fit=crop",
+    imageUrl: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDUwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjNzQ3NDc0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiPldvcmsgaW4gUHJvZ3Jlc3M8L3RleHQ+Cjwvc3ZnPg==",
     tags: ["Coming Soon"],
     type: "placeholder"
   },
