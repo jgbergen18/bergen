@@ -21,6 +21,10 @@
   animation: rainbow 1.5s ease-in-out infinite;
 }
 
+.rainbow-text-always .rainbow-letter {
+  animation: rainbow 1.5s ease-in-out infinite;
+}
+
 .rainbow-letter {
   cursor: default;
 }

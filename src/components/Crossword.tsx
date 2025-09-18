@@ -174,7 +174,7 @@ const Crossword = () => {
           <div className="relative mx-auto">
             {showAnimation && (
               <div className="absolute inset-0 flex items-center justify-center z-10 bg-background/90 rounded-lg">
-                <div className="text-3xl md:text-4xl font-medium rainbow-text animate-bounce">
+                <div className="text-3xl md:text-4xl font-medium rainbow-text-always animate-bounce">
                   {splitText("Congratulations!")}
                 </div>
               </div>
