@@ -591,20 +591,19 @@ const Blog = () => {
             <h1 className="text-4xl md:text-5xl font-medium text-text-primary">
               Reading Log
             </h1>
-            <p className="text-lg text-text-secondary max-w-2xl leading-relaxed">
+            <p className="text-lg text-text-secondary leading-relaxed">
               My monthly reading adventures - the good, the bad, and the DNFs. Honest thoughts on everything I pick up. 📚 
-              <br />
-              <span className="text-sm italic text-text-muted">
-                Colors for each month reflect New York City's average monthly high temperature on a red and blue scale. Data source: 
-                <a 
-                  href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline ml-1"
-                >
-                  Iowa State Mesonet
-                </a>
-              </span>
+            </p>
+            <p className="text-sm italic text-text-muted max-w-3xl">
+              Colors for each month reflect New York City's average monthly high temperature on a red and blue scale. Data source: 
+              <a 
+                href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:underline ml-1"
+              >
+                Iowa State Mesonet
+              </a>
             </p>
           </div>
 
