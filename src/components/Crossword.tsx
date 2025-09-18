@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
+import { ExternalLink, FileText } from 'lucide-react';
 
 interface Cell {
   letter: string;
@@ -210,6 +212,12 @@ const Crossword = () => {
             </div>
             
             <div className="flex gap-3 mt-6 justify-center">
+              <Link to="/cv">
+                <Button variant="default" size="sm" className="px-6">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Check CV for Hints
+                </Button>
+              </Link>
               <Button onClick={handleSolveMe} variant="outline" size="sm" className="px-6">
                 Solve Me
               </Button>

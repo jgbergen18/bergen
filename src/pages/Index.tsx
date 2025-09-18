@@ -4,6 +4,7 @@ import About from '../components/About';
 import ProjectsGallery from '../components/ProjectsGallery';
 import Contact from '../components/Contact';
 import Crossword from '../components/Crossword';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -12,11 +13,20 @@ const Index = () => {
       <main>
         <Hero />
         <About />
-        <ProjectsGallery />
-        <section className="py-16 px-6">
-          <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-            <Contact />
+        
+        {/* Crossword Section */}
+        <section id="crossword" className="py-16 px-6 bg-surface/30">
+          <div className="max-w-6xl mx-auto">
             <Crossword />
+          </div>
+        </section>
+        
+        <ProjectsGallery />
+        
+        {/* Contact Section */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <Contact />
           </div>
         </section>
       </main>

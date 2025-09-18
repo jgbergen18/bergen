@@ -1,8 +1,20 @@
 import Header from '../components/Header';
-import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink, Mail, Phone, Cpu, Award, Briefcase, Globe, Heart } from 'lucide-react';
+import { GraduationCap, Brain, FileText, FlaskConical, Code, Microscope, Users, MapPin, Calendar, ExternalLink, Mail, Phone, Cpu, Award, Briefcase, Globe, Heart, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '../components/ui/button';
 const CV = () => {
   return <div className="min-h-screen bg-background">
       <Header />
+      
+      {/* Back to Crossword Button */}
+      <div className="fixed top-24 left-6 z-50">
+        <Link to="/#crossword">
+          <Button variant="outline" size="sm" className="shadow-lg">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Crossword
+          </Button>
+        </Link>
+      </div>
       
       {/* Hero Section */}
       <section className="relative bg-primary/10 pt-24 pb-16">
