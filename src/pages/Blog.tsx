@@ -1,5 +1,11 @@
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const readingLogs = [
   {
@@ -197,6 +203,18 @@ const readingLogs = [
 ];
 
 const Blog = () => {
+  const [openMonths, setOpenMonths] = useState<{ [key: number]: boolean }>({
+    1: true, // March open by default
+    2: false, // February closed by default  
+    3: false  // January closed by default
+  });
+
+  const toggleMonth = (monthId: number) => {
+    setOpenMonths(prev => ({
+      ...prev,
+      [monthId]: !prev[monthId]
+    }));
+  };
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -226,106 +244,125 @@ const Blog = () => {
           </div>
 
           {/* Reading Logs */}
-          <div className="space-y-16">
+          <div className="space-y-8">
             {readingLogs.map((log) => (
-              <article key={log.id} className="space-y-6 pb-12 border-b border-border-subtle last:border-b-0">
-                <div className="space-y-2">
-                  <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
-                    {log.month}
-                  </h2>
-                  <p className="text-text-secondary">
-                    <strong>Books Read:</strong> {log.booksRead}, <strong>Average Rating:</strong> {log.averageRating} Stars
-                  </p>
-                </div>
-                
-                {/* Book List */}
-                <div className="space-y-3">
-                  {log.books.map((book, bookIndex) => {
-                    // Seasonal colors based on month - cohesive shades
-                    const getSeasonalColor = (month: string, index: number) => {
-                      const colors = {
-                        'March': [ // Spring greens - light to dark
-                          'bg-gradient-to-br from-emerald-200 to-emerald-300',
-                          'bg-gradient-to-br from-emerald-300 to-emerald-400',
-                          'bg-gradient-to-br from-emerald-400 to-emerald-500', 
-                          'bg-gradient-to-br from-emerald-500 to-emerald-600',
-                          'bg-gradient-to-br from-emerald-600 to-emerald-700',
-                          'bg-gradient-to-br from-emerald-700 to-emerald-800'
-                        ],
-                        'February': [ // Winter blues - light to dark
-                          'bg-gradient-to-br from-blue-200 to-blue-300',
-                          'bg-gradient-to-br from-blue-300 to-blue-400',
-                          'bg-gradient-to-br from-blue-400 to-blue-500',
-                          'bg-gradient-to-br from-blue-500 to-blue-600',
-                          'bg-gradient-to-br from-blue-600 to-blue-700',
-                          'bg-gradient-to-br from-blue-700 to-blue-800',
-                          'bg-gradient-to-br from-blue-800 to-blue-900',
-                          'bg-gradient-to-br from-indigo-400 to-indigo-500',
-                          'bg-gradient-to-br from-indigo-500 to-indigo-600',
-                          'bg-gradient-to-br from-indigo-600 to-indigo-700'
-                        ],
-                        'January': [ // Winter grays - light to dark
-                          'bg-gradient-to-br from-slate-300 to-slate-400',
-                          'bg-gradient-to-br from-slate-400 to-slate-500',
-                          'bg-gradient-to-br from-slate-500 to-slate-600',
-                          'bg-gradient-to-br from-slate-600 to-slate-700',
-                          'bg-gradient-to-br from-slate-700 to-slate-800',
-                          'bg-gradient-to-br from-gray-500 to-gray-600',
-                          'bg-gradient-to-br from-gray-600 to-gray-700',
-                          'bg-gradient-to-br from-gray-700 to-gray-800'
-                        ]
-                      };
-                      
-                      const monthKey = month.split(' ')[0] as keyof typeof colors;
-                      const monthColors = colors[monthKey] || colors['January'];
-                      return monthColors[index % monthColors.length];
-                    };
-
-                    return (
-                      <div key={bookIndex} className="bg-surface rounded-lg p-4 flex gap-4">
-                        {/* Custom Book Cover */}
-                        <div className="flex-shrink-0">
-                          <div className={`w-16 h-24 rounded shadow-sm ${getSeasonalColor(log.month, bookIndex)} flex flex-col justify-between p-2 text-white`}>
-                            <div className="text-[6px] font-bold leading-tight overflow-hidden">
-                              {book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}
-                            </div>
-                            <div className="text-[5px] opacity-90 leading-tight">
-                              {book.author.length > 20 ? book.author.substring(0, 17) + '...' : book.author}
-                            </div>
-                          </div>
-                        </div>
-                        
-                        {/* Book Info */}
-                        <div className="flex-1 space-y-2">
-                          <div className="flex items-start justify-between gap-3">
-                            <div>
-                              <p className="text-text-primary font-medium">
-                                {book.title}
-                              </p>
-                              <p className="text-text-secondary text-sm">
-                                by {book.author}
-                              </p>
-                            </div>
-                            <div className="flex items-center space-x-1 flex-shrink-0">
-                              {[...Array(5)].map((_, i) => (
-                                <span 
-                                  key={i} 
-                                  className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                                >
-                                  ★
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          <p className="text-text-secondary text-sm leading-relaxed">
-                            {book.review}
-                          </p>
-                        </div>
+              <Collapsible
+                key={log.id}
+                open={openMonths[log.id]}
+                onOpenChange={() => toggleMonth(log.id)}
+              >
+                <article className="space-y-4 pb-8 border-b border-border-subtle last:border-b-0">
+                  <CollapsibleTrigger className="w-full text-left">
+                    <div className="flex items-center justify-between group">
+                      <div className="space-y-2">
+                        <h2 className="text-2xl md:text-3xl font-medium text-text-primary group-hover:text-text-primary/80 transition-colors">
+                          {log.month}
+                        </h2>
+                        <p className="text-text-secondary">
+                          <strong>Books Read:</strong> {log.booksRead}, <strong>Average Rating:</strong> {log.averageRating} Stars
+                        </p>
                       </div>
-                    );
-                  })}
-                </div>
-              </article>
+                      <div className="text-text-muted group-hover:text-text-secondary transition-colors">
+                        {openMonths[log.id] ? (
+                          <ChevronDown className="h-5 w-5" />
+                        ) : (
+                          <ChevronRight className="h-5 w-5" />
+                        )}
+                      </div>
+                    </div>
+                  </CollapsibleTrigger>
+                  
+                  <CollapsibleContent className="space-y-4">
+                    {/* Book List */}
+                    <div className="space-y-3 pt-2">
+                      {log.books.map((book, bookIndex) => {
+                        // Seasonal colors based on month - cohesive shades
+                        const getSeasonalColor = (month: string, index: number) => {
+                          const colors = {
+                            'March': [ // Spring greens - light to dark
+                              'bg-gradient-to-br from-emerald-200 to-emerald-300',
+                              'bg-gradient-to-br from-emerald-300 to-emerald-400',
+                              'bg-gradient-to-br from-emerald-400 to-emerald-500', 
+                              'bg-gradient-to-br from-emerald-500 to-emerald-600',
+                              'bg-gradient-to-br from-emerald-600 to-emerald-700',
+                              'bg-gradient-to-br from-emerald-700 to-emerald-800'
+                            ],
+                            'February': [ // Winter blues - light to dark
+                              'bg-gradient-to-br from-blue-200 to-blue-300',
+                              'bg-gradient-to-br from-blue-300 to-blue-400',
+                              'bg-gradient-to-br from-blue-400 to-blue-500',
+                              'bg-gradient-to-br from-blue-500 to-blue-600',
+                              'bg-gradient-to-br from-blue-600 to-blue-700',
+                              'bg-gradient-to-br from-blue-700 to-blue-800',
+                              'bg-gradient-to-br from-blue-800 to-blue-900',
+                              'bg-gradient-to-br from-indigo-400 to-indigo-500',
+                              'bg-gradient-to-br from-indigo-500 to-indigo-600',
+                              'bg-gradient-to-br from-indigo-600 to-indigo-700'
+                            ],
+                            'January': [ // Winter grays - light to dark
+                              'bg-gradient-to-br from-slate-300 to-slate-400',
+                              'bg-gradient-to-br from-slate-400 to-slate-500',
+                              'bg-gradient-to-br from-slate-500 to-slate-600',
+                              'bg-gradient-to-br from-slate-600 to-slate-700',
+                              'bg-gradient-to-br from-slate-700 to-slate-800',
+                              'bg-gradient-to-br from-gray-500 to-gray-600',
+                              'bg-gradient-to-br from-gray-600 to-gray-700',
+                              'bg-gradient-to-br from-gray-700 to-gray-800'
+                            ]
+                          };
+                          
+                          const monthKey = month.split(' ')[0] as keyof typeof colors;
+                          const monthColors = colors[monthKey] || colors['January'];
+                          return monthColors[index % monthColors.length];
+                        };
+
+                        return (
+                          <div key={bookIndex} className="bg-surface rounded-lg p-4 flex gap-4">
+                            {/* Custom Book Cover */}
+                            <div className="flex-shrink-0">
+                              <div className={`w-16 h-24 rounded shadow-sm ${getSeasonalColor(log.month, bookIndex)} flex flex-col justify-between p-2 text-white`}>
+                                <div className="text-[6px] font-bold leading-tight overflow-hidden">
+                                  {book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}
+                                </div>
+                                <div className="text-[5px] opacity-90 leading-tight">
+                                  {book.author.length > 20 ? book.author.substring(0, 17) + '...' : book.author}
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Book Info */}
+                            <div className="flex-1 space-y-2">
+                              <div className="flex items-start justify-between gap-3">
+                                <div>
+                                  <p className="text-text-primary font-medium">
+                                    {book.title}
+                                  </p>
+                                  <p className="text-text-secondary text-sm">
+                                    by {book.author}
+                                  </p>
+                                </div>
+                                <div className="flex items-center space-x-1 flex-shrink-0">
+                                  {[...Array(5)].map((_, i) => (
+                                    <span 
+                                      key={i} 
+                                      className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                                    >
+                                      ★
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                              <p className="text-text-secondary text-sm leading-relaxed">
+                                {book.review}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </CollapsibleContent>
+                </article>
+              </Collapsible>
             ))}
           </div>
         </div>
