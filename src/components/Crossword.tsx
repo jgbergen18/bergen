@@ -100,7 +100,7 @@ const Crossword = () => {
       '3. Multi-____ system research in Kraus lab', 
       '4. Design tool Jamie taught to high school students',
       '5. Jamie\'s general programming skill',
-      '6. Programming language for data analysis'
+      '6. Jamie\'s most common job title (abbr.)'
     ],
     down: [
       '1. College Jamie attended',
