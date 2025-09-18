@@ -35,7 +35,7 @@ const Crossword = () => {
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', number: 1, isBlack: false, answer: 'B', clueDown: '1D. College Jamie attended' },
+      { letter: '', number: 1, isBlack: false, answer: 'B', clueAcross: '1A. Barrier Jamie studied', clueDown: '1D. College Jamie attended' },
       { letter: '', isBlack: false, answer: 'B' },
       { letter: '', isBlack: false, answer: 'B' }
     ],
