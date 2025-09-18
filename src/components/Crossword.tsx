@@ -32,7 +32,7 @@ const Crossword = () => {
     ],
     [
       { letter: '', isBlack: true, answer: '' },
-      { letter: '', isBlack: false, answer: 'R' },
+      { letter: '', number: 6, isBlack: false, answer: 'R', clueAcross: '6A. Jamie\'s most common job (abbr.)' },
       { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'R' },
@@ -82,7 +82,8 @@ const Crossword = () => {
       '1. Barrier Jamie studied',
       '3. Data unit', 
       '4. Design tool',
-      '5. Programming skill'
+      '5. Programming skill',
+      '6. Jamie\'s most common job (abbr.)'
     ],
     down: [
       '1. College Jamie attended',
