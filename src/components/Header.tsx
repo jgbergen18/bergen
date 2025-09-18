@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
     { name: 'About', href: '#about' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Publications', href: '#publications' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Blog', href: '/blog' },
     { name: 'CV', href: '#cv' },
     { name: 'Contact', href: '#contact' }
   ];
@@ -17,20 +18,30 @@ const Header = () => {
       <div className="max-w-4xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Name */}
-          <div className="font-medium text-text-primary">
+          <Link to="/" className="font-medium text-text-primary hover:text-text-primary/80 transition-colors duration-200">
             Your Name
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -47,14 +58,25 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border-subtle">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-2 text-text-secondary hover:text-text-primary transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-2 text-text-secondary hover:text-text-primary transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="block py-2 text-text-secondary hover:text-text-primary transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
         )}
