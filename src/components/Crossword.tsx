@@ -50,7 +50,7 @@ const Crossword = () => {
     [
       { letter: '', isBlack: true, answer: '' },
       { letter: '', number: 6, isBlack: false, answer: 'R', clueAcross: '6A. Jamie\'s most common job (abbr.)' },
-      { letter: '', number: 8, isBlack: false, answer: 'A', clueDown: '8D. Immune molecules studied in research' },
+      { letter: '', isBlack: false, answer: 'A' },
       { letter: '', isBlack: true, answer: '' },
       { letter: '', isBlack: false, answer: 'R' },
       { letter: '', isBlack: true, answer: '' }
@@ -104,8 +104,7 @@ const Crossword = () => {
     ],
     down: [
       '2. Jamie\'s research focus organ',
-      '7. College Jamie attended',
-      '8. Immune molecules studied in research'
+      '7. College Jamie attended'
     ]
   };
 
