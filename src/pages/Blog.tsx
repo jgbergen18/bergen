@@ -26,7 +26,8 @@ const temperatureData: Record<string, number> = {
   "June 2025": 73.8,
   "July 2025": 78.6,
   "August 2025": 73.8,
-  "September 2025": 73.8 // Using August 2025 temp for September 2025 as fallback
+  "September 2025": 73.8,
+  "October 2025": 60.9
 };
 
 // Function to convert temperature to hue (cold = blue/purple, hot = red/orange)
@@ -41,6 +42,42 @@ const getTemperatureColor = (month: string): string => {
 };
 const readingLogs = [{
   id: 1,
+  month: "October 2025",
+  booksRead: 5,
+  averageRating: 3.6,
+  books: [{
+    title: "Of Monsters and Mainframes",
+    author: "Barbara Truelove",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "Yours Truly",
+    author: "Abby Jimenez",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Bewitching",
+    author: "Silvia Moreno-Garcia",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Four Thousand Weeks: Time Management for Mortals",
+    author: "Oliver Burkeman",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Careless People: A Cautionary Tale of Power, Greed, and Lost Idealism",
+    author: "Sarah Wynn-Williams",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }]
+}, {
+  id: 2,
   month: "September 2025",
   booksRead: 6,
   averageRating: 3.2,
