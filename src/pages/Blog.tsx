@@ -42,8 +42,8 @@ const getTemperatureColor = (month: string): string => {
 const readingLogs = [{
   id: 1,
   month: "September 2025",
-  booksRead: 4,
-  averageRating: 3.0,
+  booksRead: 6,
+  averageRating: 3.2,
   books: [{
     title: "Part of Your World",
     author: "Abby Jimenez",
@@ -67,6 +67,12 @@ const readingLogs = [{
     author: "Rebecca Makkai",
     review: "",
     rating: 2,
+    coverUrl: ""
+  }, {
+    title: "The Names",
+    author: "Florence Knapp",
+    review: "",
+    rating: 4,
     coverUrl: ""
   }]
 }, {
