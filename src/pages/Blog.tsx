@@ -28,7 +28,8 @@ const temperatureData: Record<string, number> = {
   "August 2025": 73.8,
   "September 2025": 73.8,
   "October 2025": 58.5,
-  "November 2025": 47.6
+  "November 2025": 47.6,
+  "December 2025": 34.22
 };
 
 // Function to convert temperature to hue (cold = blue/purple, hot = red/orange)
@@ -43,6 +44,30 @@ const getTemperatureColor = (month: string): string => {
 };
 const readingLogs = [{
   id: 1,
+  month: "December 2025",
+  booksRead: 3,
+  averageRating: 3.3,
+  books: [{
+    title: "Haroun and the Sea of Stories",
+    author: "Salman Rushdie",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Wintering: The Power of Rest and Retreat in Difficult Times",
+    author: "Katherine May",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "All the Way to the River",
+    author: "Elizabeth Gilbert",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }]
+}, {
+  id: 2,
   month: "November 2025",
   booksRead: 4,
   averageRating: 3.75,
