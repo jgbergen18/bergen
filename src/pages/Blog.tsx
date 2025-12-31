@@ -27,7 +27,8 @@ const temperatureData: Record<string, number> = {
   "July 2025": 78.6,
   "August 2025": 73.8,
   "September 2025": 73.8,
-  "October 2025": 58.5
+  "October 2025": 58.5,
+  "November 2025": 47.6
 };
 
 // Function to convert temperature to hue (cold = blue/purple, hot = red/orange)
@@ -42,6 +43,36 @@ const getTemperatureColor = (month: string): string => {
 };
 const readingLogs = [{
   id: 1,
+  month: "November 2025",
+  booksRead: 4,
+  averageRating: 3.75,
+  books: [{
+    title: "All the Way to the River",
+    author: "Elizabeth Gilbert",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Hamnet",
+    author: "Maggie O'Farrell",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Katabasis",
+    author: "R.F. Kuang",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "The Light Eaters: How the Unseen World of Plant Intelligence Offers a New Understanding of Life on Earth",
+    author: "Zoë Schlanger",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }]
+}, {
+  id: 2,
   month: "October 2025",
   booksRead: 5,
   averageRating: 3.6,
