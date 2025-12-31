@@ -1246,19 +1246,18 @@ const Blog = () => {
 
           {/* Special Posts */}
           <div className="space-y-8 mb-12">
-            {/* Pending 2025 Post */}
+            {/* Top 10 Books of 2025 */}
             <Collapsible open={openPosts['2025']} onOpenChange={() => togglePost('2025')}>
               <div className="bg-surface border border-border rounded-xl overflow-hidden shadow-sm">
                 <CollapsibleTrigger className="w-full text-left">
                   <div className="flex items-center justify-between p-6 hover:bg-surface-hover transition-colors cursor-pointer">
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-text-muted rounded-full animate-pulse"></div>
+                    <div className="space-y-1">
                       <h2 className="text-2xl font-medium text-text-primary">
                         Top 10 Books of 2025
                       </h2>
-                      <div className="px-2 py-1 bg-muted text-text-secondary rounded-full text-xs font-medium">
-                        Coming Soon
-                      </div>
+                      <p className="text-text-secondary text-sm">
+                        My favorite reads from an incredible year of books
+                      </p>
                     </div>
                     <div className="text-text-secondary hover:text-text-primary transition-colors">
                       {openPosts['2025'] ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
@@ -1268,9 +1267,40 @@ const Blog = () => {
                 
                 <CollapsibleContent>
                   <div className="px-6 pb-6 border-t border-border-subtle">
-                    <p className="text-text-secondary leading-relaxed pt-4">
-                      Still reading and discovering amazing books this year! Check back at the end of 2025 for my curated list of the year's most impactful reads. 📖
-                    </p>
+                    <div className="space-y-3 pt-4">
+                      {[
+                        { rank: 1, title: "The Lilac People", author: "Milo Todd" },
+                        { rank: 2, title: "James", author: "Percival Everett" },
+                        { rank: 3, title: "How High We Go in the Dark", author: "Sequoia Nagamatsu" },
+                        { rank: 4, title: "Language City: The Fight to Preserve Endangered Mother Tongues in New York", author: "Ross Perlin" },
+                        { rank: 5, title: "Everything Is Tuberculosis", author: "John Green" },
+                        { rank: 6, title: "Martyr!", author: "Kaveh Akbar" },
+                        { rank: 7, title: "Yumi and the Nightmare Painter", author: "Brandon Sanderson" },
+                        { rank: 8, title: "The Vegetarian", author: "Han Kang" },
+                        { rank: 9, title: "Dune", author: "Frank Herbert" },
+                        { rank: 10, title: "Stag Dance", author: "Torrey Peters" }
+                      ].map((book) => (
+                        <div key={book.rank} className="flex items-start gap-3 p-3 bg-card rounded-lg border border-border-subtle hover:bg-surface-hover transition-colors">
+                          <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground font-medium rounded-full flex items-center justify-center text-sm">
+                            {book.rank}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-medium text-text-primary mb-1 leading-tight">
+                              {book.title}
+                            </h3>
+                            <p className="text-text-secondary text-sm">
+                              by {book.author}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="mt-6 p-4 bg-muted rounded-lg border border-border-subtle">
+                      <p className="text-text-secondary text-sm leading-relaxed">
+                        <strong className="font-medium text-text-primary">Reflection:</strong> 2025 was an extraordinary year for reading! These ten books challenged my perspectives, moved me deeply, and expanded my understanding of the world.
+                      </p>
+                    </div>
                   </div>
                 </CollapsibleContent>
               </div>
