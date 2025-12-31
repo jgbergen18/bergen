@@ -27,7 +27,7 @@ const temperatureData: Record<string, number> = {
   "July 2025": 78.6,
   "August 2025": 73.8,
   "September 2025": 73.8,
-  "October 2025": 60.9
+  "October 2025": 58.5
 };
 
 // Function to convert temperature to hue (cold = blue/purple, hot = red/orange)
