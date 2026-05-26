@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# Jamie Bergen - Personal Portfolio
 
-## Project info
+A modern, responsive personal portfolio website showcasing research projects, writing, and academic background.
 
-**URL**: https://lovable.dev/projects/e1f3a0b9-3486-4e64-9b0b-0ba47d649f6f
+## Overview
 
-## How can I edit this code?
+This is the personal portfolio of Jamie Bergen, a graduate student in neuroscience and computer science with research interests in cognition, neuroAI, and data science. The site features project showcases, a blog, CV, and contact information.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Dark/Light Theme Toggle**: Seamless theme switching with `next-themes`
+- **Project Gallery**: Showcase of research and development projects with descriptions and external links
+- **Blog Section**: Writing and research articles
+- **CV Page**: Academic and professional background
+- **Responsive Design**: Mobile-optimized with TailwindCSS
+- **Modern UI**: Built with shadcn/ui components and Radix UI primitives
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e1f3a0b9-3486-4e64-9b0b-0ba47d649f6f) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: TailwindCSS, shadcn/ui
+- **Routing**: React Router
+- **State Management**: React Query
+- **Theme**: next-themes (dark/light mode)
+- **Icons**: Lucide React
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js 18+ and npm
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# Clone the repository
+git clone https://github.com/jgbergen18/bergen.git
+cd bergen
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Development
 
-**Use GitHub Codespaces**
+- **Dev Server**: `npm run dev`
+- **Build**: `npm run build`
+- **Lint**: `npm run lint`
+- **Preview Build**: `npm run preview`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── pages/              # Main pages (Index, Blog, CV, ProjectDetail)
+├── components/         # Reusable components (Header, Hero, About, ProjectsGallery, etc.)
+├── assets/            # Images and static files
+├── ui/                # shadcn/ui component library
+└── App.tsx            # Main app component with routing
+```
 
-This project is built with:
+## Pages
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Home** (`/`) - Main portfolio page with hero, about, projects, and contact
+- **Blog** (`/blog`) - Blog posts and articles
+- **CV** (`/cv`) - Academic and professional background
+- **Project Detail** (`/project/:id`) - Detailed project information
+- **404** - Not found page
 
-## How can I deploy this project?
+## Customization
 
-Simply open [Lovable](https://lovable.dev/projects/e1f3a0b9-3486-4e64-9b0b-0ba47d649f6f) and click on Share -> Publish.
+The portfolio uses a custom color scheme and spacing. Key areas to customize:
 
-## Can I connect a custom domain to my Lovable project?
+- **Profile Photo**: Replace `src/assets/profile-photo.jpg`
+- **Project Images**: Update images in `src/assets/`
+- **Project Data**: Edit project information in `ProjectsGallery.tsx`
+- **Colors/Theme**: Modify Tailwind configuration in `tailwind.config.ts`
 
-Yes, you can!
+## Deployment
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Build for production:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+npm run build
+```
+
+The `dist` folder contains the production-ready files ready for deployment to Vercel, Netlify, or any static host.
+
+## License
+
+See LICENSE file for details.
