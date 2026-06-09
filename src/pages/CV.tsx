@@ -47,7 +47,7 @@ const CV = () => {
           {/* Professional Summary */}
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
             <p className="text-foreground text-sm leading-relaxed italic">
-              Neuroscience and data science student with a research background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior. Interested in PhD and research positions at the intersection of neuroscience, AI, and computational modeling.
+              Neuroscience and data science student with a research background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior.
             </p>
           </div>
         </div>
@@ -58,21 +58,21 @@ const CV = () => {
         {/* Education */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <GraduationCap className="w-6 h-6" />
+            <GraduationCap className="w-6 h-6 text-primary" />
             Education
           </h2>
           <div className="space-y-4">
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="font-semibold text-foreground">MSc Neuroscience & Data Science (Erasmus Mundus Scholar)</h3>
-                <span className="text-sm text-foreground/70">2024 – 2026</span>
+                <h3 className="font-semibold text-primary">MSc Neuroscience & Data Science (Erasmus Mundus Scholar)</h3>
+                <span className="text-sm text-primary font-medium">2024 – 2026</span>
               </div>
               <p className="text-sm text-foreground/80">Bar-Ilan University (Israel) | Vrije Universiteit Amsterdam (Netherlands)</p>
             </div>
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="font-semibold text-foreground">BA Computer Science & Neuroscience</h3>
-                <span className="text-sm text-foreground/70">2019 – 2023</span>
+                <h3 className="font-semibold text-primary">BA Computer Science & Neuroscience</h3>
+                <span className="text-sm text-primary font-medium">2019 – 2023</span>
               </div>
               <p className="text-sm text-foreground/80">Barnard College, Columbia University (United States)</p>
             </div>
@@ -82,27 +82,27 @@ const CV = () => {
         {/* Publications & Awards */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <FileText className="w-6 h-6" />
+            <FileText className="w-6 h-6 text-primary" />
             Publications & Awards
           </h2>
-          <div className="space-y-3 text-foreground text-sm">
-            <p><span className="font-semibold">IJCAI 2026 (submitted)</span> — <span className="italic">Automated Mediator for Human Negotiation: Pre-Mediation via Multi-Agent LLMs</span></p>
-            <p><span className="font-semibold">Neuron (2023)</span> — <span className="italic">Interaction of an α-synuclein epitope with HLA-DRB1*15:01 triggers enteric features in mice reminiscent of prodromal Parkinson's disease</span></p>
-            <p><span className="font-semibold">Erasmus Mundus NeuroData Scholar</span> (2024–2026) | <span className="font-semibold">Científico Latino Graduate Fellow</span> (2025)</p>
+          <div className="space-y-3 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
+            <p><span className="font-semibold text-primary">IJCAI 2026 (submitted)</span> — <span className="italic text-foreground">Automated Mediator for Human Negotiation: Pre-Mediation via Multi-Agent LLMs</span></p>
+            <p><span className="font-semibold text-primary">Neuron (2023)</span> — <span className="italic text-foreground">Interaction of an α-synuclein epitope with HLA-DRB1*15:01 triggers enteric features in mice reminiscent of prodromal Parkinson's disease</span></p>
+            <p><span className="font-semibold text-primary">Erasmus Mundus NeuroData Scholar</span> (2024–2026) | <span className="font-semibold text-primary">Científico Latino Graduate Fellow</span> (2025)</p>
           </div>
         </section>
 
         {/* Research Experience */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <FlaskConical className="w-6 h-6" />
+            <FlaskConical className="w-6 h-6 text-primary" />
             Research Experience
           </h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-foreground">MSc Thesis Researcher — Neural Dynamics Lab, ETH Zurich</h3>
-                <span className="text-sm text-foreground/70">Feb 2026 – Present</span>
+                <h3 className="font-semibold text-primary">MSc Thesis Researcher — Neural Dynamics Lab, ETH Zurich</h3>
+                <span className="text-sm text-primary font-medium">Feb 2026 – Present</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
@@ -116,10 +116,10 @@ const CV = () => {
               </ul>
             </div>
 
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-foreground">Research Assistant — Sarit Kraus Lab, Bar-Ilan University</h3>
-                <span className="text-sm text-foreground/70">Sep 2024 – Jan 2026</span>
+                <h3 className="font-semibold text-primary">Research Assistant — Sarit Kraus Lab, Bar-Ilan University</h3>
+                <span className="text-sm text-primary font-medium">Sep 2024 – Jan 2026</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
@@ -137,10 +137,10 @@ const CV = () => {
               </ul>
             </div>
 
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-foreground">Research Assistant — Agalliu Lab, Columbia University</h3>
-                <span className="text-sm text-foreground/70">2021 – May 2023</span>
+                <h3 className="font-semibold text-primary">Research Assistant — Agalliu Lab, Columbia University</h3>
+                <span className="text-sm text-primary font-medium">2021 – May 2023</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
@@ -158,10 +158,10 @@ const CV = () => {
               </ul>
             </div>
 
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-foreground">Research Assistant — Musolino Lab, Massachusetts General Hospital</h3>
-                <span className="text-sm text-foreground/70">Nov 2020 – Sep 2021</span>
+                <h3 className="font-semibold text-primary">Research Assistant — Musolino Lab, Massachusetts General Hospital</h3>
+                <span className="text-sm text-primary font-medium">Nov 2020 – Sep 2021</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
@@ -180,10 +180,10 @@ const CV = () => {
         {/* Industry Experience */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6">Industry Experience</h2>
-          <div className="border-l-2 border-primary/30 pl-4">
+          <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
             <div className="flex justify-between items-baseline mb-2">
-              <h3 className="font-semibold text-foreground">Software Developer — Fast Enterprises (Oklahoma Tax Commission)</h3>
-              <span className="text-sm text-foreground/70">Jul 2023 – Jul 2024</span>
+              <h3 className="font-semibold text-primary">Software Developer — Fast Enterprises (Oklahoma Tax Commission)</h3>
+              <span className="text-sm text-primary font-medium">Jul 2023 – Jul 2024</span>
             </div>
             <ul className="space-y-2 text-sm text-foreground/90">
               <li className="flex gap-3">
@@ -202,10 +202,10 @@ const CV = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6">Teaching & Volunteering</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-foreground">Program Coordinator & Instructor — Code.X (Ukraine / Remote)</h3>
-                <span className="text-sm text-foreground/70">2024 – Present</span>
+                <h3 className="font-semibold text-primary">Program Coordinator & Instructor — Code.X (Ukraine / Remote)</h3>
+                <span className="text-sm text-primary font-medium">2024 – Present</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
@@ -223,10 +223,10 @@ const CV = () => {
               </ul>
             </div>
 
-            <div className="border-l-2 border-primary/30 pl-4">
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-foreground">Peer Leader / Teaching Assistant — Columbia University</h3>
-                <span className="text-sm text-foreground/70">2021 – 2023</span>
+                <h3 className="font-semibold text-primary">Peer Leader / Teaching Assistant — Columbia University</h3>
+                <span className="text-sm text-primary font-medium">2021 – 2023</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
