@@ -47,7 +47,7 @@ const CV = () => {
           {/* Professional Summary */}
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-6">
             <p className="text-foreground text-sm leading-relaxed italic">
-              Neuroscience and data science student with a research background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior. Seeking a PhD position on rhythmic attentional sampling within the ERC SAMPLING project (INCC, Université Paris Cité).
+              Neuroscience and data science student with a research background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior. Interested in PhD and research positions at the intersection of neuroscience, AI, and computational modeling.
             </p>
           </div>
         </div>
