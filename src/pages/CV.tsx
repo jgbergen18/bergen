@@ -32,12 +32,12 @@ const CV = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary/10 to-background pt-16 pb-6">
+      <section className="relative bg-gradient-to-b from-primary/10 to-background pt-24 pb-2">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="flex justify-between items-start mb-4">
+          <div className="flex justify-between items-start mb-2">
             <div>
               <h1 className="text-4xl font-bold text-primary mb-2">Jamie Bergen</h1>
-              <p className="text-foreground text-sm flex gap-4 flex-wrap">
+              <p className="text-foreground text-sm flex gap-4 flex-wrap mb-3">
                 <span className="flex items-center gap-1"><Mail className="w-4 h-4" />jgbergen18@gmail.com</span>
                 <span className="flex items-center gap-1"><Phone className="w-4 h-4" />203.644.8464</span>
               </p>
@@ -53,7 +53,7 @@ const CV = () => {
         </div>
       </section>
 
-      <main className="max-w-4xl mx-auto px-6 py-12">
+      <main className="max-w-4xl mx-auto px-6 py-8">
 
         {/* Education */}
         <section className="mb-12">
