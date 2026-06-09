@@ -32,9 +32,9 @@ const CV = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary/10 to-background pt-20 pb-12">
+      <section className="relative bg-gradient-to-b from-primary/10 to-background pt-16 pb-6">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="flex justify-between items-start mb-6">
+          <div className="flex justify-between items-start mb-4">
             <div>
               <h1 className="text-4xl font-bold text-primary mb-2">Jamie Bergen</h1>
               <p className="text-foreground text-sm flex gap-4 flex-wrap">
@@ -45,7 +45,7 @@ const CV = () => {
           </div>
 
           {/* Professional Summary */}
-          <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-6">
+          <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
             <p className="text-foreground text-sm leading-relaxed italic">
               Neuroscience and data science student with a research background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior. Interested in PhD and research positions at the intersection of neuroscience, AI, and computational modeling.
             </p>
@@ -290,21 +290,7 @@ const CV = () => {
         </section>
         {/* References */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-primary mb-6">References</h2>
-          <div className="space-y-4 text-sm">
-            <div>
-              <p className="font-semibold text-foreground">Timothée Proix</p>
-              <p className="text-foreground/70">Assistant Professor, Institute of Neuroinformatics, ETH Zurich</p>
-              <p className="text-foreground/70">Supervisor, MSc thesis (Feb 2026 – Present)</p>
-              <p className="text-primary">proix@ini.ethz.ch</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">Dritan Agalliu</p>
-              <p className="text-foreground/70">Associate Professor of Pathology and Cell Biology, Columbia University</p>
-              <p className="text-foreground/70">Supervisor, undergraduate thesis (2021 – 2023)</p>
-              <p className="text-primary">da191@cumc.columbia.edu</p>
-            </div>
-          </div>
+          <p className="text-foreground text-sm">References available upon request.</p>
         </section>
       </main>
 
