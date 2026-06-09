@@ -32,7 +32,7 @@ const CV = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary/10 to-background pt-24 pb-2">
+      <section className="relative bg-gradient-to-b from-primary/10 to-background pt-32 pb-2">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex justify-between items-start mb-2">
             <div>
