@@ -9,31 +9,31 @@ export const ThemeToggle = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  const isDark = theme === "dark";
+
   return (
     <Button
       variant="ghost"
       size="sm"
       onClick={toggleTheme}
-      className="relative h-9 w-16 p-0 hover:bg-surface-hover rounded-full border border-border"
+      aria-label="Toggle theme"
+      className={`relative inline-flex h-9 w-16 items-center p-1 rounded-full border border-border transition-colors duration-300 ${
+        isDark
+          ? "justify-end bg-slate-700 hover:bg-slate-700"
+          : "justify-start bg-amber-200 hover:bg-amber-200"
+      }`}
     >
-      {/* Switch Base */}
-      <div className={`absolute inset-1 rounded-full transition-all duration-300 ${
-        theme === 'dark' 
-          ? 'bg-slate-700' 
-          : 'bg-amber-200'
-      }`}>
-        {/* Switch Toggle with Icon */}
-        <div className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full shadow-sm transition-all duration-300 transform flex items-center justify-center ${
-          theme === 'dark' 
-            ? 'translate-x-5 bg-slate-600' 
-            : 'translate-x-0 bg-amber-400'
-        }`}>
-          {theme === 'dark' ? (
-            <Moon className="h-3 w-3 text-blue-200" />
-          ) : (
-            <Sun className="h-3 w-3 text-amber-800" />
-          )}
-        </div>
+      {/* Thumb (flex alignment keeps it centered + end-aligned automatically) */}
+      <div
+        className={`h-6 w-6 rounded-full shadow-sm flex items-center justify-center transition-colors duration-300 ${
+          isDark ? "bg-slate-600" : "bg-amber-400"
+        }`}
+      >
+        {isDark ? (
+          <Moon className="h-3.5 w-3.5 text-blue-200" />
+        ) : (
+          <Sun className="h-3.5 w-3.5 text-amber-800" />
+        )}
       </div>
       <span className="sr-only">Toggle theme</span>
     </Button>

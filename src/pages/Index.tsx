@@ -30,10 +30,11 @@ const Index = () => {
               Spiking neuron
             </h2>
             <p className="text-text-secondary mb-8 max-w-2xl">
-              Click the neuron (or the button) to inject current. It builds up charge and fires an
-              action potential down the axon once it crosses threshold. This is a leaky
-              integrate-and-fire model, the same idea behind how real neurons signal. The trace
-              below shows its membrane potential and spikes in real time.
+              Click the neuron (or the button) to inject current, and use the slider to set how much
+              each click delivers. The membrane potential builds up and fires an action potential
+              down the axon once it crosses threshold. This is a leaky integrate-and-fire model, the
+              same idea behind how real neurons signal, and the trace below shows the membrane
+              potential and spikes in real time.
             </p>
             <Neuron />
           </div>
