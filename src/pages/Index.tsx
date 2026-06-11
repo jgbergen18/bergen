@@ -23,6 +23,8 @@ const Index = () => {
           </div>
         </section>
 
+        <ProjectsGallery />
+
         {/* Spiking Neuron Section */}
         <section id="neuron" className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
@@ -39,8 +41,6 @@ const Index = () => {
             <Neuron />
           </div>
         </section>
-
-        <ProjectsGallery />
 
         <Publications />
 
