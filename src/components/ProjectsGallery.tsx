@@ -3,8 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import depressionDetectionImg from '../assets/depression-detection-project.png';
 import sassResearchImg from '../assets/sass-research-group.png';
 import parkinsonsResearchImg from '../assets/parkinsons-research.png';
+import aiMediationImg from '../assets/ai-mediation-research.png';
 
 const projectsData = [
+  {
+    id: 7,
+    title: "AI Mediation Research",
+    description: "First-author research building a multi-agent LLM pipeline for AI-assisted pre-mediation in human negotiation. \"Automated Mediator for Human Negotiation: Pre-Mediation via a Structured LLM Pipeline\" (with Sarit Kraus), arXiv 2026.",
+    imageUrl: aiMediationImg,
+    tags: ["Multi-Agent LLMs", "NLP", "Research"],
+    type: "project",
+    externalLink: "https://arxiv.org/abs/2606.11379"
+  },
   {
     id: 1,
     title: "Detection of Depression-Related Posts in Reddit",
