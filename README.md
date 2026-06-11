@@ -7,7 +7,7 @@ Personal website and portfolio of **Jamie Bergen**, a graduate student in neuros
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
 
-> **Live site:** _add your production URL here_
+> **Live site:** [bergen-psi.vercel.app](https://bergen-psi.vercel.app)
 
 <!-- Tip: drop a homepage screenshot at docs/screenshot.png and uncomment the line below
 ![Homepage](docs/screenshot.png)

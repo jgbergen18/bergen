@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, Phone, ArrowLeft, ExternalLink } from 'lucide-react';
+import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, ArrowLeft, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 const CV = () => {
@@ -39,7 +39,6 @@ const CV = () => {
               <h1 className="text-4xl font-bold text-primary mb-2">Jamie Bergen</h1>
               <p className="text-foreground text-sm flex gap-4 flex-wrap mb-3">
                 <span className="flex items-center gap-1"><Mail className="w-4 h-4" />jgbergen18@gmail.com</span>
-                <span className="flex items-center gap-1"><Phone className="w-4 h-4" />203.644.8464</span>
               </p>
             </div>
           </div>
