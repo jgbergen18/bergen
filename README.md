@@ -1,152 +1,77 @@
-# Jamie Bergen — Portfolio
+# Jamie Bergen — Personal Portfolio
 
-A modern, minimalist personal portfolio website showcasing research in neuroscience, AI, and data science.
+Personal website and portfolio of **Jamie Bergen**, a graduate student in neuroscience and computer science researching neuroAI, cognition, and data science.
 
-## About
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
 
-This is the personal portfolio of **Jamie Bergen**, a graduate student focused on the intersection of neuroscience, artificial intelligence, and data science. The site presents research projects, academic work, writing, and professional background with an emphasis on clean design and accessibility.
+> **Live site:** _add your production URL here_
 
-**Research Interests:**
-- NeuroAI and computational neuroscience
-- Machine learning and NLP applications to neuroscience
-- Cognition and brain imaging
-- Research methodology and data science
+<!-- Tip: drop a homepage screenshot at docs/screenshot.png and uncomment the line below
+![Homepage](docs/screenshot.png)
+-->
 
-## Features
+## Highlights
 
-- **Dark/Light Theme Toggle**: Seamless theme switching with system preference detection
-- **Project Showcase**: Detailed gallery of research and development projects with links to publications and external resources
-- **Blog Section**: Writing and research articles
-- **CV/Resume Page**: Academic credentials and professional experience
-- **Responsive Design**: Fully mobile-optimized interface
-- **Modern UI Components**: Built with shadcn/ui and Radix UI
-- **Accessible**: WCAG-compliant with proper semantic HTML
+- **Interactive crossword** — a custom-built puzzle with clues about my background and live answer checking
+- **Reading log** — every book I read, by month, color-coded to the average NYC temperature when I read it
+- **Research & projects** — work across multi-agent LLMs, NLP, and neuroscience, linked to publications (arXiv, *Neuron*)
+- **CV page** — academic and research background at a glance
+- **Light / dark theme** with system-preference detection
+- Responsive, accessible, fast
 
-## Tech Stack
+## Tech stack
 
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: TailwindCSS with custom theme system
-- **UI Components**: shadcn/ui and Radix UI primitives
-- **Routing**: React Router
-- **State Management**: React Query
-- **Theme Management**: next-themes
-- **Icons**: Lucide React
+- **React 18** + **TypeScript**
+- **Vite** for build and dev
+- **Tailwind CSS** with a custom theme/token system
+- **shadcn/ui** + **Radix UI** primitives
+- **React Router** for routing
+- Deployed on **Vercel**
 
-## Getting Started
+## Running locally
 
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-### Installation
+Prerequisites: **Node.js 18+**
 
 ```bash
-# Clone the repository
 git clone https://github.com/jgbergen18/bergen.git
 cd bergen
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
-The site will be available at `http://localhost:8080`
-
-## Development
+The site runs at `http://localhost:8080`.
 
 ```bash
-# Start dev server with hot reload
-npm run dev
-
-# Build for production
-npm run build
-
-# Lint code
-npm run lint
-
-# Preview production build locally
-npm run preview
+npm run build     # production build
+npm run preview   # preview the production build locally
+npm run lint      # lint
 ```
 
-## Project Structure
+## Project structure
 
 ```
 src/
 ├── pages/
-│   ├── Index.tsx          # Home page (hero, about, projects, contact)
-│   ├── Blog.tsx           # Blog section
-│   ├── CV.tsx             # Resume/CV page
+│   ├── Index.tsx          # Home: hero, about, crossword, projects, contact
+│   ├── Blog.tsx           # Reading log
+│   ├── CV.tsx             # CV / resume
 │   ├── ProjectDetail.tsx  # Individual project pages
-│   └── NotFound.tsx       # 404 page
+│   └── NotFound.tsx       # 404
 ├── components/
-│   ├── Header.tsx         # Navigation header
-│   ├── Hero.tsx           # Hero section with name
-│   ├── About.tsx          # About section with bio
-│   ├── ProjectsGallery.tsx # Project grid display
-│   ├── Contact.tsx        # Contact information
-│   ├── ThemeToggle.tsx    # Dark/light mode switcher
-│   └── ui/                # shadcn/ui components
-├── assets/                # Images and media files
-└── App.tsx                # Main app with routing
+│   ├── Hero.tsx           # Landing hero
+│   ├── About.tsx          # Bio
+│   ├── Crossword.tsx      # Interactive crossword
+│   ├── ProjectsGallery.tsx# Project grid
+│   ├── Contact.tsx        # Contact details
+│   ├── ThemeToggle.tsx    # Light/dark switch
+│   └── ui/                # shadcn/ui primitives
+├── assets/                # images and media
+└── index.css              # design tokens + theme
 ```
-
-## Pages
-
-- **Home** (`/`) - Main landing page with hero, about, projects, and contact
-- **Blog** (`/blog`) - Blog posts and research articles
-- **CV** (`/cv`) - Academic and professional background
-- **Project Detail** (`/project/:id`) - Deep dive into individual projects
-- **404** - Page not found
-
-## Featured Projects
-
-The portfolio showcases several research projects:
-
-1. **Depression Detection in Reddit Posts** — NLP-based replication study using machine learning for mental health detection
-2. **Parkinson's Disease Research** — Neuroscience research on immune system's role in disease progression (published in Neuron)
-3. **SASS Research Group** — Co-founded research group focused on sex and sexuality studies with IRB-approved protocols
-
-## Customization
-
-### Update Profile Information
-- **Profile Photo**: Replace `src/assets/profile-photo.jpg`
-- **Contact Photo**: Replace `src/assets/contact-photo.jpg`
-- **Projects**: Edit project data in `src/components/ProjectsGallery.tsx`
-- **About Section**: Modify `src/components/About.tsx`
-
-### Styling & Theme
-- **Colors**: Customize in `src/globals.css` and `tailwind.config.ts`
-- **Typography**: Adjust font sizes and weights in TailwindCSS config
-- **Dark/Light Theme**: Manage via `next-themes` in `App.tsx`
-
-## Deployment
-
-Build for production:
-
-```bash
-npm run build
-```
-
-The `dist` folder contains all static files ready for deployment to:
-- **Vercel** (recommended for React)
-- **Netlify**
-- **GitHub Pages**
-- Any static hosting service
-
-## Analytics
-
-The site includes Google Analytics integration via Google Tag Manager. To customize:
-- Update the Google Analytics ID in `index.html`
-- Or remove the analytics script entirely if not needed
 
 ## License
 
-See LICENSE file for details.
-
----
-
-Built with React, TypeScript, and TailwindCSS. Designed for clarity, accessibility, and professional presentation.
+© Jamie Bergen. This is a personal project. You're welcome to read the code and learn from it, but please don't republish the site or its content as your own.
