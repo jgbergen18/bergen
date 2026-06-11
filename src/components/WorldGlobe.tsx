@@ -64,6 +64,7 @@ const isLand = (lng: number, lat: number) => CONTINENTS.some((p) => pointInPoly(
 
 const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<number | null>(null);
   const selectedRef = useRef<number | null>(null);
 
@@ -339,6 +340,19 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
     };
   }, [locations]);
 
+  // Click anywhere outside the component to deselect
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (selectedRef.current === null) return;
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        selectedRef.current = null;
+        setSelected(null);
+      }
+    };
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, []);
+
   const selectLoc = (i: number) => {
     selectedRef.current = i;
     setSelected(i);
@@ -347,7 +361,7 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
   const active = selected !== null ? locations[selected] : null;
 
   return (
-    <div className="grid md:grid-cols-2 gap-8 items-center">
+    <div ref={containerRef} className="grid md:grid-cols-2 gap-8 items-center">
       <div className="mx-auto w-full max-w-[240px]">
         <canvas ref={canvasRef} className="w-full select-none touch-none" />
         <div className="flex items-center justify-center gap-5 mt-2 text-xs text-text-secondary">
