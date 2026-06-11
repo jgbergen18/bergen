@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, Phone, ArrowLeft } from 'lucide-react';
+import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, Phone, ArrowLeft, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 const CV = () => {
@@ -65,9 +65,10 @@ const CV = () => {
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1">
                 <h3 className="font-semibold text-primary">MSc Neuroscience & Data Science (Erasmus Mundus Scholar)</h3>
-                <span className="text-sm text-primary font-medium">2024 – 2026</span>
+                <span className="text-sm text-primary font-medium">2024 – Jul 2026</span>
               </div>
               <p className="text-sm text-foreground/80">Bar-Ilan University (Israel) | Vrije Universiteit Amsterdam (Netherlands)</p>
+              <p className="text-xs text-primary font-medium mt-1">Expected graduation: July 2026</p>
             </div>
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1">
@@ -86,8 +87,8 @@ const CV = () => {
             Publications & Awards
           </h2>
           <div className="space-y-3 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
-            <p><span className="font-semibold text-primary">IJCAI 2026 (submitted)</span> — <span className="italic text-foreground">Automated Mediator for Human Negotiation: Pre-Mediation via Multi-Agent LLMs</span></p>
-            <p><span className="font-semibold text-primary">Neuron (2023)</span> — <span className="italic text-foreground">Interaction of an α-synuclein epitope with HLA-DRB1*15:01 triggers enteric features in mice reminiscent of prodromal Parkinson's disease</span></p>
+            <p><span className="font-semibold text-primary">IJCAI 2026 (submitted)</span> — <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="italic text-foreground hover:text-primary hover:underline">Automated Mediator for Human Negotiation: Pre-Mediation via Multi-Agent LLMs<ExternalLink className="inline w-3.5 h-3.5 ml-1 not-italic align-text-bottom" /></a></p>
+            <p><span className="font-semibold text-primary">Neuron (2023)</span> — <a href="https://www.cell.com/neuron/fulltext/S0896-6273(23)00548-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627323005482%3Fshowall%3Dtrue" target="_blank" rel="noopener noreferrer" className="italic text-foreground hover:text-primary hover:underline">Interaction of an α-synuclein epitope with HLA-DRB1*15:01 triggers enteric features in mice reminiscent of prodromal Parkinson's disease<ExternalLink className="inline w-3.5 h-3.5 ml-1 not-italic align-text-bottom" /></a></p>
             <p><span className="font-semibold text-primary">Erasmus Mundus NeuroData Scholar</span> (2024–2026) | <span className="font-semibold text-primary">Científico Latino Graduate Fellow</span> (2025)</p>
           </div>
         </section>
@@ -118,7 +119,12 @@ const CV = () => {
 
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">Research Assistant — Sarit Kraus Lab, Bar-Ilan University</h3>
+                <h3 className="font-semibold text-primary">
+                  <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-primary/80 hover:underline">
+                    Research Assistant — Sarit Kraus Lab, Bar-Ilan University
+                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                  </a>
+                </h3>
                 <span className="text-sm text-primary font-medium">Sep 2024 – Jan 2026</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
@@ -139,7 +145,12 @@ const CV = () => {
 
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">Research Assistant — Agalliu Lab, Columbia University</h3>
+                <h3 className="font-semibold text-primary">
+                  <a href="https://www.cell.com/neuron/fulltext/S0896-6273(23)00548-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627323005482%3Fshowall%3Dtrue" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-primary/80 hover:underline">
+                    Research Assistant — Agalliu Lab, Columbia University
+                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                  </a>
+                </h3>
                 <span className="text-sm text-primary font-medium">2021 – May 2023</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
