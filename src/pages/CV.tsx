@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, ArrowLeft, ExternalLink } from 'lucide-react';
+import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, ArrowLeft, ExternalLink, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 const CV = () => {
@@ -34,13 +34,19 @@ const CV = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-primary/10 to-background pt-32 pb-2">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="flex justify-between items-start mb-2">
+          <div className="flex justify-between items-start mb-2 gap-4">
             <div>
               <h1 className="text-4xl font-bold text-primary mb-2">Jamie Bergen</h1>
               <p className="text-foreground text-sm flex gap-4 flex-wrap mb-3">
                 <span className="flex items-center gap-1"><Mail className="w-4 h-4" />jgbergen18@gmail.com</span>
               </p>
             </div>
+            <Button asChild size="sm" className="shadow-sm flex-shrink-0">
+              <a href="/Jamie-Bergen-Resume-2026.docx" download>
+                <Download className="w-4 h-4 mr-2" />
+                Download Résumé
+              </a>
+            </Button>
           </div>
 
           {/* Professional Summary */}

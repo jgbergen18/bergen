@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Header from '../components/Header';
+import BookCover from '../components/BookCover';
 
 // NYC Temperature data for color scaling
 const temperatureData: Record<string, number> = {
@@ -1536,14 +1537,11 @@ const Blog = () => {
                                     return <div key={bookIndex} className="bg-card rounded-lg p-4 flex gap-4 border border-border shadow-sm">
                                             {/* Custom Book Cover */}
                                             <div className="flex-shrink-0">
-                                              <div className={`w-16 h-24 rounded shadow-sm ${getSeasonalColor(log.month, bookIndex)} flex flex-col justify-between p-2 text-white`}>
-                                                <div className="text-[6px] font-bold leading-tight overflow-hidden drop-shadow-sm">
-                                                  {book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}
-                                                </div>
-                                                <div className="text-[5px] opacity-90 leading-tight drop-shadow-sm">
-                                                  {book.author.length > 20 ? book.author.substring(0, 17) + '...' : book.author}
-                                                </div>
-                                              </div>
+                                              <BookCover
+                                                title={book.title}
+                                                author={book.author}
+                                                fallbackClass={getSeasonalColor(log.month, bookIndex)}
+                                              />
                                             </div>
                                             
                                             {/* Book Info */}
