@@ -15,8 +15,8 @@ const About = () => {
                 I graduated from Barnard College with a dual major in neuroscience and computer science, specializing in intelligent systems.
               </p>
               <p>
-                My research focuses on cognition, neuroAI, and data science. I'm currently pursuing a Master's degree in Brain and Data Science 
-                through the Erasmus Mundus Joint Masters Scholarship, spending time in Israel and the Netherlands.
+                My research focuses on cognition, neuroAI, and data science. I'm currently pursuing a Master's degree in Brain and Data Science
+                through the Erasmus Mundus Joint Masters Scholarship, and I'm completing my Master's thesis at ETH Zurich.
               </p>
               <p>
                 I'd love to hear from you with any questions, comments, or collaboration ideas.

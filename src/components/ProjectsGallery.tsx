@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
 import depressionDetectionImg from '../assets/depression-detection-project.png';
 import sassResearchImg from '../assets/sass-research-group.png';
 import parkinsonsResearchImg from '../assets/parkinsons-research.png';
@@ -44,8 +44,15 @@ const projectsData = [
   }
 ];
 
+// Spectrum palette echoing the reading-log color coding
+const tagColors = [
+  "bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-300 border border-fuchsia-500/20",
+  "bg-sky-500/10 text-sky-600 dark:text-sky-300 border border-sky-500/20",
+  "bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20",
+  "bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/20",
+];
+
 const ProjectsGallery = () => {
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const navigate = useNavigate();
 
   const handleItemClick = (project: typeof projectsData[0]) => {
@@ -64,49 +71,56 @@ const ProjectsGallery = () => {
         <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-12">
           Projects
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.map((project) => (
             <div
               key={project.id}
-              className="relative group overflow-hidden rounded-lg bg-background border border-border-subtle transition-all duration-300 cursor-pointer hover:border-border"
-              onMouseEnter={() => setHoveredItem(project.id)}
-              onMouseLeave={() => setHoveredItem(null)}
+              className="group relative flex flex-col overflow-hidden rounded-xl bg-background border border-border-subtle transition-all duration-300 cursor-pointer hover:border-border hover:shadow-lg hover:-translate-y-1"
               onClick={() => handleItemClick(project)}
             >
               {/* Image */}
-              <div className="aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden">
                 <img
                   src={project.imageUrl}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
-              
-              {/* Hover Overlay */}
-              <div 
-                className={`absolute inset-0 bg-black/70 flex flex-col justify-end transition-opacity duration-300 ${
-                  hoveredItem === project.id ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <div className="p-6 text-white space-y-3 animate-fade-in">
-                  <h3 className="text-lg font-medium">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-white/90 leading-relaxed">
+
+                {/* External-link badge */}
+                {project.externalLink && (
+                  <div className="absolute top-3 right-3 rounded-full bg-background/80 backdrop-blur-sm p-1.5 text-text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ExternalLink size={15} />
+                  </div>
+                )}
+
+                {/* Description overlay (desktop hover enhancement) */}
+                <div className="hidden md:flex absolute inset-0 items-end bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="p-5 text-sm text-white/90 leading-relaxed animate-fade-in">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-2 py-1 text-xs bg-white/20 rounded text-white"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
+              </div>
+
+              {/* Always-visible info (works on touch devices) */}
+              <div className="flex flex-col gap-3 p-4">
+                <h3 className="text-base font-medium text-text-primary leading-snug">
+                  {project.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className={`px-2.5 py-1 text-xs rounded-full ${tagColors[tagIndex % tagColors.length]}`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {/* Description shown inline on mobile (no hover available) */}
+                <p className="md:hidden text-sm text-text-secondary leading-relaxed">
+                  {project.description}
+                </p>
               </div>
             </div>
           ))}
