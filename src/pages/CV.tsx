@@ -2,6 +2,70 @@ import Header from '../components/Header';
 import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, ArrowLeft, ExternalLink, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
+import WorldGlobe, { GlobeLocation } from '../components/WorldGlobe';
+
+const cvLocations: GlobeLocation[] = [
+  {
+    name: 'New York, USA',
+    lat: 40.71,
+    lng: -74.01,
+    roles: [
+      { type: 'school', title: 'BA, Computer Science & Neuroscience', org: 'Barnard College, Columbia University', dates: '2019 – 2023' },
+      { type: 'work', title: 'Research Assistant, Agalliu Lab', org: 'Columbia University', dates: '2021 – 2023' },
+      { type: 'work', title: 'Peer Leader / Teaching Assistant', org: 'Columbia University', dates: '2021 – 2023' },
+    ],
+  },
+  {
+    name: 'Boston, USA',
+    lat: 42.36,
+    lng: -71.06,
+    roles: [
+      { type: 'work', title: 'Research Assistant, Musolino Lab', org: 'Massachusetts General Hospital', dates: 'Nov 2020 – Sep 2021' },
+    ],
+  },
+  {
+    name: 'Oklahoma City, USA',
+    lat: 35.47,
+    lng: -97.52,
+    roles: [
+      { type: 'work', title: 'Software Developer', org: 'Fast Enterprises (Oklahoma Tax Commission)', dates: 'Jul 2023 – Jul 2024' },
+    ],
+  },
+  {
+    name: 'Ramat Gan, Israel',
+    lat: 32.07,
+    lng: 34.82,
+    roles: [
+      { type: 'school', title: 'MSc, Neuroscience & Data Science (Erasmus Mundus)', org: 'Bar-Ilan University', dates: '2024 – 2026' },
+      { type: 'work', title: 'Research Assistant, Sarit Kraus Lab', org: 'Bar-Ilan University', dates: 'Sep 2024 – Jan 2026' },
+    ],
+  },
+  {
+    name: 'Amsterdam, Netherlands',
+    lat: 52.37,
+    lng: 4.9,
+    roles: [
+      { type: 'school', title: 'MSc, Neuroscience & Data Science (Erasmus Mundus)', org: 'Vrije Universiteit Amsterdam', dates: '2024 – 2026' },
+    ],
+  },
+  {
+    name: 'Zurich, Switzerland',
+    lat: 47.37,
+    lng: 8.55,
+    roles: [
+      { type: 'work', title: 'MSc Thesis Researcher, Neural Dynamics Lab', org: 'ETH Zurich', dates: 'Feb 2026 – Present' },
+    ],
+  },
+  {
+    name: 'Lviv, Ukraine',
+    lat: 49.84,
+    lng: 24.03,
+    roles: [
+      { type: 'work', title: 'Program Coordinator & Instructor', org: 'Code.X', dates: '2024 – Present' },
+    ],
+  },
+];
+
 const CV = () => {
   const navigate = useNavigate();
 
@@ -59,6 +123,15 @@ const CV = () => {
       </section>
 
       <main className="max-w-4xl mx-auto px-6 py-8">
+
+        {/* Where I've been */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+            <MapPin className="w-6 h-6 text-primary" />
+            Where I've been
+          </h2>
+          <WorldGlobe locations={cvLocations} />
+        </section>
 
         {/* Education */}
         <section className="mb-12">
