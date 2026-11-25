@@ -59,10 +59,10 @@ const readingLogData = [{
     rating: 4,
     coverUrl: ""
   }, {
-    title: "All the Way to the River",
-    author: "Elizabeth Gilbert",
+    title: "The Vegetarian",
+    author: "Han Kang",
     review: "",
-    rating: 2,
+    rating: 5,
     coverUrl: ""
   }]
 }, {
@@ -71,7 +71,7 @@ const readingLogData = [{
     title: "All the Way to the River",
     author: "Elizabeth Gilbert",
     review: "",
-    rating: 4,
+    rating: 3,
     coverUrl: ""
   }, {
     title: "Hamnet",
@@ -240,6 +240,12 @@ const readingLogData = [{
     author: "Claire Keegan",
     review: "",
     rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Dune",
+    author: "Frank Herbert",
+    review: "",
+    rating: 5,
     coverUrl: ""
   }]
 }, {
