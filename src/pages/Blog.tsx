@@ -20,6 +20,17 @@ const temperatureData: Record<string, number> = {
   "October 2024": 60.9,
   "November 2024": 51.4,
   "December 2024": 38.2,
+  "January 2026": 36.1,
+  "February 2026": 37.6,
+  "March 2026": 55.1,
+  "April 2026": 64.4,
+  "May 2026": 71.5,
+  "June 2026": 81.4,
+  "July 2026": 83.7,
+  "August 2026": 82.6,
+  "September 2026": 74.4,
+  "October 2026": 66.3,
+  "November 2026": 60.4,
   "January 2025": 31.2,
   "February 2025": 35.0,
   "March 2025": 46.9,
@@ -45,6 +56,216 @@ const getTemperatureColor = (month: string): string => {
   return `hsl(${hue}, 70%, 60%)`;
 };
 const readingLogData = [{
+  month: "November 2026",
+  books: [{
+    title: "Mistborn: The Final Empire",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "The Well of Ascension",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "The Hero of Ages",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 4,
+    coverUrl: ""
+  }, {
+    title: "Hollywood Ending",
+    author: "",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "As You Wake, Break the Shell",
+    author: "",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Tress of the Emerald Sea",
+    author: "Brandon Sanderson",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }]
+}, {
+  month: "September 2026",
+  books: [{
+    title: "The Butcher's Masquerade",
+    author: "Matt Dinniman",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "The Eye of the Bedlam Bride",
+    author: "Matt Dinniman",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "This Inevitable Ruin",
+    author: "Matt Dinniman",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "August 2026",
+  books: [{
+    title: "The Da Vinci Code",
+    author: "Dan Brown",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Angel Down",
+    author: "",
+    review: "",
+    rating: 3,
+    coverUrl: ""
+  }, {
+    title: "Everything I Know About Love",
+    author: "Dolly Alderton",
+    review: "",
+    rating: 2,
+    coverUrl: ""
+  }, {
+    title: "The Dungeon Anarchist's Cookbook",
+    author: "Matt Dinniman",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "The Gate of the Feral Gods",
+    author: "Matt Dinniman",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "July 2026",
+  books: [{
+    title: "The Bell Jar",
+    author: "Sylvia Plath",
+    review: "",
+    rating: 5,
+    coverUrl: ""
+  }, {
+    title: "Dungeon Crawler Carl",
+    author: "Matt Dinniman",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "Carl's Doomsday Scenario",
+    author: "Matt Dinniman",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "June 2026",
+  books: [{
+    title: "My Friends",
+    author: "",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "A Game of Thrones",
+    author: "George R.R. Martin",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "The Correspondent",
+    author: "",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "May 2026",
+  books: [{
+    title: "Great Expectations",
+    author: "Charles Dickens",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "April 2026",
+  books: [{
+    title: "Butter",
+    author: "Asako Yuzuki",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "The Name of the Rose",
+    author: "Umberto Eco",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "Red Rising",
+    author: "Pierce Brown",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "Old Man's War",
+    author: "John Scalzi",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "March 2026",
+  books: [{
+    title: "Table for Two",
+    author: "Amor Towles",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "A Gentleman in Moscow",
+    author: "Amor Towles",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "What Kind of Paradise",
+    author: "Janelle Brown",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "Atmosphere",
+    author: "Taylor Jenkins Reid",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "February 2026",
+  books: [{
+    title: "The Value of Everything",
+    author: "Mariana Mazzucato",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "House of Earth and Blood",
+    author: "Sarah J. Maas",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
+  month: "January 2026",
+  books: [{
+    title: "Hard-Boiled and Hard Luck",
+    author: "Banana Yoshimoto",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "Swordheart",
+    author: "T. Kingfisher",
+    review: "",
+    coverUrl: ""
+  }, {
+    title: "House of Day, House of Night",
+    author: "Olga Tokarczuk",
+    review: "",
+    coverUrl: ""
+  }]
+}, {
   month: "December 2025",
   books: [{
     title: "Haroun and the Sea of Stories",
@@ -1106,13 +1327,20 @@ const readingLogData = [{
 }];
 
 // Counts and averages are derived from the book lists so they cannot drift.
-const readingLogs = readingLogData.map((log) => ({
-  month: log.month,
-  books: log.books,
-  booksRead: log.books.length,
-  averageRating:
-    Math.round((log.books.reduce((sum, b) => sum + b.rating, 0) / log.books.length) * 10) / 10,
-}));
+// Not every book has a rating, so averages are taken over the rated ones only
+// and are null when a month has none.
+const readingLogs = readingLogData.map((log) => {
+  const rated = log.books.filter((b) => typeof b.rating === "number");
+  return {
+    month: log.month,
+    books: log.books,
+    booksRead: log.books.length,
+    ratedCount: rated.length,
+    averageRating: rated.length
+      ? Math.round((rated.reduce((sum, b) => sum + b.rating, 0) / rated.length) * 10) / 10
+      : null,
+  };
+});
 
 const Blog = () => {
   usePageMeta('/blog');
@@ -1121,11 +1349,9 @@ const Blog = () => {
     [readingLogs[0].month]: true,
   });
 
-  const [openYears, setOpenYears] = useState<{
-    [key: string]: boolean;
-  }>({
-    "2025": true, // 2025 open by default (most recent)
-    "2024": false
+  // Most recent year open by default, derived so a new year needs no edit here.
+  const [openYears, setOpenYears] = useState<Record<string, boolean>>({
+    [readingLogs[0].month.split(" ")[1]]: true,
   });
 
   const [openPosts, setOpenPosts] = useState<{
@@ -1334,7 +1560,10 @@ const Blog = () => {
             {sortedYears.map(year => {
               const yearLogs = readingLogsByYear[year];
               const totalBooksInYear = yearLogs.reduce((sum, log) => sum + log.booksRead, 0);
-              const avgRatingInYear = yearLogs.reduce((sum, log) => sum + (log.averageRating * log.booksRead), 0) / totalBooksInYear;
+              const ratedInYear = yearLogs.reduce((sum, log) => sum + log.ratedCount, 0);
+              const avgRatingInYear = ratedInYear
+                ? yearLogs.reduce((sum, log) => sum + (log.averageRating ?? 0) * log.ratedCount, 0) / ratedInYear
+                : null;
 
               return (
                 <Collapsible key={year} open={openYears[year]} onOpenChange={() => toggleYear(year)}>
@@ -1346,7 +1575,13 @@ const Blog = () => {
                             {year}
                           </h2>
                           <p className="text-text-secondary text-lg">
-                            <strong className="text-text-primary">{totalBooksInYear} books read</strong> • <strong className="text-text-primary">{avgRatingInYear.toFixed(1)}</strong> average rating
+                            <strong className="text-text-primary">{totalBooksInYear} books read</strong>
+                            {avgRatingInYear !== null && (
+                              <>
+                                {" • "}
+                                <strong className="text-text-primary">{avgRatingInYear.toFixed(1)}</strong> average rating
+                              </>
+                            )}
                           </p>
                         </div>
                         <div className="text-text-secondary hover:text-text-primary transition-colors p-3">
@@ -1362,7 +1597,8 @@ const Blog = () => {
 
                           // Scientific temperature-to-color mapping using actual NYC data
                           const getMonthBackground = (month: string) => {
-                            const temp = temperatureData[month] || 50;
+                            const temp = temperatureData[month];
+                            if (temp === undefined) return 'bg-surface border-border';
                             
                             // Light mode colors (pastels) and dark mode colors (muted darks)
                             if (temp <= 35) return 'bg-blue-50 border-blue-200 dark:bg-blue-900/50 dark:border-blue-700';
@@ -1376,7 +1612,8 @@ const Blog = () => {
                           };
 
                           const getMonthHover = (month: string) => {
-                            const temp = temperatureData[month] || 50;
+                            const temp = temperatureData[month];
+                            if (temp === undefined) return 'hover:bg-surface-hover';
                             
                             if (temp <= 35) return 'hover:bg-blue-100 dark:hover:bg-blue-800/60';
                             if (temp <= 40) return 'hover:bg-blue-200 dark:hover:bg-blue-700/60';
@@ -1403,7 +1640,13 @@ const Blog = () => {
                                         </span>
                                       </div>
                                       <p className="text-foreground/80">
-                                        <strong className="text-foreground">Books Read:</strong> {log.booksRead}, <strong className="text-foreground">Average Rating:</strong> {log.averageRating} Stars
+                                        <strong className="text-foreground">Books Read:</strong> {log.booksRead}
+                                        {log.averageRating !== null && (
+                                          <>
+                                            , <strong className="text-foreground">Average Rating:</strong> {log.averageRating} Stars
+                                            {log.ratedCount < log.booksRead && ` (${log.ratedCount} of ${log.booksRead} rated)`}
+                                          </>
+                                        )}
                                       </p>
                                     </div>
                                     <div className="text-foreground/60 hover:text-foreground/80 transition-colors p-2">
@@ -1505,19 +1748,25 @@ const Blog = () => {
                                                   <p className="text-text-primary font-medium">
                                                     {book.title}
                                                   </p>
-                                                  <p className="text-text-secondary text-sm">
-                                                    by {book.author}
-                                                  </p>
+                                                  {book.author && (
+                                                    <p className="text-text-secondary text-sm">
+                                                      by {book.author}
+                                                    </p>
+                                                  )}
                                                 </div>
-                                                <div
-                                                  className="flex items-center space-x-1 flex-shrink-0"
-                                                  role="img"
-                                                  aria-label={`${book.rating} out of 5`}
-                                                >
-                                                  {[...Array(5)].map((_, i) => <span key={i} aria-hidden="true" className={`text-sm ${i < book.rating ? 'text-amber-700 dark:text-amber-400' : 'text-muted-foreground'}`}>
-                                                      ★
-                                                    </span>)}
-                                                </div>
+                                                {typeof book.rating === "number" ? (
+                                                  <div
+                                                    className="flex items-center space-x-1 flex-shrink-0"
+                                                    role="img"
+                                                    aria-label={`${book.rating} out of 5`}
+                                                  >
+                                                    {[...Array(5)].map((_, i) => <span key={i} aria-hidden="true" className={`text-sm ${i < book.rating ? 'text-amber-700 dark:text-amber-400' : 'text-muted-foreground'}`}>
+                                                        ★
+                                                      </span>)}
+                                                  </div>
+                                                ) : (
+                                                  <span className="flex-shrink-0 text-xs text-text-muted">Not rated</span>
+                                                )}
                                               </div>
                                               <p className="text-text-secondary text-sm leading-relaxed">
                                                 {book.review}

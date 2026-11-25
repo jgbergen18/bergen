@@ -52,12 +52,14 @@ const BookCover = ({ title, author, fallbackClass }: BookCoverProps) => {
     if (cover !== undefined) return; // already resolved (url or null)
     let active = true;
     const controller = new AbortController();
+    // Some books have no author recorded yet; searching title-only beats
+    // sending an empty author, which returns nothing.
     const params = new URLSearchParams({
       title: title.split(':')[0].trim(),
-      author,
       limit: '1',
       fields: 'cover_i',
     });
+    if (author) params.set('author', author);
 
     fetch(`https://openlibrary.org/search.json?${params.toString()}`, { signal: controller.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error('bad response'))))
