@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { GraduationCap, FileText, FlaskConical, Code, MapPin, Calendar, Mail, ArrowLeft, ExternalLink, Download } from 'lucide-react';
+import { GraduationCap, FileText, FlaskConical, Code, MapPin, Mail, ArrowLeft, ExternalLink, Download, Award, Briefcase, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import WorldGlobe, { GlobeLocation } from '../components/WorldGlobe';
@@ -11,7 +11,7 @@ const cvLocations: GlobeLocation[] = [
     lng: -74.01,
     roles: [
       { type: 'school', title: 'BA, Computer Science & Neuroscience', org: 'Barnard College, Columbia University', dates: '2019 – 2023' },
-      { type: 'work', title: 'Research Assistant, Agalliu Lab', org: 'Columbia University', dates: 'Sep 2021 – May 2023' },
+      { type: 'work', title: "Bachelor's Thesis Research Assistant, Agalliu Lab", org: 'Columbia University Irving Medical Center', dates: 'Sep 2021 – May 2023' },
       { type: 'work', title: 'Peer Leader / Teaching Assistant', org: 'Columbia University', dates: '2021 – 2023' },
     ],
   },
@@ -20,7 +20,7 @@ const cvLocations: GlobeLocation[] = [
     lat: 42.36,
     lng: -71.06,
     roles: [
-      { type: 'work', title: 'Research Assistant, Musolino Lab', org: 'Massachusetts General Hospital', dates: 'Nov 2020 – Sep 2021' },
+      { type: 'work', title: 'Student Research Assistant, Musolino Lab', org: 'Massachusetts General Hospital', dates: 'Nov 2020 – Sep 2021' },
     ],
   },
   {
@@ -37,7 +37,7 @@ const cvLocations: GlobeLocation[] = [
     lng: 34.82,
     roles: [
       { type: 'school', title: 'MSc, Neuroscience & Data Science (Erasmus Mundus)', org: 'Bar-Ilan University', dates: '2024 – 2026' },
-      { type: 'work', title: 'Research Assistant, Sarit Kraus Lab', org: 'Bar-Ilan University', dates: 'Sep 2024 – Jan 2026' },
+      { type: 'work', title: 'Student Research Assistant, Kraus Lab', org: 'Bar-Ilan University', dates: 'Sep 2024 – Jan 2026' },
     ],
   },
   {
@@ -53,7 +53,7 @@ const cvLocations: GlobeLocation[] = [
     lat: 47.37,
     lng: 8.55,
     roles: [
-      { type: 'work', title: 'MSc Thesis Researcher, Neural Dynamics Lab', org: 'ETH Zurich', dates: 'Feb – Jul 2026' },
+      { type: 'work', title: 'MSc Thesis Researcher, Neural Dynamics Lab', org: 'Institute of Neuroinformatics, ETH Zurich', dates: 'Feb – Jul 2026' },
     ],
   },
   {
@@ -73,6 +73,117 @@ const cvLocations: GlobeLocation[] = [
     ],
   },
 ];
+
+type Role = {
+  title: string;
+  org: string;
+  dates: string;
+  href?: string;
+  bullets: string[];
+};
+
+const researchRoles: Role[] = [
+  {
+    title: 'Research Assistant — Kirkeby Lab',
+    org: 'Novo Nordisk Foundation Center for Stem Cell Medicine (reNEW), University of Copenhagen. PI: Agnete Kirkeby',
+    dates: 'Sep 2026 – Present',
+    bullets: [
+      "Proposed adding molecular docking (GNINA) to the lab's work on environmental risk factors for Parkinson's disease, and am implementing it to rank candidate toxicants by predicted binding prior to in vitro testing",
+      'Engineering two hPSC lines carrying UltraID proximity-labeling tags on ciliary proteins, and differentiating hPSCs into hypothalamic neurons, to build a model for testing peptides that act on hunger signaling',
+      "Launched and leading an AI task force, with a representative from each lab, that is drafting the institute's AI guidelines; teaching a monthly session on AI tools for research at lab meeting",
+    ],
+  },
+  {
+    title: 'MSc Thesis Researcher — Neural Dynamics Lab',
+    org: 'Institute of Neuroinformatics, ETH Zurich. PI: Timothée Proix',
+    dates: 'Feb – Jul 2026',
+    bullets: [
+      'Tested whether speakers commit to syntactic structure before speech onset or build it incrementally, using stereo-EEG from 528 gray-matter contacts in six patients producing sentences matched for word identity and order but differing in prepositional-phrase attachment height',
+      'Built the preprocessing pipeline in Python and MNE-Python: notch filtering, re-referencing, and Hilbert-envelope extraction of broadband high-frequency activity (70–150 Hz), with word onsets recovered by Whisper transcription and WhisperX phoneme forced alignment anchored to photodiode triggers (93% of sentences)',
+      'Selected responsive electrodes by cluster-based permutation testing with Benjamini–Hochberg FDR correction across six condition pairs per electrode; the more demanding structure elicited greater high-frequency activity that grew across the sentence and slower speech in all six patients',
+      'Fit per-electrode forward-encoding models (mTRF, raised-cosine lag bases, ridge regression, leave-sentence-out cross-validation) over pre- and post-onset lag windows; middle temporal cortex differentiated the structures before inferior frontal cortex, consistent with incremental syntactic encoding',
+      'Authored and defended the MSc thesis reporting these findings; preparing them for publication as a first-author manuscript',
+    ],
+  },
+  {
+    title: 'Student Research Assistant — Kraus Lab',
+    org: 'Department of Computer Science, Bar-Ilan University. PI: Sarit Kraus',
+    dates: 'Sep 2024 – Jan 2026',
+    href: 'https://arxiv.org/abs/2606.11379',
+    bullets: [
+      'Built an AI mediator as a pipeline of GPT-4 modules for dialogue, preference prediction, response critique, and summarization, delivered through a React/TypeScript and Supabase platform',
+      'Designed and ran two IRB-approved human-subjects experiments (n = 38, n = 22) against professional human mediators; the system predicted participants’ preferences with 36% lower RMSE and matched the mediators on self-reported trust and confidence',
+      'Quantified affirming language in conversation transcripts (36.6% of AI messages vs. 18.9% for human mediators) and reduced it to 16.8% through prompt refinement; first author of the resulting preprint',
+    ],
+  },
+  {
+    title: "Bachelor's Thesis Research Assistant — Agalliu Lab",
+    org: 'Columbia University Irving Medical Center. PI: Dritan Agalliu',
+    dates: 'Sep 2021 – May 2023',
+    href: 'https://doi.org/10.1016/j.neuron.2023.07.015',
+    bullets: [
+      "Tested whether an autoimmune response to α-synuclein contributes to early Parkinson's pathology, in HLA-DRB1*15:01 transgenic mice immunized with α-synuclein peptide and aged to two timepoints",
+      'Quantified dopaminergic (TH+) and total (ANNA1+) neuron density in the myenteric and submucosal plexuses, and T cell (CD3+) infiltration in brain sections, by immunostaining, confocal and widefield imaging, and blinded cell counts',
+      'Ran PCR and western blots for gene and protein expression, analyzed RNA-seq data for transcriptomic changes linked to α-synuclein-driven neuroinflammation, and tested group differences in GraphPad Prism',
+      'Contributed to the resulting publication in Neuron (2023); authored and defended a senior thesis on the aged-mouse arm of the project',
+    ],
+  },
+  {
+    title: 'Student Research Assistant — Musolino Lab',
+    org: 'Massachusetts General Hospital. PI: Patricia Musolino',
+    dates: 'Nov 2020 – Sep 2021',
+    bullets: [
+      'Established and maintained primary human brain microvascular endothelial cell (HBMEC) cultures as an in vitro model of blood-brain barrier dysfunction in X-linked adrenoleukodystrophy',
+      'Assessed cell morphology, protein expression, and barrier integrity markers by immunocytochemistry, confocal microscopy, PCR, and western blot',
+    ],
+  },
+];
+
+const skills: { label: string; items: string }[] = [
+  {
+    label: 'Cell and molecular',
+    items: 'Human pluripotent stem cell culture and neuronal differentiation, cell line engineering (UltraID proximity labeling), primary endothelial cell culture, PCR, western blot',
+  },
+  {
+    label: 'Imaging and histology',
+    items: 'Immunocytochemistry and immunohistochemistry, cryosectioning, confocal and widefield microscopy, blinded quantitative image analysis in ImageJ/Fiji',
+  },
+  {
+    label: 'Programming',
+    items: 'Python (NumPy, SciPy, scikit-learn, PyTorch, MNE-Python), R, SQL, Git',
+  },
+  {
+    label: 'Analysis and modeling',
+    items: 'Molecular docking (GNINA), RNA-seq analysis, intracranial EEG signal processing, forward-encoding models, cluster-based permutation testing and FDR correction, machine learning, GraphPad Prism',
+  },
+];
+
+const Entry = ({ title, org, dates, href, bullets }: Role) => (
+  <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
+    <div className="flex justify-between items-baseline mb-1 gap-4">
+      <h3 className="font-semibold text-primary">
+        {href ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-primary/80 hover:underline">
+            {title}
+            <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+          </a>
+        ) : (
+          title
+        )}
+      </h3>
+      <span className="text-sm text-primary font-medium whitespace-nowrap">{dates}</span>
+    </div>
+    <p className="text-xs italic text-foreground/70 mb-2">{org}</p>
+    <ul className="space-y-2 text-sm text-foreground/90">
+      {bullets.map((b) => (
+        <li key={b} className="flex gap-3">
+          <span className="text-primary mt-0.5">•</span>
+          <span>{b}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 const CV = () => {
   const navigate = useNavigate();
@@ -105,7 +216,9 @@ const CV = () => {
             <div>
               <h1 className="text-4xl font-bold text-primary mb-2">Jamie Bergen</h1>
               <p className="text-foreground text-sm flex gap-4 flex-wrap mb-3">
-                <span className="flex items-center gap-1"><Mail className="w-4 h-4" />jgbergen18@gmail.com</span>
+                <a href="mailto:jgbergen18@gmail.com" className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <Mail className="w-4 h-4" />jgbergen18@gmail.com
+                </a>
               </p>
             </div>
             <Button asChild size="sm" className="shadow-sm flex-shrink-0">
@@ -116,10 +229,12 @@ const CV = () => {
             </Button>
           </div>
 
-          {/* Professional Summary */}
+          {/* Research interests */}
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
-            <p className="text-foreground text-sm leading-relaxed italic">
-              Neuroscience and data science researcher with a background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior.
+            <p className="text-foreground text-sm leading-relaxed">
+              <span className="font-semibold">Research interests: </span>
+              Understanding the mechanisms of neurodegenerative disease and developing treatments for it,
+              using human stem cell and computational models.
             </p>
           </div>
         </div>
@@ -144,33 +259,85 @@ const CV = () => {
           </h2>
           <div className="space-y-4">
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="font-semibold text-primary">MSc Neuroscience & Data Science (Erasmus Mundus Scholar)</h3>
-                <span className="text-sm text-primary font-medium">2024 – 2026</span>
+              <div className="flex justify-between items-baseline mb-1 gap-4">
+                <h3 className="font-semibold text-primary">MSc Neuroscience & Data Science, Erasmus Mundus Joint Master</h3>
+                <span className="text-sm text-primary font-medium whitespace-nowrap">2024 – 2026</span>
               </div>
-              <p className="text-sm text-foreground/80">Bar-Ilan University (Israel) | Vrije Universiteit Amsterdam (Netherlands)</p>
+              <p className="text-sm text-foreground/80">Vrije Universiteit Amsterdam (Netherlands) | Bar-Ilan University (Israel)</p>
+              <p className="text-sm text-foreground/80 mt-1">
+                Thesis at ETH Zurich: <span className="italic">Neural Signatures of Syntax Planning in Speech Production</span>
+              </p>
+              <p className="text-sm text-foreground/70 mt-1">
+                Selected coursework: Advanced Neurogenomics, Live Cell Imaging, Experimental and Clinical Neuroendocrinology,
+                Signal and Data Analysis in Neuroscience, Theories on Neural Networks and Machine Learning
+              </p>
             </div>
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-1">
+              <div className="flex justify-between items-baseline mb-1 gap-4">
                 <h3 className="font-semibold text-primary">BA Computer Science & Neuroscience</h3>
-                <span className="text-sm text-primary font-medium">2019 – 2023</span>
+                <span className="text-sm text-primary font-medium whitespace-nowrap">2019 – 2023</span>
               </div>
-              <p className="text-sm text-foreground/80">Barnard College, Columbia University (United States)</p>
+              <p className="text-sm text-foreground/80">
+                Barnard College, Columbia University (New York, NY). Dean's List: Spring 2021, Fall 2021, Spring 2023
+              </p>
+              <p className="text-sm text-foreground/80 mt-1">
+                Senior thesis: <span className="italic">Investigating the Immune Response to α-Synuclein in a Mouse Model for Parkinson's Disease</span>
+              </p>
+              <p className="text-sm text-foreground/70 mt-1">
+                Selected coursework: Molecular & Cellular Neuroscience, Systems and Behavioral Neuroscience, Neuroscience Lab,
+                Statistics & Experimental Design, Artificial Neural Networks, Artificial Intelligence
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Publications & Awards */}
+        {/* Honors & Awards */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+            <Award className="w-6 h-6 text-primary" />
+            Honors & Awards
+          </h2>
+          <div className="space-y-2 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
+            <p className="flex justify-between gap-4">
+              <span className="text-foreground">Erasmus Mundus Joint Master Scholarship, European Commission</span>
+              <span className="text-primary font-medium whitespace-nowrap">2024 – 2026</span>
+            </p>
+            <p className="flex justify-between gap-4">
+              <span className="text-foreground">Científico Latino Graduate Fellow</span>
+              <span className="text-primary font-medium whitespace-nowrap">2025</span>
+            </p>
+          </div>
+        </section>
+
+        {/* Publications & Manuscripts */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
             <FileText className="w-6 h-6 text-primary" />
-            Publications & Awards
+            Publications & Manuscripts
           </h2>
-          <div className="space-y-3 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
-            <p><span className="font-semibold text-primary">arXiv preprint (2026)</span> — <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="italic text-foreground hover:text-primary hover:underline">Automated Mediator for Human Negotiation: Pre-Mediation via a Structured LLM Pipeline<ExternalLink className="inline w-3.5 h-3.5 ml-1 not-italic align-text-bottom" /></a></p>
-            <p><span className="font-semibold text-primary">Neuron (2023)</span> — <a href="https://www.cell.com/neuron/fulltext/S0896-6273(23)00548-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627323005482%3Fshowall%3Dtrue" target="_blank" rel="noopener noreferrer" className="italic text-foreground hover:text-primary hover:underline">Interaction of an α-synuclein epitope with HLA-DRB1*15:01 triggers enteric features in mice reminiscent of prodromal Parkinson's disease<ExternalLink className="inline w-3.5 h-3.5 ml-1 not-italic align-text-bottom" /></a></p>
-            <p><span className="font-semibold text-primary">Erasmus Mundus NeuroData Scholar</span> (2024–2026) | <span className="font-semibold text-primary">Científico Latino Graduate Fellow</span> (2025)</p>
-          </div>
+          <ol className="space-y-3 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20 list-decimal list-outside ml-4">
+            <li className="pl-1 text-foreground/90">
+              Garretti F, Monahan C, Sloan N, <span className="font-semibold text-foreground">Bergen J</span>, Shahriar S, Kim SW,
+              Sette A, Cutforth T, Kanter E, Agalliu D, Sulzer D (2023). Interaction of an α-synuclein epitope with HLA-DRB1*15:01
+              triggers enteric features in mice reminiscent of prodromal Parkinson's disease. <span className="italic">Neuron</span> 111(21), 3397–3413.{' '}
+              <a href="https://doi.org/10.1016/j.neuron.2023.07.015" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                doi:10.1016/j.neuron.2023.07.015
+                <ExternalLink className="inline w-3.5 h-3.5 ml-1 align-text-bottom" />
+              </a>
+            </li>
+            <li className="pl-1 text-foreground/90">
+              <span className="font-semibold text-foreground">Bergen J</span>, Kraus S (2026). Automated Mediator for Human
+              Negotiation: Pre-Mediation via a Structured LLM Pipeline. Preprint,{' '}
+              <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                arXiv:2606.11379
+                <ExternalLink className="inline w-3.5 h-3.5 ml-1 align-text-bottom" />
+              </a>
+            </li>
+            <li className="pl-1 text-foreground/90">
+              <span className="font-semibold text-foreground">Bergen J</span>, Dolmatova M, Proix T, Oberlaender M. Neural
+              Signatures of Syntax Planning in Speech Production. Manuscript in preparation.
+            </li>
+          </ol>
         </section>
 
         {/* Research Experience */}
@@ -180,237 +347,71 @@ const CV = () => {
             Research Experience
           </h2>
           <div className="space-y-6">
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">Research Assistant — Kirkeby Lab, reNEW, University of Copenhagen</h3>
-                <span className="text-sm text-primary font-medium">Sep 2026 – Present</span>
-              </div>
-              <ul className="space-y-2 text-sm text-foreground/90">
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Parkinson's disease project: run molecular docking simulations in GNINA to choose which environmental toxicants to test in a human stem cell-derived dopaminergic neuron model of the disease</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Hunger signaling project: engineer two cell lines with UltraID proximity-labeling tags on ciliary proteins in hypothalamic neurons, which will be used to test candidate peptides</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Differentiate human pluripotent stem cells into hypothalamic neurons</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Founded an AI taskforce with one representative from each lab that is writing the institute's AI guidelines, and teach a monthly AI session at lab meeting</span>
-                </li>
-              </ul>
-            </div>
+            {researchRoles.map((role) => (
+              <Entry key={role.title} {...role} />
+            ))}
+          </div>
+        </section>
 
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">MSc Thesis Researcher — Neural Dynamics Lab, ETH Zurich</h3>
-                <span className="text-sm text-primary font-medium">Feb – Jul 2026</span>
+        {/* Technical Skills */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+            <Code className="w-6 h-6" />
+            Technical Skills
+          </h2>
+          <div className="space-y-4 text-sm">
+            {skills.map((s) => (
+              <div key={s.label}>
+                <span className="font-semibold text-foreground">{s.label}:</span>
+                <span className="text-foreground/90"> {s.items}</span>
               </div>
-              <ul className="space-y-2 text-sm text-foreground/90">
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Thesis: <span className="italic">Neural Signatures of Syntax Planning in Speech Production</span>, investigating when and where the brain plans sentence structure during speech using stereo-EEG recordings from 528 electrodes in six epilepsy patients</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Built a Python and MNE-Python pipeline that aligns each patient's own speech to the neural recordings using automatic speech recognition (Whisper/WhisperX), then tests for condition differences with cluster permutation statistics and forward-encoding (mTRF) models</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Showed that the middle temporal cortex distinguishes sentence structures before the inferior frontal cortex, consistent with incremental planning of speech</span>
-                </li>
-              </ul>
-            </div>
+            ))}
+          </div>
+        </section>
 
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">
-                  <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-primary/80 hover:underline">
-                    Research Assistant — Sarit Kraus Lab, Bar-Ilan University
-                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
-                  </a>
-                </h3>
-                <span className="text-sm text-primary font-medium">Sep 2024 – Jan 2026</span>
-              </div>
-              <ul className="space-y-2 text-sm text-foreground/90">
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Designed and implemented an experiment on AI-assisted conflict resolution, building a full-stack pre-mediation conversation platform in React/TypeScript and Supabase with an OpenAI GPT-4 multiagent architecture</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Analyzed participant transcript data to compare AI and human mediator communication patterns using NLP and sentiment analysis</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>First-authored a paper on automated conflict mediation, available as an arXiv preprint (2026)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">
-                  <a href="https://www.cell.com/neuron/fulltext/S0896-6273(23)00548-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627323005482%3Fshowall%3Dtrue" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-primary/80 hover:underline">
-                    Research Assistant — Agalliu Lab, Columbia University
-                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
-                  </a>
-                </h3>
-                <span className="text-sm text-primary font-medium">Sep 2021 – May 2023</span>
-              </div>
-              <ul className="space-y-2 text-sm text-foreground/90">
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Investigated neuroinflammatory mechanisms in Parkinson's disease using mouse models, focusing on α-synuclein-driven immune activation in enteric and CNS neurons</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Characterized neuronal, microglial, and astrocyte subtypes by immunohistochemistry, confocal microscopy, and quantitative image analysis; performed PCR and western blot for gene and protein expression profiling</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Co-authored a publication in <span className="italic">Neuron</span> (2023) on α-synuclein epitope interactions with HLA-DRB1*15:01 in PD</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">Research Assistant — Musolino Lab, Massachusetts General Hospital</h3>
-                <span className="text-sm text-primary font-medium">Nov 2020 – Sep 2021</span>
-              </div>
-              <ul className="space-y-2 text-sm text-foreground/90">
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Established and maintained human brain microvascular endothelial cell (HBMEC) cultures as an in vitro model of blood-brain barrier dysfunction in X-linked adrenoleukodystrophy (X-ALD)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Assessed cell morphology, protein expression, and barrier integrity markers using immunocytochemistry, confocal microscopy, PCR, and western blot</span>
-                </li>
-              </ul>
-            </div>
+        {/* Teaching & Outreach */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+            <Users className="w-6 h-6 text-primary" />
+            Teaching & Outreach
+          </h2>
+          <div className="space-y-6">
+            <Entry
+              title="Program Coordinator & Instructor — Code.X (Ukraine / Remote)"
+              org="Coding education program for Ukrainian high school students"
+              dates="2024 – Present"
+              bullets={[
+                'Coordinate a coding program for 50 Ukrainian high school students, made up of a year-long virtual course and two summer camps, and raised over $60,000 to fund it',
+                'Designed the curriculum and taught computer science and design at the 2024 and 2025 camps in Lviv',
+              ]}
+            />
+            <Entry
+              title="Peer Leader / Teaching Assistant — Columbia University"
+              org="First-year seminar program, Columbia University"
+              dates="2021 – 2023"
+              bullets={[
+                'Taught weekly seminars on cryptography, AI, and ethics to 40 first-year students over five semesters',
+                'Coached first-year students on resumes and interviews when they applied for research and internship positions',
+              ]}
+            />
           </div>
         </section>
 
         {/* Industry Experience */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-primary mb-6">Industry Experience</h2>
-          <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-            <div className="flex justify-between items-baseline mb-2">
-              <h3 className="font-semibold text-primary">Software Developer — Fast Enterprises (Oklahoma Tax Commission)</h3>
-              <span className="text-sm text-primary font-medium">Jul 2023 – Jul 2024</span>
-            </div>
-            <ul className="space-y-2 text-sm text-foreground/90">
-              <li className="flex gap-3">
-                <span className="text-primary mt-0.5">•</span>
-                <span>Developed and deployed a fraud detection module using VB.NET and SQL, flagging anomalous filings based on historical risk heuristics and increasing audit efficiency</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-primary mt-0.5">•</span>
-                <span>Delivered software updates for two tax policy changes in an enterprise-scale system processing millions of annual filings</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Teaching & Volunteering */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-primary mb-6">Teaching & Volunteering</h2>
-          <div className="space-y-6">
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">Program Coordinator & Instructor — Code.X (Ukraine / Remote)</h3>
-                <span className="text-sm text-primary font-medium">2024 – Present</span>
-              </div>
-              <ul className="space-y-2 text-sm text-foreground/90">
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Coordinated a coding bootcamp for Ukrainian high school students, managing a year-long virtual program and two intensive summer camps for 50 students</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Taught CS and design courses in summers 2024 and 2025 to high school students in Lviv</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Led curriculum design, instruction, fundraising (raising over $60,000), and daily program logistics</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">Peer Leader / Teaching Assistant — Columbia University</h3>
-                <span className="text-sm text-primary font-medium">2021 – 2023</span>
-              </div>
-              <ul className="space-y-2 text-sm text-foreground/90">
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Delivered weekly 90-minute seminars to two sections of 20 first-year students across 5 semesters on topics including cryptography, AI, and ethics</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>Mentored students on resume writing and interview preparation for securing research and internship opportunities</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Skills */}
-        <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <Code className="w-6 h-6" />
-            Skills
+            <Briefcase className="w-6 h-6 text-primary" />
+            Industry Experience
           </h2>
-          <div className="space-y-4 text-sm">
-            <div>
-              <span className="font-semibold text-foreground">Computational & Modeling:</span>
-              <span className="text-foreground/90"> Python, PyTorch, scikit-learn, neural networks (recurrent & deep), MNE-Python, time-frequency analysis, cluster permutation testing, statistical modeling, data visualization</span>
-            </div>
-            <div>
-              <span className="font-semibold text-foreground">Other Coding:</span>
-              <span className="text-foreground/90"> TypeScript/JavaScript, Java, C, SQL, R, VB.NET, HTML/CSS, Hugging Face Transformers, LLM APIs, multi-agent systems</span>
-            </div>
-            <div>
-              <span className="font-semibold text-foreground">Wet Lab:</span>
-              <span className="text-foreground/90"> Mammalian cell culture (primary cells, human cell lines), immunocytochemistry (ICC) & immunohistochemistry (IHC), confocal microscopy, fluorescence imaging, quantitative image analysis (ImageJ/Fiji), PCR & western blot, mouse model experiments</span>
-            </div>
-            <div>
-              <span className="font-semibold text-foreground">Research:</span>
-              <span className="text-foreground/90"> Human-subjects study design (IRB), behavioral experiments, qualitative & quantitative analysis, statistical analysis, scientific writing, technical documentation</span>
-            </div>
-            <div>
-              <span className="font-semibold text-foreground">Languages:</span>
-              <span className="text-foreground/90"> English (native), Hebrew (intermediate), Chinese (intermediate), German (beginner)</span>
-            </div>
-            <div>
-              <span className="font-semibold text-foreground">Tools & Other:</span>
-              <span className="text-foreground/90"> Microsoft Office, Canva, Adobe Photoshop, Google Workspace, Notion, project management, grant writing</span>
-            </div>
-          </div>
-        </section>
-
-        {/* Relevant Coursework */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-primary mb-6">Relevant Coursework</h2>
-          <div className="space-y-3 text-sm text-foreground/90">
-            <div>
-              <span className="font-semibold text-foreground">MSc:</span> Theories on Neural Networks and Machine Learning, Signal and Data Analysis in Neuroscience, Data Science Applications in Neuroscience, Advanced Neurogenomics, Live Cell Imaging, Synaptic Neurochemistry
-            </div>
-            <div>
-              <span className="font-semibold text-foreground">BA:</span> Artificial Neural Networks and Deep Learning, Systems and Behavioral Neuroscience, Molecular & Cellular Neuroscience, Neuroscience Lab, Statistics & Experimental Design
-            </div>
-          </div>
-        </section>
-        {/* References */}
-        <section className="mb-12">
-          <p className="text-foreground text-sm">References available upon request.</p>
+          <Entry
+            title="Software Developer — Fast Enterprises"
+            org="Oklahoma Tax Commission"
+            dates="Jul 2023 – Jul 2024"
+            bullets={[
+              'Built and deployed a fraud detection module in VB.NET and SQL that flags anomalous tax filings',
+              'Implemented two tax policy changes in a state tax system that processes millions of filings a year',
+            ]}
+          />
         </section>
       </main>
 
