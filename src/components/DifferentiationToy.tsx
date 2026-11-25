@@ -133,9 +133,8 @@ const DifferentiationToy = () => {
       title="Run the differentiation"
       caption={
         <>
-          How long you leave BMP4 on decides which part of the hypothalamus you get. This is a
-          simplified version of the lab's published protocol, the one I work with at the bench. The
-          paper came out before I started, so I'm not an author on it.{' '}
+          The lab's published protocol, simplified. It came out before I joined, so I'm not an
+          author.{' '}
           <a
             href="https://doi.org/10.1016/j.stem.2026.05.005"
             target="_blank"

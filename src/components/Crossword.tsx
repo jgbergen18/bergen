@@ -195,12 +195,12 @@ const Crossword = () => {
     WORDS.filter((w) => w.dir === d).sort((a, b) => a.num - b.num);
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
-      <div className="text-center mb-10">
-        <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-3">
-          Jamie Bergen Mini Crossword
+    <div className="mx-auto w-full max-w-4xl">
+      <div className="mb-10">
+        <p className="eyebrow">Crossword</p>
+        <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
+          Seven clues, all about me
         </h2>
-        <p className="text-text-secondary text-lg">seven clues, all about me</p>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-10 items-start justify-center">

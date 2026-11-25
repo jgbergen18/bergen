@@ -4,22 +4,20 @@ import contactPhoto from '../assets/contact-photo.jpg';
 const Contact = () => {
   return (
     <div id="contact">
-      <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-8">
-        Get in touch
-      </h2>
+      <p className="eyebrow">Contact</p>
+      <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">Get in touch</h2>
 
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div className="space-y-6">
-          <p className="text-text-secondary leading-relaxed">
-            If you work on human stem cell models or neurodegenerative disease, or on the
-            computational side of either, I'd like to hear about it. Happy to talk about anything
-            else on here too.
+      <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <p className="leading-relaxed text-text-secondary">
+            If you work on human stem cell models or neurodegenerative disease, or the computational
+            side of either, I'd like to hear about it.
           </p>
 
-          <div className="space-y-4">
+          <div className="mt-6 space-y-3">
             <a
               href="mailto:jgbergen18@gmail.com"
-              className="flex items-center space-x-3 text-text-secondary hover:text-text-primary transition-colors duration-200"
+              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-text-primary"
             >
               <Mail size={18} />
               <span>jgbergen18@gmail.com</span>
@@ -28,7 +26,7 @@ const Contact = () => {
               href="https://github.com/jgbergen18"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-3 text-text-secondary hover:text-text-primary transition-colors duration-200"
+              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-text-primary"
             >
               <Github size={18} />
               <span>github.com/jgbergen18</span>
@@ -43,7 +41,7 @@ const Contact = () => {
             width={720}
             height={960}
             loading="lazy"
-            className="rounded-lg shadow-lg max-w-full h-auto max-h-96 w-auto object-cover"
+            className="h-auto max-h-96 w-auto max-w-full rounded-xl border border-border-subtle object-cover"
           />
         </div>
       </div>

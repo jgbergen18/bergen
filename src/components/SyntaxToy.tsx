@@ -110,11 +110,9 @@ const SyntaxToy = () => {
       title="Say the sentence"
       caption={
         <>
-          This is the trick the whole experiment runs on. The words and their order never change, so
-          anything that differs between the two is structure and nothing else. The patients did this
-          in German, in a hospital, with electrodes already in their brain for epilepsy monitoring,
-          and I looked at what their brains did in the moment before they started talking. The
-          manuscript is still in preparation, so there are no results here.
+          Same six words every time, so the only thing that differs is structure. The patients did
+          this in German, with electrodes already implanted for epilepsy monitoring. Manuscript in
+          preparation, so no results here.
         </>
       }
     >
@@ -123,10 +121,8 @@ const SyntaxToy = () => {
           <p className="text-lg font-medium text-text-primary">
             {score} of {TRIALS.length}
           </p>
-          <p className="mx-auto mt-2 max-w-md text-sm text-text-secondary">
-            You just did what the patients did, minus the electrodes. Every trial used the same six
-            words in the same order. The only thing that changed was which things had triangles, and
-            that changed how you had to build the sentence.
+          <p className="mx-auto mt-2 max-w-sm text-sm text-text-secondary">
+            Same words every time. Only the structure changed.
           </p>
           <button type="button" onClick={restart} className={`${pill()} mt-4`}>
             Go again
@@ -135,7 +131,7 @@ const SyntaxToy = () => {
       ) : (
         <>
           <p className="text-sm text-text-secondary">
-            Trial {i + 1} of {TRIALS.length}. Look at the picture and say it out loud:{' '}
+            Trial {i + 1} of {TRIALS.length}. Say it out loud:{' '}
             <span className="text-text-primary">“I see trees and hats with triangles.”</span>
           </p>
 

@@ -173,14 +173,12 @@ const GutToy = () => {
       title="Run the experiment"
       caption={
         <>
-          The groups and the results are from the paper. The cells in the picture are there to show
-          you the shape of the result, not the counts — the real numbers are in the paper. I spent
-          two years staining and counting these neurons, blinded, which is slower and more satisfying
-          than this button makes it look.
+          Groups and results from the paper; the cells drawn are illustrative, not counts. I spent
+          two years counting these blinded, which is slower than this button makes it look.
         </>
       }
     >
-      <p className="text-sm text-text-secondary">Set up the experiment. Which mouse?</p>
+      <p className="text-sm text-text-secondary">Which mouse?</p>
       <div role="group" aria-label="Mouse strain" className="mt-2 flex flex-wrap gap-2">
         {strains.map((s) => (
           <button

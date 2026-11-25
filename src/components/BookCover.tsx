@@ -95,9 +95,14 @@ const BookCover = ({ title, author, fallbackClass }: BookCoverProps) => {
     );
   }
 
-  // Fallback: seasonal gradient placeholder with title/author text
+  // Fallback: seasonal gradient placeholder with title/author text. Hidden from
+  // assistive tech — the title and author are already printed beside it, and
+  // this micro-text would just repeat them.
   return (
-    <div className={`w-16 h-24 rounded shadow-sm ${fallbackClass} flex flex-col justify-between p-2 text-white`}>
+    <div
+      aria-hidden="true"
+      className={`w-16 h-24 rounded shadow-sm ${fallbackClass} flex flex-col justify-between p-2 text-white`}
+    >
       <div className="text-[6px] font-bold leading-tight overflow-hidden drop-shadow-sm">
         {title.length > 30 ? `${title.substring(0, 27)}...` : title}
       </div>

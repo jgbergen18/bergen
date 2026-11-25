@@ -247,7 +247,7 @@ const CV = () => {
         {/* Where I've been */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <MapPin className="w-6 h-6 text-primary" />
+            <MapPin className="w-6 h-6 text-primary" aria-hidden="true" />
             Where I've been
           </h2>
           <WorldGlobe locations={cvLocations} />
@@ -256,7 +256,7 @@ const CV = () => {
         {/* Education */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <GraduationCap className="w-6 h-6 text-primary" />
+            <GraduationCap className="w-6 h-6 text-primary" aria-hidden="true" />
             Education
           </h2>
           <div className="space-y-4">
@@ -296,7 +296,7 @@ const CV = () => {
         {/* Honors & Awards */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <Award className="w-6 h-6 text-primary" />
+            <Award className="w-6 h-6 text-primary" aria-hidden="true" />
             Honors & Awards
           </h2>
           <div className="space-y-2 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
@@ -314,7 +314,7 @@ const CV = () => {
         {/* Publications & Manuscripts */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <FileText className="w-6 h-6 text-primary" />
+            <FileText className="w-6 h-6 text-primary" aria-hidden="true" />
             Publications & Manuscripts
           </h2>
           <ol className="space-y-3 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20 list-decimal list-outside ml-4">
@@ -345,7 +345,7 @@ const CV = () => {
         {/* Research Experience */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <FlaskConical className="w-6 h-6 text-primary" />
+            <FlaskConical className="w-6 h-6 text-primary" aria-hidden="true" />
             Research Experience
           </h2>
           <div className="space-y-6">
@@ -358,7 +358,7 @@ const CV = () => {
         {/* Technical Skills */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <Code className="w-6 h-6" />
+            <Code className="w-6 h-6" aria-hidden="true" />
             Technical Skills
           </h2>
           <div className="space-y-4 text-sm">
@@ -374,7 +374,7 @@ const CV = () => {
         {/* Teaching & Outreach */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <Users className="w-6 h-6 text-primary" />
+            <Users className="w-6 h-6 text-primary" aria-hidden="true" />
             Teaching & Outreach
           </h2>
           <div className="space-y-6">
@@ -402,7 +402,7 @@ const CV = () => {
         {/* Industry Experience */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-            <Briefcase className="w-6 h-6 text-primary" />
+            <Briefcase className="w-6 h-6 text-primary" aria-hidden="true" />
             Industry Experience
           </h2>
           <Entry

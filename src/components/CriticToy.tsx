@@ -88,10 +88,8 @@ const CriticToy = () => {
       title="Be the critic"
       caption={
         <>
-          Two of these replies are the real example from the paper and the other three I wrote to
-          show what the critic was told to catch. Judging one message at a time is the easy part.
-          What the critic kept missing was the pattern across a whole conversation, and that took a
-          second study to fix.
+          Two replies are from the paper; three I wrote to show the criteria. Judging one message is
+          the easy part — the problem only showed up across a whole conversation.
         </>
       }
     >
@@ -100,12 +98,10 @@ const CriticToy = () => {
           <p className="text-center text-lg font-medium text-text-primary">
             {score} of {CARDS.length}
           </p>
-          <p className="mx-auto mt-2 max-w-lg text-center text-sm text-text-secondary">
-            Here's the thing I didn't expect. Every one of those agreeable messages can pass on its
-            own, and the first critic only threw out 2.6% of replies. But add them up over a whole
-            conversation and the AI was agreeing with people roughly twice as often as the
-            professionals were, and the people it talked to came out of it more dug in on their
-            position, not less.
+          <p className="mx-auto mt-2 max-w-md text-center text-sm text-text-secondary">
+            Every agreeable message passes on its own — the first critic rejected 2.6%. Across a
+            whole conversation the AI agreed twice as often as the professionals did, and people
+            came away more dug in, not less.
           </p>
 
           {/* affirmation rates: real numbers from the two studies */}
@@ -142,8 +138,7 @@ const CriticToy = () => {
       ) : (
         <>
           <p className="text-sm text-text-secondary">
-            You're the critic module. Reply {i + 1} of {CARDS.length}: does it go to the participant
-            or not?
+            You're the critic. Reply {i + 1} of {CARDS.length}: does it go to the participant?
           </p>
 
           <div className="mt-3 space-y-2">

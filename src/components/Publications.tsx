@@ -17,7 +17,7 @@ const publications: Publication[] = [
     role: 'First author',
     title: 'Neural Signatures of Syntax Planning in Speech Production',
     authors: ['Bergen J', 'Dolmatova M', 'Proix T', 'Oberlaender M'],
-    venue: 'Manuscript in preparation',
+    venue: 'In preparation',
   },
   {
     role: 'First author',
@@ -44,7 +44,7 @@ const publications: Publication[] = [
       'Agalliu D',
       'Sulzer D',
     ],
-    venue: 'Neuron 111(21), 3397–3413, 2023',
+    venue: 'Neuron 111(21), 2023',
     href: 'https://doi.org/10.1016/j.neuron.2023.07.015',
     hrefLabel: 'doi:10.1016/j.neuron.2023.07.015',
   },
@@ -52,28 +52,26 @@ const publications: Publication[] = [
 
 const Publications = () => {
   return (
-    <section id="publications" className="py-16 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-8">Publications</h2>
+    <section id="publications" className="px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-4xl">
+        <p className="eyebrow">Publications</p>
+        <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">Three so far</h2>
 
-        <div className="space-y-4">
+        <ol className="mt-10 divide-y divide-border">
           {publications.map((pub) => (
-            <div
-              key={pub.title}
-              className="rounded-xl border border-border-subtle bg-surface/40 p-5 transition-colors hover:border-border"
-            >
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
-                <span className="px-2.5 py-1 text-xs rounded-full bg-fuchsia-500/10 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-500/20">
+            <li key={pub.title} className="py-6 first:pt-0">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="text-xs font-semibold uppercase tracking-wide text-text-primary">
                   {pub.role}
                 </span>
-                <span className="text-xs text-text-secondary">{pub.venue}</span>
+                <span className="text-xs text-text-muted">{pub.venue}</span>
               </div>
 
-              <h3 className="text-base md:text-lg font-medium text-text-primary leading-snug">
+              <h3 className="mt-2 text-base md:text-lg font-medium leading-snug text-text-primary">
                 {pub.title}
               </h3>
 
-              <p className="text-sm text-text-secondary mt-1">
+              <p className="mt-1.5 text-sm text-text-secondary">
                 {pub.authors.map((a, i) => (
                   <span key={a}>
                     <span className={a === ME ? 'font-semibold text-text-primary' : ''}>{a}</span>
@@ -87,30 +85,30 @@ const Publications = () => {
                   href={pub.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-text-primary hover:underline"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-text-primary underline underline-offset-4 hover:no-underline"
                 >
-                  <ExternalLink size={15} />
                   {pub.hrefLabel}
+                  <ExternalLink size={14} />
                 </a>
               )}
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        <div className="flex flex-wrap gap-3 mt-8">
+        <div className="mt-8 flex flex-wrap gap-3">
           <Link
             to="/cv"
             className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-text-primary transition-all duration-200 hover:bg-surface hover:-translate-y-0.5"
           >
-            View full CV
+            Full CV
           </Link>
           <a
             href="/Jamie-Bergen-CV.pdf"
             download
-            className="inline-flex items-center gap-2 rounded-full bg-text-primary text-background px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-full bg-text-primary px-5 py-2.5 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
           >
             <Download size={16} />
-            Download CV
+            Download
           </a>
         </div>
       </div>

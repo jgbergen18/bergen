@@ -55,15 +55,14 @@ const BarrierToy = () => {
       title="Does the barrier hold?"
       caption={
         <>
-          My first lab, and the first thing I ever grew. Brain blood vessels are sealed much tighter
-          than vessels anywhere else in the body, and in adrenoleukodystrophy that seal fails. You
-          cannot watch that happen in a person, so you build the barrier in a dish and see what gets
-          through. This is the idea of the assay, not data.
+          Brain vessels are sealed tighter than any others, and in adrenoleukodystrophy that seal
+          fails. You can't watch it happen in a person, so you build the barrier in a dish. The idea
+          of the assay, not data.
         </>
       }
     >
       <p className="text-sm text-text-secondary">
-        Pick a barrier, then send in a tracer and see where it ends up.
+        Pick a barrier, then send in tracer.
       </p>
 
       <div role="group" aria-label="Barrier condition" className="mt-3 flex flex-wrap gap-2">

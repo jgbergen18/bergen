@@ -3,49 +3,48 @@ import profilePhoto from '../assets/profile-photo.jpg';
 
 const About = () => {
   return (
-    <section id="about" className="py-12 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-[3fr_2fr] gap-12 items-start">
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
-              About me
+    <section id="about" className="px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-4xl">
+        <div className="grid items-start gap-10 md:grid-cols-[3fr_2fr] md:gap-14">
+          <div>
+            <p className="eyebrow">About</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
+              Bench and computer, both
             </h2>
-            <div className="space-y-4 text-text-secondary leading-relaxed">
+
+            <div className="mt-6 space-y-4 leading-relaxed text-text-secondary">
               <p>
-                I did neuroscience and computer science at the same time at Barnard, and I've never
-                really picked one.
+                I did neuroscience and computer science at the same time at Barnard and never picked
+                one. My first lab job was growing brain cells at Mass General. Then two years at
+                Columbia staining mouse guts, asking whether an immune attack on α-synuclein starts
+                Parkinson's.
               </p>
               <p>
-                My first lab job was at Mass General, growing human brain cells to model the
-                blood-brain barrier. Then I spent two years at Columbia staining mouse guts, working
-                on whether an immune attack on α-synuclein is what starts Parkinson's.
+                My master's went computational: an AI mediator at Bar-Ilan, then recordings from
+                electrodes inside people's brains at ETH Zurich. Now I'm in Copenhagen with stem
+                cells again, which is the first time both halves are in one job.
               </p>
               <p>
-                For my master's I went almost all the way computational: an AI mediator at Bar-Ilan,
-                then recordings from electrodes inside people's brains at ETH Zurich. Now I'm in
-                Copenhagen with stem cells again, which is the first time the two halves have
-                properly met.
-              </p>
-              <p>
-                Outside the lab I read a lot. Every book I've finished since 2024 is in my{' '}
-                <Link to="/blog" className="text-text-primary underline underline-offset-4 hover:no-underline">
+                I also read a lot. Every book since 2024 is in my{' '}
+                <Link
+                  to="/blog"
+                  className="text-text-primary underline underline-offset-4 hover:no-underline"
+                >
                   reading log
                 </Link>
-                , ratings and all.
+                .
               </p>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square bg-surface rounded-lg overflow-hidden">
-              <img
-                src={profilePhoto}
-                alt="Jamie Bergen, smiling, standing in a wooded park"
-                width={1000}
-                height={1000}
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="overflow-hidden rounded-xl border border-border-subtle">
+            <img
+              src={profilePhoto}
+              alt="Jamie Bergen, smiling, standing in a wooded park"
+              width={1000}
+              height={1000}
+              className="aspect-square w-full object-cover"
+            />
           </div>
         </div>
       </div>

@@ -1292,9 +1292,17 @@ const Blog = () => {
                             <p className="text-text-secondary text-sm mb-2">
                               by {book.author}
                             </p>
-                            <div className="flex items-center space-x-1">
+                            <div
+                              className="flex items-center space-x-1"
+                              role="img"
+                              aria-label={`${book.rating} out of 5`}
+                            >
                               {[...Array(5)].map((_, i) => (
-                                <span key={i} className={`text-xs ${i < book.rating ? 'text-text-primary' : 'text-text-muted'}`}>
+                                <span
+                                  key={i}
+                                  aria-hidden="true"
+                                  className={`text-xs ${i < book.rating ? 'text-text-primary' : 'text-text-muted'}`}
+                                >
                                   ★
                                 </span>
                               ))}
@@ -1495,8 +1503,12 @@ const Blog = () => {
                                                     by {book.author}
                                                   </p>
                                                 </div>
-                                                <div className="flex items-center space-x-1 flex-shrink-0">
-                                                  {[...Array(5)].map((_, i) => <span key={i} className={`text-sm ${i < book.rating ? 'text-yellow-400' : 'text-muted-foreground'}`}>
+                                                <div
+                                                  className="flex items-center space-x-1 flex-shrink-0"
+                                                  role="img"
+                                                  aria-label={`${book.rating} out of 5`}
+                                                >
+                                                  {[...Array(5)].map((_, i) => <span key={i} aria-hidden="true" className={`text-sm ${i < book.rating ? 'text-amber-700 dark:text-amber-400' : 'text-muted-foreground'}`}>
                                                       ★
                                                     </span>)}
                                                 </div>

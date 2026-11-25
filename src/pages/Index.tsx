@@ -13,7 +13,7 @@ import { usePageMeta } from '../lib/usePageTitle';
 const Index = () => {
   usePageMeta('/');
 
-  // Links such as /#research (from the research pages) land on the right section.
+  // Links such as /#research land on the right section.
   const { hash } = useLocation();
   useEffect(() => {
     if (hash) document.querySelector(hash)?.scrollIntoView();
@@ -22,6 +22,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      {/* Sections alternate background / surface so the bands are legible. */}
       <main>
         <Hero />
         <About />
@@ -29,26 +30,23 @@ const Index = () => {
         <Publications />
         <BeyondBench />
 
-        {/* Crossword Section */}
-        <section id="crossword" className="py-16 px-6">
-          <div className="max-w-6xl mx-auto">
+        <section id="crossword" className="px-6 py-20 md:py-24">
+          <div className="mx-auto max-w-6xl">
             <Crossword />
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="py-16 px-6 bg-surface/30">
-          <div className="max-w-4xl mx-auto">
+        <section className="bg-surface px-6 py-20 md:py-24">
+          <div className="mx-auto max-w-4xl">
             <Contact />
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border-subtle">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-text-muted text-sm">
-            © {new Date().getFullYear()} Jamie Bergen. All rights reserved.
+      <footer className="border-t border-border-subtle px-6 py-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-sm text-text-muted">
+            © {new Date().getFullYear()} Jamie Bergen
           </p>
         </div>
       </footer>
