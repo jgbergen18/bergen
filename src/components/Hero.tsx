@@ -30,7 +30,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg text-text-secondary leading-relaxed max-w-2xl">
-            Researcher in neuroscience and computer science. I work on neuroAI, cognition, and data science.
+            Neuroscientist working at the bench and in code. I study neurodegenerative disease using human stem cell models and computational modeling.
           </p>
 
           <p className="text-sm text-text-muted">

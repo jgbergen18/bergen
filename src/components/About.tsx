@@ -15,9 +15,10 @@ const About = () => {
                 I graduated from Barnard College with a dual major in neuroscience and computer science, specializing in intelligent systems.
               </p>
               <p>
-                My research focuses on cognition, neuroAI, and data science. I completed a Master's degree in Brain and Data Science
-                through the Erasmus Mundus Joint Masters Scholarship, with my Master's thesis at ETH Zurich. I'm now a research
-                assistant in the Kirkeby Lab at reNEW, University of Copenhagen.
+                My research aims to understand the mechanisms of neurodegenerative disease and to develop treatments for it.
+                I started with Parkinson's disease in mouse models at Columbia, then completed a Master's degree in Brain and Data Science
+                through the Erasmus Mundus Joint Masters Scholarship, with my thesis at ETH Zurich. I'm now a research assistant in
+                the Kirkeby Lab at reNEW, University of Copenhagen, where I combine human stem cell models with computational modeling.
               </p>
               <p>
                 I'd love to hear from you with any questions, comments, or collaboration ideas.

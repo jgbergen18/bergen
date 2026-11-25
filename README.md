@@ -1,6 +1,6 @@
 # Jamie Bergen — Personal Portfolio
 
-Personal website and portfolio of **Jamie Bergen**, a neuroscience and computer science researcher working on neuroAI, cognition, and data science.
+Personal website and portfolio of **Jamie Bergen**, a neuroscientist studying neurodegenerative disease with human stem cell models and computational modeling.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)

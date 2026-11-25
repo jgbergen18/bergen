@@ -11,7 +11,7 @@ const cvLocations: GlobeLocation[] = [
     lng: -74.01,
     roles: [
       { type: 'school', title: 'BA, Computer Science & Neuroscience', org: 'Barnard College, Columbia University', dates: '2019 – 2023' },
-      { type: 'work', title: 'Research Assistant, Agalliu Lab', org: 'Columbia University', dates: '2021 – 2023' },
+      { type: 'work', title: 'Research Assistant, Agalliu Lab', org: 'Columbia University', dates: 'Sep 2021 – May 2023' },
       { type: 'work', title: 'Peer Leader / Teaching Assistant', org: 'Columbia University', dates: '2021 – 2023' },
     ],
   },
@@ -260,7 +260,7 @@ const CV = () => {
                     <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
                   </a>
                 </h3>
-                <span className="text-sm text-primary font-medium">2021 – May 2023</span>
+                <span className="text-sm text-primary font-medium">Sep 2021 – May 2023</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
