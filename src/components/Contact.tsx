@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 import contactPhoto from '../assets/contact-photo.jpg';
 
 const Contact = () => {
@@ -15,10 +15,22 @@ const Contact = () => {
           </p>
           
           <div className="space-y-4">
-            <div className="flex items-center space-x-3 text-text-secondary">
+            <a
+              href="mailto:jgbergen18@gmail.com"
+              className="flex items-center space-x-3 text-text-secondary hover:text-text-primary transition-colors duration-200"
+            >
               <Mail size={18} />
               <span>jgbergen18@gmail.com</span>
-            </div>
+            </a>
+            <a
+              href="https://github.com/jgbergen18"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-3 text-text-secondary hover:text-text-primary transition-colors duration-200"
+            >
+              <Github size={18} />
+              <span>github.com/jgbergen18</span>
+            </a>
           </div>
         </div>
         

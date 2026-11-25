@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://bergen-psi.vercel.app/sitemap.xml
+Sitemap: https://jamiebergen.com/sitemap.xml

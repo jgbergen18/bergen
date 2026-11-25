@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import depressionDetectionImg from '../assets/depression-detection-project.png';
-import sassResearchImg from '../assets/sass-research-group.png';
 import parkinsonsResearchImg from '../assets/parkinsons-research.png';
 import aiMediationImg from '../assets/ai-mediation-research.png';
 
@@ -32,15 +31,6 @@ const projectsData = [
     tags: ["Neuroscience", "Research", "Immunology"],
     type: "project",
     externalLink: "https://www.cell.com/neuron/pdf/S0896-6273(23)00548-2.pdf"
-  },
-  {
-    id: 6,
-    title: "SASS Research Group",
-    description: "Co-created research group focused on sex and sexuality studies. Built the group's website and secured IRB approval for our first study, currently in data collection phase.",
-    imageUrl: sassResearchImg,
-    tags: ["Research", "Web Development", "LGBTQ+ Studies"],
-    type: "project",
-    externalLink: "https://sasstudies.com/"
   }
 ];
 
@@ -59,9 +49,7 @@ const ProjectsGallery = () => {
     if (project.type === 'blog') {
       navigate('/blog');
     } else if (project.externalLink) {
-      window.open(project.externalLink, '_blank');
-    } else {
-      navigate(`/project/${project.id}`);
+      window.open(project.externalLink, '_blank', 'noopener,noreferrer');
     }
   };
 

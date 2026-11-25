@@ -53,7 +53,15 @@ const cvLocations: GlobeLocation[] = [
     lat: 47.37,
     lng: 8.55,
     roles: [
-      { type: 'work', title: 'MSc Thesis Researcher, Neural Dynamics Lab', org: 'ETH Zurich', dates: 'Feb 2026 – Present' },
+      { type: 'work', title: 'MSc Thesis Researcher, Neural Dynamics Lab', org: 'ETH Zurich', dates: 'Feb – Jul 2026' },
+    ],
+  },
+  {
+    name: 'Copenhagen, Denmark',
+    lat: 55.68,
+    lng: 12.57,
+    roles: [
+      { type: 'work', title: 'Research Assistant, Kirkeby Lab', org: 'reNEW, University of Copenhagen', dates: 'Sep 2026 – Present' },
     ],
   },
   {
@@ -69,14 +77,9 @@ const cvLocations: GlobeLocation[] = [
 const CV = () => {
   const navigate = useNavigate();
 
-  const handleNavigateToCrossword = () => {
+  const handleBack = () => {
     navigate('/');
-    setTimeout(() => {
-      const element = document.querySelector('#crossword');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    window.scrollTo({ top: 0 });
   };
 
   return <div className="min-h-screen bg-background">
@@ -88,7 +91,7 @@ const CV = () => {
           variant="outline"
           size="sm"
           className="shadow-lg"
-          onClick={handleNavigateToCrossword}
+          onClick={handleBack}
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back
@@ -116,7 +119,7 @@ const CV = () => {
           {/* Professional Summary */}
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
             <p className="text-foreground text-sm leading-relaxed italic">
-              Neuroscience and data science student with a research background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior.
+              Neuroscience and data science researcher with a background combining computational modeling and the analysis of neural and behavioral data, including intracranial EEG time-frequency analysis, neural-network modeling, and statistical methods in Python. Strong foundation in recurrent and deep neural networks alongside hands-on experience relating oscillatory neural dynamics to behavior.
             </p>
           </div>
         </div>
@@ -143,10 +146,9 @@ const CV = () => {
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1">
                 <h3 className="font-semibold text-primary">MSc Neuroscience & Data Science (Erasmus Mundus Scholar)</h3>
-                <span className="text-sm text-primary font-medium">2024 – Jul 2026</span>
+                <span className="text-sm text-primary font-medium">2024 – 2026</span>
               </div>
               <p className="text-sm text-foreground/80">Bar-Ilan University (Israel) | Vrije Universiteit Amsterdam (Netherlands)</p>
-              <p className="text-xs text-primary font-medium mt-1">Expected graduation: July 2026</p>
             </div>
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1">
@@ -165,7 +167,7 @@ const CV = () => {
             Publications & Awards
           </h2>
           <div className="space-y-3 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
-            <p><span className="font-semibold text-primary">IJCAI 2026 (submitted)</span> — <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="italic text-foreground hover:text-primary hover:underline">Automated Mediator for Human Negotiation: Pre-Mediation via a Structured LLM Pipeline<ExternalLink className="inline w-3.5 h-3.5 ml-1 not-italic align-text-bottom" /></a></p>
+            <p><span className="font-semibold text-primary">arXiv preprint (2026)</span> — <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="italic text-foreground hover:text-primary hover:underline">Automated Mediator for Human Negotiation: Pre-Mediation via a Structured LLM Pipeline<ExternalLink className="inline w-3.5 h-3.5 ml-1 not-italic align-text-bottom" /></a></p>
             <p><span className="font-semibold text-primary">Neuron (2023)</span> — <a href="https://www.cell.com/neuron/fulltext/S0896-6273(23)00548-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627323005482%3Fshowall%3Dtrue" target="_blank" rel="noopener noreferrer" className="italic text-foreground hover:text-primary hover:underline">Interaction of an α-synuclein epitope with HLA-DRB1*15:01 triggers enteric features in mice reminiscent of prodromal Parkinson's disease<ExternalLink className="inline w-3.5 h-3.5 ml-1 not-italic align-text-bottom" /></a></p>
             <p><span className="font-semibold text-primary">Erasmus Mundus NeuroData Scholar</span> (2024–2026) | <span className="font-semibold text-primary">Científico Latino Graduate Fellow</span> (2025)</p>
           </div>
@@ -180,17 +182,46 @@ const CV = () => {
           <div className="space-y-6">
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold text-primary">MSc Thesis Researcher — Neural Dynamics Lab, ETH Zurich</h3>
-                <span className="text-sm text-primary font-medium">Feb 2026 – Present</span>
+                <h3 className="font-semibold text-primary">Research Assistant — Kirkeby Lab, reNEW, University of Copenhagen</h3>
+                <span className="text-sm text-primary font-medium">Sep 2026 – Present</span>
               </div>
               <ul className="space-y-2 text-sm text-foreground/90">
                 <li className="flex gap-3">
                   <span className="text-primary mt-0.5">•</span>
-                  <span>Built data pipelines in Python and MNE-Python to process and analyze high-dimensional intracranial EEG recordings across multiple patients and experimental conditions</span>
+                  <span>Parkinson's disease project: run molecular docking simulations in GNINA to choose which environmental toxicants to test in a human stem cell-derived dopaminergic neuron model of the disease</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-primary mt-0.5">•</span>
-                  <span>Developed computational models in Python and applied statistical methods, including cluster permutation testing to identify significant signal patterns in time-frequency neural data</span>
+                  <span>Hunger signaling project: engineer two cell lines with UltraID proximity-labeling tags on ciliary proteins in hypothalamic neurons, which will be used to test candidate peptides</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary mt-0.5">•</span>
+                  <span>Differentiate human pluripotent stem cells into hypothalamic neurons</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary mt-0.5">•</span>
+                  <span>Founded an AI taskforce with one representative from each lab that is writing the institute's AI guidelines, and teach a monthly AI session at lab meeting</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
+              <div className="flex justify-between items-baseline mb-2">
+                <h3 className="font-semibold text-primary">MSc Thesis Researcher — Neural Dynamics Lab, ETH Zurich</h3>
+                <span className="text-sm text-primary font-medium">Feb – Jul 2026</span>
+              </div>
+              <ul className="space-y-2 text-sm text-foreground/90">
+                <li className="flex gap-3">
+                  <span className="text-primary mt-0.5">•</span>
+                  <span>Thesis: <span className="italic">Neural Signatures of Syntax Planning in Speech Production</span>, investigating when and where the brain plans sentence structure during speech using stereo-EEG recordings from 528 electrodes in six epilepsy patients</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary mt-0.5">•</span>
+                  <span>Built a Python and MNE-Python pipeline that aligns each patient's own speech to the neural recordings using automatic speech recognition (Whisper/WhisperX), then tests for condition differences with cluster permutation statistics and forward-encoding (mTRF) models</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary mt-0.5">•</span>
+                  <span>Showed that the middle temporal cortex distinguishes sentence structures before the inferior frontal cortex, consistent with incremental planning of speech</span>
                 </li>
               </ul>
             </div>
@@ -216,7 +247,7 @@ const CV = () => {
                 </li>
                 <li className="flex gap-3">
                   <span className="text-primary mt-0.5">•</span>
-                  <span>Co-authored a paper on automated conflict mediation currently under review at IJCAI-ECAI 2026</span>
+                  <span>First-authored a paper on automated conflict mediation, available as an arXiv preprint (2026)</span>
                 </li>
               </ul>
             </div>
@@ -387,7 +418,7 @@ const CV = () => {
       <footer className="py-8 px-6 border-t border-border-subtle">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-foreground text-sm">
-            © 2026 Jamie Bergen. All rights reserved.
+            © {new Date().getFullYear()} Jamie Bergen. All rights reserved.
           </p>
         </div>
       </footer>

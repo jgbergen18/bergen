@@ -11,12 +11,13 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-text-secondary leading-relaxed">
               <p>
-                I'm Jamie Bergen, a graduate student fascinated by the intricate connections between biology, data, and intelligence. 
+                I'm Jamie Bergen, a researcher fascinated by the intricate connections between biology, data, and intelligence. 
                 I graduated from Barnard College with a dual major in neuroscience and computer science, specializing in intelligent systems.
               </p>
               <p>
-                My research focuses on cognition, neuroAI, and data science. I'm currently pursuing a Master's degree in Brain and Data Science
-                through the Erasmus Mundus Joint Masters Scholarship, and I'm completing my Master's thesis at ETH Zurich.
+                My research focuses on cognition, neuroAI, and data science. I completed a Master's degree in Brain and Data Science
+                through the Erasmus Mundus Joint Masters Scholarship, with my Master's thesis at ETH Zurich. I'm now a research
+                assistant in the Kirkeby Lab at reNEW, University of Copenhagen.
               </p>
               <p>
                 I'd love to hear from you with any questions, comments, or collaboration ideas.

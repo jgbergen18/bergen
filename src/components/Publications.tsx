@@ -6,7 +6,7 @@ const publications = [
     role: 'First author',
     title: 'Automated Mediator for Human Negotiation: Pre-Mediation via a Structured LLM Pipeline',
     authors: ['Jamie Bergen', 'Sarit Kraus'],
-    venue: 'Under review at IJCAI-ECAI 2026',
+    venue: 'arXiv preprint',
     year: '2026',
     href: 'https://arxiv.org/abs/2606.11379',
     hrefLabel: 'arXiv',

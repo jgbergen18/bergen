@@ -1,13 +1,13 @@
 # Jamie Bergen — Personal Portfolio
 
-Personal website and portfolio of **Jamie Bergen**, a graduate student in neuroscience and computer science researching neuroAI, cognition, and data science.
+Personal website and portfolio of **Jamie Bergen**, a neuroscience and computer science researcher working on neuroAI, cognition, and data science.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
 
-> **Live site:** [bergen-psi.vercel.app](https://bergen-psi.vercel.app)
+> **Live site:** [jamiebergen.com](https://jamiebergen.com)
 
 <!-- Tip: drop a homepage screenshot at docs/screenshot.png and uncomment the line below
 ![Homepage](docs/screenshot.png)
@@ -58,7 +58,6 @@ src/
 │   ├── Index.tsx          # Home: hero, about, crossword, projects, contact
 │   ├── Blog.tsx           # Reading log
 │   ├── CV.tsx             # CV / resume
-│   ├── ProjectDetail.tsx  # Individual project pages
 │   └── NotFound.tsx       # 404
 ├── components/
 │   ├── Hero.tsx           # Landing hero

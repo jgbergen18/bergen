@@ -30,11 +30,11 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg text-text-secondary leading-relaxed max-w-2xl">
-            Graduate student in neuroscience and computer science. I research neuroAI, cognition, and data science.
+            Researcher in neuroscience and computer science. I work on neuroAI, cognition, and data science.
           </p>
 
           <p className="text-sm text-text-muted">
-            Currently an Erasmus Mundus MS student in Brain and Data Science.
+            Currently a research assistant in the Kirkeby Lab at reNEW, University of Copenhagen.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">

@@ -6,7 +6,6 @@ import Contact from '../components/Contact';
 import Crossword from '../components/Crossword';
 import Neuron from '../components/Neuron';
 import Publications from '../components/Publications';
-import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -16,14 +15,9 @@ const Index = () => {
         <Hero />
         <About />
         
-        {/* Crossword Section */}
-        <section id="crossword" className="py-16 px-6 bg-surface/30">
-          <div className="max-w-6xl mx-auto">
-            <Crossword />
-          </div>
-        </section>
-
         <ProjectsGallery />
+
+        <Publications />
 
         {/* Spiking Neuron Section */}
         <section id="neuron" className="py-16 px-6">
@@ -42,7 +36,12 @@ const Index = () => {
           </div>
         </section>
 
-        <Publications />
+        {/* Crossword Section */}
+        <section id="crossword" className="py-16 px-6 bg-surface/30">
+          <div className="max-w-6xl mx-auto">
+            <Crossword />
+          </div>
+        </section>
 
         {/* Contact Section */}
         <section className="py-16 px-6">
