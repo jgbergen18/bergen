@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { GraduationCap, FileText, FlaskConical, Code, MapPin, Mail, ArrowLeft, ExternalLink, Download, Award, Briefcase, Users } from 'lucide-react';
+import { GraduationCap, FileText, FlaskConical, Code, MapPin, Mail, ArrowLeft, ExternalLink, Download, Award, Briefcase, Users, Fingerprint } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import WorldGlobe, { GlobeLocation } from '../components/WorldGlobe';
@@ -219,7 +219,15 @@ const CV = () => {
               <h1 className="text-4xl font-bold text-primary mb-2">Jamie Bergen</h1>
               <p className="text-foreground text-sm flex gap-4 flex-wrap mb-3">
                 <a href="mailto:jgbergen18@gmail.com" className="flex items-center gap-1 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4" />jgbergen18@gmail.com
+                  <Mail className="w-4 h-4" aria-hidden="true" />jgbergen18@gmail.com
+                </a>
+                <a
+                  href="https://orcid.org/0009-0008-1723-4133"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 hover:text-primary transition-colors"
+                >
+                  <Fingerprint className="w-4 h-4" aria-hidden="true" />0009-0008-1723-4133
                 </a>
               </p>
             </div>

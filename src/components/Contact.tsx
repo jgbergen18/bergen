@@ -1,4 +1,4 @@
-import { Mail, Github } from 'lucide-react';
+import { Mail, Github, Fingerprint } from 'lucide-react';
 import contactPhoto from '../assets/contact-photo.jpg';
 
 const Contact = () => {
@@ -22,6 +22,15 @@ const Contact = () => {
             >
               <Mail size={18} />
               <span>jgbergen18@gmail.com</span>
+            </a>
+            <a
+              href="https://orcid.org/0009-0008-1723-4133"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-text-primary"
+            >
+              <Fingerprint size={18} />
+              <span>orcid.org/0009-0008-1723-4133</span>
             </a>
             <a
               href="https://github.com/jgbergen18"
