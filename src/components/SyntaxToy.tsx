@@ -110,9 +110,9 @@ const SyntaxToy = () => {
       title="Say the sentence"
       caption={
         <>
-          Same six words every time, so the only thing that differs is structure. The patients did
-          this in German, with electrodes already implanted for epilepsy monitoring. Manuscript in
-          preparation, so no results here.
+          Word identity and order are matched across conditions, so the contrast is purely
+          structural. Recorded in German from patients undergoing epilepsy monitoring. Manuscript in
+          preparation; no results shown.
         </>
       }
     >
@@ -122,7 +122,7 @@ const SyntaxToy = () => {
             {score} of {TRIALS.length}
           </p>
           <p className="mx-auto mt-2 max-w-sm text-sm text-text-secondary">
-            Same words every time. Only the structure changed.
+            Identical words and word order throughout. Only the attachment height changed.
           </p>
           <button type="button" onClick={restart} className={`${pill()} mt-4`}>
             Go again
@@ -131,7 +131,7 @@ const SyntaxToy = () => {
       ) : (
         <>
           <p className="text-sm text-text-secondary">
-            Trial {i + 1} of {TRIALS.length}. Say it out loud:{' '}
+            Trial {i + 1} of {TRIALS.length}. Produce the sentence:{' '}
             <span className="text-text-primary">“I see trees and hats with triangles.”</span>
           </p>
 
@@ -152,7 +152,7 @@ const SyntaxToy = () => {
           </svg>
 
           <p className="mt-2 text-center text-sm text-text-primary">
-            Which sentence did you just say?
+            Which structure did you produce?
           </p>
 
           <div className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -176,7 +176,7 @@ const SyntaxToy = () => {
                   }`}
                 >
                   <span className="block text-sm font-medium text-text-primary">
-                    {high ? 'Everything has triangles' : 'Only the hats do'}
+                    {high ? 'High attachment' : 'Low attachment'}
                   </span>
                   <span className="mt-1 block font-mono text-[11px] leading-relaxed text-text-secondary">
                     {high ? <HighBrackets /> : <LowBrackets />}
@@ -190,10 +190,10 @@ const SyntaxToy = () => {
             {answer !== null && (
               <div className="animate-fade-in rounded-lg bg-surface px-4 py-3">
                 <p className="text-sm text-text-primary">
-                  {correct ? 'Yes.' : 'Not that one.'}{' '}
+                  {correct ? 'Correct.' : 'Incorrect.'}{' '}
                   {trial.high
-                    ? '"With triangles" has to cover both the trees and the hats, so it attaches high.'
-                    : 'Only the hats have triangles, so "with triangles" attaches low, to the hats alone.'}
+                    ? 'The prepositional phrase modifies both nouns, so it attaches high.'
+                    : 'The prepositional phrase modifies the second noun only, so it attaches low.'}
                 </p>
                 <button type="button" onClick={next} className={`${pill()} mt-3`}>
                   {i === TRIALS.length - 1 ? 'See how you did' : 'Next picture'}

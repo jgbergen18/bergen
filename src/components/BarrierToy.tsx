@@ -55,22 +55,21 @@ const BarrierToy = () => {
       title="Does the barrier hold?"
       caption={
         <>
-          Brain vessels are sealed tighter than any others, and in adrenoleukodystrophy that seal
-          fails. You can't watch it happen in a person, so you build the barrier in a dish. The idea
-          of the assay, not data.
+          Brain microvascular endothelium forms tight junctions that exclude most solutes; this
+          barrier is disrupted in X-linked adrenoleukodystrophy. Schematic of the assay, not data.
         </>
       }
     >
       <p className="text-sm text-text-secondary">
-        Pick a barrier, then send in tracer.
+        Select a condition, then apply tracer.
       </p>
 
       <div role="group" aria-label="Barrier condition" className="mt-3 flex flex-wrap gap-2">
         <button type="button" aria-pressed={!leaky} onClick={() => pick('healthy')} className={pill(!leaky)}>
-          Healthy cells
+          Control
         </button>
         <button type="button" aria-pressed={leaky} onClick={() => pick('leaky')} className={pill(leaky)}>
-          Disease-like cells
+          Disrupted
         </button>
       </div>
 
@@ -130,7 +129,7 @@ const BarrierToy = () => {
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <button type="button" onClick={run} className={primaryPill}>
-          {released ? 'Send it again' : 'Send in the tracer'}
+          {released ? 'Apply again' : 'Apply tracer'}
         </button>
       </div>
 
@@ -138,8 +137,8 @@ const BarrierToy = () => {
         {settled && (
           <p className="animate-fade-in rounded-lg bg-surface px-4 py-3 text-sm text-text-primary">
             {leaky
-              ? 'The junctions between the cells have come apart, so the tracer walks straight through into the brain side. That is the thing you are trying to measure.'
-              : 'The cells are stuck to each other tightly enough that nothing gets past them. This is what a working barrier looks like.'}
+              ? 'Tight junctions are disrupted and tracer crosses the monolayer to the abluminal side. This is the readout the assay measures.'
+              : 'Tight junctions are intact and the monolayer excludes the tracer, which stays on the luminal side.'}
           </p>
         )}
       </div>

@@ -24,18 +24,15 @@ const Hero = () => {
     <section className="px-6 pt-32 pb-16">
       <div className="mx-auto max-w-4xl">
         <h1
-          aria-label="Hello, I'm Jamie Bergen"
-          className="rainbow-text text-3xl md:text-4xl font-light leading-tight text-text-primary"
+          aria-label="Jamie Bergen"
+          className="rainbow-text text-3xl md:text-4xl font-medium leading-tight text-text-primary"
         >
-          <span aria-hidden="true">
-            {splitText("Hello, I'm ")}
-            <span className="font-medium">{splitText('Jamie Bergen')}</span>
-          </span>
+          <span aria-hidden="true">{splitText('Jamie Bergen')}</span>
         </h1>
 
-        <p className="mt-6 max-w-2xl text-xl md:text-2xl font-light leading-snug text-text-primary">
-          I'm a neuroscientist. I turn human stem cells into neurons, then write the code to work
-          out what they're doing. I want to know how neurodegenerative disease starts.
+        <p className="mt-5 max-w-2xl text-xl md:text-2xl font-light leading-snug text-text-primary">
+          I study the mechanisms of neurodegenerative disease, and how to treat it, using human stem
+          cell models and computational modeling.
         </p>
 
         <p className="mt-4 text-sm text-text-secondary">
@@ -62,7 +59,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-text-primary transition-all duration-200 hover:bg-surface hover:-translate-y-0.5"
           >
             <Mail size={16} />
-            Get in touch
+            Contact
           </button>
         </div>
 
@@ -73,9 +70,9 @@ const Hero = () => {
         >
           <Neuron />
           <figcaption className="mx-auto mt-6 max-w-xl px-2 text-center text-xs leading-relaxed text-text-muted sm:px-0">
-            <span className="font-mono">Fig. 1</span> Click it. Current builds and leaks away; past
-            threshold the cell fires and the spike runs down the axon. A leaky integrate-and-fire
-            neuron.
+            <span className="font-mono">Fig. 1</span> A leaky integrate-and-fire neuron. Each click
+            injects current; the membrane potential integrates and decays, and crossing threshold
+            triggers an action potential that propagates down the axon.
           </figcaption>
         </figure>
       </div>

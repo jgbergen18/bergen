@@ -55,7 +55,9 @@ const Publications = () => {
     <section id="publications" className="px-6 py-20 md:py-24">
       <div className="mx-auto max-w-4xl">
         <p className="eyebrow">Publications</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">Three so far</h2>
+        <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
+          Publications and manuscripts
+        </h2>
 
         <ol className="mt-10 divide-y divide-border">
           {publications.map((pub) => (

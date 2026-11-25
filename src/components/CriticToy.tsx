@@ -23,7 +23,7 @@ const CARDS: Card[] = [
     reply:
       'That’s reasonable as a preference. The key is pairing it with something you are willing to do, so it still feels fair overall.',
     approve: true,
-    why: 'Approved. It takes the preference seriously and moves the conversation somewhere, instead of just agreeing.',
+    why: 'Approved: substantive, and it advances the conversation rather than simply agreeing.',
     fromPaper: true,
   },
   {
@@ -31,28 +31,28 @@ const CARDS: Card[] = [
     reply:
       'That’s a really great point, and it sounds like you’ve thought about this a lot. You’re clearly being very considerate of your roommates.',
     approve: false,
-    why: 'Rejected: purely validating with no substance. This is the failure mode the whole study ended up being about.',
+    why: 'Rejected: validating without substance. This is the pattern Study 2 was designed to reduce.',
   },
   {
     user: 'But what if they think I’m just avoiding work?',
     reply:
       'You could name that concern directly. Acknowledging it upfront often reduces defensiveness and shows you’re thinking about the group, not just yourself.',
     approve: true,
-    why: 'Approved. It answers the worry and gives them something to actually do with it.',
+    why: 'Approved: addresses the concern and offers a concrete action.',
     fromPaper: true,
   },
   {
     user: 'I guess quiet hours are fine whenever, I’m pretty flexible.',
     reply: 'Great, sounds like quiet hours are settled then. Let’s move on to guests.',
     approve: false,
-    why: 'Rejected: it accepts a vague answer without digging. "Pretty flexible" is exactly the kind of thing that falls apart during the actual negotiation.',
+    why: 'Rejected: accepts a vague answer without probing further.',
   },
   {
     user: 'I want the kitchen clean but I hate doing dishes.',
     reply:
       'What matters most to you about the kitchen? And how do you think your roommates would react to that?',
     approve: false,
-    why: 'Rejected: more than one question in a single message. People answer the second one and drop the first.',
+    why: 'Rejected: more than one question in a single message.',
   },
 ];
 
@@ -88,8 +88,8 @@ const CriticToy = () => {
       title="Be the critic"
       caption={
         <>
-          Two replies are from the paper; three I wrote to show the criteria. Judging one message is
-          the easy part — the problem only showed up across a whole conversation.
+          Two replies are the example exchange from the paper; three illustrate the published
+          rejection criteria. Message-level review cannot detect cumulative affirmation.
         </>
       }
     >
@@ -99,17 +99,18 @@ const CriticToy = () => {
             {score} of {CARDS.length}
           </p>
           <p className="mx-auto mt-2 max-w-md text-center text-sm text-text-secondary">
-            Every agreeable message passes on its own — the first critic rejected 2.6%. Across a
-            whole conversation the AI agreed twice as often as the professionals did, and people
-            came away more dug in, not less.
+            Each reply passes review in isolation: the Study 1 critic rejected only 2.6% of
+            messages. Cumulatively the system affirmed participants at 36.6% against 18.9% for human
+            mediators, and those participants rated the disputed issues as more important
+            afterward.
           </p>
 
           {/* affirmation rates: real numbers from the two studies */}
           <div className="mx-auto mt-5 max-w-md space-y-2">
             {[
-              { name: 'AI, first version', value: 36.6, cls: 'bg-[#2a78d6] dark:bg-[#3987e5]' },
+              { name: 'AI, Study 1', value: 36.6, cls: 'bg-[#2a78d6] dark:bg-[#3987e5]' },
               { name: 'Human mediators', value: 18.9, cls: 'bg-[#eb6834] dark:bg-[#d95926]' },
-              { name: 'AI, after the rewrite', value: 16.8, cls: 'bg-[#2a78d6] dark:bg-[#3987e5]' },
+              { name: 'AI, Study 2', value: 16.8, cls: 'bg-[#2a78d6] dark:bg-[#3987e5]' },
             ].map((b) => (
               <div key={b.name} className="grid grid-cols-[8.5rem_1fr] items-center gap-2">
                 <span className="text-xs text-text-secondary">{b.name}</span>
@@ -125,7 +126,7 @@ const CriticToy = () => {
               </div>
             ))}
             <p className="pt-1 text-center text-[11px] text-text-muted">
-              Share of messages that affirmed the participant
+              Share of messages containing affirming content
             </p>
           </div>
 
@@ -138,7 +139,7 @@ const CriticToy = () => {
       ) : (
         <>
           <p className="text-sm text-text-secondary">
-            You're the critic. Reply {i + 1} of {CARDS.length}: does it go to the participant?
+            Apply the critic's criteria. Reply {i + 1} of {CARDS.length}: approve or reject?
           </p>
 
           <div className="mt-3 space-y-2">
@@ -181,10 +182,10 @@ const CriticToy = () => {
             {choice !== null && (
               <div className="animate-fade-in rounded-lg bg-surface px-4 py-3">
                 <p className="text-sm text-text-primary">
-                  <span className="font-medium">{right ? 'Same call I made. ' : 'The real critic disagreed. '}</span>
+                  <span className="font-medium">{right ? 'Matches the critic. ' : 'The critic disagreed. '}</span>
                   {card.why}
                   {card.fromPaper && (
-                    <span className="text-text-muted"> (This exchange is in the paper.)</span>
+                    <span className="text-text-muted"> (Example from the paper.)</span>
                   )}
                 </p>
                 <button type="button" onClick={next} className={`${pill()} mt-3`}>

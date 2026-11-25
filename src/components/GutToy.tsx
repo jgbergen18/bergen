@@ -49,19 +49,19 @@ const HEALTHY: Omit<Outcome, 'verdict'> = {
 };
 
 const outcomes: Record<string, Outcome> = {
-  'wt-pbs': { ...HEALTHY, verdict: 'Nothing happens, which is what you want from a saline control.' },
+  'wt-pbs': { ...HEALTHY, verdict: 'Saline control: no illness, normal transit, neuron density intact.' },
   'wt-cfa': {
     ...HEALTHY,
     illness: 'None — 0% got sick',
-    verdict: 'The adjuvant alone does not make an ordinary mouse ill.',
+    verdict: 'Adjuvant alone does not produce illness in wild-type mice.',
   },
   'wt-syn': {
     ...HEALTHY,
     illness: 'Almost none — 4% got sick',
     verdict:
-      'This is the control I find most convincing. Same peptide, same adjuvant, but without the human gene the mice are basically fine.',
+      'The same immunization without HLA-DRB1*15:01 produces almost no illness. The human allele is required.',
   },
-  'hla-pbs': { ...HEALTHY, verdict: 'The human gene on its own does nothing. It needs something to react to.' },
+  'hla-pbs': { ...HEALTHY, verdict: 'The allele alone is not sufficient; it requires the antigen.' },
   'hla-cfa': {
     illness: 'None',
     transit: 'Somewhat slowed',
@@ -70,7 +70,7 @@ const outcomes: Record<string, Outcome> = {
     alive: 14,
     tcells: 3,
     verdict:
-      'The adjuvant by itself does something to the gut, which is exactly why it gets its own group instead of being lumped in.',
+      'Adjuvant alone reduces TH+ density in the myenteric plexus, which is why CFA is run as its own control group.',
   },
   'hla-syn': {
     illness: '25% got sick or died',
@@ -80,7 +80,7 @@ const outcomes: Record<string, Outcome> = {
     alive: 9,
     tcells: 7,
     verdict:
-      'The human gene plus the α-synuclein fragment is what does it. The loss starts after about 18 days. The brain stays clean the whole time, which fits the idea that this is the early, gut stage.',
+      'α-syn 32–46 in HLA-DRB1*15:01 mice produces enteric neuron loss from roughly 18 days post-immunization, with no CNS involvement at 70 days.',
   },
 };
 
@@ -89,19 +89,19 @@ const depletionOutcomes: Record<Depletion, { neurons: string; alive: number; tce
     neurons: 'Fewer neurons, same as before',
     alive: 9,
     tcells: 7,
-    verdict: 'The control antibody changes nothing, so the damage is still there.',
+    verdict: 'Isotype control: no change, the neuron loss remains.',
   },
   cd4: {
     neurons: 'TH+ neurons came back in the submucosal plexus',
     alive: 13,
     tcells: 1,
-    verdict: 'Take the CD4+ T cells away and the neurons are partly rescued. These are the cells doing the damage.',
+    verdict: 'CD4+ depletion partially rescues TH+ neurons in the submucosal plexus.',
   },
   cd8: {
     neurons: 'Fewer neurons, no rescue',
     alive: 9,
     tcells: 7,
-    verdict: 'Taking out CD8+ T cells does not help, so it really is the CD4+ cells and not T cells in general.',
+    verdict: 'CD8+ depletion does not rescue, implicating CD4+ T cells specifically.',
   },
 };
 
@@ -173,8 +173,8 @@ const GutToy = () => {
       title="Run the experiment"
       caption={
         <>
-          Groups and results from the paper; the cells drawn are illustrative, not counts. I spent
-          two years counting these blinded, which is slower than this button makes it look.
+          Groups and outcomes are from the paper. Cells drawn are illustrative, not counts; the
+          measurements are in the paper.
         </>
       }
     >
@@ -219,7 +219,7 @@ const GutToy = () => {
           {phase === 'running' ? `Day ${day}…` : phase === 'done' ? 'Run it again' : 'Run it'}
         </button>
         {!strain || !shot ? (
-          <span className="text-xs text-text-muted">Pick a mouse and an injection first.</span>
+          <span className="text-xs text-text-muted">Select a strain and an injection.</span>
         ) : null}
       </div>
 
@@ -296,8 +296,7 @@ const GutToy = () => {
       {canDeplete && (
         <div className="mt-4 animate-fade-in rounded-lg border border-border-subtle p-4">
           <p className="text-sm text-text-primary">
-            So something is killing these neurons. Try taking a type of T cell out of the mouse and
-            running it again.
+            Deplete a T cell subset and re-run to test which population is responsible.
           </p>
           <div role="group" aria-label="T cell depletion" className="mt-3 flex flex-wrap gap-2">
             {depletions.map((d) => (

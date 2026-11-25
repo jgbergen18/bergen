@@ -10,8 +10,9 @@ const Contact = () => {
       <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
         <div>
           <p className="leading-relaxed text-text-secondary">
-            If you work on human stem cell models or neurodegenerative disease, or the computational
-            side of either, I'd like to hear about it.
+            I am interested in human stem cell models of neurodegenerative disease and the
+            computational methods that go with them. If that overlaps with your work, please get in
+            touch.
           </p>
 
           <div className="mt-6 space-y-3">

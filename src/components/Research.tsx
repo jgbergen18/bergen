@@ -10,6 +10,7 @@ type Chapter = {
   when: string;
   lab: string;
   place: string;
+  pi: string;
   question: string;
   summary: string;
   methods: string[];
@@ -22,56 +23,61 @@ type Chapter = {
 // level of detail on the public CV.
 const chapters: Chapter[] = [
   {
-    when: 'Sep 2026 – now',
+    when: 'Sep 2026 – present',
     lab: 'Kirkeby Lab',
-    place: 'reNEW, Copenhagen',
-    question: 'Growing a bit of hypothalamus in a dish',
+    place: 'reNEW, University of Copenhagen',
+    pi: 'Agnete Kirkeby',
+    question: 'Human stem cell models of the hypothalamus',
     summary:
-      "I turn human stem cells into hypothalamic neurons and build the cell lines we need. I also pushed for adding molecular docking to the lab's work on environmental risk factors for Parkinson's.",
-    methods: ['hPSC culture', 'Differentiation', 'Cell line engineering', 'Docking'],
+      "I differentiate human pluripotent stem cells into hypothalamic neurons and am engineering two hPSC lines carrying UltraID proximity-labeling tags on ciliary proteins. I also proposed adding molecular docking (GNINA) to the lab's work on environmental risk factors for Parkinson's disease, to rank candidate toxicants before in vitro testing.",
+    methods: ['hPSC culture', 'Neuronal differentiation', 'Cell line engineering', 'Molecular docking'],
     figure: <DifferentiationToy />,
   },
   {
     when: 'Feb – Jul 2026',
     lab: 'Neural Dynamics Lab',
-    place: 'ETH Zurich',
-    question: 'Do you plan a whole sentence before you open your mouth?',
+    place: 'Institute of Neuroinformatics, ETH Zurich',
+    pi: 'Timothée Proix',
+    question: 'When is syntactic structure committed during speech production?',
     summary:
-      'My master’s thesis. I used recordings from electrodes inside six patients’ brains to ask whether people commit to a sentence’s structure before they start talking, and wrote the analysis pipeline end to end.',
-    methods: ['Stereo-EEG', 'Signal processing', 'Encoding models', 'Python'],
+      'For my MSc thesis I tested whether speakers commit to syntactic structure before speech onset or build it incrementally, using stereo-EEG from 528 gray-matter contacts in six patients. I built the pipeline from raw recordings through forward-encoding models.',
+    methods: ['Stereo-EEG', 'Signal processing', 'Forward-encoding models', 'Python'],
     note: 'First-author manuscript in preparation',
     figure: <SyntaxToy />,
   },
   {
     when: 'Sep 2024 – Jan 2026',
     lab: 'Kraus Lab',
-    place: 'Bar-Ilan University',
-    question: 'Can an AI get you ready for a hard conversation?',
+    place: 'Computer Science, Bar-Ilan University',
+    pi: 'Sarit Kraus',
+    question: 'Can an LLM pipeline deliver pre-mediation?',
     summary:
-      'I built an AI mediator out of four language-model modules and ran it against professional mediators. It read what people wanted 36% better than they did, and agreed with them far too much.',
-    methods: ['LLM pipelines', 'Human subjects', 'React'],
-    link: { href: 'https://arxiv.org/abs/2606.11379', label: 'Preprint' },
+      "I built an AI mediator as a pipeline of GPT-4 modules for dialogue, preference prediction, critique and summarization, then evaluated it against professional human mediators in two IRB-approved experiments (n = 38, n = 22). It predicted participants' preferences with 36% lower RMSE.",
+    methods: ['LLM pipelines', 'Human-subjects experiments', 'React / TypeScript'],
+    link: { href: 'https://arxiv.org/abs/2606.11379', label: 'Preprint, arXiv:2606.11379' },
     figure: <CriticToy />,
   },
   {
     when: 'Sep 2021 – May 2023',
     lab: 'Agalliu Lab',
-    place: 'Columbia University',
-    question: "Does Parkinson's start in your gut?",
+    place: 'Columbia University Irving Medical Center',
+    pi: 'Dritan Agalliu',
+    question: "Does α-synuclein autoimmunity drive prodromal Parkinson's disease?",
     summary:
-      "People get gut problems years before a Parkinson's diagnosis. I spent two years testing whether an immune attack on α-synuclein sets them off, mostly counting neurons in mouse guts.",
-    methods: ['Mouse models', 'Immunostaining', 'Confocal', 'RNA-seq'],
-    link: { href: 'https://doi.org/10.1016/j.neuron.2023.07.015', label: 'Paper in Neuron' },
+      'Enteric symptoms precede motor symptoms by years. In HLA-DRB1*15:01 mice immunized with α-synuclein 32–46, I quantified dopaminergic (TH+) and total (ANNA1+) enteric neuron density and T cell infiltration by immunostaining and confocal imaging.',
+    methods: ['Mouse models', 'Immunostaining', 'Confocal microscopy', 'RNA-seq'],
+    link: { href: 'https://doi.org/10.1016/j.neuron.2023.07.015', label: 'Neuron 111(21), 2023' },
     figure: <GutToy />,
   },
   {
     when: 'Nov 2020 – Sep 2021',
     lab: 'Musolino Lab',
     place: 'Massachusetts General Hospital',
-    question: 'Building a blood-brain barrier in a dish',
+    pi: 'Patricia Musolino',
+    question: 'An in vitro model of blood-brain barrier dysfunction',
     summary:
-      'My first lab job. I grew human brain endothelial cells as a model of the blood-brain barrier failing in adrenoleukodystrophy.',
-    methods: ['Primary culture', 'Immunocytochemistry', 'Western blot'],
+      'I established and maintained primary human brain microvascular endothelial cell cultures as an in vitro model of blood-brain barrier dysfunction in X-linked adrenoleukodystrophy.',
+    methods: ['Primary cell culture', 'Immunocytochemistry', 'Western blot'],
     figure: <BarrierToy />,
   },
 ];
@@ -85,21 +91,24 @@ const Research = () => {
       <div className="mx-auto max-w-4xl">
         <p className="eyebrow">Research</p>
         <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
-          Five labs, newest first
+          Research experience
         </h2>
-        <p className="mt-3 text-text-secondary">Each one has something you can play with.</p>
+        <p className="mt-3 text-text-secondary">
+          Five labs, newest first. Each has an interactive figure.
+        </p>
 
         <ol className="mt-12 space-y-14">
           {chapters.map((c, i) => (
             <li key={c.lab} className="border-t border-border pt-8">
-              <div className="grid gap-x-10 gap-y-4 md:grid-cols-[10rem_1fr]">
+              <div className="grid gap-x-10 gap-y-4 md:grid-cols-[11rem_1fr]">
                 <div>
                   <p className="font-mono text-xs text-text-muted" aria-hidden="true">
                     {String(i + 1).padStart(2, '0')}
                   </p>
                   <p className="mt-1.5 text-sm font-semibold text-text-primary">{c.lab}</p>
                   <p className="text-sm text-text-secondary">{c.place}</p>
-                  <p className="mt-1 text-xs text-text-muted">{c.when}</p>
+                  <p className="mt-1 text-xs text-text-muted">PI: {c.pi}</p>
+                  <p className="text-xs text-text-muted">{c.when}</p>
                 </div>
 
                 <div>

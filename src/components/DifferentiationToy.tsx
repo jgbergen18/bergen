@@ -24,35 +24,35 @@ const options: {
     label: 'Never',
     end: null,
     fate: 'vmh',
-    note: 'No BMP4 at all, so the progenitors stay anterior. You get no AGRP neurons and no tanycytes.',
+    note: 'Without BMP4 the progenitors remain anterior tuberal. No AGRP neurons and no tanycytes.',
   },
   {
     id: 'd7',
     label: 'Days 5–7',
     end: 7,
     fate: 'vmh',
-    note: 'Two days is not enough. The progenitors stay anterior and you end up with ventromedial cells.',
+    note: 'Two days is too short. The progenitors remain anterior tuberal and mature into VMH cell types.',
   },
   {
     id: 'd9',
     label: 'Days 5–9',
     end: 9,
     fate: 'vmh',
-    note: 'Still too short. Same anterior progenitors, same ventromedial cells.',
+    note: 'Still too short for posterior specification. Anterior progenitors, VMH cell types.',
   },
   {
     id: 'd11',
     label: 'Days 5–11',
     end: 11,
     fate: 'arc',
-    note: 'Now it tips over. The progenitors go posterior, which is where arcuate cells come from.',
+    note: 'Long enough to specify posterior tuberal progenitors, the source of arcuate cell types.',
   },
   {
     id: 'd14',
     label: 'Days 5–14',
     end: 14,
     fate: 'arc',
-    note: 'This is the actual arcuate protocol. Leave BMP4 on past day 14 and the cultures collapse.',
+    note: 'The published ARC protocol. Exposure beyond day 14 causes the cultures to collapse.',
   },
 ];
 
@@ -77,16 +77,16 @@ const fates = {
   vmh: {
     region: 'Ventromedial hypothalamus',
     short: 'VMH',
-    progenitors: 'Anterior progenitors — SHH, NR5A1, SOX14',
-    cells: ['NR5A1 / SOX14 / GPR149 neurons', 'POMC neurons, the VMH kind', 'Astrocytes'],
+    progenitors: 'Anterior tuberal progenitors (SHH, NR5A1, SOX14)',
+    cells: ['NR5A1 / SOX14 / GPR149 neurons', 'POMC neurons (VMH subtype)', 'Astrocytes'],
     ring: 'border-sky-500/50 bg-sky-500/10',
     chip: 'bg-sky-500/15 text-sky-800 dark:text-sky-200',
   },
   arc: {
     region: 'Arcuate nucleus',
     short: 'ARC',
-    progenitors: 'Posterior progenitors — RAX, TBX3, FGF10',
-    cells: ['AGRP neurons, which make you hungry', 'POMC neurons, which make you full', 'Tanycytes'],
+    progenitors: 'Posterior tuberal progenitors (RAX, TBX3, FGF10)',
+    cells: ['AGRP neurons (orexigenic)', 'POMC neurons (anorexigenic)', 'Tanycytes'],
     ring: 'border-emerald-500/50 bg-emerald-500/10',
     chip: 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200',
   },
@@ -133,8 +133,8 @@ const DifferentiationToy = () => {
       title="Run the differentiation"
       caption={
         <>
-          The lab's published protocol, simplified. It came out before I joined, so I'm not an
-          author.{' '}
+          BMP4 exposure window determines anterior versus posterior tuberal fate. Simplified
+          from the lab's published ARC protocol, which predates my arrival; I am not an author.{' '}
           <a
             href="https://doi.org/10.1016/j.stem.2026.05.005"
             target="_blank"
@@ -148,7 +148,7 @@ const DifferentiationToy = () => {
       }
     >
       <p className="text-sm text-text-secondary">
-        You have a dish of human stem cells. When do you give them BMP4?
+        Set the BMP4 exposure window.
       </p>
 
       <div role="group" aria-label="BMP4 window" className="mt-3 flex flex-wrap gap-2">
@@ -231,7 +231,7 @@ const DifferentiationToy = () => {
           {phase === 'running' ? `Day ${shownDay}…` : phase === 'done' ? 'Run it again' : 'Run it'}
         </button>
         {phase === 'done' && (
-          <span className="text-sm text-text-secondary">50 days later, you have:</span>
+          <span className="text-sm text-text-secondary">Day 50:</span>
         )}
       </div>
 
@@ -239,7 +239,7 @@ const DifferentiationToy = () => {
       <div aria-live="polite" className="mt-4">
         {phase !== 'done' ? (
           <p className="rounded-lg border border-dashed border-border px-4 py-6 text-center text-sm text-text-muted">
-            {phase === 'running' ? 'Differentiating…' : 'Press run to find out what you get.'}
+            {phase === 'running' ? 'Differentiating…' : 'Run the protocol to see the outcome.'}
           </p>
         ) : (
           <div className="animate-fade-in">
