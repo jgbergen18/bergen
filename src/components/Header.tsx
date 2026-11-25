@@ -34,7 +34,7 @@ const Header = () => {
 
   const navigation = [
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Research', href: '#research' },
     { name: 'Publications', href: '#publications' },
     { name: 'Reading Log', href: '/blog' },
     { name: 'CV', href: '/cv' },
@@ -71,6 +71,8 @@ const Header = () => {
             <ThemeToggle />
             <button
               className="p-2 rounded-md text-text-secondary hover:text-text-primary"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}

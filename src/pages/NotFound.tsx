@@ -1,22 +1,30 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import { usePageTitle } from '../lib/usePageTitle';
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
+  usePageTitle('Page not found');
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
-        </a>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main className="flex min-h-screen items-center justify-center px-6">
+        <div className="text-center max-w-md">
+          <p className="font-mono text-sm text-text-muted">404</p>
+          <h1 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
+            This synapse didn't fire
+          </h1>
+          <p className="mt-4 text-text-secondary leading-relaxed">
+            The signal went out, but there's nothing at this address to catch it.
+          </p>
+          <Link
+            to="/"
+            className="mt-8 inline-flex items-center rounded-full bg-text-primary text-background px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+          >
+            Back to the home page
+          </Link>
+        </div>
+      </main>
     </div>
   );
 };

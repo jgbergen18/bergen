@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Header from '../components/Header';
 import BookCover from '../components/BookCover';
+import { usePageMeta } from '../lib/usePageTitle';
 
 // NYC Temperature data for color scaling
 const temperatureData: Record<string, number> = {
@@ -43,11 +44,8 @@ const getTemperatureColor = (month: string): string => {
   
   return `hsl(${hue}, 70%, 60%)`;
 };
-const readingLogs = [{
-  id: 1,
+const readingLogData = [{
   month: "December 2025",
-  booksRead: 3,
-  averageRating: 3.3,
   books: [{
     title: "Haroun and the Sea of Stories",
     author: "Salman Rushdie",
@@ -68,10 +66,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 2,
   month: "November 2025",
-  booksRead: 4,
-  averageRating: 3.75,
   books: [{
     title: "All the Way to the River",
     author: "Elizabeth Gilbert",
@@ -98,10 +93,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 2,
   month: "October 2025",
-  booksRead: 5,
-  averageRating: 3.6,
   books: [{
     title: "Of Monsters and Mainframes",
     author: "Barbara Truelove",
@@ -134,10 +126,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 2,
   month: "September 2025",
-  booksRead: 6,
-  averageRating: 3.2,
   books: [{
     title: "Part of Your World",
     author: "Abby Jimenez",
@@ -170,10 +159,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 2,
   month: "August 2025",
-  booksRead: 10,
-  averageRating: 3.6,
   books: [{
     title: "Fourth Wing",
     author: "Rebecca Yarros",
@@ -236,10 +222,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 3,
   month: "July 2025",
-  booksRead: 3,
-  averageRating: 4.3,
   books: [{
     title: "Station Eleven",
     author: "Emily St. John Mandel",
@@ -260,10 +243,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 4,
   month: "June 2025",
-  booksRead: 4,
-  averageRating: 4.5,
   books: [{
     title: "The Ministry of Time",
     author: "Kaliane Bradley",
@@ -290,10 +270,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 5,
   month: "May 2025",
-  booksRead: 8,
-  averageRating: 4.5,
   books: [{
     title: "Crown of Midnight",
     author: "Sarah J. Maas",
@@ -344,10 +321,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 6,
   month: "April 2025",
-  booksRead: 8,
-  averageRating: 4.4,
   books: [{
     title: "The God of the Woods",
     author: "Liz Moore",
@@ -404,10 +378,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 7,
   month: "March 2025",
-  booksRead: 8,
-  averageRating: 4.2,
   books: [{
     title: "Yerba Buena",
     author: "Nina LaCour",
@@ -458,10 +429,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 8,
   month: "February 2025",
-  booksRead: 14,
-  averageRating: 3.6,
   books: [{
     title: "Crook Manifesto",
     author: "Colson Whitehead",
@@ -548,10 +516,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 9,
   month: "January 2025",
-  booksRead: 9,
-  averageRating: 3.3,
   books: [{
     title: "The Dutch House",
     author: "Ann Patchett",
@@ -608,10 +573,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 10,
   month: "December 2024",
-  booksRead: 7,
-  averageRating: 3.4,
   books: [{
     title: "The Seven Husbands of Evelyn Hugo",
     author: "Taylor Jenkins Reid",
@@ -656,10 +618,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 11,
   month: "November 2024",
-  booksRead: 6,
-  averageRating: 3.5,
   books: [{
     title: "Being Mortal: Medicine and What Matters in the End",
     author: "Atul Gawande",
@@ -698,10 +657,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 12,
   month: "September 2024",
-  booksRead: 3,
-  averageRating: 4.3,
   books: [{
     title: "Let the Record Show: A Political History of ACT UP New York, 1987-1993",
     author: "Sarah Schulman",
@@ -722,62 +678,59 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 13,
   month: "August 2024",
-  booksRead: 10,
-  averageRating: 3.6,
   books: [{
     title: "Burn",
     author: "Peter Heller",
-    review: "This book felt like it was trying to be edgy hard to dramatize politics without following through on some of it's most compelling ideas around a US state succession.",
+    review: "This book felt like it was trying to be edgy hard to dramatize politics without following through on some of its most compelling ideas around a US state secession.",
     rating: 2,
     coverUrl: ""
   }, {
     title: "He Who Drowned the World",
     author: "Shelley Parker-Chan",
-    review: "An excelent sequel to She Who Became the Sun however at times it felt like it was trying to hit you on the head with metaphors that the reader can understand the first time.",
+    review: "An excellent sequel to She Who Became the Sun, however at times it felt like it was trying to hit you on the head with metaphors that the reader can understand the first time.",
     rating: 4,
     coverUrl: ""
   }, {
     title: "The Financial Diet",
     author: "Chelsea Fagan",
-    review: "This beginner book on personal finance might be better for a high school students but feels to simple to be marketed towards people in their early 20s.",
+    review: "This beginner book on personal finance might be better for high school students but feels too simple to be marketed towards people in their early 20s.",
     rating: 2,
     coverUrl: ""
   }, {
     title: "Your Money or Your Life",
     author: "Joe Dominguez",
-    review: "This book was convincing and practical in it's advice for personal finance, but was repetitive at times.",
+    review: "This book was convincing and practical in its advice for personal finance, but was repetitive at times.",
     rating: 4,
     coverUrl: ""
   }, {
     title: "Worry",
     author: "Alexandra Tanner",
-    review: "This was an interesting read and there were points that reminded me of my jewish family, but it also felt like it was trying to take that to a too quirky level that sometimes lost me as a reader.",
+    review: "This was an interesting read and there were points that reminded me of my Jewish family, but it also felt like it was trying to take that to a too quirky level that sometimes lost me as a reader.",
     rating: 3,
     coverUrl: ""
   }, {
     title: "My Year of Rest and Relaxation",
     author: "Ottessa Moshfegh",
-    review: "This was well written but felt like it heavily romanticized depression rather than depicting the difficulties and often tradgedy of it.",
+    review: "This was well written but felt like it heavily romanticized depression rather than depicting the difficulties and often tragedy of it.",
     rating: 2,
     coverUrl: ""
   }, {
     title: "How We Named the Stars",
     author: "Andrés N. Ordorica",
-    review: "This book was such a sweet heartfull queer love story, and then I had to keep trying not to cry for the last 100 pages.",
+    review: "This book was such a sweet heartfelt queer love story, and then I had to keep trying not to cry for the last 100 pages.",
     rating: 4,
     coverUrl: ""
   }, {
     title: "Interesting Facts about Space",
     author: "Emily R. Austin",
-    review: "The strangeness of the main character and this book made me feel both understood and upset in a wierdly good way.",
+    review: "The strangeness of the main character and this book made me feel both understood and upset in a weirdly good way.",
     rating: 5,
     coverUrl: ""
   }, {
     title: "Secret City: The Hidden History of Gay Washington",
     author: "James Kirchick",
-    review: "This book was an incredibly comprehensive look at queer life in the capitol, everyone involved in politics should read it.",
+    review: "This book was an incredibly comprehensive look at queer life in the capital, everyone involved in politics should read it.",
     rating: 5,
     coverUrl: ""
   }, {
@@ -788,10 +741,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 14,
   month: "July 2024",
-  booksRead: 7,
-  averageRating: 3.7,
   books: [{
     title: "A Court of Silver Flames",
     author: "Sarah J. Maas",
@@ -836,10 +786,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 15,
   month: "June 2024",
-  booksRead: 5,
-  averageRating: 4.0,
   books: [{
     title: "Demon Copperhead",
     author: "Barbara Kingsolver",
@@ -872,10 +819,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 16,
   month: "May 2024",
-  booksRead: 7,
-  averageRating: 3.7,
   books: [{
     title: "The Nickel Boys",
     author: "Colson Whitehead",
@@ -903,19 +847,19 @@ const readingLogs = [{
   }, {
     title: "Humankind: A Hopeful History",
     author: "Rutger Bregman",
-    review: "While there was definitely some bias/oversimplication of some social issues in this book, I think everyone could benefit from reading it.",
+    review: "While there was definitely some bias/oversimplification of some social issues in this book, I think everyone could benefit from reading it.",
     rating: 5,
     coverUrl: ""
   }, {
     title: "Tender Is the Flesh",
     author: "Agustina Bazterrica",
-    review: "I really wanted to like this book but it felt too much like it was motivated by veganism rather than it's own premise/plot",
+    review: "I really wanted to like this book but it felt too much like it was motivated by veganism rather than its own premise/plot.",
     rating: 2,
     coverUrl: ""
   }, {
     title: "The Dead Take the A Train",
     author: "Cassandra Khaw",
-    review: "This was a surprisingly fun monster hunter read, with a great sense of humor",
+    review: "This was a surprisingly fun monster hunter read, with a great sense of humor.",
     rating: 4,
     coverUrl: ""
   }, {
@@ -926,10 +870,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 17,
   month: "April 2024",
-  booksRead: 5,
-  averageRating: 3.6,
   books: [{
     title: "A Court of Mist and Fury",
     author: "Sarah J. Maas",
@@ -951,21 +892,18 @@ const readingLogs = [{
   }, {
     title: "A Little Life",
     author: "Hanya Yanagihara",
-    review: "This book was difficut to read at times but worth the effort, also trigger warning for anything you can think of.",
+    review: "This book was difficult to read at times but worth the effort, also trigger warning for anything you can think of.",
     rating: 4,
     coverUrl: ""
   }, {
     title: "Gathering Moss: A Natural and Cultural History of Mosses",
     author: "Robin Wall Kimmerer",
-    review: "I enjoyed this book more than I expected, and liked the back and forth between",
+    review: "I enjoyed this book more than I expected.",
     rating: 4,
     coverUrl: ""
   }]
 }, {
-  id: 18,
   month: "March 2024",
-  booksRead: 13,
-  averageRating: 3.6,
   books: [{
     title: "Deacon King Kong",
     author: "James McBride",
@@ -999,7 +937,7 @@ const readingLogs = [{
   }, {
     title: "Ducks: Two Years in the Oil Sands",
     author: "Kate Beaton",
-    review: "It is a remarkable narrative that brings to life the seldom-explored intersection of wildlife and female labor in the oil industry, shedding light on the resilience of nature and the author herself amidst the stark landscapes of industrial progress",
+    review: "It is a remarkable narrative that brings to life the seldom-explored intersection of wildlife and female labor in the oil industry, shedding light on the resilience of nature and the author herself amidst the stark landscapes of industrial progress.",
     rating: 5,
     coverUrl: ""
   }, {
@@ -1011,7 +949,7 @@ const readingLogs = [{
   }, {
     title: "Gone Girl",
     author: "Gillian Flynn",
-    review: "I just couldn't buy into the angst of ahhaf, she was too hard for me to root for in this book",
+    review: "I just couldn't buy into the angst, she was too hard for me to root for in this book.",
     rating: 2,
     coverUrl: ""
   }, {
@@ -1046,10 +984,7 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }, {
-  id: 19,
   month: "February 2024",
-  booksRead: 10,
-  averageRating: 3.9,
   books: [{
     title: "The Happiness Project",
     author: "Gretchen Rubin",
@@ -1059,37 +994,37 @@ const readingLogs = [{
   }, {
     title: "The Pull of the Stars",
     author: "Emma Donoghue",
-    review: "Incredible book for anyone interested in the role of women in medical history as well as ireland just after WW1, all wrapped up with a wondfully heart wrenching plot",
+    review: "Incredible book for anyone interested in the role of women in medical history as well as Ireland just after WW1, all wrapped up with a wonderfully heart-wrenching plot.",
     rating: 5,
     coverUrl: ""
   }, {
     title: "Outliers: The Story of Success",
     author: "Malcolm Gladwell",
-    review: "a thought-provoking exploration of success, delving into factors like opportunity, cultural legacy, and the 10,000-hour rule that shape exceptional achievement, though it falls just short of a 5 star rating as it does get a little repetitive.",
+    review: "A thought-provoking exploration of success, delving into factors like opportunity, cultural legacy, and the 10,000-hour rule that shape exceptional achievement, though it falls just short of a 5 star rating as it does get a little repetitive.",
     rating: 4,
     coverUrl: ""
   }, {
     title: "Going Postal",
     author: "Terry Pratchett",
-    review: "This book has awesome satirical takes on the postal service, corporate corruption, and biblical references, this book deserves a solid",
+    review: "This book has awesome satirical takes on the postal service, corporate corruption, and biblical references.",
     rating: 5,
     coverUrl: ""
   }, {
     title: "Better Than the Movies",
     author: "Lynn Painter",
-    review: "One of the cheesiest romance books I have read in a long time, and yet so fun to read",
+    review: "One of the cheesiest romance books I have read in a long time, and yet so fun to read.",
     rating: 5,
     coverUrl: ""
   }, {
     title: "Flowers for Algernon",
     author: "Daniel Keyes",
-    review: "I Can't believe I havent read this book before, amazing dive into the relationship between happiness, intelligence, and empathy.",
+    review: "I can't believe I haven't read this book before, amazing dive into the relationship between happiness, intelligence, and empathy.",
     rating: 5,
     coverUrl: ""
   }, {
     title: "The Good Life: Lessons from the World's Longest Scientific Study of Happiness",
     author: "Robert Waldinger",
-    review: "This book offers insightful reflections on the key factors contributing to a fulfilling life, though it falls short in providing actionable guidance beyond already having strong relationships, earning it a",
+    review: "This book offers insightful reflections on the key factors contributing to a fulfilling life, though it falls short in providing actionable guidance beyond already having strong relationships.",
     rating: 3,
     coverUrl: ""
   }, {
@@ -1101,21 +1036,18 @@ const readingLogs = [{
   }, {
     title: "The Woman in Me",
     author: "Britney Spears",
-    review: "Pretty much exactly what I expected from this book, I got to learn more about Britney's conservatorship and life, but it wasn't anything special",
+    review: "Pretty much exactly what I expected from this book, I got to learn more about Britney's conservatorship and life, but it wasn't anything special.",
     rating: 3,
     coverUrl: ""
   }, {
     title: "The Golem of Brooklyn",
     author: "Adam Mansbach",
-    review: "This book was an interesting retelling into one of my favorite jewish folktales, The Golem of Prague, as well as the state of modern antisemitism.",
+    review: "This book was an interesting retelling into one of my favorite Jewish folktales, The Golem of Prague, as well as the state of modern antisemitism.",
     rating: 4,
     coverUrl: ""
   }]
 }, {
-  id: 20,
   month: "January 2024",
-  booksRead: 8,
-  averageRating: 3.9,
   books: [{
     title: "If We Were Villains",
     author: "M.L. Rio",
@@ -1166,13 +1098,21 @@ const readingLogs = [{
     coverUrl: ""
   }]
 }];
+
+// Counts and averages are derived from the book lists so they cannot drift.
+const readingLogs = readingLogData.map((log) => ({
+  month: log.month,
+  books: log.books,
+  booksRead: log.books.length,
+  averageRating:
+    Math.round((log.books.reduce((sum, b) => sum + b.rating, 0) / log.books.length) * 10) / 10,
+}));
+
 const Blog = () => {
-  const [openMonths, setOpenMonths] = useState<{
-    [key: number]: boolean;
-  }>({
-    1: true, // September 2025 open by default (most recent)
-    2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false,
-    11: false, 12: false, 13: false, 14: false, 15: false, 16: false, 17: false, 18: false, 19: false, 20: false
+  usePageMeta('/blog');
+  // Keyed by month name; the most recent month starts open.
+  const [openMonths, setOpenMonths] = useState<Record<string, boolean>>({
+    [readingLogs[0].month]: true,
   });
 
   const [openYears, setOpenYears] = useState<{
@@ -1189,10 +1129,10 @@ const Blog = () => {
     "2024": false
   });
 
-  const toggleMonth = (monthId: number) => {
+  const toggleMonth = (month: string) => {
     setOpenMonths(prev => ({
       ...prev,
-      [monthId]: !prev[monthId]
+      [month]: !prev[month]
     }));
   };
 
@@ -1388,9 +1328,9 @@ const Blog = () => {
                     <CollapsibleTrigger className="w-full text-left">
                       <div className="flex items-center justify-between p-8 hover:bg-card/80 transition-colors cursor-pointer">
                         <div className="space-y-2">
-                          <h1 className="text-4xl md:text-5xl font-bold text-text-primary">
+                          <h2 className="text-4xl md:text-5xl font-bold text-text-primary">
                             {year}
-                          </h1>
+                          </h2>
                           <p className="text-text-secondary text-lg">
                             <strong className="text-text-primary">{totalBooksInYear} books read</strong> • <strong className="text-text-primary">{avgRatingInYear.toFixed(1)}</strong> average rating
                           </p>
@@ -1435,15 +1375,15 @@ const Blog = () => {
                           };
                           
                           return (
-                            <Collapsible key={log.id} open={openMonths[log.id]} onOpenChange={() => toggleMonth(log.id)}>
+                            <Collapsible key={log.month} open={!!openMonths[log.month]} onOpenChange={() => toggleMonth(log.month)}>
                               <div className={`${getMonthBackground(log.month)} rounded-lg overflow-hidden shadow-sm`}>
                                 <CollapsibleTrigger className="w-full text-left">
                                   <div className={`flex items-center justify-between p-6 ${getMonthHover(log.month)} transition-colors cursor-pointer`}>
                                     <div className="space-y-2">
                                       <div className="flex items-baseline gap-3">
-                                        <h2 className="text-2xl md:text-3xl font-medium text-foreground">
+                                        <h3 className="text-2xl md:text-3xl font-medium text-foreground">
                                           {log.month.split(' ')[0]} {/* Just month name */}
-                                        </h2>
+                                        </h3>
                                         <span className="text-lg text-foreground/70 font-medium">
                                           {temperatureData[log.month] ? `${temperatureData[log.month]}°F` : ''}
                                         </span>
@@ -1453,7 +1393,7 @@ const Blog = () => {
                                       </p>
                                     </div>
                                     <div className="text-foreground/60 hover:text-foreground/80 transition-colors p-2">
-                                      {openMonths[log.id] ? <ChevronDown className="h-6 w-6" /> : <ChevronRight className="h-6 w-6" />}
+                                      {openMonths[log.month] ? <ChevronDown className="h-6 w-6" /> : <ChevronRight className="h-6 w-6" />}
                                     </div>
                                   </div>
                                 </CollapsibleTrigger>

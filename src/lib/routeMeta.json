@@ -1,0 +1,14 @@
+{
+  "/": {
+    "title": "Jamie Bergen | Neuroscientist",
+    "description": "Jamie Bergen is a neuroscientist working on neurodegenerative disease with human stem cells and code. Research, publications, CV and a reading log."
+  },
+  "/cv": {
+    "title": "CV | Jamie Bergen",
+    "description": "Jamie Bergen's CV: research in human stem cell models, intracranial recordings and Parkinson's disease, plus publications, skills and teaching."
+  },
+  "/blog": {
+    "title": "Reading Log | Jamie Bergen",
+    "description": "Every book Jamie Bergen has read since 2024, month by month, with ratings and short reviews, color-coded to how warm New York was that month."
+  }
+}

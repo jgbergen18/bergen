@@ -22,7 +22,7 @@ export function initEasterEggs() {
   const banner = [
     '   ╭───────────────────────────╮',
     '   │      🧠  jamie bergen       │',
-    '   │   neuroscience + ai · hi    │',
+    '   │   stem cells + code · hi    │',
     '   ╰───────────────────────────╯',
   ].join('\n');
 
@@ -32,7 +32,7 @@ export function initEasterEggs() {
   log(banner, 'color:#f97316;font-family:monospace;font-size:12px;line-height:1.25;');
   log('Hi, you found the console.', 'font-size:15px;font-weight:700;color:#7c3aed;');
   log(
-    "I'm Jamie Bergen, working on neuroscience and AI. If you poke around in here, we'd probably get along.\nSay hi: jgbergen18@gmail.com",
+    "I'm Jamie Bergen, a neuroscientist who works at the bench and in code. If you poke around in here, we'd probably get along.\nSay hi: jgbergen18@gmail.com",
   );
   log('Try  jamie.help()', 'font-size:12px;color:#0ea5e9;font-weight:600;');
 
@@ -46,8 +46,7 @@ export function initEasterEggs() {
     },
     spike() {
       window.dispatchEvent(new CustomEvent('jamie:spike'));
-      document.querySelector('#neuron')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return '⚡ spike!';
+      document.querySelector('#neuron')?.scrollIntoView({ behavior: 'smooth', block: 'center' });      return '⚡ spike!';
     },
     recommend() {
       const book = BOOKS[Math.floor(Math.random() * BOOKS.length)];

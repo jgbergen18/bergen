@@ -1,36 +1,48 @@
+import { Link } from 'react-router-dom';
 import profilePhoto from '../assets/profile-photo.jpg';
 
 const About = () => {
   return (
-    <section id="about" className="py-8 px-6">
+    <section id="about" className="py-12 px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-[3fr_2fr] gap-12 items-start">
           <div className="space-y-6">
             <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
-              About Me
+              About me
             </h2>
             <div className="space-y-4 text-text-secondary leading-relaxed">
               <p>
-                I'm Jamie Bergen, a researcher fascinated by the intricate connections between biology, data, and intelligence. 
-                I graduated from Barnard College with a dual major in neuroscience and computer science, specializing in intelligent systems.
+                I did neuroscience and computer science at the same time at Barnard, and I've never
+                really picked one.
               </p>
               <p>
-                My research aims to understand the mechanisms of neurodegenerative disease and to develop treatments for it.
-                I started with Parkinson's disease in mouse models at Columbia, then completed a Master's degree in Brain and Data Science
-                through the Erasmus Mundus Joint Masters Scholarship, with my thesis at ETH Zurich. I'm now a research assistant in
-                the Kirkeby Lab at reNEW, University of Copenhagen, where I combine human stem cell models with computational modeling.
+                My first lab job was at Mass General, growing human brain cells to model the
+                blood-brain barrier. Then I spent two years at Columbia staining mouse guts, working
+                on whether an immune attack on α-synuclein is what starts Parkinson's.
               </p>
               <p>
-                I'd love to hear from you with any questions, comments, or collaboration ideas.
+                For my master's I went almost all the way computational: an AI mediator at Bar-Ilan,
+                then recordings from electrodes inside people's brains at ETH Zurich. Now I'm in
+                Copenhagen with stem cells again, which is the first time the two halves have
+                properly met.
+              </p>
+              <p>
+                Outside the lab I read a lot. Every book I've finished since 2024 is in my{' '}
+                <Link to="/blog" className="text-text-primary underline underline-offset-4 hover:no-underline">
+                  reading log
+                </Link>
+                , ratings and all.
               </p>
             </div>
           </div>
-          
+
           <div className="relative">
             <div className="aspect-square bg-surface rounded-lg overflow-hidden">
-              <img 
-                src={profilePhoto} 
-                alt="Jamie Bergen profile photo" 
+              <img
+                src={profilePhoto}
+                alt="Jamie Bergen, smiling, standing in a wooded park"
+                width={1000}
+                height={1000}
                 className="w-full h-full object-cover"
               />
             </div>

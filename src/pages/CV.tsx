@@ -3,6 +3,7 @@ import { GraduationCap, FileText, FlaskConical, Code, MapPin, Mail, ArrowLeft, E
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import WorldGlobe, { GlobeLocation } from '../components/WorldGlobe';
+import { usePageMeta } from '../lib/usePageTitle';
 
 const cvLocations: GlobeLocation[] = [
   {
@@ -90,7 +91,7 @@ const researchRoles: Role[] = [
     bullets: [
       "Proposed adding molecular docking (GNINA) to the lab's work on environmental risk factors for Parkinson's disease, and am implementing it to rank candidate toxicants by predicted binding prior to in vitro testing",
       'Engineering two hPSC lines carrying UltraID proximity-labeling tags on ciliary proteins, and differentiating hPSCs into hypothalamic neurons, to build a model for testing peptides that act on hunger signaling',
-      "Launched and leading an AI task force, with a representative from each lab, that is drafting the institute's AI guidelines; teaching a monthly session on AI tools for research at lab meeting",
+      "Created and leading an AI task force, with a representative from each lab, that is drafting the institute's AI guidelines; teaching a monthly session on AI tools for research and giving an institute-wide keynote in April 2027",
     ],
   },
   {
@@ -125,7 +126,7 @@ const researchRoles: Role[] = [
       "Tested whether an autoimmune response to α-synuclein contributes to early Parkinson's pathology, in HLA-DRB1*15:01 transgenic mice immunized with α-synuclein peptide and aged to two timepoints",
       'Quantified dopaminergic (TH+) and total (ANNA1+) neuron density in the myenteric and submucosal plexuses, and T cell (CD3+) infiltration in brain sections, by immunostaining, confocal and widefield imaging, and blinded cell counts',
       'Ran PCR and western blots for gene and protein expression, analyzed RNA-seq data for transcriptomic changes linked to α-synuclein-driven neuroinflammation, and tested group differences in GraphPad Prism',
-      'Contributed to the resulting publication in Neuron (2023); authored and defended a senior thesis on the aged-mouse arm of the project',
+      'Contributed to the resulting publication in Neuron (2023); authored and defended a senior thesis reporting that aged immunized mice showed no significant T cell infiltration or dopaminergic neuron loss',
     ],
   },
   {
@@ -187,6 +188,7 @@ const Entry = ({ title, org, dates, href, bullets }: Role) => (
 
 const CV = () => {
   const navigate = useNavigate();
+  usePageMeta('/cv');
 
   const handleBack = () => {
     navigate('/');

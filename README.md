@@ -15,9 +15,11 @@ Personal website and portfolio of **Jamie Bergen**, a neuroscientist studying ne
 
 ## Highlights
 
-- **Interactive crossword** — a custom-built puzzle with clues about my background and live answer checking
+- **Interactive crossword** — a custom-built puzzle with clues about my work, keyboard navigation, and live answer checking
 - **Reading log** — every book I read, by month, color-coded to the average NYC temperature when I read it
-- **Research & projects** — work across multi-agent LLMs, NLP, and neuroscience, linked to publications (arXiv, *Neuron*)
+- **Research chapters** — five labs, newest first, each with its question, methods, and links to publications (arXiv, *Neuron*)
+- **Playable figures** — a leaky integrate-and-fire neuron in the hero, and one small interactive per research chapter that tells that project's story
+- **Per-route link previews** — `scripts/route-meta.mjs` writes a page per route at build time so shared links to `/cv` and `/blog` preview correctly
 - **CV page** — academic and research background at a glance
 - **Light / dark theme** with system-preference detection
 - Responsive, accessible, fast
@@ -55,7 +57,7 @@ npm run lint      # lint
 ```
 src/
 ├── pages/
-│   ├── Index.tsx          # Home: hero, about, crossword, projects, contact
+│   ├── Index.tsx          # Home: hero + neuron, about, research, publications, beyond the bench, crossword, contact
 │   ├── Blog.tsx           # Reading log
 │   ├── CV.tsx             # CV / resume
 │   └── NotFound.tsx       # 404
@@ -63,7 +65,7 @@ src/
 │   ├── Hero.tsx           # Landing hero
 │   ├── About.tsx          # Bio
 │   ├── Crossword.tsx      # Interactive crossword
-│   ├── ProjectsGallery.tsx# Project grid
+│   ├── Research.tsx       # Research chapters (+ SyntaxToy.tsx figure)
 │   ├── Contact.tsx        # Contact details
 │   ├── ThemeToggle.tsx    # Light/dark switch
 │   └── ui/                # shadcn/ui primitives

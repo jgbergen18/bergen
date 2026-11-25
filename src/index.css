@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 /* Minimalist Personal Website Design System */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* The Inter font is loaded from index.html. */
 
 /* Rainbow hover animation */
 @keyframes rainbow {
@@ -36,8 +35,8 @@
     --foreground: 0 0% 15%;
     
     --text-primary: 0 0% 15%;
-    --text-secondary: 0 0% 40%;
-    --text-muted: 0 0% 60%;
+    --text-secondary: 0 0% 36%;
+    --text-muted: 0 0% 45%; /* 4.7:1 on white, passes WCAG AA */
     
     --surface: 0 0% 98%;
     --surface-hover: 0 0% 95%;
@@ -80,8 +79,8 @@
     --foreground: 0 0% 98%;
     
     --text-primary: 0 0% 98%;
-    --text-secondary: 0 0% 70%;
-    --text-muted: 0 0% 50%;
+    --text-secondary: 0 0% 72%;
+    --text-muted: 0 0% 58%;
     
     --surface: 0 0% 12%;
     --surface-hover: 0 0% 15%;

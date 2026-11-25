@@ -5,15 +5,17 @@ const Contact = () => {
   return (
     <div id="contact">
       <h2 className="text-2xl md:text-3xl font-medium text-text-primary mb-8">
-        Get In Touch
+        Get in touch
       </h2>
-      
+
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="space-y-6">
           <p className="text-text-secondary leading-relaxed">
-            I'm always interested in connecting with new people and exploring opportunities for collaboration and research. Feel free to reach out if you'd like to discuss projects, ideas, or just say hello.
+            If you work on human stem cell models or neurodegenerative disease, or on the
+            computational side of either, I'd like to hear about it. Happy to talk about anything
+            else on here too.
           </p>
-          
+
           <div className="space-y-4">
             <a
               href="mailto:jgbergen18@gmail.com"
@@ -33,12 +35,15 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        
+
         <div className="flex justify-center md:justify-end">
-          <img 
-            src={contactPhoto} 
-            alt="Jamie Bergen at an art installation"
-            className="rounded-lg shadow-lg max-w-full h-auto max-h-96 object-cover"
+          <img
+            src={contactPhoto}
+            alt="Jamie Bergen pointing at a white thread installation hung with sheet music"
+            width={720}
+            height={960}
+            loading="lazy"
+            className="rounded-lg shadow-lg max-w-full h-auto max-h-96 w-auto object-cover"
           />
         </div>
       </div>

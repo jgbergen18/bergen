@@ -1,25 +1,52 @@
 import { ExternalLink, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const publications = [
+type Publication = {
+  role: string;
+  title: string;
+  authors: string[];
+  venue: string;
+  href?: string;
+  hrefLabel?: string;
+};
+
+const ME = 'Bergen J';
+
+const publications: Publication[] = [
+  {
+    role: 'First author',
+    title: 'Neural Signatures of Syntax Planning in Speech Production',
+    authors: ['Bergen J', 'Dolmatova M', 'Proix T', 'Oberlaender M'],
+    venue: 'Manuscript in preparation',
+  },
   {
     role: 'First author',
     title: 'Automated Mediator for Human Negotiation: Pre-Mediation via a Structured LLM Pipeline',
-    authors: ['Jamie Bergen', 'Sarit Kraus'],
-    venue: 'arXiv preprint',
-    year: '2026',
+    authors: ['Bergen J', 'Kraus S'],
+    venue: 'Preprint, 2026',
     href: 'https://arxiv.org/abs/2606.11379',
-    hrefLabel: 'arXiv',
+    hrefLabel: 'arXiv:2606.11379',
   },
   {
     role: 'Contributing author',
     title:
       "Interaction of an α-synuclein epitope with HLA-DRB1*15:01 triggers enteric features in mice reminiscent of prodromal Parkinson's disease",
-    authors: null,
-    venue: 'Neuron',
-    year: '2023',
-    href: 'https://www.cell.com/neuron/fulltext/S0896-6273(23)00548-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627323005482%3Fshowall%3Dtrue',
-    hrefLabel: 'Neuron',
+    authors: [
+      'Garretti F',
+      'Monahan C',
+      'Sloan N',
+      'Bergen J',
+      'Shahriar S',
+      'Kim SW',
+      'Sette A',
+      'Cutforth T',
+      'Kanter E',
+      'Agalliu D',
+      'Sulzer D',
+    ],
+    venue: 'Neuron 111(21), 3397–3413, 2023',
+    href: 'https://doi.org/10.1016/j.neuron.2023.07.015',
+    hrefLabel: 'doi:10.1016/j.neuron.2023.07.015',
   },
 ];
 
@@ -36,38 +63,36 @@ const Publications = () => {
               className="rounded-xl border border-border-subtle bg-surface/40 p-5 transition-colors hover:border-border"
             >
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
-                <span className="px-2.5 py-1 text-xs rounded-full bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-300 border border-fuchsia-500/20">
+                <span className="px-2.5 py-1 text-xs rounded-full bg-fuchsia-500/10 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-500/20">
                   {pub.role}
                 </span>
-                <span className="text-xs text-text-muted">
-                  {pub.venue}, {pub.year}
-                </span>
+                <span className="text-xs text-text-secondary">{pub.venue}</span>
               </div>
 
               <h3 className="text-base md:text-lg font-medium text-text-primary leading-snug">
                 {pub.title}
               </h3>
 
-              {pub.authors && (
-                <p className="text-sm text-text-secondary mt-1">
-                  {pub.authors.map((a, i) => (
-                    <span key={a}>
-                      <span className={a === 'Jamie Bergen' ? 'font-semibold text-text-primary' : ''}>{a}</span>
-                      {i < pub.authors!.length - 1 ? ', ' : ''}
-                    </span>
-                  ))}
-                </p>
-              )}
+              <p className="text-sm text-text-secondary mt-1">
+                {pub.authors.map((a, i) => (
+                  <span key={a}>
+                    <span className={a === ME ? 'font-semibold text-text-primary' : ''}>{a}</span>
+                    {i < pub.authors.length - 1 ? ', ' : ''}
+                  </span>
+                ))}
+              </p>
 
-              <a
-                href={pub.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-text-primary hover:underline"
-              >
-                <ExternalLink size={15} />
-                {pub.hrefLabel}
-              </a>
+              {pub.href && (
+                <a
+                  href={pub.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-text-primary hover:underline"
+                >
+                  <ExternalLink size={15} />
+                  {pub.hrefLabel}
+                </a>
+              )}
             </div>
           ))}
         </div>
