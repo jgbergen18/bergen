@@ -86,12 +86,6 @@ const CriticToy = () => {
     <ToyFrame
       fig={4}
       title="Be the critic"
-      caption={
-        <>
-          Two replies are the example exchange from the paper; three illustrate the published
-          rejection criteria. Message-level review cannot detect cumulative affirmation.
-        </>
-      }
     >
       {done ? (
         <div className="animate-fade-in">

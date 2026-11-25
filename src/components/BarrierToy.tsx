@@ -53,12 +53,7 @@ const BarrierToy = () => {
     <ToyFrame
       fig={6}
       title="Does the barrier hold?"
-      caption={
-        <>
-          Brain microvascular endothelium forms tight junctions that exclude most solutes; this
-          barrier is disrupted in X-linked adrenoleukodystrophy. Schematic of the assay, not data.
-        </>
-      }
+      schematic
     >
       <p className="text-sm text-text-secondary">
         Select a condition, then apply tracer.

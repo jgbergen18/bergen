@@ -131,20 +131,16 @@ const DifferentiationToy = () => {
     <ToyFrame
       fig={2}
       title="Run the differentiation"
-      caption={
-        <>
-          BMP4 exposure window determines anterior versus posterior tuberal fate. Simplified
-          from the lab's published ARC protocol, which predates my arrival; I am not an author.{' '}
-          <a
-            href="https://doi.org/10.1016/j.stem.2026.05.005"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 font-medium text-text-primary hover:underline"
-          >
-            Abay-Nørgaard, Mueller, Hänninen et al., Cell Stem Cell (2026)
-            <ExternalLink size={12} />
-          </a>
-        </>
+      source={
+        <a
+          href="https://doi.org/10.1016/j.stem.2026.05.005"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 hover:text-text-primary hover:underline"
+        >
+          Protocol: Abay-Nørgaard et al., Cell Stem Cell 2026
+          <ExternalLink size={11} />
+        </a>
       }
     >
       <p className="text-sm text-text-secondary">

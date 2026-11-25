@@ -171,12 +171,7 @@ const GutToy = () => {
     <ToyFrame
       fig={5}
       title="Run the experiment"
-      caption={
-        <>
-          Groups and outcomes are from the paper. Cells drawn are illustrative, not counts; the
-          measurements are in the paper.
-        </>
-      }
+      schematic
     >
       <p className="text-sm text-text-secondary">Which mouse?</p>
       <div role="group" aria-label="Mouse strain" className="mt-2 flex flex-wrap gap-2">

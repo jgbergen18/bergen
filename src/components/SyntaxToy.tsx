@@ -108,13 +108,6 @@ const SyntaxToy = () => {
     <ToyFrame
       fig={3}
       title="Say the sentence"
-      caption={
-        <>
-          Word identity and order are matched across conditions, so the contrast is purely
-          structural. Recorded in German from patients undergoing epilepsy monitoring. Manuscript in
-          preparation; no results shown.
-        </>
-      }
     >
       {done ? (
         <div className="py-6 text-center animate-fade-in">
