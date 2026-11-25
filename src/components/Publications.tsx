@@ -80,12 +80,12 @@ const Publications = () => {
             View full CV
           </Link>
           <a
-            href="/Jamie-Bergen-Resume-2026.docx"
+            href="/Jamie-Bergen-CV.pdf"
             download
             className="inline-flex items-center gap-2 rounded-full bg-text-primary text-background px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
           >
             <Download size={16} />
-            Download résumé
+            Download CV
           </a>
         </div>
       </div>

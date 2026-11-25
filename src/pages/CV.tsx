@@ -222,9 +222,9 @@ const CV = () => {
               </p>
             </div>
             <Button asChild size="sm" className="shadow-sm flex-shrink-0">
-              <a href="/Jamie-Bergen-Resume-2026.docx" download>
+              <a href="/Jamie-Bergen-CV.pdf" download>
                 <Download className="w-4 h-4 mr-2" />
-                Download Résumé
+                Download CV
               </a>
             </Button>
           </div>
