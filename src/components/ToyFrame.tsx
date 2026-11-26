@@ -44,7 +44,7 @@ const ToyFrame = ({
           aria-controls={panelId}
           className="group flex items-center gap-2.5 rounded text-left"
         >
-          <span className="font-mono text-xs text-text-muted">Fig. {fig}</span>
+          <span className="text-xs italic text-text-muted">Fig. {fig}</span>
           <span className="text-sm font-semibold text-text-primary group-hover:underline">
             {title}
           </span>

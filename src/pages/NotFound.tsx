@@ -10,7 +10,7 @@ const NotFound = () => {
       <Header />
       <main className="flex min-h-screen items-center justify-center px-6">
         <div className="text-center max-w-md">
-          <p className="font-mono text-sm text-text-muted">404</p>
+          <p className="text-sm italic text-text-muted">404</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
             This synapse didn't fire
           </h1>

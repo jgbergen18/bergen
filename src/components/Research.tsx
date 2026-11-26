@@ -101,7 +101,7 @@ const Research = () => {
                 {/* One wrapped line on a phone, a stacked rail from md up: the
                     stacked version cost five lines per chapter on a 390px screen. */}
                 <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-sm md:block">
-                  <span className="font-mono text-xs text-text-muted md:block" aria-hidden="true">
+                  <span className="text-xs tabular-nums text-text-muted md:block" aria-hidden="true">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span className="font-semibold text-text-primary md:mt-1.5 md:block">{c.lab}</span>

@@ -2,38 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Newsreader for headings, Source Sans 3 for everything else, both self-hosted
-   from public/fonts (SIL OFL 1.1). Only the subsets this site needs are
-   declared, so unicode-range keeps the browser from fetching the rest.
-   Newsreader has no greek subset, so Source Sans 3 sits behind it in the
-   heading stack and supplies the alpha in "alpha-synuclein". */
+/* Literata, self-hosted from public/fonts (SIL OFL 1.1). One family for the
+   whole site, headings and body alike. Latin and greek are declared because
+   "alpha-synuclein" appears in body text as well as headings; italic ships for
+   latin only, so an italic alpha (one thesis title on the CV) is synthesised
+   from the roman greek face rather than costing another 19KB. */
 @font-face {
-  font-family: 'Newsreader';
+  font-family: 'Literata';
   font-style: normal;
-  font-weight: 400 600;
+  font-weight: 300 700;
   font-display: swap;
-  src: url('/fonts/newsreader-latin.woff2') format('woff2');
+  src: url('/fonts/literata-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Source Sans 3';
+  font-family: 'Literata';
   font-style: normal;
-  font-weight: 300 600;
+  font-weight: 300 700;
   font-display: swap;
-  src: url('/fonts/sourcesans-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Source Sans 3';
-  font-style: normal;
-  font-weight: 300 600;
-  font-display: swap;
-  src: url('/fonts/sourcesans-greek.woff2') format('woff2');
+  src: url('/fonts/literata-greek.woff2') format('woff2');
   unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/literata-latin-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* Design tokens. */
@@ -163,13 +163,11 @@
 
   body {
     @apply bg-background text-text-primary antialiased;
-    font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Literata', Georgia, 'Times New Roman', serif;
   }
 
-  /* Newsreader for headings. Source Sans sits behind it to supply glyphs
-     Newsreader's latin subset lacks, notably the alpha in alpha-synuclein. */
+  /* Headings share the body face; only size, weight and tracking separate them. */
   h1, h2, h3 {
-    font-family: 'Newsreader', 'Source Sans 3', Georgia, serif;
     font-weight: 500;
     letter-spacing: -0.012em;
   }
@@ -189,7 +187,6 @@
   /* A running head rather than the uppercase tracked label every generated
      site uses: italic serif, in the accent, at reading size. */
   .eyebrow {
-    font-family: 'Newsreader', Georgia, serif;
     @apply text-sm font-normal italic tracking-normal text-primary;
   }
 }
