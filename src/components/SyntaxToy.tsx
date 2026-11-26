@@ -1,17 +1,24 @@
 import { useState } from 'react';
 import ToyFrame from './ToyFrame';
+import SyntaxTree from './SyntaxTree';
 import { pill } from '../lib/toyStyles';
 
 /**
  * The stimulus logic of the MSc thesis, as a short quiz: a picture fixes the
  * meaning, the words never change, so what differs between trials is structure.
  * No results from the thesis appear here; the manuscript is in preparation.
+ *
+ * Naming follows the manuscript: the phrase "with triangles" either attaches
+ * high, modifying both nouns (a LEFT-branching parse, in which the trees and
+ * the hats both have triangles), or attaches low, modifying the second noun
+ * alone (a RIGHT-branching parse, in which only the hats do).
  */
 
-type Trial = { high: boolean };
+/** `left` is the left-branching parse: high attachment, everything has triangles. */
+type Trial = { left: boolean };
 
 // Alternating so nobody can win by always clicking the same button.
-const TRIALS: Trial[] = [{ high: true }, { high: false }, { high: false }, { high: true }];
+const TRIALS: Trial[] = [{ left: true }, { left: false }, { left: false }, { left: true }];
 
 const Triangles = ({ cx, cy, show }: { cx: number; cy: number; show: boolean }) => (
   <g className="fill-amber-500" style={{ opacity: show ? 1 : 0 }}>
@@ -64,14 +71,14 @@ const Hat = ({ x, triangles }: { x: number; triangles: boolean }) => (
 
 const bracket = 'font-semibold text-fuchsia-600 dark:text-fuchsia-300';
 
-const HighBrackets = () => (
+const LeftBrackets = () => (
   <>
     I see <span className={bracket}>[</span> <span className={bracket}>[</span> trees and hats{' '}
     <span className={bracket}>]</span> with triangles <span className={bracket}>]</span>
   </>
 );
 
-const LowBrackets = () => (
+const RightBrackets = () => (
   <>
     I see <span className={bracket}>[</span> trees and <span className={bracket}>[</span> hats with
     triangles <span className={bracket}>]</span> <span className={bracket}>]</span>
@@ -85,12 +92,12 @@ const SyntaxToy = () => {
 
   const trial = TRIALS[i];
   const done = i >= TRIALS.length;
-  const correct = answer !== null && answer === trial?.high;
+  const correct = answer !== null && answer === trial?.left;
 
-  const choose = (high: boolean) => {
+  const choose = (left: boolean) => {
     if (answer !== null) return;
-    setAnswer(high);
-    if (high === trial.high) setScore((s) => s + 1);
+    setAnswer(left);
+    if (left === trial.left) setScore((s) => s + 1);
   };
 
   const next = () => {
@@ -115,7 +122,7 @@ const SyntaxToy = () => {
             {score} of {TRIALS.length}
           </p>
           <p className="mx-auto mt-2 max-w-sm text-sm text-text-secondary">
-            Identical words and word order throughout. Only the attachment height changed.
+            Identical words and word order throughout. Only the branching changed.
           </p>
           <button type="button" onClick={restart} className={`${pill()} mt-4`}>
             Go again
@@ -132,14 +139,14 @@ const SyntaxToy = () => {
             viewBox="0 0 400 125"
             role="img"
             aria-label={
-              trial.high
+              trial.left
                 ? 'Two trees with triangles and two hats with triangles'
                 : 'Two plain trees and two hats with triangles'
             }
             className="mx-auto mt-3 w-full max-w-md"
           >
-            <Tree x={48} triangles={trial.high} />
-            <Tree x={126} triangles={trial.high} />
+            <Tree x={48} triangles={trial.left} />
+            <Tree x={126} triangles={trial.left} />
             <Hat x={248} triangles />
             <Hat x={340} triangles />
           </svg>
@@ -149,14 +156,14 @@ const SyntaxToy = () => {
           </p>
 
           <div className="mt-3 grid gap-2 sm:grid-cols-2">
-            {[true, false].map((high) => {
-              const chosen = answer === high;
-              const isRight = high === trial.high;
+            {[true, false].map((left) => {
+              const chosen = answer === left;
+              const isRight = left === trial.left;
               return (
                 <button
-                  key={String(high)}
+                  key={String(left)}
                   type="button"
-                  onClick={() => choose(high)}
+                  onClick={() => choose(left)}
                   disabled={answer !== null}
                   className={`rounded-lg border p-3 text-left transition ${
                     answer === null
@@ -169,10 +176,10 @@ const SyntaxToy = () => {
                   }`}
                 >
                   <span className="block text-sm font-medium text-text-primary">
-                    {high ? 'High attachment' : 'Low attachment'}
+                    {left ? 'Left-branching' : 'Right-branching'}
                   </span>
                   <span className="mt-1 block font-mono text-[11px] leading-relaxed text-text-secondary">
-                    {high ? <HighBrackets /> : <LowBrackets />}
+                    {left ? <LeftBrackets /> : <RightBrackets />}
                   </span>
                 </button>
               );
@@ -184,10 +191,13 @@ const SyntaxToy = () => {
               <div className="animate-fade-in rounded-lg bg-surface px-4 py-3">
                 <p className="text-sm text-text-primary">
                   {correct ? 'Correct.' : 'Incorrect.'}{' '}
-                  {trial.high
-                    ? 'The prepositional phrase modifies both nouns, so it attaches high.'
-                    : 'The prepositional phrase modifies the second noun only, so it attaches low.'}
+                  {trial.left
+                    ? 'The prepositional phrase attaches high, modifying both nouns: a left-branching parse.'
+                    : 'The prepositional phrase attaches low, modifying the second noun alone: a right-branching parse.'}
                 </p>
+                <div className="mt-3 rounded-md bg-background px-3 py-3">
+                  <SyntaxTree branching={trial.left ? 'left' : 'right'} />
+                </div>
                 <button type="button" onClick={next} className={`${pill()} mt-3`}>
                   {i === TRIALS.length - 1 ? 'See how you did' : 'Next picture'}
                 </button>
