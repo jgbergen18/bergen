@@ -160,7 +160,7 @@ const skills: { label: string; items: string }[] = [
 ];
 
 const Entry = ({ title, org, dates, href, bullets }: Role) => (
-  <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
+  <div className="border-l-2 border-border pl-4 bg-surface p-4 rounded">
     <div className="flex justify-between items-baseline mb-1 gap-4">
       <h3 className="font-semibold text-text-primary">
         {href ? (
@@ -242,7 +242,7 @@ const CV = () => {
           </div>
 
           {/* Research interests */}
-          <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+          <div className="bg-surface border border-border-subtle rounded-lg p-4">
             <p className="text-foreground text-sm leading-relaxed">
               <span className="font-semibold">Research interests: </span>
               Understanding the mechanisms of neurodegenerative disease and developing treatments for it,
@@ -272,7 +272,7 @@ const CV = () => {
             Education
           </h2>
           <div className="space-y-4">
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
+            <div className="border-l-2 border-border pl-4 bg-surface p-4 rounded">
               <div className="flex justify-between items-baseline mb-1 gap-4">
                 <h3 className="font-semibold text-text-primary">MSc Neuroscience & Data Science, Erasmus Mundus Joint Master</h3>
                 <span className="text-sm text-text-muted font-medium whitespace-nowrap">2024 – 2026</span>
@@ -286,7 +286,7 @@ const CV = () => {
                 Signal and Data Analysis in Neuroscience, Theories on Neural Networks and Machine Learning
               </p>
             </div>
-            <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
+            <div className="border-l-2 border-border pl-4 bg-surface p-4 rounded">
               <div className="flex justify-between items-baseline mb-1 gap-4">
                 <h3 className="font-semibold text-text-primary">BA Computer Science & Neuroscience</h3>
                 <span className="text-sm text-text-muted font-medium whitespace-nowrap">2019 – 2023</span>
@@ -311,7 +311,7 @@ const CV = () => {
             <Award className="w-6 h-6 text-primary" aria-hidden="true" />
             Honors & Awards
           </h2>
-          <div className="space-y-2 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
+          <div className="space-y-2 text-sm bg-surface p-5 rounded-lg border border-border-subtle">
             <p className="flex justify-between gap-4">
               <span className="text-foreground">Erasmus Mundus Joint Master Scholarship, European Commission</span>
               <span className="text-text-muted font-medium whitespace-nowrap">2024 – 2026</span>
@@ -329,7 +329,7 @@ const CV = () => {
             <FileText className="w-6 h-6 text-primary" aria-hidden="true" />
             Publications & Manuscripts
           </h2>
-          <ol className="space-y-3 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20 list-decimal list-outside ml-4">
+          <ol className="space-y-3 text-sm bg-surface p-5 rounded-lg border border-border-subtle list-decimal list-outside ml-4">
             <li className="pl-1 text-foreground/90">
               Garretti F, Monahan C, Sloan N, <span className="font-semibold text-foreground">Bergen J</span>, Shahriar S, Kim SW,
               Sette A, Cutforth T, Kanter E, Agalliu D, Sulzer D (2023). Interaction of an α-synuclein epitope with HLA-DRB1*15:01
