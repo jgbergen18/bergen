@@ -112,7 +112,7 @@ const researchRoles: Role[] = [
     dates: 'Sep 2024 – Jan 2026',
     href: 'https://arxiv.org/abs/2606.11379',
     bullets: [
-      'Built an AI mediator as a pipeline of GPT-4 modules for dialogue, preference prediction, response critique, and summarization, delivered through a React/TypeScript and Supabase platform',
+      'Built an AI mediator as a pipeline of GPT-4o modules for dialogue, preference prediction, response critique, and summarization, delivered through a React/TypeScript and Supabase platform',
       'Designed and ran two IRB-approved human-subjects experiments (n = 38, n = 22) against professional human mediators; the system predicted participants’ preferences with 36% lower RMSE and matched the mediators on self-reported trust and confidence',
       'Quantified affirming language in conversation transcripts (36.6% of AI messages vs. 18.9% for human mediators) and reduced it to 16.8% through prompt refinement; first author of the resulting preprint',
     ],
@@ -198,15 +198,17 @@ const CV = () => {
   return <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Back Button */}
-      <div className="fixed top-24 left-6 z-50">
+      {/* Back button. Fixed, so it only appears from md up, where the layout has
+          a left gutter to put it in; at phone width it sat on top of the CV text
+          at every scroll position. The header provides navigation below that. */}
+      <div className="hidden md:block fixed top-24 left-6 z-50">
         <Button
           variant="outline"
           size="sm"
           className="shadow-lg"
           onClick={handleBack}
         >
-          <ArrowLeft className="w-4 h-4 mr-2" />
+          <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
           Back
         </Button>
       </div>

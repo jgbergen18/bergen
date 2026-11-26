@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import profilePhoto from '../assets/profile-photo.jpg';
+import profilePhoto from '../assets/profile-photo.webp';
 
 const About = () => {
   return (
@@ -42,8 +42,10 @@ const About = () => {
             <img
               src={profilePhoto}
               alt="Jamie Bergen"
-              width={1000}
-              height={1000}
+              width={680}
+              height={680}
+              loading="lazy"
+              decoding="async"
               className="aspect-square w-full object-cover"
             />
           </div>

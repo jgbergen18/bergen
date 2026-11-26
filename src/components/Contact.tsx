@@ -1,5 +1,5 @@
 import { Mail, Github, Fingerprint } from 'lucide-react';
-import contactPhoto from '../assets/contact-photo.jpg';
+import contactPhoto from '../assets/contact-photo.webp';
 
 const Contact = () => {
   return (
@@ -48,8 +48,8 @@ const Contact = () => {
           <img
             src={contactPhoto}
             alt="Jamie Bergen pointing at a white thread installation hung with sheet music"
-            width={720}
-            height={960}
+            width={432}
+            height={576}
             loading="lazy"
             className="h-auto max-h-96 w-auto max-w-full rounded-xl border border-border-subtle object-cover"
           />

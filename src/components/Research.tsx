@@ -52,7 +52,7 @@ const chapters: Chapter[] = [
     pi: 'Sarit Kraus',
     question: 'Can an LLM pipeline deliver pre-mediation?',
     summary:
-      "I built an AI mediator as a pipeline of GPT-4 modules for dialogue, preference prediction, critique and summarization, then evaluated it against professional human mediators in two IRB-approved experiments (n = 38, n = 22). It predicted participants' preferences with 36% lower RMSE.",
+      "I built an AI mediator as a pipeline of GPT-4o modules for dialogue, preference prediction, critique and summarization, then evaluated it against professional human mediators in two IRB-approved experiments (n = 38, n = 22). It predicted participants' preferences with 36% lower RMSE.",
     methods: ['LLM pipelines', 'Human-subjects experiments', 'React / TypeScript'],
     link: { href: 'https://arxiv.org/abs/2606.11379', label: 'Preprint, arXiv:2606.11379' },
     figure: <CriticToy />,

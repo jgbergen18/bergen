@@ -461,6 +461,7 @@ const Neuron = () => {
             stepRef.current = v[0];
           }}
           aria-label="Injected current per click"
+          valueText={`${Math.round(step * 1000)} picoamps`}
         />
       </div>
 

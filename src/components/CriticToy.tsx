@@ -93,10 +93,11 @@ const CriticToy = () => {
             {score} of {CARDS.length}
           </p>
           <p className="mx-auto mt-2 max-w-md text-center text-sm text-text-secondary">
-            Each reply passes review in isolation: the Study 1 critic rejected only 2.6% of
-            messages. Cumulatively the system affirmed participants at 36.6% against 18.9% for human
-            mediators, and those participants rated the disputed issues as more important
-            afterward.
+            The criteria you just applied are Study 2's; that critic rejected 22.2% of messages.
+            Study 1's rejected 2.6%, so affirming replies passed one at a time. Across whole
+            conversations the system affirmed at 36.6% against 18.9% for human mediators, and its
+            participants left rating the disputed issues more important, where the mediators'
+            participants left rating them less.
           </p>
 
           {/* affirmation rates: real numbers from the two studies */}
