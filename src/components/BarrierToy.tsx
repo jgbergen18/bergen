@@ -93,14 +93,14 @@ const BarrierToy = () => {
               <div
                 className={`h-9 flex-1 rounded-md border-2 transition-colors duration-300 ${
                   leaky
-                    ? 'border-amber-500/70 bg-amber-500/10'
-                    : 'border-emerald-600/70 bg-emerald-500/15'
+                    ? 'border-viz-2/70 bg-viz-2/10'
+                    : 'border-viz-3/70 bg-viz-3/15'
                 }`}
               />
               {i < CELLS - 1 && (
                 <div
                   className={`h-9 shrink-0 transition-all duration-300 ${
-                    leaky && GAPS.has(i) ? 'w-4 bg-transparent' : 'w-1.5 bg-emerald-600/70'
+                    leaky && GAPS.has(i) ? 'w-4 bg-transparent' : 'w-1.5 bg-viz-3/70'
                   }`}
                 />
               )}
@@ -115,7 +115,7 @@ const BarrierToy = () => {
           return (
             <span
               key={i}
-              className="absolute h-2.5 w-2.5 rounded-full bg-fuchsia-500"
+              className="absolute h-2.5 w-2.5 rounded-full bg-viz-4"
               style={{
                 left: `${t.left}%`,
                 top: `${top}px`,

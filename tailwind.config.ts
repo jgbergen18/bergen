@@ -28,6 +28,11 @@ export default {
           'text-secondary': "hsl(var(--text-secondary))",
           'text-muted': "hsl(var(--text-muted))",
           'border-subtle': "hsl(var(--border-subtle))",
+          // Figure data colours; see the --viz-* block in index.css.
+          'viz-1': "hsl(var(--viz-1))",
+          'viz-2': "hsl(var(--viz-2))",
+          'viz-3': "hsl(var(--viz-3))",
+          'viz-4': "hsl(var(--viz-4))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

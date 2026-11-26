@@ -103,9 +103,9 @@ const CriticToy = () => {
           {/* affirmation rates: real numbers from the two studies */}
           <div className="mx-auto mt-5 max-w-md space-y-2">
             {[
-              { name: 'AI, Study 1', value: 36.6, cls: 'bg-[#2a78d6] dark:bg-[#3987e5]' },
-              { name: 'Human mediators', value: 18.9, cls: 'bg-[#eb6834] dark:bg-[#d95926]' },
-              { name: 'AI, Study 2', value: 16.8, cls: 'bg-[#2a78d6] dark:bg-[#3987e5]' },
+              { name: 'AI, Study 1', value: 36.6, cls: 'bg-viz-1' },
+              { name: 'Human mediators', value: 18.9, cls: 'bg-viz-2' },
+              { name: 'AI, Study 2', value: 16.8, cls: 'bg-viz-1' },
             ].map((b) => (
               <div key={b.name} className="grid grid-cols-[8.5rem_1fr] items-center gap-2">
                 <span className="text-xs text-text-secondary">{b.name}</span>
@@ -153,7 +153,7 @@ const CriticToy = () => {
               disabled={choice !== null}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
                 choice !== null && card.approve
-                  ? 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 ring-1 ring-emerald-500/50'
+                  ? 'bg-primary/15 text-text-primary ring-1 ring-primary/50'
                   : 'border border-border text-text-primary hover:bg-surface disabled:opacity-40'
               }`}
             >
@@ -165,7 +165,7 @@ const CriticToy = () => {
               disabled={choice !== null}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
                 choice !== null && !card.approve
-                  ? 'bg-rose-500/15 text-rose-800 dark:text-rose-200 ring-1 ring-rose-500/50'
+                  ? 'bg-destructive/15 text-text-primary ring-1 ring-destructive/50'
                   : 'border border-border text-text-primary hover:bg-surface disabled:opacity-40'
               }`}
             >

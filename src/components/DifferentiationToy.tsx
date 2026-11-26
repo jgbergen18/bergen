@@ -79,16 +79,16 @@ const fates = {
     short: 'VMH',
     progenitors: 'Anterior tuberal progenitors (SHH, NR5A1, SOX14)',
     cells: ['NR5A1 / SOX14 / GPR149 neurons', 'POMC neurons (VMH subtype)', 'Astrocytes'],
-    ring: 'border-sky-500/50 bg-sky-500/10',
-    chip: 'bg-sky-500/15 text-sky-800 dark:text-sky-200',
+    ring: 'border-viz-1/50 bg-viz-1/10',
+    chip: 'bg-viz-1/15 text-text-primary',
   },
   arc: {
     region: 'Arcuate nucleus',
     short: 'ARC',
     progenitors: 'Posterior tuberal progenitors (RAX, TBX3, FGF10)',
     cells: ['AGRP neurons (orexigenic)', 'POMC neurons (anorexigenic)', 'Tanycytes'],
-    ring: 'border-emerald-500/50 bg-emerald-500/10',
-    chip: 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200',
+    ring: 'border-viz-3/50 bg-viz-3/10',
+    chip: 'bg-viz-3/15 text-text-primary',
   },
 } as const;
 
@@ -183,13 +183,13 @@ const DifferentiationToy = ({ defaultOpen = false }: { defaultOpen?: boolean }) 
               <div className="relative h-4">
                 {f.isBmp && option.end !== null && (
                   <div
-                    className="absolute inset-y-0.5 rounded-full border border-dashed border-amber-500/40"
+                    className="absolute inset-y-0.5 rounded-full border border-dashed border-viz-2/40"
                     style={{ left: `${pos(5)}%`, width: `${pos(option.end) - pos(5)}%` }}
                   />
                 )}
                 <div
                   className={`absolute inset-y-0.5 rounded-full ${
-                    f.isBmp ? 'bg-amber-500' : 'bg-text-muted/40'
+                    f.isBmp ? 'bg-viz-2' : 'bg-text-muted/40'
                   }`}
                   style={{ left: `${pos(f.from)}%`, width: `${width}%` }}
                 />

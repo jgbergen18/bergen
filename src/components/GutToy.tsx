@@ -235,7 +235,7 @@ const GutToy = () => {
           width={384}
           height={86}
           rx={16}
-          className="fill-rose-500/10 stroke-rose-400/60"
+          className="fill-viz-2/10 stroke-viz-2/40"
           strokeWidth={1.5}
         />
         {spots.map((n, i) => (
@@ -244,8 +244,8 @@ const GutToy = () => {
             className="transition-opacity duration-700"
             style={{ opacity: lost.has(i) ? 0.15 : 1 }}
           >
-            <circle cx={n.x} cy={n.y} r={8} className="fill-emerald-500 dark:fill-emerald-400" />
-            <circle cx={n.x} cy={n.y} r={3} className="fill-emerald-900/50" />
+            <circle cx={n.x} cy={n.y} r={8} className="fill-viz-3" />
+            <circle cx={n.x} cy={n.y} r={3} className="fill-background/50" />
           </g>
         ))}
         {tcellSpots.map(([x, y], i) => (
@@ -254,7 +254,7 @@ const GutToy = () => {
             cx={x}
             cy={y}
             r={5}
-            className="fill-fuchsia-500 stroke-background transition-opacity duration-700"
+            className="fill-viz-4 stroke-background transition-opacity duration-700"
             strokeWidth={2}
             style={{ opacity: i < tcells ? 1 : 0 }}
           />
@@ -262,10 +262,10 @@ const GutToy = () => {
       </svg>
       <ul className="mt-1 flex flex-wrap justify-center gap-x-5 gap-y-1 text-[11px] text-text-secondary">
         <li className="inline-flex items-center gap-1.5">
-          <span className="inline-block h-3 w-3 rounded-full bg-emerald-500" /> Enteric neuron
+          <span className="inline-block h-3 w-3 rounded-full bg-viz-3" /> Enteric neuron
         </li>
         <li className="inline-flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-fuchsia-500" /> T cell
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-viz-4" /> T cell
         </li>
       </ul>
 

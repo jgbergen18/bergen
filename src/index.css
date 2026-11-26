@@ -106,6 +106,20 @@
     --input: 38 28% 93%;
     --ring: 152 42% 24%;
 
+    /* Figure data colours. A fixed four-slot categorical order, assigned by
+       entity and never cycled, so the same thing keeps the same colour across
+       figures. Picked by search against the dataviz checks rather than by eye:
+       every pair clears ΔE 8 under simulated protan and deutan (worst 11.5)
+       and ΔE 15 under normal vision (worst 19.5), all sit in the light
+       lightness band, and all clear 3:1 against the figure card. Muted on
+       purpose — these are printed-plate colours, not dashboard colours.
+       Every pair but blue/mauve co-occurs in some figure, so they are
+       validated as all pairs, not just adjacent ones. */
+    --viz-1: 206 67% 33%;  /* Prussian blue */
+    --viz-2: 16 52% 35%;   /* burnt sienna */
+    --viz-3: 110 27% 42%;  /* sage */
+    --viz-4: 289 26% 56%;  /* mauve */
+
     --radius: 0.1875rem;
 
     /* Transitions */
@@ -155,6 +169,20 @@
 
     --input: 25 12% 14%;
     --ring: 150 38% 58%;
+
+    /* Dark figure colours are selected against the dark ground, not flipped
+       from the light ones: same four hue families, re-stepped into the dark
+       lightness band and re-validated against the surface the figures
+       actually sit on (the card, hsl(25 11% 16%)) rather than the page
+       behind it — on the card they have to work harder to clear 3:1, which
+       is why these sit lighter than their light-mode counterparts.
+       Worst pair ΔE 8.9 simulated, 17.2 normal. --viz-2 is a step lighter
+       than the search returned: at the darker step the sienna measured
+       2.98:1 on the card, just under the 3:1 a non-text mark needs. */
+    --viz-1: 206 77% 56%;
+    --viz-2: 23 60% 44%;
+    --viz-3: 109 29% 51%;
+    --viz-4: 304 33% 53%;
   }
 }
 

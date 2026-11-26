@@ -21,7 +21,7 @@ type Trial = { left: boolean };
 const TRIALS: Trial[] = [{ left: true }, { left: false }, { left: false }, { left: true }];
 
 const Triangles = ({ cx, cy, show }: { cx: number; cy: number; show: boolean }) => (
-  <g className="fill-amber-500" style={{ opacity: show ? 1 : 0 }}>
+  <g className="fill-viz-2" style={{ opacity: show ? 1 : 0 }}>
     {[-9, 0, 9].map((dx, i) => (
       <polygon
         key={dx}
@@ -33,12 +33,12 @@ const Triangles = ({ cx, cy, show }: { cx: number; cy: number; show: boolean }) 
 
 const Tree = ({ x, triangles }: { x: number; triangles: boolean }) => (
   <g>
-    <rect x={x - 4} y={84} width={8} height={34} rx={2} className="fill-stone-400 dark:fill-stone-500" />
+    <rect x={x - 4} y={84} width={8} height={34} rx={2} className="fill-text-muted" />
     <circle
       cx={x}
       cy={62}
       r={28}
-      className="fill-emerald-500/25 stroke-emerald-600 dark:stroke-emerald-400"
+      className="fill-viz-3/25 stroke-viz-3"
       strokeWidth={2}
     />
     <Triangles cx={x} cy={62} show={triangles} />
@@ -52,24 +52,27 @@ const Hat = ({ x, triangles }: { x: number; triangles: boolean }) => (
       cy={110}
       rx={36}
       ry={7}
-      className="fill-sky-500/40 stroke-sky-600 dark:stroke-sky-400"
+      className="fill-viz-1/40 stroke-viz-1"
       strokeWidth={2}
     />
     <path
       d={`M ${x - 22} 108 L ${x - 19} 46 Q ${x} 39 ${x + 19} 46 L ${x + 22} 108 Z`}
-      className="fill-sky-100 stroke-sky-600 dark:fill-sky-950 dark:stroke-sky-400"
+      className="fill-viz-1/20 stroke-viz-1"
       strokeWidth={2}
       strokeLinejoin="round"
     />
     <path
       d={`M ${x - 21.7} 100 L ${x + 21.7} 100 L ${x + 22} 108 L ${x - 22} 108 Z`}
-      className="fill-sky-600 dark:fill-sky-400"
+      className="fill-viz-1"
     />
     <Triangles cx={x} cy={74} show={triangles} />
   </g>
 );
 
-const bracket = 'font-semibold text-fuchsia-600 dark:text-fuchsia-300';
+// The brackets mark structure rather than naming a series, so they wear the
+// page accent. At text size they need 4.5:1, which the mauve data colour
+// does not reach on paper.
+const bracket = 'font-semibold text-primary';
 
 const LeftBrackets = () => (
   <>
@@ -169,9 +172,9 @@ const SyntaxToy = () => {
                     answer === null
                       ? 'border-border hover:bg-surface'
                       : isRight
-                        ? 'border-emerald-500/60 bg-emerald-500/10'
+                        ? 'border-primary/60 bg-primary/10'
                         : chosen
-                          ? 'border-rose-500/60 bg-rose-500/10'
+                          ? 'border-destructive/60 bg-destructive/10'
                           : 'border-border-subtle opacity-50'
                   }`}
                 >
