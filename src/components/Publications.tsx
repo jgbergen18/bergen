@@ -87,7 +87,7 @@ const Publications = () => {
                   href={pub.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-text-primary underline underline-offset-4 hover:no-underline"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary underline underline-offset-4 hover:no-underline"
                 >
                   {pub.hrefLabel}
                   <ExternalLink size={14} />

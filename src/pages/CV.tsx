@@ -162,9 +162,9 @@ const skills: { label: string; items: string }[] = [
 const Entry = ({ title, org, dates, href, bullets }: Role) => (
   <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
     <div className="flex justify-between items-baseline mb-1 gap-4">
-      <h3 className="font-semibold text-primary">
+      <h3 className="font-semibold text-text-primary">
         {href ? (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-primary/80 hover:underline">
+          <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary underline underline-offset-4 hover:no-underline">
             {title}
             <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
           </a>
@@ -172,13 +172,13 @@ const Entry = ({ title, org, dates, href, bullets }: Role) => (
           title
         )}
       </h3>
-      <span className="text-sm text-primary font-medium whitespace-nowrap">{dates}</span>
+      <span className="text-sm text-text-muted font-medium whitespace-nowrap">{dates}</span>
     </div>
     <p className="text-xs italic text-foreground/70 mb-2">{org}</p>
     <ul className="space-y-2 text-sm text-foreground/90">
       {bullets.map((b) => (
         <li key={b} className="flex gap-3">
-          <span className="text-primary mt-0.5">•</span>
+          <span className="text-text-muted mt-0.5">•</span>
           <span>{b}</span>
         </li>
       ))}
@@ -218,7 +218,7 @@ const CV = () => {
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex justify-between items-start mb-2 gap-4">
             <div>
-              <h1 className="text-4xl font-bold text-primary mb-2">Jamie Bergen</h1>
+              <h1 className="text-4xl font-bold text-text-primary mb-2">Jamie Bergen</h1>
               <p className="text-foreground text-sm flex gap-4 flex-wrap mb-3">
                 <a href="mailto:jgbergen18@gmail.com" className="flex items-center gap-1 hover:text-primary transition-colors">
                   <Mail className="w-4 h-4" aria-hidden="true" />jgbergen18@gmail.com
@@ -274,8 +274,8 @@ const CV = () => {
           <div className="space-y-4">
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1 gap-4">
-                <h3 className="font-semibold text-primary">MSc Neuroscience & Data Science, Erasmus Mundus Joint Master</h3>
-                <span className="text-sm text-primary font-medium whitespace-nowrap">2024 – 2026</span>
+                <h3 className="font-semibold text-text-primary">MSc Neuroscience & Data Science, Erasmus Mundus Joint Master</h3>
+                <span className="text-sm text-text-muted font-medium whitespace-nowrap">2024 – 2026</span>
               </div>
               <p className="text-sm text-foreground/80">Vrije Universiteit Amsterdam (Netherlands) | Bar-Ilan University (Israel)</p>
               <p className="text-sm text-foreground/80 mt-1">
@@ -288,8 +288,8 @@ const CV = () => {
             </div>
             <div className="border-l-4 border-primary pl-4 bg-primary/5 p-4 rounded">
               <div className="flex justify-between items-baseline mb-1 gap-4">
-                <h3 className="font-semibold text-primary">BA Computer Science & Neuroscience</h3>
-                <span className="text-sm text-primary font-medium whitespace-nowrap">2019 – 2023</span>
+                <h3 className="font-semibold text-text-primary">BA Computer Science & Neuroscience</h3>
+                <span className="text-sm text-text-muted font-medium whitespace-nowrap">2019 – 2023</span>
               </div>
               <p className="text-sm text-foreground/80">
                 Barnard College, Columbia University (New York, NY). Dean's List: Spring 2021, Fall 2021, Spring 2023
@@ -314,11 +314,11 @@ const CV = () => {
           <div className="space-y-2 text-sm bg-primary/5 p-5 rounded-lg border border-primary/20">
             <p className="flex justify-between gap-4">
               <span className="text-foreground">Erasmus Mundus Joint Master Scholarship, European Commission</span>
-              <span className="text-primary font-medium whitespace-nowrap">2024 – 2026</span>
+              <span className="text-text-muted font-medium whitespace-nowrap">2024 – 2026</span>
             </p>
             <p className="flex justify-between gap-4">
               <span className="text-foreground">Científico Latino Graduate Fellow</span>
-              <span className="text-primary font-medium whitespace-nowrap">2025</span>
+              <span className="text-text-muted font-medium whitespace-nowrap">2025</span>
             </p>
           </div>
         </section>
@@ -334,7 +334,7 @@ const CV = () => {
               Garretti F, Monahan C, Sloan N, <span className="font-semibold text-foreground">Bergen J</span>, Shahriar S, Kim SW,
               Sette A, Cutforth T, Kanter E, Agalliu D, Sulzer D (2023). Interaction of an α-synuclein epitope with HLA-DRB1*15:01
               triggers enteric features in mice reminiscent of prodromal Parkinson's disease. <span className="italic">Neuron</span> 111(21), 3397–3413.{' '}
-              <a href="https://doi.org/10.1016/j.neuron.2023.07.015" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              <a href="https://doi.org/10.1016/j.neuron.2023.07.015" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4 hover:no-underline">
                 doi:10.1016/j.neuron.2023.07.015
                 <ExternalLink className="inline w-3.5 h-3.5 ml-1 align-text-bottom" />
               </a>
@@ -342,7 +342,7 @@ const CV = () => {
             <li className="pl-1 text-foreground/90">
               <span className="font-semibold text-foreground">Bergen J</span>, Kraus S (2026). Automated Mediator for Human
               Negotiation: Pre-Mediation via a Structured LLM Pipeline. Preprint,{' '}
-              <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              <a href="https://arxiv.org/abs/2606.11379" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4 hover:no-underline">
                 arXiv:2606.11379
                 <ExternalLink className="inline w-3.5 h-3.5 ml-1 align-text-bottom" />
               </a>

@@ -7,7 +7,9 @@ const Contact = () => {
       <p className="eyebrow">Contact</p>
       <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">Get in touch</h2>
 
-      <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
+      {/* items-start, not items-center: centring floated the text down to the
+          middle of a 384px photo and left a hole under the heading. */}
+      <div className="mt-10 grid items-start gap-10 md:grid-cols-[1.5fr_1fr]">
         <div>
           <p className="leading-relaxed text-text-secondary">
             I am interested in human stem cell models of neurodegenerative disease and the
@@ -18,7 +20,7 @@ const Contact = () => {
           <div className="mt-6 space-y-3">
             <a
               href="mailto:jgbergen18@gmail.com"
-              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-text-primary"
+              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-primary"
             >
               <Mail size={18} />
               <span>jgbergen18@gmail.com</span>
@@ -27,7 +29,7 @@ const Contact = () => {
               href="https://orcid.org/0009-0008-1723-4133"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-text-primary"
+              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-primary"
             >
               <Fingerprint size={18} />
               <span>orcid.org/0009-0008-1723-4133</span>
@@ -36,7 +38,7 @@ const Contact = () => {
               href="https://github.com/jgbergen18"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-text-primary"
+              className="flex items-center gap-3 text-text-secondary transition-colors duration-200 hover:text-primary"
             >
               <Github size={18} />
               <span>github.com/jgbergen18</span>
@@ -51,7 +53,7 @@ const Contact = () => {
             width={432}
             height={576}
             loading="lazy"
-            className="h-auto max-h-96 w-auto max-w-full rounded-xl border border-border-subtle object-cover"
+            className="h-auto max-h-64 w-auto max-w-full rounded-xl border border-border-subtle object-cover"
           />
         </div>
       </div>

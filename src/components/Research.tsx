@@ -131,7 +131,7 @@ const Research = () => {
                           href={c.link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 font-medium text-text-primary underline underline-offset-4 hover:no-underline"
+                          className="inline-flex items-center gap-1.5 font-medium text-primary underline underline-offset-4 hover:no-underline"
                         >
                           {c.link.label}
                           <ExternalLink size={14} />
