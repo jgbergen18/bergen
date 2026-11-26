@@ -31,7 +31,8 @@ const chapters: Chapter[] = [
     summary:
       "I differentiate human pluripotent stem cells into hypothalamic neurons and am engineering two hPSC lines carrying UltraID proximity-labeling tags on ciliary proteins. I also proposed adding molecular docking (GNINA) to the lab's work on environmental risk factors for Parkinson's disease, to rank candidate toxicants before in vitro testing.",
     methods: ['hPSC culture', 'Neuronal differentiation', 'Cell line engineering', 'Molecular docking'],
-    figure: <DifferentiationToy />,
+    // The first figure opens on load; the rest stay collapsed.
+    figure: <DifferentiationToy defaultOpen />,
   },
   {
     when: 'Feb – Jul 2026',

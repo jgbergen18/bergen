@@ -92,7 +92,7 @@ const fates = {
   },
 } as const;
 
-const DifferentiationToy = () => {
+const DifferentiationToy = ({ defaultOpen = false }: { defaultOpen?: boolean }) => {
   const [choice, setChoice] = useState<OptionId>('d14');
   const [day, setDay] = useState(0);
   const [phase, setPhase] = useState<'idle' | 'running' | 'done'>('idle');
@@ -131,6 +131,7 @@ const DifferentiationToy = () => {
     <ToyFrame
       fig={1}
       title="Run the differentiation"
+      defaultOpen={defaultOpen}
       source={
         <a
           href="https://doi.org/10.1016/j.stem.2026.05.005"

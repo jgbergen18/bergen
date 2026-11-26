@@ -17,17 +17,20 @@ const ToyFrame = ({
   title,
   schematic,
   source,
+  defaultOpen = false,
   children,
 }: {
   fig: number;
   title: string;
+  /** The first figure opens on load, so a reader sees one working example. */
+  defaultOpen?: boolean;
   /** Marks a figure whose drawing illustrates a result rather than plotting data. */
   schematic?: boolean;
   /** Credit for work that is not Jamie's, e.g. a published protocol. */
   source?: ReactNode;
   children: ReactNode;
 }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const panelId = useId();
 
   return (
