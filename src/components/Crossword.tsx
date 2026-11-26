@@ -278,9 +278,13 @@ const Crossword = () => {
           </div>
 
           <div className="flex flex-wrap gap-3 mt-6 justify-center">
-            <Button variant="default" size="sm" className="px-6" onClick={() => navigate('/cv')}>
-              <FileText className="w-4 h-4 mr-2" />
-              Check CV for hints
+            {/* Opens in a new tab on purpose: navigating away unmounts the grid
+                and the reader loses every answer they have typed. */}
+            <Button variant="default" size="sm" className="px-6" asChild>
+              <a href="/cv" target="_blank" rel="noopener noreferrer">
+                <FileText className="w-4 h-4 mr-2" aria-hidden="true" />
+                Check CV for hints
+              </a>
             </Button>
             <Button onClick={handleReveal} variant="outline" size="sm" className="px-6">
               Reveal

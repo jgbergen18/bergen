@@ -22,8 +22,11 @@ const ScrollToTop = () => {
   return null;
 };
 
+// defaultTheme is "system" so that enableSystem actually does something: it was
+// "light", which meant a visitor whose OS is in dark mode still got the light
+// site. The toggle still overrides this and persists the choice.
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+  <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
     <Sonner />
     <BrowserRouter>
       <ScrollToTop />

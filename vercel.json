@@ -6,12 +6,10 @@
   ],
   "headers": [
     {
-      "comment": "Vite content-hashes everything in /assets, so a changed file gets a new name. Safe to cache forever.",
       "source": "/assets/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "comment": "Not hashed, but cheap to re-fetch and rarely changed. The favicon carries a ?v= cache-buster in index.html.",
       "source": "/(brain-favicon.png|og-image.jpg|jamie-bergen.jpg)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
     }

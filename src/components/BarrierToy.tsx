@@ -44,7 +44,11 @@ const BarrierToy = () => {
   const run = () => {
     setReleased(false);
     setSettled(false);
-    setTimeout(() => setReleased(true), 30);
+    // A 30ms timeout was not reliably long enough for the reset position to be
+    // painted, so a second press left the dots where they already were and the
+    // replay did nothing visible. Waiting two frames guarantees a paint at the
+    // start position before the transition to the end position begins.
+    requestAnimationFrame(() => requestAnimationFrame(() => setReleased(true)));
   };
 
   const leaky = state === 'leaky';
@@ -115,7 +119,13 @@ const BarrierToy = () => {
               style={{
                 left: `${t.left}%`,
                 top: `${top}px`,
-                transition: `top 1.4s cubic-bezier(0.4, 0, 0.2, 1) ${t.delay}ms`,
+                // The reset must be instantaneous. With a transition on it too,
+                // pressing replay animated the dots back to the start and then
+                // forward again from wherever they had got to, so they barely
+                // moved and the replay looked like a no-op.
+                transition: released
+                  ? `top 1.4s cubic-bezier(0.4, 0, 0.2, 1) ${t.delay}ms`
+                  : 'none',
               }}
             />
           );
