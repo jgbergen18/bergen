@@ -91,7 +91,7 @@
     --popover: 40 40% 98%;
     --popover-foreground: 25 15% 12%;
 
-    --primary: 358 52% 32%;
+    --primary: 152 42% 24%;
     --primary-foreground: 40 33% 97%;
 
     --secondary: 38 28% 93%;
@@ -104,7 +104,7 @@
     --destructive-foreground: 40 33% 97%;
 
     --input: 38 28% 93%;
-    --ring: 358 52% 32%;
+    --ring: 152 42% 24%;
 
     --radius: 0.1875rem;
 
@@ -139,7 +139,9 @@
     --popover: 25 11% 16%;
     --popover-foreground: 40 22% 94%;
 
-    --primary: 40 22% 94%;
+    /* The accent carries into dark mode too, lifted so it reads on the dark
+       ground; it was paper-white before, which meant no accent at all. */
+    --primary: 150 36% 62%;
     --primary-foreground: 25 14% 8%;
 
     --secondary: 25 12% 14%;
@@ -152,7 +154,7 @@
     --destructive-foreground: 40 22% 94%;
 
     --input: 25 12% 14%;
-    --ring: 358 60% 62%;
+    --ring: 150 38% 58%;
   }
 }
 
