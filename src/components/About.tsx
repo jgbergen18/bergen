@@ -3,7 +3,7 @@ import profilePhoto from '../assets/profile-photo.webp';
 
 const About = () => {
   return (
-    <section id="about" className="px-6 py-20 md:py-24">
+    <section id="about" className="px-6 py-14 md:py-20">
       <div className="mx-auto max-w-4xl">
         <div className="grid items-start gap-10 md:grid-cols-[3fr_2fr] md:gap-14">
           <div>
@@ -38,7 +38,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-border-subtle">
+          <div className="mx-auto w-full max-w-[240px] overflow-hidden rounded-xl border border-border-subtle md:mx-0 md:max-w-none">
             <img
               src={profilePhoto}
               alt="Jamie Bergen"

@@ -20,7 +20,7 @@ const Hero = () => {
     ));
 
   return (
-    <section className="px-6 pt-32 pb-16">
+    <section className="px-6 pt-28 pb-12">
       <div className="mx-auto max-w-4xl">
         <h1
           aria-label="Jamie Bergen"

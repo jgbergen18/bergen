@@ -52,7 +52,7 @@ const publications: Publication[] = [
 
 const Publications = () => {
   return (
-    <section id="publications" className="px-6 py-20 md:py-24">
+    <section id="publications" className="px-6 py-14 md:py-20">
       <div className="mx-auto max-w-4xl">
         <p className="eyebrow">Publications</p>
         <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">

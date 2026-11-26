@@ -196,13 +196,6 @@ const Crossword = () => {
 
   return (
     <div className="mx-auto w-full max-w-4xl">
-      <div className="mb-10">
-        <p className="eyebrow">Crossword</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
-          Seven clues, all about me
-        </h2>
-      </div>
-
       <div className="flex flex-col lg:flex-row gap-10 items-start justify-center">
         {/* Grid */}
         <div className="relative mx-auto w-full max-w-[30rem]">

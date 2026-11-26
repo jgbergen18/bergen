@@ -87,7 +87,7 @@ const tagClass =
 
 const Research = () => {
   return (
-    <section id="research" className="bg-surface px-6 py-20 md:py-24">
+    <section id="research" className="bg-surface px-6 py-14 md:py-20">
       <div className="mx-auto max-w-4xl">
         <p className="eyebrow">Research</p>
         <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
@@ -95,16 +95,18 @@ const Research = () => {
         </h2>
         <ol className="mt-12 space-y-14">
           {chapters.map((c, i) => (
-            <li key={c.lab} className="border-t border-border pt-8">
-              <div className="grid gap-x-10 gap-y-4 md:grid-cols-[11rem_1fr]">
-                <div>
-                  <p className="font-mono text-xs text-text-muted" aria-hidden="true">
+            <li key={c.lab} className="border-t border-border pt-6 md:pt-8">
+              <div className="grid gap-x-10 gap-y-3 md:grid-cols-[11rem_1fr]">
+                {/* One wrapped line on a phone, a stacked rail from md up: the
+                    stacked version cost five lines per chapter on a 390px screen. */}
+                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-sm md:block">
+                  <span className="font-mono text-xs text-text-muted md:block" aria-hidden="true">
                     {String(i + 1).padStart(2, '0')}
-                  </p>
-                  <p className="mt-1.5 text-sm font-semibold text-text-primary">{c.lab}</p>
-                  <p className="text-sm text-text-secondary">{c.place}</p>
-                  <p className="mt-1 text-xs text-text-muted">PI: {c.pi}</p>
-                  <p className="text-xs text-text-muted">{c.when}</p>
+                  </span>
+                  <span className="font-semibold text-text-primary md:mt-1.5 md:block">{c.lab}</span>
+                  <span className="text-text-secondary md:block">{c.place}</span>
+                  <span className="text-xs text-text-muted md:mt-1 md:block">PI: {c.pi}</span>
+                  <span className="text-xs text-text-muted md:block">{c.when}</span>
                 </div>
 
                 <div>

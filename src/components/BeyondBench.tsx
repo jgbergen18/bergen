@@ -18,7 +18,7 @@ const items = [
 
 const BeyondBench = () => {
   return (
-    <section id="beyond" className="bg-surface px-6 py-20 md:py-24">
+    <section id="beyond" className="bg-surface px-6 py-14 md:py-20">
       <div className="mx-auto max-w-4xl">
         <p className="eyebrow">Teaching</p>
         <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">

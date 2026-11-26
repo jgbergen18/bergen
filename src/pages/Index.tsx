@@ -7,7 +7,7 @@ import Research from '../components/Research';
 import Publications from '../components/Publications';
 import BeyondBench from '../components/BeyondBench';
 import Contact from '../components/Contact';
-import Crossword from '../components/Crossword';
+import CrosswordSection from '../components/CrosswordSection';
 import NeuronEgg from '../components/NeuronEgg';
 import { usePageMeta } from '../lib/usePageTitle';
 
@@ -31,13 +31,9 @@ const Index = () => {
         <Publications />
         <BeyondBench />
 
-        <section id="crossword" className="px-6 py-20 md:py-24">
-          <div className="mx-auto max-w-6xl">
-            <Crossword />
-          </div>
-        </section>
+        <CrosswordSection />
 
-        <section className="bg-surface px-6 py-20 md:py-24">
+        <section className="bg-surface px-6 py-14 md:py-20">
           <div className="mx-auto max-w-4xl">
             <Contact />
           </div>
