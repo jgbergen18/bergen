@@ -12,10 +12,10 @@ const NotFound = () => {
         <div className="text-center max-w-md">
           <p className="text-sm italic text-text-muted">404</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
-            This synapse didn't fire
+            Page not found
           </h1>
           <p className="mt-4 text-text-secondary leading-relaxed">
-            The signal went out, but there's nothing at this address to catch it.
+            There is nothing at this address. The link may be wrong, or the page may have moved.
           </p>
           <Link
             to="/"

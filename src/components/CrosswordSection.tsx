@@ -14,7 +14,7 @@ const CrosswordSection = () => {
       <div className="mx-auto max-w-6xl">
         <p className="eyebrow">Crossword</p>
         <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
-          Seven clues, all about me
+          Seven clues from my CV
         </h2>
 
         <button

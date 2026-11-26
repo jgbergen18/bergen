@@ -20,7 +20,7 @@ const COLS = 10;
 // Numbered in standard crossword order (left to right, top to bottom).
 const WORDS: Word[] = [
   { num: 1, dir: 'across', row: 0, col: 7, answer: 'LAB', clue: 'Kirkeby ___, where Jamie grows stem cells in Copenhagen' },
-  { num: 6, dir: 'across', row: 3, col: 4, answer: 'NEURON', clue: "Journal that published Jamie's Parkinson's work, and the cell you can click at the top of this page" },
+  { num: 6, dir: 'across', row: 3, col: 4, answer: 'NEURON', clue: "Journal that published Jamie's Parkinson's work, and the cell you can click at the bottom of this page" },
   { num: 7, dir: 'across', row: 6, col: 0, answer: 'CODEX', clue: 'Coding program Jamie runs for Ukrainian high school students (ignore the dot)' },
   { num: 2, dir: 'down', row: 0, col: 9, answer: 'BARNARD', clue: 'College where Jamie studied neuroscience and computer science' },
   { num: 3, dir: 'down', row: 1, col: 4, answer: 'SYNTAX', clue: "Sentence structure, the subject of Jamie's MSc thesis" },

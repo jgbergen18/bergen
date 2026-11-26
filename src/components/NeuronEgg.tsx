@@ -44,7 +44,7 @@ const NeuronEgg = () => {
             strokeLinecap="round"
           />
         </svg>
-        {open ? 'hide the neuron' : 'poke a neuron'}
+        {open ? 'Hide the neuron' : 'Show the neuron'}
       </button>
 
       {open && (
@@ -56,7 +56,7 @@ const NeuronEgg = () => {
           <Neuron compact />
           <p className="mt-3 text-center text-xs leading-relaxed text-text-muted">
             A leaky integrate-and-fire neuron. Current builds and leaks away; past threshold it
-            fires and the spike runs down the axon. Not my research, just a nice thing to click.
+            fires and the spike runs down the axon. Not my research.
           </p>
         </div>
       )}
