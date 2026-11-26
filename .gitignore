@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private documents. This repository is public, so no PDF is tracked unless it
+# is deliberately published from public/. Written as a generic rule on purpose:
+# .gitignore is world-readable, so it must not name private folders.
+*.pdf
+!public/*.pdf
