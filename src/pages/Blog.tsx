@@ -1406,11 +1406,13 @@ const Blog = () => {
               Reading Log
             </h1>
             <p className="text-lg text-text-secondary leading-relaxed">
-              My monthly reading adventures - the good, the bad, and the just okay. Honest thoughts on everything I pick up. 📚 
+              Everything I read, by month, with ratings and the occasional note.
             </p>
-            <p className="text-sm italic text-text-muted max-w-3xl">Colors are scaled to New York City's average monthly high temp for the month and year the books were read</p>
-            <p className="text-sm italic text-text-muted max-w-3xl">
-              Data source: 
+            <p className="text-sm text-text-muted max-w-3xl">
+              Each month is colored by New York City's average daily high that month, cold to warm.
+            </p>
+            <p className="text-sm text-text-muted max-w-3xl">
+              Temperatures from the{' '}
               <a href="https://mesonet1.agron.iastate.edu/sites/monthlysum.php?network=NY_DCP&station=WTCN6&utm_" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
                 Iowa State Mesonet
               </a>
@@ -1429,7 +1431,7 @@ const Blog = () => {
                         Top 10 Books of 2025
                       </h2>
                       <p className="text-text-secondary text-sm">
-                        My favorite reads from an incredible year of books
+                        My ten best of 2025
                       </p>
                     </div>
                     <div className="text-text-secondary hover:text-text-primary transition-colors">
@@ -1469,12 +1471,7 @@ const Blog = () => {
                       ))}
                     </div>
                     
-                    <div className="mt-6 p-4 bg-muted rounded-lg border border-border-subtle">
-                      <p className="text-text-secondary text-sm leading-relaxed">
-                        <strong className="font-medium text-text-primary">Reflection:</strong> 2025 was an extraordinary year for reading! These ten books challenged my perspectives, moved me deeply, and expanded my understanding of the world.
-                      </p>
-                    </div>
-                  </div>
+</div>
                 </CollapsibleContent>
               </div>
             </Collapsible>
@@ -1489,7 +1486,7 @@ const Blog = () => {
                         Top 10 Books of 2024
                       </h2>
                       <p className="text-text-secondary text-sm">
-                        My favorite reads from an incredible year of books
+                        My ten best of 2024
                       </p>
                     </div>
                     <div className="text-text-secondary hover:text-text-primary transition-colors">
@@ -1544,12 +1541,7 @@ const Blog = () => {
                       ))}
                     </div>
                     
-                    <div className="mt-6 p-4 bg-muted rounded-lg border border-border-subtle">
-                      <p className="text-text-secondary text-sm leading-relaxed">
-                        <strong className="font-medium text-text-primary">Reflection:</strong> 2024 was an extraordinary year for reading! These ten books challenged my perspectives, moved me deeply, and expanded my understanding of the world. From Emma Donoghue's gripping historical fiction to Kate Beaton's powerful memoir, each book on this list earned its place through exceptional storytelling and lasting impact.
-                      </p>
-                    </div>
-                  </div>
+</div>
                 </CollapsibleContent>
               </div>
             </Collapsible>
