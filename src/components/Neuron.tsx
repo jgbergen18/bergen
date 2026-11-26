@@ -19,7 +19,7 @@ interface Seg {
  * depolarize / repolarize / afterhyperpolarization waveform on a mV axis) that
  * propagates saltatorily down the myelinated axon to a downstream cell.
  */
-const Neuron = () => {
+const Neuron = ({ compact = false }: { compact?: boolean }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const injectRef = useRef<() => void>(() => {});
   const stepRef = useRef(0.16);
@@ -446,7 +446,7 @@ const Neuron = () => {
         className="w-full max-w-2xl cursor-pointer select-none"
         aria-hidden
       >
-        <canvas ref={canvasRef} className="w-full" style={{ height: 360 }} />
+        <canvas ref={canvasRef} className="w-full" style={{ height: compact ? 210 : 360 }} />
       </div>
 
       <div className="w-full max-w-xs mt-4">

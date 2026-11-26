@@ -129,7 +129,7 @@ const DifferentiationToy = () => {
 
   return (
     <ToyFrame
-      fig={2}
+      fig={1}
       title="Run the differentiation"
       source={
         <a

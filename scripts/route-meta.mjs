@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ORIGIN = 'https://jamiebergen.com';
+const ORIGIN = 'https://www.jamiebergen.com';
 const routes = JSON.parse(readFileSync(join(root, 'src/lib/routeMeta.json'), 'utf8'));
 const template = readFileSync(join(root, 'dist/index.html'), 'utf8');
 
@@ -38,6 +38,19 @@ function render(route, { title, description }) {
   html = replaceOnce(html, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${d}$2`, 'twitter:description');
   return html;
 }
+
+// Vercel serves dist/404.html, with a real 404 status, for any path that
+// matches no file. Without it the SPA rewrite answered every unknown URL with
+// the home page at HTTP 200, which search engines treat as a real page.
+const notFound = render('/404', {
+  title: 'Page not found | Jamie Bergen',
+  description: 'That page does not exist.',
+})
+  .replace('<head>', '<head><meta name="robots" content="noindex" />')
+  // A page that does not exist should not declare a canonical URL.
+  .replace(/<link rel="canonical"[^>]*>/, '');
+writeFileSync(join(root, 'dist', '404.html'), notFound);
+console.log('route-meta: wrote 404.html');
 
 let written = 0;
 for (const [route, meta] of Object.entries(routes)) {

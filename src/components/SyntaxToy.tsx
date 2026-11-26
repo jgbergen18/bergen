@@ -113,7 +113,7 @@ const SyntaxToy = () => {
 
   return (
     <ToyFrame
-      fig={3}
+      fig={2}
       title="Say the sentence"
     >
       {done ? (

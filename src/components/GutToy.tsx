@@ -169,7 +169,7 @@ const GutToy = () => {
 
   return (
     <ToyFrame
-      fig={5}
+      fig={4}
       title="Run the experiment"
       schematic
     >

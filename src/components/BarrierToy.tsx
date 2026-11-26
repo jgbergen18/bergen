@@ -55,7 +55,7 @@ const BarrierToy = () => {
 
   return (
     <ToyFrame
-      fig={6}
+      fig={5}
       title="Does the barrier hold?"
       schematic
     >

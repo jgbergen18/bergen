@@ -93,10 +93,6 @@ const Research = () => {
         <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">
           Research experience
         </h2>
-        <p className="mt-3 text-text-secondary">
-          Five labs, newest first. Each has an interactive figure.
-        </p>
-
         <ol className="mt-12 space-y-14">
           {chapters.map((c, i) => (
             <li key={c.lab} className="border-t border-border pt-8">

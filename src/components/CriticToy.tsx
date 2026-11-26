@@ -84,7 +84,7 @@ const CriticToy = () => {
 
   return (
     <ToyFrame
-      fig={4}
+      fig={3}
       title="Be the critic"
     >
       {done ? (

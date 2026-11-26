@@ -8,6 +8,7 @@ import Publications from '../components/Publications';
 import BeyondBench from '../components/BeyondBench';
 import Contact from '../components/Contact';
 import Crossword from '../components/Crossword';
+import NeuronEgg from '../components/NeuronEgg';
 import { usePageMeta } from '../lib/usePageTitle';
 
 const Index = () => {
@@ -48,6 +49,7 @@ const Index = () => {
           <p className="text-sm text-text-muted">
             © {new Date().getFullYear()} Jamie Bergen
           </p>
+          <NeuronEgg />
         </div>
       </footer>
     </div>

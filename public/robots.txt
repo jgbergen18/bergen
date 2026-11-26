@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://jamiebergen.com/sitemap.xml
+Sitemap: https://www.jamiebergen.com/sitemap.xml

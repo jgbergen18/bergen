@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { FileText, FlaskConical, Mail } from 'lucide-react';
-import Neuron from './Neuron';
 
 const Hero = () => {
   const scrollTo = (id: string) => {
@@ -63,21 +62,6 @@ const Hero = () => {
           </button>
         </div>
 
-        {/* Fig. 1: the neuron */}
-        <figure
-          id="neuron"
-          className="mt-14 rounded-xl border border-border-subtle bg-surface p-4 sm:p-6"
-        >
-          <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1 border-b border-border-subtle pb-3">
-            <span className="font-mono text-xs text-text-muted">Fig. 1</span>
-            <span className="text-sm font-semibold text-text-primary">
-              Leaky integrate-and-fire neuron
-            </span>
-          </div>
-          <div className="mt-4">
-            <Neuron />
-          </div>
-        </figure>
       </div>
     </section>
   );

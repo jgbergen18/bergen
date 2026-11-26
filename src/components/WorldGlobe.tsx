@@ -130,6 +130,10 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
 
     let last = 0;
 
+    // Reused across frames; see the drawing code below.
+    let gradients: { size: number; isDark: boolean; atm: CanvasGradient; disk: CanvasGradient } | null = null;
+    const dotBuckets: number[][] = Array.from({ length: 6 }, () => []);
+
     const frame = (ts: number) => {
       const t = ts / 1000;
       const dt = last ? Math.min(0.05, t - last) : 0.016;
@@ -159,37 +163,57 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
 
       ctx.clearRect(0, 0, size, size);
 
+      // The two gradients depend only on the canvas size and the theme, so they
+      // are built once and reused rather than rebuilt on every frame.
+      if (!gradients || gradients.size !== size || gradients.isDark !== isDark) {
+        const atm = ctx.createRadialGradient(cx, cy, R * 0.6, cx, cy, R * 1.25);
+        atm.addColorStop(0, 'rgba(99,102,241,0)');
+        atm.addColorStop(1, isDark ? 'rgba(99,102,241,0.18)' : 'rgba(99,102,241,0.14)');
+        const disk = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.2, cx, cy, R);
+        if (isDark) {
+          disk.addColorStop(0, '#1e293b');
+          disk.addColorStop(1, '#0b1220');
+        } else {
+          disk.addColorStop(0, '#e0efff');
+          disk.addColorStop(1, '#a9cdf2');
+        }
+        gradients = { size, isDark, atm, disk };
+      }
+
       // atmosphere glow
-      const atm = ctx.createRadialGradient(cx, cy, R * 0.6, cx, cy, R * 1.25);
-      atm.addColorStop(0, 'rgba(99,102,241,0)');
-      atm.addColorStop(1, isDark ? 'rgba(99,102,241,0.18)' : 'rgba(99,102,241,0.14)');
-      ctx.fillStyle = atm;
+      ctx.fillStyle = gradients.atm;
       ctx.beginPath();
       ctx.arc(cx, cy, R * 1.25, 0, Math.PI * 2);
       ctx.fill();
 
       // ocean disk
-      const disk = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.2, cx, cy, R);
-      if (isDark) {
-        disk.addColorStop(0, '#1e293b');
-        disk.addColorStop(1, '#0b1220');
-      } else {
-        disk.addColorStop(0, '#e0efff');
-        disk.addColorStop(1, '#a9cdf2');
-      }
-      ctx.fillStyle = disk;
+      ctx.fillStyle = gradients.disk;
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
       ctx.fill();
 
-      // dotted continents
+      // Dotted continents. Each dot's alpha comes from its depth, so drawing
+      // them individually meant ~1,240 fillStyle changes and fills per frame.
+      // Quantising alpha into a few buckets lets each bucket be one path and
+      // one fill, which is the same picture for a fraction of the work.
+      const BUCKETS = 6;
+      for (const bucket of dotBuckets) bucket.length = 0;
       for (const d of landDots) {
         const p = project(d.latR, d.lngR);
         if (p.depth <= 0.02) continue;
-        const a = 0.4 + p.depth * 0.55;
+        const bi = Math.min(BUCKETS - 1, Math.max(0, Math.round(p.depth * (BUCKETS - 1))));
+        dotBuckets[bi].push(p.sx, p.sy);
+      }
+      for (let bi = 0; bi < BUCKETS; bi++) {
+        const coords = dotBuckets[bi];
+        if (!coords.length) continue;
+        const a = 0.4 + (bi / (BUCKETS - 1)) * 0.55;
         ctx.fillStyle = isDark ? `rgba(134,239,172,${a})` : `rgba(74,168,110,${a})`;
         ctx.beginPath();
-        ctx.arc(p.sx, p.sy, 1.15, 0, Math.PI * 2);
+        for (let k = 0; k < coords.length; k += 2) {
+          ctx.moveTo(coords[k] + 1.15, coords[k + 1]);
+          ctx.arc(coords[k], coords[k + 1], 1.15, 0, Math.PI * 2);
+        }
         ctx.fill();
       }
 

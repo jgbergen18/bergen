@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import routeMeta from './routeMeta.json';
 
 const SITE = 'Jamie Bergen';
-const ORIGIN = 'https://jamiebergen.com';
+const ORIGIN = 'https://www.jamiebergen.com';
 
 export type KnownRoute = keyof typeof routeMeta;
 

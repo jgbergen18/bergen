@@ -77,13 +77,13 @@ const readingLogData = [{
     coverUrl: ""
   }, {
     title: "Hollywood Ending",
-    author: "",
+    author: "John Green",
     review: "",
     rating: 5,
     coverUrl: ""
   }, {
     title: "As You Wake, Break the Shell",
-    author: "",
+    author: "Becky Chambers",
     review: "",
     rating: 5,
     coverUrl: ""
@@ -122,7 +122,7 @@ const readingLogData = [{
     coverUrl: ""
   }, {
     title: "Angel Down",
-    author: "",
+    author: "Daniel Kraus",
     review: "",
     rating: 3,
     coverUrl: ""
@@ -166,7 +166,7 @@ const readingLogData = [{
   month: "June 2026",
   books: [{
     title: "My Friends",
-    author: "",
+    author: "Fredrik Backman",
     review: "",
     coverUrl: ""
   }, {
@@ -176,7 +176,7 @@ const readingLogData = [{
     coverUrl: ""
   }, {
     title: "The Correspondent",
-    author: "",
+    author: "Virginia Evans",
     review: "",
     coverUrl: ""
   }]
@@ -1405,9 +1405,6 @@ const Blog = () => {
             <h1 className="text-4xl md:text-5xl font-medium text-text-primary">
               Reading Log
             </h1>
-            <p className="text-lg text-text-secondary leading-relaxed">
-              Everything I read, by month, with ratings and the occasional note.
-            </p>
             <p className="text-sm text-text-muted max-w-3xl">
               Each month is colored by New York City's average daily high that month, cold to warm.
             </p>
