@@ -249,3 +249,49 @@
     word-break: break-all;
   }
 }
+
+/* Reading log: a diverging cool-to-warm ramp keyed to the month's average
+   daily high. Temperature diverges around a middle, so this is two hues
+   with a neutral sage midpoint rather than a rainbow, desaturated enough
+   to read as tinted paper against the page ground. */
+.month-t0 { background-color: hsl(205 32% 89%); border-color: hsl(205 26% 79%); }
+.month-t0:hover { background-color: hsl(205 32% 85%); }
+:root[class~='dark'] .month-t0 { background-color: hsl(205 26% 16%); border-color: hsl(205 20% 27%); }
+:root[class~='dark'] .month-t0:hover { background-color: hsl(205 26% 20%); }
+.cover-t0 { background-image: linear-gradient(140deg, hsl(205 26% 46%), hsl(205 30% 34%)); }
+.month-t1 { background-color: hsl(199 28% 90%); border-color: hsl(199 24% 80%); }
+.month-t1:hover { background-color: hsl(199 28% 86%); }
+:root[class~='dark'] .month-t1 { background-color: hsl(199 24% 16%); border-color: hsl(199 20% 27%); }
+:root[class~='dark'] .month-t1:hover { background-color: hsl(199 24% 20%); }
+.cover-t1 { background-image: linear-gradient(140deg, hsl(199 26% 44%), hsl(199 30% 33%)); }
+.month-t2 { background-color: hsl(188 22% 91%); border-color: hsl(188 20% 81%); }
+.month-t2:hover { background-color: hsl(188 22% 87%); }
+:root[class~='dark'] .month-t2 { background-color: hsl(188 20% 16%); border-color: hsl(188 18% 26%); }
+:root[class~='dark'] .month-t2:hover { background-color: hsl(188 20% 20%); }
+.cover-t2 { background-image: linear-gradient(140deg, hsl(188 24% 40%), hsl(188 28% 30%)); }
+.month-t3 { background-color: hsl(150 16% 91%); border-color: hsl(150 16% 81%); }
+.month-t3:hover { background-color: hsl(150 16% 87%); }
+:root[class~='dark'] .month-t3 { background-color: hsl(150 16% 15%); border-color: hsl(150 16% 25%); }
+:root[class~='dark'] .month-t3:hover { background-color: hsl(150 16% 19%); }
+.cover-t3 { background-image: linear-gradient(140deg, hsl(150 20% 36%), hsl(150 24% 27%)); }
+.month-t4 { background-color: hsl(48 38% 90%); border-color: hsl(44 32% 79%); }
+.month-t4:hover { background-color: hsl(46 38% 86%); }
+:root[class~='dark'] .month-t4 { background-color: hsl(45 22% 16%); border-color: hsl(45 20% 26%); }
+:root[class~='dark'] .month-t4:hover { background-color: hsl(45 22% 20%); }
+.cover-t4 { background-image: linear-gradient(140deg, hsl(40 30% 40%), hsl(38 34% 30%)); }
+.month-t5 { background-color: hsl(36 46% 89%); border-color: hsl(34 38% 78%); }
+.month-t5:hover { background-color: hsl(35 46% 85%); }
+:root[class~='dark'] .month-t5 { background-color: hsl(34 26% 16%); border-color: hsl(34 24% 27%); }
+:root[class~='dark'] .month-t5:hover { background-color: hsl(34 26% 20%); }
+.cover-t5 { background-image: linear-gradient(140deg, hsl(32 34% 41%), hsl(30 38% 31%)); }
+.month-t6 { background-color: hsl(24 48% 88%); border-color: hsl(22 40% 77%); }
+.month-t6:hover { background-color: hsl(23 48% 84%); }
+:root[class~='dark'] .month-t6 { background-color: hsl(22 28% 17%); border-color: hsl(22 26% 28%); }
+:root[class~='dark'] .month-t6:hover { background-color: hsl(22 28% 21%); }
+.cover-t6 { background-image: linear-gradient(140deg, hsl(22 36% 42%), hsl(20 40% 32%)); }
+.month-t7 { background-color: hsl(14 46% 87%); border-color: hsl(12 40% 76%); }
+.month-t7:hover { background-color: hsl(13 46% 83%); }
+:root[class~='dark'] .month-t7 { background-color: hsl(12 30% 17%); border-color: hsl(12 28% 28%); }
+:root[class~='dark'] .month-t7:hover { background-color: hsl(12 30% 21%); }
+.cover-t7 { background-image: linear-gradient(140deg, hsl(14 38% 43%), hsl(12 42% 33%)); }
+

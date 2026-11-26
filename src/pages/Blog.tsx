@@ -45,16 +45,18 @@ const temperatureData: Record<string, number> = {
   "December 2025": 34.22
 };
 
-// Function to convert temperature to hue (cold = blue/purple, hot = red/orange)
-const getTemperatureColor = (month: string): string => {
-  const temp = temperatureData[month] || 50; // Default fallback temp
-  // Map temperature range (31-80°F) to hue range (240-0 degrees)
-  // Cold temps (31°F) = blue (240°), hot temps (80°F) = red (0°)
-  const normalizedTemp = Math.max(0, Math.min(1, (temp - 31) / (80 - 31)));
-  const hue = Math.round(240 * (1 - normalizedTemp));
-  
-  return `hsl(${hue}, 70%, 60%)`;
+/** Which step of the diverging cool-to-warm ramp a month sits on (0 = coldest). */
+const tempStep = (temp: number) => {
+  if (temp <= 35) return 0;
+  if (temp <= 40) return 1;
+  if (temp <= 50) return 2;
+  if (temp <= 60) return 3;
+  if (temp <= 70) return 4;
+  if (temp <= 75) return 5;
+  if (temp <= 80) return 6;
+  return 7;
 };
+
 const readingLogData = [{
   month: "November 2026",
   books: [{
@@ -1578,39 +1580,21 @@ const Blog = () => {
                         <div className="space-y-6 pt-6">
                           {yearLogs.map(log => {
 
-                          // Scientific temperature-to-color mapping using actual NYC data
+                          // Each month is tinted by its average daily high.
                           const getMonthBackground = (month: string) => {
                             const temp = temperatureData[month];
                             if (temp === undefined) return 'bg-surface border-border';
-                            
-                            // Light mode colors (pastels) and dark mode colors (muted darks)
-                            if (temp <= 35) return 'bg-blue-50 border-blue-200 dark:bg-blue-900/50 dark:border-blue-700';
-                            if (temp <= 40) return 'bg-blue-100 border-blue-300 dark:bg-blue-800/50 dark:border-blue-600';
-                            if (temp <= 50) return 'bg-indigo-50 border-indigo-200 dark:bg-indigo-900/50 dark:border-indigo-700';
-                            if (temp <= 60) return 'bg-purple-50 border-purple-200 dark:bg-purple-900/50 dark:border-purple-700';
-                            if (temp <= 70) return 'bg-fuchsia-50 border-fuchsia-200 dark:bg-fuchsia-900/50 dark:border-fuchsia-700';
-                            if (temp <= 75) return 'bg-pink-50 border-pink-200 dark:bg-pink-900/50 dark:border-pink-700';
-                            if (temp <= 80) return 'bg-rose-50 border-rose-200 dark:bg-rose-900/50 dark:border-rose-700';
-                            return 'bg-red-50 border-red-200 dark:bg-red-900/50 dark:border-red-700';
+                            return `month-t${tempStep(temp)}`;
                           };
 
                           const getMonthHover = (month: string) => {
                             const temp = temperatureData[month];
-                            if (temp === undefined) return 'hover:bg-surface-hover';
-                            
-                            if (temp <= 35) return 'hover:bg-blue-100 dark:hover:bg-blue-800/60';
-                            if (temp <= 40) return 'hover:bg-blue-200 dark:hover:bg-blue-700/60';
-                            if (temp <= 50) return 'hover:bg-indigo-100 dark:hover:bg-indigo-800/60';
-                            if (temp <= 60) return 'hover:bg-purple-100 dark:hover:bg-purple-800/60';
-                            if (temp <= 70) return 'hover:bg-fuchsia-100 dark:hover:bg-fuchsia-800/60';
-                            if (temp <= 75) return 'hover:bg-pink-100 dark:hover:bg-pink-800/60';
-                            if (temp <= 80) return 'hover:bg-rose-100 dark:hover:bg-rose-800/60';
-                            return 'hover:bg-red-100 dark:hover:bg-red-800/60';
+                            return temp === undefined ? 'hover:bg-surface-hover' : '';
                           };
                           
                           return (
                             <Collapsible key={log.month} open={!!openMonths[log.month]} onOpenChange={() => toggleMonth(log.month)}>
-                              <div className={`${getMonthBackground(log.month)} rounded-lg overflow-hidden shadow-sm`}>
+                              <div className={`${getMonthBackground(log.month)} rounded-lg overflow-hidden border shadow-sm`}>
                                 <CollapsibleTrigger className="w-full text-left">
                                   <div className={`flex items-center justify-between p-6 ${getMonthHover(log.month)} transition-colors cursor-pointer`}>
                                     <div className="space-y-2">
@@ -1643,76 +1627,10 @@ const Blog = () => {
                                     {/* Book List */}
                                     <div className="space-y-3 pt-4">
                                       {log.books.map((book, bookIndex) => {
-                                    // Temperature-based book cover colors using scientific scaling
-                                    const getSeasonalColor = (month: string, index: number) => {
-                                      const temp = temperatureData[month] || 50;
-                                      
-                                      // Map temperatures to color families, then select from variations
-                                      let colors: string[];
-                                      
-                                      if (temp <= 40) {
-                                        // Very Cold: Blue family
-                                        colors = [
-                                          'bg-gradient-to-br from-blue-400 to-blue-600',
-                                          'bg-gradient-to-br from-blue-500 to-blue-700',
-                                          'bg-gradient-to-br from-sky-400 to-sky-600',
-                                          'bg-gradient-to-br from-cyan-400 to-cyan-600',
-                                          'bg-gradient-to-br from-blue-600 to-blue-800',
-                                          'bg-gradient-to-br from-sky-500 to-sky-700'
-                                        ];
-                                      } else if (temp <= 50) {
-                                        // Cold: Indigo family  
-                                        colors = [
-                                          'bg-gradient-to-br from-indigo-400 to-indigo-600',
-                                          'bg-gradient-to-br from-violet-400 to-violet-600', 
-                                          'bg-gradient-to-br from-indigo-500 to-indigo-700',
-                                          'bg-gradient-to-br from-blue-500 to-indigo-600',
-                                          'bg-gradient-to-br from-violet-500 to-violet-700',
-                                          'bg-gradient-to-br from-indigo-600 to-purple-600'
-                                        ];
-                                      } else if (temp <= 60) {
-                                        // Cool: Purple family
-                                        colors = [
-                                          'bg-gradient-to-br from-purple-400 to-purple-600',
-                                          'bg-gradient-to-br from-purple-500 to-purple-700',
-                                          'bg-gradient-to-br from-violet-500 to-purple-600',
-                                          'bg-gradient-to-br from-purple-600 to-purple-800',
-                                          'bg-gradient-to-br from-indigo-500 to-purple-600',
-                                          'bg-gradient-to-br from-purple-500 to-fuchsia-600'
-                                        ];
-                                      } else if (temp <= 70) {
-                                        // Moderate: Fuchsia family
-                                        colors = [
-                                          'bg-gradient-to-br from-fuchsia-400 to-fuchsia-600',
-                                          'bg-gradient-to-br from-pink-400 to-pink-600',
-                                          'bg-gradient-to-br from-fuchsia-500 to-fuchsia-700',
-                                          'bg-gradient-to-br from-pink-500 to-pink-700',
-                                          'bg-gradient-to-br from-purple-500 to-fuchsia-600',
-                                          'bg-gradient-to-br from-fuchsia-600 to-pink-600'
-                                        ];
-                                      } else if (temp <= 75) {
-                                        // Warm: Rose family
-                                        colors = [
-                                          'bg-gradient-to-br from-rose-400 to-rose-600',
-                                          'bg-gradient-to-br from-rose-500 to-rose-700',
-                                          'bg-gradient-to-br from-pink-500 to-rose-600',
-                                          'bg-gradient-to-br from-rose-600 to-red-600',
-                                          'bg-gradient-to-br from-rose-500 to-red-500',
-                                          'bg-gradient-to-br from-pink-600 to-rose-700'
-                                        ];
-                                      } else {
-                                        // Hot: Red family
-                                        colors = [
-                                          'bg-gradient-to-br from-red-400 to-red-600',
-                                          'bg-gradient-to-br from-red-500 to-red-700',
-                                          'bg-gradient-to-br from-rose-500 to-red-600',
-                                          'bg-gradient-to-br from-red-600 to-red-800',
-                                          'bg-gradient-to-br from-orange-500 to-red-600',
-                                          'bg-gradient-to-br from-red-500 to-orange-600'
-                                        ];
-                                      }
-                                      
-                                      return colors[index % colors.length];
+                                    // Placeholder covers follow the same ramp as their month.
+                                    const getSeasonalColor = (month: string) => {
+                                      const temp = temperatureData[month];
+                                      return temp === undefined ? 'bg-surface' : `cover-t${tempStep(temp)}`;
                                     };
                                     return <div key={bookIndex} className="bg-card rounded-lg p-4 flex gap-4 border border-border shadow-sm">
                                             {/* Custom Book Cover */}
@@ -1720,7 +1638,7 @@ const Blog = () => {
                                               <BookCover
                                                 title={book.title}
                                                 author={book.author}
-                                                fallbackClass={getSeasonalColor(log.month, bookIndex)}
+                                                fallbackClass={getSeasonalColor(log.month)}
                                               />
                                             </div>
                                             
