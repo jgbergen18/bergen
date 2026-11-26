@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
+import { runWhileVisible } from '@/lib/motion';
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
@@ -179,7 +180,6 @@ const Neuron = () => {
       ctx.closePath();
     };
 
-    let raf = 0;
     let last = 0;
 
     const frame = (ts: number) => {
@@ -424,12 +424,15 @@ const Neuron = () => {
         ctx.stroke();
       }
 
-      raf = requestAnimationFrame(frame);
     };
-    raf = requestAnimationFrame(frame);
+
+    // Only animates while the canvas is near the viewport and the tab is
+    // visible; draws a single frame and stops if the reader prefers reduced
+    // motion. It used to run unconditionally from mount to unmount.
+    const stopLoop = runWhileVisible(canvas, frame);
 
     return () => {
-      cancelAnimationFrame(raf);
+      stopLoop();
       ro.disconnect();
       window.removeEventListener('jamie:spike', onExternalSpike);
       if (audioCtx) audioCtx.close();

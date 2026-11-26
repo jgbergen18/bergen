@@ -201,7 +201,7 @@ const CV = () => {
       {/* Back button. Fixed, so it only appears from md up, where the layout has
           a left gutter to put it in; at phone width it sat on top of the CV text
           at every scroll position. The header provides navigation below that. */}
-      <div className="hidden md:block fixed top-24 left-6 z-50">
+      <div className="print:hidden hidden md:block fixed top-24 left-6 z-50">
         <Button
           variant="outline"
           size="sm"
@@ -233,7 +233,7 @@ const CV = () => {
                 </a>
               </p>
             </div>
-            <Button asChild size="sm" className="shadow-sm flex-shrink-0">
+            <Button asChild size="sm" className="print:hidden shadow-sm flex-shrink-0">
               <a href="/Jamie-Bergen-CV.pdf" download>
                 <Download className="w-4 h-4 mr-2" />
                 Download CV
@@ -260,7 +260,9 @@ const CV = () => {
             <MapPin className="w-6 h-6 text-primary" aria-hidden="true" />
             Where I've been
           </h2>
-          <WorldGlobe locations={cvLocations} />
+          <div className="print:hidden">
+            <WorldGlobe locations={cvLocations} />
+          </div>
         </section>
 
         {/* Education */}

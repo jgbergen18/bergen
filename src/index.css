@@ -2,7 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens. The Inter font is loaded from index.html. */
+/* Inter, self-hosted from public/fonts (SIL OFL 1.1). Only the two subsets this
+   site actually needs are declared: latin, and greek for the alpha in
+   "alpha-synuclein". unicode-range means the browser fetches greek only when a
+   glyph in that range is rendered. Ranges copied from Google's own stylesheet. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/inter-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+
+/* Design tokens. */
 
 /* Rainbow hover animation */
 @keyframes rainbow {
@@ -143,5 +166,62 @@
   /* Small uppercase label that sits above a section heading. */
   .eyebrow {
     @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-text-muted;
+  }
+}
+
+/* Readers who ask for less motion get none of the decorative kind: the rainbow
+   hover, the celebration bounce, fade-ins, the protocol timeline filling and
+   the tracer crossing the barrier. The canvas figures check this in JS and draw
+   a single static frame instead of running their animation loop. Outcomes are
+   never withheld - everything still reaches its final state, instantly. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* The CV is the page people print. Without this, printing in dark mode gives
+   either near-black pages or, with background graphics off, pale text on white
+   at about 1:1 contrast. Force the light tokens and drop screen-only furniture. */
+@media print {
+  :root,
+  .dark {
+    --background: 0 0% 100%;
+    --card: 0 0% 100%;
+    --surface: 0 0% 100%;
+    --surface-hover: 0 0% 100%;
+    --muted: 0 0% 100%;
+    --secondary: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --text-primary: 0 0% 10%;
+    --text-secondary: 0 0% 25%;
+    --text-muted: 0 0% 38%;
+    --primary: 0 0% 12%;
+    --border: 0 0% 70%;
+    --border-subtle: 0 0% 85%;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  /* Keep entries and sections from being split across a page break. */
+  section,
+  li {
+    break-inside: avoid;
+  }
+
+  /* Print the destination of outbound links, which are useless on paper. */
+  main a[href^="http"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    color: #444;
+    word-break: break-all;
   }
 }

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { GraduationCap, Briefcase } from 'lucide-react';
+import { runWhileVisible } from '@/lib/motion';
 
 export interface GlobeRole {
   type: 'school' | 'work';
@@ -127,7 +128,6 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
       return { sx: cx + x0 * R, sy: cy - y1 * R, depth: z1 };
     };
 
-    let raf = 0;
     let last = 0;
 
     const frame = (ts: number) => {
@@ -247,9 +247,10 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
         }
       });
 
-      raf = requestAnimationFrame(frame);
     };
-    raf = requestAnimationFrame(frame);
+
+    // See Neuron.tsx: this loop is gated on visibility and reduced motion.
+    const stopLoop = runWhileVisible(canvas, frame);
 
     // ---- interaction ----
     const pointAt = (clientX: number, clientY: number) => {
@@ -330,7 +331,7 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
     canvas.addEventListener('pointerleave', onLeave);
 
     return () => {
-      cancelAnimationFrame(raf);
+      stopLoop();
       ro.disconnect();
       canvas.removeEventListener('pointerdown', onDown);
       canvas.removeEventListener('pointermove', onMove);

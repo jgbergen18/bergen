@@ -10,6 +10,10 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
+      "source": "/fonts/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
       "source": "/(brain-favicon.png|og-image.jpg|jamie-bergen.jpg)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
     }
