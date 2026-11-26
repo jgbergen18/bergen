@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { GraduationCap, Briefcase } from 'lucide-react';
 import { runWhileVisible } from '@/lib/motion';
+import { vizColors } from '@/lib/vizColors';
 
 export interface GlobeRole {
   type: 'school' | 'work';
@@ -16,8 +17,7 @@ export interface GlobeLocation {
   roles: GlobeRole[];
 }
 
-const SCHOOL = '#6366f1';
-const WORK = '#f97316';
+
 
 // Simplified continent outlines as [lng, lat] perimeters, used to dot the land.
 const CONTINENTS: number[][][] = [
@@ -139,6 +139,9 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
       const dt = last ? Math.min(0.05, t - last) : 0.016;
       last = t;
       const isDark = document.documentElement.classList.contains('dark');
+      // Same figure tokens the research figures use; cached, so this is cheap
+      // per frame and re-reads only when the theme flips.
+      const C = vizColors();
       const sel = selectedRef.current;
 
       // rotation
@@ -167,15 +170,15 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
       // are built once and reused rather than rebuilt on every frame.
       if (!gradients || gradients.size !== size || gradients.isDark !== isDark) {
         const atm = ctx.createRadialGradient(cx, cy, R * 0.6, cx, cy, R * 1.25);
-        atm.addColorStop(0, 'rgba(99,102,241,0)');
-        atm.addColorStop(1, isDark ? 'rgba(99,102,241,0.18)' : 'rgba(99,102,241,0.14)');
+        atm.addColorStop(0, C.a(C.viz1, 0));
+        atm.addColorStop(1, C.a(C.viz1, isDark ? 0.18 : 0.14));
         const disk = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.2, cx, cy, R);
         if (isDark) {
-          disk.addColorStop(0, '#1e293b');
-          disk.addColorStop(1, '#0b1220');
+          disk.addColorStop(0, C.s(C.mix(C.background, C.textMuted, 0.30)));
+          disk.addColorStop(1, C.s(C.mix(C.background, C.textMuted, 0.10)));
         } else {
-          disk.addColorStop(0, '#e0efff');
-          disk.addColorStop(1, '#a9cdf2');
+          disk.addColorStop(0, C.s(C.mix(C.background, C.textMuted, 0.12)));
+          disk.addColorStop(1, C.s(C.mix(C.background, C.textMuted, 0.38)));
         }
         gradients = { size, isDark, atm, disk };
       }
@@ -208,7 +211,7 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
         const coords = dotBuckets[bi];
         if (!coords.length) continue;
         const a = 0.4 + (bi / (BUCKETS - 1)) * 0.55;
-        ctx.fillStyle = isDark ? `rgba(134,239,172,${a})` : `rgba(74,168,110,${a})`;
+        ctx.fillStyle = C.a(C.viz3, a);
         ctx.beginPath();
         for (let k = 0; k < coords.length; k += 2) {
           ctx.moveTo(coords[k] + 1.15, coords[k + 1]);
@@ -223,7 +226,7 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
         const p = project((loc.lat * Math.PI) / 180, (loc.lng * Math.PI) / 180);
         pinScreens.push({ i, sx: p.sx, sy: p.sy, depth: p.depth });
         if (p.depth <= 0) return;
-        const color = loc.roles[0].type === 'school' ? SCHOOL : WORK;
+        const color = loc.roles[0].type === 'school' ? C.hex(C.viz1) : C.hex(C.viz2);
         const isSel = sel === i;
         const isHov = hovered === i;
         const base = isSel ? 5.5 : 4.2;
@@ -240,7 +243,7 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
         // white-ringed sticker dot
         ctx.beginPath();
         ctx.arc(p.sx, p.sy, r + 1.8, 0, Math.PI * 2);
-        ctx.fillStyle = isDark ? 'rgba(255,255,255,0.92)' : '#ffffff';
+        ctx.fillStyle = C.a(C.card, 0.95);
         ctx.fill();
         ctx.beginPath();
         ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
@@ -257,15 +260,15 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
           const w = ctx.measureText(label).width;
           const lx = Math.min(Math.max(p.sx - w / 2, 4), size - w - 12);
           const ly = p.sy - r - 22;
-          ctx.fillStyle = isDark ? 'rgba(15,23,42,0.92)' : 'rgba(255,255,255,0.95)';
-          ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.08)';
+          ctx.fillStyle = C.a(C.card, 0.95);
+          ctx.strokeStyle = C.a(C.border, 0.9);
           ctx.lineWidth = 1;
           const pad = 6;
           ctx.beginPath();
           ctx.roundRect(lx - pad, ly - 13, w + pad * 2, 22, 6);
           ctx.fill();
           ctx.stroke();
-          ctx.fillStyle = isDark ? '#e2e8f0' : '#0f172a';
+          ctx.fillStyle = C.s(C.textPrimary);
           ctx.textBaseline = 'middle';
           ctx.fillText(label, lx, ly - 1);
         }
@@ -391,10 +394,10 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
         <canvas ref={canvasRef} className="w-full select-none touch-none" />
         <div className="flex items-center justify-center gap-5 mt-2 text-xs text-text-secondary">
           <span className="inline-flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full" style={{ background: SCHOOL }} /> School
+            <span className="h-2.5 w-2.5 rounded-full bg-viz-1" /> School
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full" style={{ background: WORK }} /> Work
+            <span className="h-2.5 w-2.5 rounded-full bg-viz-2" /> Work
           </span>
           <span>Drag to spin</span>
         </div>

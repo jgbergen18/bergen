@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { runWhileVisible } from '@/lib/motion';
+import { vizColors } from '@/lib/vizColors';
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
@@ -186,7 +187,6 @@ const Neuron = ({ compact = false }: { compact?: boolean }) => {
       const t = ts / 1000;
       const dt = last ? Math.min(0.05, t - last) : 0.016;
       last = t;
-      const isDark = document.documentElement.classList.contains('dark');
 
       // ---- integrate ----
       const inAP = t < apStart + apDur;
@@ -215,12 +215,16 @@ const Neuron = ({ compact = false }: { compact?: boolean }) => {
       while (spikes.length && spikes[0] < t - apTravel - 0.3) spikes.shift();
 
       // ---- colors ----
-      const line = isDark ? 'rgba(165,180,210,0.55)' : 'rgba(90,110,150,0.55)';
-      const muted = isDark ? 'rgba(165,180,210,0.3)' : 'rgba(90,110,150,0.3)';
-      const faint = isDark ? 'rgba(165,180,210,0.14)' : 'rgba(90,110,150,0.14)';
-      const myelin = isDark ? 'rgba(150,175,220,0.28)' : 'rgba(120,150,205,0.24)';
-      const warm = isDark ? '#fb923c' : '#f97316';
-      const warmGlow = isDark ? 'rgba(251,146,60,0.9)' : 'rgba(249,115,22,0.85)';
+      // Taken from the figure tokens rather than hard-coded, so the neuron
+      // stays in step with the research figures. Structure is neutral ink,
+      // the myelin sheath is the cool slot, and activity is the warm one.
+      const C = vizColors();
+      const line = C.a(C.textMuted, 0.55);
+      const muted = C.a(C.textMuted, 0.3);
+      const faint = C.a(C.textMuted, 0.14);
+      const myelin = C.a(C.viz1, 0.22);
+      const warm = C.s(C.viz2);
+      const warmGlow = C.a(C.viz2, 0.85);
 
       ctx.clearRect(0, 0, width, height);
 
@@ -238,9 +242,9 @@ const Neuron = ({ compact = false }: { compact?: boolean }) => {
       const targetX = axonEndX + 34;
 
       const vis = Math.max(0, Math.min(1, V));
-      const somaR2 = Math.round(96 + (249 - 96) * vis);
-      const somaG = Math.round(125 + (115 - 125) * vis);
-      const somaB = Math.round(180 + (22 - 180) * vis);
+      // The soma reads its membrane potential as a one-hue ramp: neutral at
+      // rest, warming toward the activity colour as charge builds.
+      const [somaR2, somaG, somaB] = C.mix(C.textMuted, C.viz2, vis);
 
       // ---- downstream cell ----
       const arrived = spikes.some((s) => t - s >= apTravel && t - s < apTravel + 0.2);
@@ -295,7 +299,7 @@ const Neuron = ({ compact = false }: { compact?: boolean }) => {
       ctx.fill();
       // myelin sheaths
       ctx.fillStyle = myelin;
-      ctx.strokeStyle = isDark ? 'rgba(150,175,220,0.4)' : 'rgba(120,150,205,0.4)';
+      ctx.strokeStyle = C.a(C.viz1, 0.35);
       ctx.lineWidth = 1;
       for (let i = 0; i < nInter; i++) {
         const sx = axonStartX + i * (segW + gap);
@@ -307,7 +311,8 @@ const Neuron = ({ compact = false }: { compact?: boolean }) => {
 
       // ---- soma ----
       blobPath(somaX, cy, somaPts);
-      ctx.fillStyle = firing ? '#fde047' : `rgb(${somaR2},${somaG},${somaB})`;
+      // The spike itself overshoots the top of the ramp, so it flashes.
+      ctx.fillStyle = firing ? C.s(C.mix(C.viz2, [255, 244, 222], 0.6)) : `rgb(${somaR2},${somaG},${somaB})`;
       if (vis > 0.12 || firing) {
         ctx.shadowBlur = 12 + vis * 16;
         ctx.shadowColor = warmGlow;
@@ -353,9 +358,7 @@ const Neuron = ({ compact = false }: { compact?: boolean }) => {
             const k = localF / 0.55;
             ctx.beginPath();
             ctx.arc(sx, cy, 5 + k * 13, 0, Math.PI * 2);
-            ctx.strokeStyle = isDark
-              ? `rgba(251,146,60,${(1 - k) * 0.7})`
-              : `rgba(249,115,22,${(1 - k) * 0.7})`;
+            ctx.strokeStyle = C.a(C.viz2, (1 - k) * 0.7);
             ctx.lineWidth = 2;
             ctx.stroke();
           }
@@ -490,7 +493,7 @@ const Neuron = ({ compact = false }: { compact?: boolean }) => {
       </div>
 
       {ltp && (
-        <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-fuchsia-500/20 bg-fuchsia-500/10 px-3 py-1 text-xs font-medium text-fuchsia-600 dark:text-fuchsia-300 animate-fade-in">
+        <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-medium text-primary animate-fade-in">
           ⚡ Long-term potentiation induced: the synapse is now stronger
         </div>
       )}
