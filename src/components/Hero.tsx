@@ -24,7 +24,7 @@ const Hero = () => {
       <div className="mx-auto max-w-4xl">
         <h1
           aria-label="Jamie Bergen"
-          className="rainbow-text text-3xl md:text-4xl font-medium leading-tight text-text-primary"
+          className="rainbow-text text-4xl md:text-5xl font-medium leading-[1.05] text-text-primary"
         >
           <span aria-hidden="true">{splitText('Jamie Bergen')}</span>
         </h1>

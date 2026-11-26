@@ -67,10 +67,13 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      /* Near-square: the uniformly rounded card is the most recognisable
+         tell of a generated site. Pills keep their own rounded-full. */
       borderRadius: {
+        xl: "var(--radius)",
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "var(--radius)",
+        sm: "var(--radius)",
       },
       keyframes: {
         "accordion-down": {

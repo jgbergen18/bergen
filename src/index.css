@@ -2,26 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Inter, self-hosted from public/fonts (SIL OFL 1.1). Only the two subsets this
-   site actually needs are declared: latin, and greek for the alpha in
-   "alpha-synuclein". unicode-range means the browser fetches greek only when a
-   glyph in that range is rendered. Ranges copied from Google's own stylesheet. */
+/* Newsreader for headings, Source Sans 3 for everything else, both self-hosted
+   from public/fonts (SIL OFL 1.1). Only the subsets this site needs are
+   declared, so unicode-range keeps the browser from fetching the rest.
+   Newsreader has no greek subset, so Source Sans 3 sits behind it in the
+   heading stack and supplies the alpha in "alpha-synuclein". */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Newsreader';
   font-style: normal;
-  font-weight: 300 700;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('/fonts/inter-latin.woff2') format('woff2');
+  src: url('/fonts/newsreader-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Source Sans 3';
   font-style: normal;
-  font-weight: 300 700;
+  font-weight: 300 600;
   font-display: swap;
-  src: url('/fonts/inter-greek.woff2') format('woff2');
+  src: url('/fonts/sourcesans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/fonts/sourcesans-greek.woff2') format('woff2');
   unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
@@ -55,89 +66,93 @@
     /* Neutrals carry a slight cool tint so the grays read as a palette
        rather than as undecided white. --surface is deliberately several
        steps off --background so alternating sections are visible. */
-    --background: 0 0% 100%;
-    --foreground: 222 22% 14%;
+    /* Warm paper rather than white, warm near-black ink, and one accent:
+       an oxblood that carries links, section labels and the CV page. */
+    --background: 40 33% 97%;
+    --foreground: 25 15% 12%;
 
-    --text-primary: 222 22% 14%;
-    --text-secondary: 220 10% 34%;
-    /* 43% keeps muted text above 4.5:1 on --surface, not just on white */
-    --text-muted: 220 9% 43%;
+    --text-primary: 25 15% 12%;
+    --text-secondary: 25 10% 30%;
+    /* dark enough to clear 4.5:1 on --surface, not only on the page ground */
+    --text-muted: 25 8% 41%;
 
-    --surface: 210 24% 96%;
-    --surface-hover: 210 22% 92%;
+    --surface: 38 28% 93%;
+    --surface-hover: 36 26% 89%;
 
-    --accent: 210 22% 92%;
-    --accent-foreground: 222 22% 14%;
+    --accent: 36 26% 89%;
+    --accent-foreground: 25 15% 12%;
 
-    --border-subtle: 214 20% 89%;
-    --border: 214 16% 80%;
+    --border-subtle: 34 20% 86%;
+    --border: 32 16% 76%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 22% 14%;
+    --card: 40 40% 98%;
+    --card-foreground: 25 15% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 22% 14%;
+    --popover: 40 40% 98%;
+    --popover-foreground: 25 15% 12%;
 
-    --primary: 222 22% 14%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 358 52% 32%;
+    --primary-foreground: 40 33% 97%;
 
-    --secondary: 210 24% 96%;
-    --secondary-foreground: 222 22% 14%;
+    --secondary: 38 28% 93%;
+    --secondary-foreground: 25 15% 12%;
 
-    --muted: 210 24% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 38 28% 93%;
+    --muted-foreground: 25 8% 41%;
 
-    --destructive: 0 72% 45%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 65% 40%;
+    --destructive-foreground: 40 33% 97%;
 
-    --input: 210 24% 96%;
-    --ring: 222 22% 14%;
+    --input: 38 28% 93%;
+    --ring: 358 52% 32%;
 
-    --radius: 0.5rem;
+    --radius: 0.1875rem;
 
     /* Transitions */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222 20% 7%;
-    --foreground: 210 18% 96%;
+    /* The same warmth after dark: brown-black ground, warm paper-white ink,
+       and the oxblood lifted so it still reads as the accent. */
+    --background: 25 14% 8%;
+    --foreground: 40 22% 94%;
 
-    --text-primary: 210 18% 96%;
-    --text-secondary: 215 14% 72%;
-    --text-muted: 215 12% 58%;
+    --text-primary: 40 22% 94%;
+    --text-secondary: 35 12% 72%;
+    --text-muted: 35 9% 56%;
 
-    --surface: 220 16% 12%;
-    --surface-hover: 220 15% 17%;
+    --surface: 25 12% 12%;
+    --surface-hover: 25 11% 17%;
 
-    --accent: 220 15% 17%;
-    --accent-foreground: 210 18% 96%;
+    --accent: 25 11% 17%;
+    --accent-foreground: 40 22% 94%;
 
-    --border-subtle: 220 13% 19%;
-    --border: 220 13% 28%;
+    --border-subtle: 28 10% 19%;
+    --border: 28 10% 29%;
 
     /* Cards sit on --surface sections, so in dark mode they step *up* in
-       lightness to read as elevated, mirroring white-on-grey in light mode. */
-    --card: 220 15% 16%;
-    --card-foreground: 210 18% 96%;
+       lightness to read as elevated, mirroring paper-on-grey in light mode. */
+    --card: 25 11% 16%;
+    --card-foreground: 40 22% 94%;
 
-    --popover: 220 15% 16%;
-    --popover-foreground: 210 18% 96%;
+    --popover: 25 11% 16%;
+    --popover-foreground: 40 22% 94%;
 
-    --primary: 210 18% 96%;
-    --primary-foreground: 222 20% 7%;
+    --primary: 40 22% 94%;
+    --primary-foreground: 25 14% 8%;
 
-    --secondary: 220 16% 14%;
-    --secondary-foreground: 210 18% 96%;
+    --secondary: 25 12% 14%;
+    --secondary-foreground: 40 22% 94%;
 
-    --muted: 220 16% 14%;
-    --muted-foreground: 215 12% 62%;
+    --muted: 25 12% 14%;
+    --muted-foreground: 35 9% 60%;
 
-    --destructive: 0 62% 42%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 40 22% 94%;
 
-    --input: 220 16% 14%;
-    --ring: 215 16% 76%;
+    --input: 25 12% 14%;
+    --ring: 358 60% 62%;
   }
 }
 
@@ -147,13 +162,20 @@
   }
 
   body {
-    @apply bg-background text-text-primary font-inter antialiased;
+    @apply bg-background text-text-primary antialiased;
+    font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
   }
 
-  /* Headings get tighter tracking than Inter's default, which reads
-     loose at display sizes. */
-  h1, h2 {
-    letter-spacing: -0.02em;
+  /* Newsreader for headings. Source Sans sits behind it to supply glyphs
+     Newsreader's latin subset lacks, notably the alpha in alpha-synuclein. */
+  h1, h2, h3 {
+    font-family: 'Newsreader', 'Source Sans 3', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+  }
+
+  h1 {
+    line-height: 1.05;
   }
 
   :focus-visible {
@@ -164,8 +186,11 @@
 
 @layer components {
   /* Small uppercase label that sits above a section heading. */
+  /* A running head rather than the uppercase tracked label every generated
+     site uses: italic serif, in the accent, at reading size. */
   .eyebrow {
-    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-text-muted;
+    font-family: 'Newsreader', Georgia, serif;
+    @apply text-sm font-normal italic tracking-normal text-primary;
   }
 }
 
