@@ -1427,9 +1427,6 @@ const Blog = () => {
                       <h2 className="text-2xl font-medium text-text-primary">
                         Top 10 Books of 2025
                       </h2>
-                      <p className="text-text-secondary text-sm">
-                        My ten best of 2025
-                      </p>
                     </div>
                     <div className="text-text-secondary hover:text-text-primary transition-colors">
                       {openPosts['2025'] ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
@@ -1482,9 +1479,6 @@ const Blog = () => {
                       <h2 className="text-2xl font-medium text-text-primary">
                         Top 10 Books of 2024
                       </h2>
-                      <p className="text-text-secondary text-sm">
-                        My ten best of 2024
-                      </p>
                     </div>
                     <div className="text-text-secondary hover:text-text-primary transition-colors">
                       {openPosts['2024'] ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
