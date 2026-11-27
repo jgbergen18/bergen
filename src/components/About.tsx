@@ -39,8 +39,10 @@ const About = () => {
             </div>
           </div>
 
-          {/* The globe sits in the same 240px rail the Hero portrait occupies. */}
-          <div id="places" className="mx-auto w-full max-w-[240px]">
+          {/* The globe sits in the same 240px rail the Hero portrait occupies.
+              On phones it becomes a centred module of its own; the body copy
+              above it stays left-aligned, since centred paragraphs read badly. */}
+          <div id="places" className="w-full text-center md:text-left">
             <p className="eyebrow">Where I've been</p>
             <div className="mt-4">
               <WorldGlobe locations={locations} compact />

@@ -9,6 +9,8 @@ const Hero = () => {
 
   // Each letter is its own span so the rainbow hover can stagger. The spans are
   // hidden from assistive tech; the heading's aria-label carries the text.
+  // The space must be a non-breaking space: an ordinary one inside an
+  // inline-block box collapses to zero width and the names run together.
   const splitText = (text: string) =>
     text.split('').map((char, index) => (
       <span
@@ -16,7 +18,7 @@ const Hero = () => {
         className="rainbow-letter inline-block transition-all duration-200"
         style={{ animationDelay: `${index * 0.1}s` }}
       >
-        {char === ' ' ? ' ' : char}
+        {char === ' ' ? ' ' : char}
       </span>
     ));
 
@@ -25,7 +27,9 @@ const Hero = () => {
       {/* Text left, portrait right. The 240px right column is the same rail the
           globe sits in down in About, so the two line up vertically. */}
       <div className="mx-auto grid max-w-4xl items-center gap-8 md:grid-cols-[1fr_240px] md:gap-14">
-        <div>
+        {/* Centred as a single stack on phones, left-aligned once there are two
+            columns to align against. */}
+        <div className="text-center md:text-left">
           <h1
             aria-label="Jamie Bergen"
             className="rainbow-text text-4xl md:text-5xl font-medium leading-[1.05] text-text-primary"
@@ -42,7 +46,7 @@ const Hero = () => {
             Research assistant, Kirkeby Lab — reNEW, University of Copenhagen
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-wrap justify-center gap-3 md:justify-start">
             <Link
               to="/cv"
               className="inline-flex items-center gap-2 rounded-full bg-text-primary px-5 py-2.5 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
@@ -69,7 +73,7 @@ const Hero = () => {
 
         {/* order-first on phones puts the portrait above the name, but the h1
             stays first in the DOM so it is still the page's opening element. */}
-        <div className="order-first w-full max-w-[150px] md:order-none md:max-w-[240px]">
+        <div className="order-first mx-auto w-full max-w-[160px] md:order-none md:mx-0 md:max-w-[240px]">
           <div className="overflow-hidden rounded-xl border border-border-subtle">
             <img
               src={profilePhoto}
