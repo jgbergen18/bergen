@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import profilePhoto from '../assets/profile-photo.webp';
+import WorldGlobe from './WorldGlobe';
+import { locations } from '../data/locations';
 
 const About = () => {
   return (
@@ -38,16 +40,32 @@ const About = () => {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[240px] overflow-hidden rounded-xl border border-border-subtle md:mx-0 md:max-w-none">
-            <img
-              src={profilePhoto}
-              alt="Jamie Bergen"
-              width={680}
-              height={680}
-              loading="lazy"
-              decoding="async"
-              className="aspect-square w-full object-cover"
-            />
+          {/* Photo, then the globe directly beneath it in the same column. */}
+          <div className="mx-auto w-full max-w-[240px] md:mx-0 md:max-w-none">
+            <div className="overflow-hidden rounded-xl border border-border-subtle">
+              <img
+                src={profilePhoto}
+                alt="Jamie Bergen"
+                width={680}
+                height={680}
+                loading="lazy"
+                decoding="async"
+                className="aspect-square w-full object-cover"
+              />
+            </div>
+
+            <div id="places" className="mt-8">
+              <p className="eyebrow">Where I've been</p>
+              <div className="mt-4">
+                <WorldGlobe locations={locations} compact />
+              </div>
+              <Link
+                to="/cv"
+                className="mt-5 inline-block text-sm font-medium text-primary underline underline-offset-4 hover:no-underline"
+              >
+                Read the full CV
+              </Link>
+            </div>
           </div>
         </div>
       </div>

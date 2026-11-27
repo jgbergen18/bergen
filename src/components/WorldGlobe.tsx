@@ -63,7 +63,18 @@ const pointInPoly = (lng: number, lat: number, poly: number[][]) => {
 
 const isLand = (lng: number, lat: number) => CONTINENTS.some((p) => pointInPoly(lng, lat, p));
 
-const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
+/**
+ * `compact` is for the narrow column beside the About text: the globe shrinks
+ * and the detail panel stacks underneath instead of sitting in a second
+ * column, which at that width would leave both halves about 150px wide.
+ */
+const WorldGlobe = ({
+  locations,
+  compact = false,
+}: {
+  locations: GlobeLocation[];
+  compact?: boolean;
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<number | null>(null);
@@ -389,12 +400,13 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
   const active = selected !== null ? locations[selected] : null;
 
   return (
-    <div ref={containerRef} className="grid md:grid-cols-2 gap-8 items-center">
-      {/* 320px, not the 240 it used as a CV sidebar: it is a section of its
-          own on the home page now, and 320 still fits a 390px phone. */}
-      <div className="mx-auto w-full max-w-[320px]">
+    <div
+      ref={containerRef}
+      className={compact ? 'space-y-5' : 'grid md:grid-cols-2 gap-8 items-center'}
+    >
+      <div className={`mx-auto w-full ${compact ? 'max-w-[200px]' : 'max-w-[240px]'}`}>
         <canvas ref={canvasRef} className="w-full select-none touch-none" />
-        <div className="flex items-center justify-center gap-5 mt-2 text-xs text-text-secondary">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mt-2 text-xs text-text-secondary">
           <span className="inline-flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-viz-1" /> School
           </span>
