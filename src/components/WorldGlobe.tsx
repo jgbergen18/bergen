@@ -390,7 +390,9 @@ const WorldGlobe = ({ locations }: { locations: GlobeLocation[] }) => {
 
   return (
     <div ref={containerRef} className="grid md:grid-cols-2 gap-8 items-center">
-      <div className="mx-auto w-full max-w-[240px]">
+      {/* 320px, not the 240 it used as a CV sidebar: it is a section of its
+          own on the home page now, and 320 still fits a 390px phone. */}
+      <div className="mx-auto w-full max-w-[320px]">
         <canvas ref={canvasRef} className="w-full select-none touch-none" />
         <div className="flex items-center justify-center gap-5 mt-2 text-xs text-text-secondary">
           <span className="inline-flex items-center gap-1.5">
