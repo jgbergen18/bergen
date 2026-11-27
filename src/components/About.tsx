@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import profilePhoto from '../assets/profile-photo.webp';
 import WorldGlobe from './WorldGlobe';
 import { locations } from '../data/locations';
 
@@ -7,7 +6,7 @@ const About = () => {
   return (
     <section id="about" className="px-6 py-14 md:py-20">
       <div className="mx-auto max-w-4xl">
-        <div className="grid items-start gap-10 md:grid-cols-[3fr_2fr] md:gap-14">
+        <div className="grid items-start gap-10 md:grid-cols-[1fr_240px] md:gap-14">
           <div>
             <p className="eyebrow">About</p>
             <h2 className="mt-2 text-3xl md:text-4xl font-medium text-text-primary">Background</h2>
@@ -40,32 +39,18 @@ const About = () => {
             </div>
           </div>
 
-          {/* Photo, then the globe directly beneath it in the same column. */}
-          <div className="mx-auto w-full max-w-[240px] md:mx-0 md:max-w-none">
-            <div className="overflow-hidden rounded-xl border border-border-subtle">
-              <img
-                src={profilePhoto}
-                alt="Jamie Bergen"
-                width={680}
-                height={680}
-                loading="lazy"
-                decoding="async"
-                className="aspect-square w-full object-cover"
-              />
+          {/* The globe sits in the same 240px rail the Hero portrait occupies. */}
+          <div id="places" className="mx-auto w-full max-w-[240px]">
+            <p className="eyebrow">Where I've been</p>
+            <div className="mt-4">
+              <WorldGlobe locations={locations} compact />
             </div>
-
-            <div id="places" className="mt-8">
-              <p className="eyebrow">Where I've been</p>
-              <div className="mt-4">
-                <WorldGlobe locations={locations} compact />
-              </div>
-              <Link
-                to="/cv"
-                className="mt-5 inline-block text-sm font-medium text-primary underline underline-offset-4 hover:no-underline"
-              >
-                Read the full CV
-              </Link>
-            </div>
+            <Link
+              to="/cv"
+              className="mt-5 inline-block text-sm font-medium text-primary underline underline-offset-4 hover:no-underline"
+            >
+              Read the full CV
+            </Link>
           </div>
         </div>
       </div>
